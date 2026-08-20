@@ -1,0 +1,18 @@
+[project]
+name = "cosmai-ml"
+version = "0.0.0"
+description = "Label construction and trend models for Cosmai beauty R&D signals."
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.2",
+    "openpyxl>=3.1",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = ["ruff>=0.9", "mypy>=1.14"]
+
+[tool.ruff]
+line-length = 100
