@@ -6,6 +6,9 @@ requires-python = ">=3.13"
 dependencies = [
     "pandas>=2.2",
     "openpyxl>=3.1",
+    # Reads the trend-radar Postgres for Model B. [binary] bundles libpq, which the
+    # DGX does not have installed.
+    "psycopg[binary]>=3.2",
 ]
 
 [tool.uv]

@@ -19,28 +19,68 @@ Two external anchors exist, and only two:
 Everything else — mentions, papers, reviews, prices, launches — is `X`. If a proposed
 label is not derived from sales or ranking, check it against this rule before building it.
 
+## Deadline reality (2026-08-26)
+
+Only Model A can produce a number by then. Model B's pipeline is written and runs
+against the live database today, but the data it needs does not exist yet and cannot be
+made to exist faster — `trend-radar` has no backfill. `model_b.py` reports this itself
+rather than being described here and forgotten:
+
+```
+panel: 1 day(s) of rank history, 529 products, 529 product-days
+INSUFFICIENT DATA. This design needs 22 days ... Missing 21 more day(s).
+```
+
+Earliest date each becomes trainable, counting from when collection started:
+
+| Model | Trainable | vs deadline |
+|---|---|---|
+| A | now | ✓ |
+| B (daily) | 2026-09-10 | 15 days late |
+| C | 2026-10 or later | late |
+| D | needs the ingredient layer built first | — |
+| E | after backfill; may be unanswerable at this window | — |
+
+There is an hourly variant of Model B — momentum and horizon in hours rather than days —
+that would be fittable around 2026-08-24. It predicts hour-to-hour rank noise, which is
+not the question anyone asked. It is available if a number is needed more than an answer
+is; say so explicitly in whatever it goes into.
+
 ## Model A — category demand, 3 months out
 
-**Trainable now.** Also the weakest.
+**Trainable now, and trained.** Also the weakest.
 
 | | |
 |---|---|
 | Unit | one calendar month |
 | Y | `target_yoy_fwd` — year-over-year change in 화장품+향수 duty-free sales, 3 months ahead |
-| X | month-of-year, `visitors_k`, lagged `yoy` (t-1, t-3, t-12), nationality mix (연도별), per-visitor sales level |
+| X | month-of-year (sin/cos), `yoy` and its 1- and 3-month lags, visitor-count year-over-year, per-visitor sales level |
 | Source | `labels_sales.py`, already implemented |
 
-The honest sample count: 78 months, minus 12 for the year-over-year window, minus 3 for
-the forward shift, leaves **63 usable rows** — and a last-12-months holdout leaves 51 to
-train on. That is a statistics problem, not a machine-learning one.
+The honest sample count: 78 months, minus the year-over-year window, the forward shift
+and the feature lags, leaves **60 usable rows** — and a last-12-months holdout leaves 48
+to fit on. That is a statistics problem, not a machine-learning one.
 
-Use ridge or a seasonal-naive baseline. A gradient-boosted tree on 51 rows will fit the
-pandemic and report a good score. Whatever you build must beat seasonal-naive on the
-holdout or it is not evidence of anything.
+`model_a.py` fits closed-form ridge (numpy; scikit-learn is not worth a dependency for
+one linear solve) and scores it against two baselines. Measured on the
+2024-04 → 2025-03 holdout:
+
+| model | MAE | RMSE | direction |
+|---|---|---|---|
+| ridge | 0.1398 | 0.1763 | 0.83 |
+| persistence | 0.2205 | 0.2667 | 0.67 |
+| zero | 0.2063 | 0.2474 | n/a |
+
+Ridge beats both. **Do not report this as a result.** 48 training rows, and the 12 test
+months are one contiguous, autocorrelated year, so the effective sample is far smaller
+than twelve independent observations. It is a hypothesis that survived one honest test,
+which is worth exactly that much and no more.
 
 ## Model B — product ranking movement
 
-**Trainable in 2–4 weeks.** The first model here that is genuinely ML.
+**Written and running; refuses to fit until 2026-09-10.** The first model here that is
+genuinely ML. `model_b.py` reads the live Postgres, builds the panel, and either fits or
+prints exactly how many days are missing.
 
 | | |
 |---|---|
@@ -54,8 +94,8 @@ different measurement processes. But rank momentum in `X` is strongly autocorrel
 `Y`, so a **persistence baseline** ("tomorrow's rank equals today's") is mandatory as the
 comparison. Beating it is the entire claim.
 
-Needs roughly 7 days of momentum window + the forecast horizon + a holdout period, so
-2–4 weeks of accumulated hourly data.
+Needs 7 days of momentum window + 7 for the label to resolve + 7 of temporal holdout +
+1 to stand on = **22 days**. Collection started 2026-08-20, so 2026-09-10.
 
 Caveat that must be carried into any result: hwahae is robots-limited to about 10 rows of
 each 50–100-row board, so the observed rank distribution has an artificially short tail.
@@ -114,11 +154,12 @@ rather than waited for.
 
 ## Ordering
 
-1. **Now** — Model A, as a baseline and a sanity check on the label plumbing. Expect it to
-   be unimpressive; the value is the pipeline, not the score.
-2. **Weeks 2–4** — Model B, once `rank_snapshot` has depth. This is where the first real
-   result comes from.
-3. **Month 2–3** — Model C.
+1. **Done** — Model A. The value is the pipeline and the baseline comparison, not the
+   score.
+2. **2026-09-10** — Model B, once `rank_snapshot` has depth. Nothing to build; run
+   `model_b.py` and it will fit instead of refusing. This is where the first real result
+   comes from.
+3. **2026-10 onward** — Model C.
 4. **In parallel, whenever someone owns it** — the ingredient entity layer, which unlocks
    Model D and upgrades B and C from product-level to ingredient-level.
 
