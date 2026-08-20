@@ -138,16 +138,20 @@ category-level to R&D-actionable, so it deserves an owner rather than a backlog 
 
 **Tested. It does not add signal at this granularity.**
 
-The backfill ran: monthly cosmetics publication counts, 2017-01 → 2026-08, 118,544 papers,
-via Europe PMC. Joined to Model A as `papers_yoy`:
+The backfill ran twice, against two independently-constructed free measures of the same
+axis: monthly cosmetics publication counts, 2017-01 → 2026-08. Joined to Model A as
+`papers_yoy`:
 
-| | ridge MAE |
-|---|---|
-| sales only | 0.1398 |
-| sales + academic | 0.1381 |
+| | ridge MAE | vs baseline |
+|---|---|---|
+| sales only | 0.1398 | — |
+| + Europe PMC counts | 0.1381 | −1.2%, noise |
+| + PubMed counts | 0.1489 | **+6.5%, worse** |
 
-A 1.2% move on twelve contiguous, autocorrelated test months is noise. `model_a.py` says
-so itself rather than leaving the sign of the difference to be read as a finding.
+One neutral and one actively harmful. That is a much stronger answer than either run alone
+would have been: a real signal would have shown up in both, since both are measuring
+cosmetics publication volume over the same months. `model_a.py` names the Europe PMC move
+as noise itself rather than leaving the sign of the difference to be read as a finding.
 
 That is a real answer, not a failure: **global cosmetics publication volume does not
 predict Korean duty-free category sales three months out.** It was never especially likely
@@ -164,15 +168,29 @@ What was *not* tested, and might still hold:
   sales history, a lag that long leaves almost no independent observations, so this window
   may not be able to answer it at all.
 
-Two notes on the data, both load-bearing:
+### Free sources for this axis
 
-- **Europe PMC, not OpenAlex.** OpenAlex is metered now — `costUsd: 0.001` per request
-  with a `$0` daily budget — so it returns 429 until an account is funded. The source
-  inventory still lists it as `F0 지속 무료`. Europe PMC answers the same question free.
-- **The two are not interchangeable.** Europe PMC indexes life sciences, so it covers the
-  dermatology and toxicology end of cosmetics research well and the materials and
-  chemistry end less well. Splicing their counts into one series would put a step change
-  in the data that has nothing to do with publishing.
+OpenAlex is metered as of 2026-08 — `costUsd: 0.001` per request against a `$0` daily
+budget, so it returns 429 until an account is funded. `project-data`'s source inventory
+still lists it as `F0 지속 무료`; that entry is stale.
+
+Three free substitutes were verified live. They disagree by six times on the same month:
+
+| Source | 2019-01 | What it is | Status |
+|---|---|---|---|
+| PubMed E-utilities | 1,205 | MeSH-expanded subject match, biomedical | implemented |
+| Europe PMC | 843 | life-science index, includes preprints and patents | implemented |
+| Crossref | 208 | all disciplines, bibliographic-field match only | verified, not implemented |
+
+The gap is not a disagreement about how many papers exist — it is three different
+questions. PubMed expands `cosmetic` through a curated vocabulary
+(`"cosmetics"[MeSH Terms]`, `[Pharmacological Action]`, …) so it reaches papers that never
+use the word. Crossref matches the term against bibliographic fields only, which is much
+narrower here; it is the one to reach for if cross-discipline breadth is ever needed,
+being the only one of the three that is not life-science-shaped.
+
+**Never splice two of these into one series.** The join would put a step change in the data
+that has nothing to do with publishing.
 
 ## Ordering
 
