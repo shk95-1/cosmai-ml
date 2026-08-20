@@ -35,9 +35,29 @@ from labels_sales import DEFAULT_DATASETS, cosmetics_labels
 
 HOLDOUT_MONTHS = 12
 RIDGE_PENALTY = 1.0
+# Below this share of the baseline MAE, a change is reported as noise rather than
+# as an effect. See the note where it is used.
+NOISE_SHARE = 0.05
 
 
-def build_design(labels: pd.DataFrame) -> pd.DataFrame:
+def load_papers(path: Path) -> pd.DataFrame:
+    """Monthly publication counts from `papers trend --monthly --csv`.
+
+    Recent months are undercounted because indexing lags publication -- the last
+    month or two always looks like a collapse and is not one. That does not reach
+    the model today because the sales labels stop in 2025-06 and the join drops
+    everything after, but it will the moment the label series is extended.
+    """
+    frame = pd.read_csv(path)
+    frame["month"] = pd.PeriodIndex(frame["period"], freq="M")
+    frame = frame.sort_values("month").reset_index(drop=True)
+    # Year-over-year, to match how the label is framed and to strip the steady
+    # upward drift in publication volume that would otherwise read as a trend.
+    frame["papers_yoy"] = frame["count"].pct_change(12)
+    return frame[["month", "papers_yoy"]]
+
+
+def build_design(labels: pd.DataFrame, papers: pd.DataFrame | None = None) -> pd.DataFrame:
     """Features known at month t, and the label for t + horizon.
 
     Every column here is computed from data at or before `month`. `yoy` uses sales at
@@ -63,6 +83,9 @@ def build_design(labels: pd.DataFrame) -> pd.DataFrame:
         "month_sin",
         "month_cos",
     ]
+    if papers is not None:
+        frame = frame.merge(papers, on="month", how="left")
+        columns.append("papers_yoy")
     design = frame[["month", *columns, "target_yoy_fwd"]].dropna()
     return design.reset_index(drop=True)
 
@@ -83,8 +106,9 @@ def evaluate(
     datasets: Path = DEFAULT_DATASETS,
     horizon: int = 3,
     holdout: int = HOLDOUT_MONTHS,
+    papers: pd.DataFrame | None = None,
 ) -> dict[str, object]:
-    design = build_design(cosmetics_labels(datasets, horizon=horizon))
+    design = build_design(cosmetics_labels(datasets, horizon=horizon), papers=papers)
     features = [c for c in design.columns if c not in ("month", "target_yoy_fwd")]
 
     if len(design) <= holdout + len(features):
@@ -157,17 +181,17 @@ def report(result: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
-def _self_check() -> None:
-    design = build_design(cosmetics_labels(DEFAULT_DATASETS))
+def _self_check(datasets: Path = DEFAULT_DATASETS) -> None:
+    design = build_design(cosmetics_labels(datasets))
     assert not design.isna().to_numpy().any(), "design matrix still holds NaN"
     assert design["month"].is_monotonic_increasing
     assert "target_yoy_fwd" in design
 
-    result = evaluate()
+    result = evaluate(datasets)
     assert result["rows_train"] + result["rows_test"] == result["rows_usable"]
     assert result["rows_test"] == HOLDOUT_MONTHS
     # The split must be temporal: every training month precedes every test month.
-    train_end = build_design(cosmetics_labels(DEFAULT_DATASETS)).iloc[-HOLDOUT_MONTHS - 1]["month"]
+    train_end = design.iloc[-HOLDOUT_MONTHS - 1]["month"]
     assert str(train_end) < result["test_from"]  # type: ignore[operator]
     for name in ("ridge", "persistence", "zero"):
         assert 0.0 <= result[name]["direction"] <= 1.0  # type: ignore[index]
@@ -179,14 +203,53 @@ def main() -> int:
     parser.add_argument("datasets", nargs="?", type=Path, default=DEFAULT_DATASETS)
     parser.add_argument("--horizon", type=int, default=3)
     parser.add_argument("--holdout", type=int, default=HOLDOUT_MONTHS)
+    parser.add_argument(
+        "--papers", type=Path,
+        help="monthly publication counts CSV, to add the academic axis as a feature",
+    )
     parser.add_argument("--self-check", action="store_true")
     args = parser.parse_args()
 
     if args.self_check:
-        _self_check()
+        _self_check(args.datasets)
         return 0
 
-    print(report(evaluate(args.datasets, horizon=args.horizon, holdout=args.holdout)))
+    baseline = evaluate(args.datasets, horizon=args.horizon, holdout=args.holdout)
+    if not args.papers:
+        print(report(baseline))
+        return 0
+
+    # Print both. "Adding an axis helped" is a claim about a difference, and one
+    # number cannot carry it.
+    with_papers = evaluate(
+        args.datasets, horizon=args.horizon, holdout=args.holdout,
+        papers=load_papers(args.papers),
+    )
+    print("=== sales only ===")
+    print(report(baseline))
+    print("\n=== sales + academic ===")
+    print(report(with_papers))
+
+    delta = with_papers["ridge"]["mae"] - baseline["ridge"]["mae"]
+    rows_lost = baseline["rows_usable"] - with_papers["rows_usable"]
+    share = abs(delta) / baseline["ridge"]["mae"]  # type: ignore[index]
+    print(
+        f"\nadding the academic axis moved ridge MAE by {delta:+.4f} "
+        f"({share:.1%} of the baseline)"
+        + (f", and cost {rows_lost} row(s) to the join" if rows_lost else "")
+    )
+    # A small improvement on twelve contiguous, autocorrelated months is not an
+    # improvement. Without a threshold the sign of `delta` alone invites reading
+    # noise as a finding, which is the whole failure mode this script exists to
+    # avoid. 5% is a judgement call, not a test -- it is here to force the
+    # question, not to answer it.
+    if share < NOISE_SHARE:
+        print(
+            "That is within noise at this sample size. The academic axis neither "
+            "helped nor hurt; do not present it as a contributing feature."
+        )
+    elif delta >= 0:
+        print("It did not help. Report that, not a version of the model without it.")
     return 0
 
 

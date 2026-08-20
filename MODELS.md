@@ -39,7 +39,7 @@ Earliest date each becomes trainable, counting from when collection started:
 | B (daily) | 2026-09-10 | 15 days late |
 | C | 2026-10 or later | late |
 | D | needs the ingredient layer built first | — |
-| E | after backfill; may be unanswerable at this window | — |
+| E | tested — no signal at category level | ✓ (answered) |
 
 There is an hourly variant of Model B — momentum and horizon in hours rather than days —
 that would be fittable around 2026-08-24. It predicts hour-to-hour rank noise, which is
@@ -136,21 +136,43 @@ category-level to R&D-actionable, so it deserves an owner rather than a backlog 
 
 ## Model E — academic signal as a leading indicator
 
-**Blocked on granularity, and possibly on physics.**
+**Tested. It does not add signal at this granularity.**
 
-`Y` would be Model A's or Model B's label; `X` would be publication counts per year from
-`Research_Paper`. Two problems:
+The backfill ran: monthly cosmetics publication counts, 2017-01 → 2026-08, 118,544 papers,
+via Europe PMC. Joined to Model A as `papers_yoy`:
 
-- The pipeline requests only `publication_year`, so `X` is annual while `Y` is monthly.
-  OpenAlex exposes `publication_date`; adding it is a small change to
-  `papers/sources/openalex.py`.
-- Lab-to-shelf lead time in cosmetics is typically 2–5 years. With 78 months of sales
-  history, estimating a lag that long leaves almost no independent observations. This may
-  simply not be answerable with this window, and finding that out is cheaper than assuming
-  either way.
+| | ridge MAE |
+|---|---|
+| sales only | 0.1398 |
+| sales + academic | 0.1381 |
 
-Worth running the backfill regardless — it is the only axis where history can be recovered
-rather than waited for.
+A 1.2% move on twelve contiguous, autocorrelated test months is noise. `model_a.py` says
+so itself rather than leaving the sign of the difference to be read as a finding.
+
+That is a real answer, not a failure: **global cosmetics publication volume does not
+predict Korean duty-free category sales three months out.** It was never especially likely
+to. Two reasons the test was worth running anyway — it wires the second axis end to end,
+and it rules out the cheapest version of the hypothesis before anyone builds the expensive
+one.
+
+What was *not* tested, and might still hold:
+
+- **Per-ingredient**, rather than whole-category. "Retinol papers rise, then retinol
+  products sell" is a much more specific claim than "cosmetics research rises, then
+  cosmetics sell". It needs the ingredient entity layer (Model D).
+- **Longer leads.** Lab-to-shelf in cosmetics is typically 2–5 years. With 78 months of
+  sales history, a lag that long leaves almost no independent observations, so this window
+  may not be able to answer it at all.
+
+Two notes on the data, both load-bearing:
+
+- **Europe PMC, not OpenAlex.** OpenAlex is metered now — `costUsd: 0.001` per request
+  with a `$0` daily budget — so it returns 429 until an account is funded. The source
+  inventory still lists it as `F0 지속 무료`. Europe PMC answers the same question free.
+- **The two are not interchangeable.** Europe PMC indexes life sciences, so it covers the
+  dermatology and toxicology end of cosmetics research well and the materials and
+  chemistry end less well. Splicing their counts into one series would put a step change
+  in the data that has nothing to do with publishing.
 
 ## Ordering
 
