@@ -115,8 +115,7 @@ def cosmetics_labels(datasets: Path = DEFAULT_DATASETS, horizon: int = 3) -> pd.
     return out
 
 
-def _self_check() -> None:
-    datasets = DEFAULT_DATASETS
+def _self_check(datasets: Path = DEFAULT_DATASETS) -> None:
     assert datasets.is_dir(), f"datasets dir not found: {datasets}"
 
     cats = read_category_monthly(datasets)
@@ -150,7 +149,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.self_check:
-        _self_check()
+        _self_check(args.datasets)
         return 0
 
     labels = cosmetics_labels(args.datasets, horizon=args.horizon)
