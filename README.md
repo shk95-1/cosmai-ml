@@ -40,8 +40,8 @@ separable, so the composite can be redefined without re-deriving the parts.
 |---|---|---|---|---|
 | 판매량 | 관세청 면세점 품목별 매출 | **category** (`화장품`, `향수`) | monthly | **2019-01 → 2025-06, 78 months** |
 | 학계동향 | `Research_Paper` (OpenAlex/S2/Europe PMC) | paper | **calendar year** | backfillable, not yet collected |
-| 키워드 | `trend-radar`, `yt-scrapper` | product, review, video | hourly / per event | **none** |
-| 신제품 출시 | `trend-radar` `new_product` table | product | hourly | **none, and no code path** |
+| 키워드 | `trend-radar`, `yt-scrapper` | product, review, video | hourly / per event | **none yet — `trend-radar` collecting since 2026-08-20** |
+| 신제품 출시 | `trend-radar` `new_product` (daisomall, glowpick) | product | hourly | **none yet — collecting since 2026-08-20** |
 
 Only `labels_sales.py` is implemented, because it is the only axis with past data.
 
@@ -54,8 +54,10 @@ The brief is to build labels from past data. Three axes cannot, today:
 - `yt-scrapper` is a **rolling 30-day cache** that prunes by age and a 50 GiB backstop.
   Its own docs call it "not a historical archive". A training set assembled from it
   silently shrinks, and a run from a month ago cannot be reproduced.
-- `new_product` has a table, a model, and an upsert policy, but **no source ever writes a
-  `NewProductRecord`**. The table is permanently empty against any real run.
+- `new_product` **is** implemented in `trend-radar` — `daisomall` and `glowpick` both
+  write `NewProductRecord`, and one run produced 198 rows. It is `ingredient-radar`, the
+  stale copy, where the table has no writer. The axis has no past data like the others,
+  but it does have a working collector.
 
 So: sales has real history, academic evidence can be backfilled because publication dates
 are historical by nature, and keyword and launch start from zero. Either find a
@@ -92,15 +94,16 @@ needs an external anchor — sales, or retail ranking movement.
 
 ### Confounders already known
 
-- **`product.ingredients` NULLs are not missing-at-random.** `trend-radar`'s ranking
-  upsert overwrites with nulls what the product-detail pass wrote
-  (`storage/repository.py:60-90`). "Has ingredients" as a feature learns cron ordering.
+- **`product.ingredients` NULLs were not missing-at-random.** `trend-radar`'s ranking
+  upsert overwrote with nulls what the product-detail pass wrote, so the column recorded
+  which dataset ran last. Fixed on `fix/product-upsert-coalesce`; any row written before
+  that branch merges is still suspect.
 - **A broken scraper and a quiet hour are the same signal.** Every `sources/*.py`
   `parse()` returns an empty result on shape mismatch. Training across a silent multi-day
   breakage reads a code outage as a market move.
 - **Collection is not a sample.** `trend-radar` takes reviews for the top 10 ranked
-  products only, Olive Young sorts by rating extremes, Glowpick returns 403, Hwahae is
-  robots-limited to ~10 of each 50-100-row board. `yt-scrapper`'s corpus is one operator's
+  products only, Olive Young sorts by rating extremes, and Hwahae is robots-limited to
+  ~10 of each 50-100-row board. `yt-scrapper`'s corpus is one operator's
   ~100-video watchlist.
 - **2020–2022 duty-free volume collapsed for travel reasons, not beauty reasons.** Train
   on raw year-over-year and the model learns the pandemic. `labels_sales.py` emits
@@ -128,7 +131,7 @@ Output covers 2019-01 to 2025-06 (78 months): monthly cosmetics + perfume duty-f
 per-visitor normalization, year-over-year growth, and the forward-shifted target.
 
 No model yet. A baseline on 78 monthly rows and one axis would be a curve fit, not a
-finding.
+finding. What is worth building, with which `X` and which `Y`, is in [MODELS.md](MODELS.md).
 
 ## Next
 
