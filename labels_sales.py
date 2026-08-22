@@ -21,12 +21,36 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
 import pandas as pd
 
-DEFAULT_DATASETS = Path(__file__).resolve().parent.parent / "project-data" / "datasets"
+def _default_datasets() -> Path:
+    """Where the customs spreadsheets live, on whichever host this is.
+
+    The default used to be a single relative path -- `../project-data/datasets` -- which
+    is right beside the repository checkout and wrong on the GPU host, where the same
+    files sit in `datasets/` next to the scripts. So `model_a.py --self-check` passed on
+    one machine and raised FileNotFoundError on the other, and the failure looked like a
+    missing dataset rather than a wrong assumption about layout.
+
+    Checked in order, first hit wins. Returns the repository layout when nothing is
+    found, so the error message names a path someone recognises.
+    """
+    override = os.environ.get("COSMAI_DATASETS")
+    if override:
+        return Path(override)
+
+    here = Path(__file__).resolve().parent
+    for candidate in (here / "datasets", here.parent / "project-data" / "datasets"):
+        if candidate.is_dir():
+            return candidate
+    return here.parent / "project-data" / "datasets"
+
+
+DEFAULT_DATASETS = _default_datasets()
 
 CATEGORY_FILE = "관세청_면세점_품목별_내외국인_매출현황_20250905.xlsx"
 TOTALS_FILE = "관세청_면세점_매출액_및_이용객수_20260430.xlsx"
