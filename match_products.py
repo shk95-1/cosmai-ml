@@ -119,13 +119,41 @@ def volume_of(name: str) -> tuple[float, str] | None:
     return float(found.group(1)), "ml" if unit in ("ml",) else unit
 
 
+def strip_brand(norm: str, brand: str) -> str:
+    """Drop leading tokens that spell the blocked brand.
+
+    Candidates are already blocked on brand, so a brand printed inside the name adds no
+    identity the blocking has not used -- it only makes one side longer, which char n-gram
+    cosine reads as difference. EXP-002 found two correct pairs missed for exactly that:
+    glowpick writes "루트젠 ... 샴푸" where oliveyoung writes "려 루트젠 ... 샴푸".
+
+    Leading only, and only when the tokens actually spell the brand. A brand named
+    mid-title is usually doing work there.
+    """
+    if not brand or not norm:
+        return norm
+    tokens = norm.split()
+    accumulated = ""
+    cut = 0
+    for position, token in enumerate(tokens):
+        accumulated += token
+        if accumulated == brand:
+            cut = position + 1
+            break
+        if not brand.startswith(accumulated):
+            break
+    remainder = " ".join(tokens[cut:])
+    # Never strip a name down to nothing: some products are named only for their brand.
+    return remainder if remainder else norm
+
+
 def normalise_brand(brand: object) -> str:
     if not isinstance(brand, str):
         return ""
     return _SPACE.sub("", re.sub(r"[^0-9A-Za-z가-힣]+", "", brand)).lower()
 
 
-def load_products(dsn: str) -> pd.DataFrame:
+def load_products(dsn: str, strip_brand_prefix: bool = False) -> pd.DataFrame:
     import psycopg
 
     with psycopg.connect(dsn) as connection, connection.cursor() as cursor:
@@ -141,6 +169,10 @@ def load_products(dsn: str) -> pd.DataFrame:
         volume_of(v) or volume_of(n) for v, n in zip(frame["volume"], frame["name"], strict=True)
     ]
     frame["form"] = frame["name"].map(form_of)
+    if strip_brand_prefix:
+        frame["norm"] = [
+            strip_brand(n, b) for n, b in zip(frame["norm"], frame["brand_norm"], strict=True)
+        ]
     return frame[frame["norm"].str.len() > 1].reset_index(drop=True)
 
 
@@ -278,9 +310,13 @@ def main() -> int:
     parser.add_argument("--out", help="write candidate pairs here")
     parser.add_argument("--label-sample", dest="label", help="write a sample to label by hand")
     parser.add_argument("--min-score", type=float, default=MIN_SCORE)
+    parser.add_argument(
+        "--strip-brand", action="store_true",
+        help="drop a leading brand token from the name before scoring (EXP-003)",
+    )
     args = parser.parse_args()
 
-    frame = load_products(args.dsn)
+    frame = load_products(args.dsn, strip_brand_prefix=args.strip_brand)
     pairs = candidates(frame, min_score=args.min_score)
     print(diagnostics(frame, pairs))
 
