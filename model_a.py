@@ -111,16 +111,21 @@ def evaluate(
     design = build_design(cosmetics_labels(datasets, horizon=horizon), papers=papers)
     features = [c for c in design.columns if c not in ("month", "target_yoy_fwd")]
 
-    if len(design) <= holdout + len(features):
+    if len(design) <= holdout + horizon + len(features):
         raise SystemExit(
             f"not enough rows to fit: {len(design)} usable, "
-            f"{holdout} held out, {len(features)} features"
+            f"{holdout} held out, {horizon} purged, {len(features)} features"
         )
 
     # Split by time, never at random. A random split lets the model see months either
     # side of the one it is scored on, which for a series this autocorrelated is
     # indistinguishable from reading the answer.
-    train, test = design.iloc[:-holdout], design.iloc[-holdout:]
+    #
+    # The row at feature-month t carries a target from t+horizon. Cutting the split at
+    # the feature month alone leaves the last `horizon` training rows with targets that
+    # land inside the test period -- purge them too, so no training target reaches past
+    # the start of the test window.
+    train, test = design.iloc[: -holdout - horizon], design.iloc[-holdout:]
 
     x_train = train[features].to_numpy(dtype=float)
     x_test = test[features].to_numpy(dtype=float)
@@ -182,20 +187,50 @@ def report(result: dict[str, object]) -> str:
 
 
 def _self_check(datasets: Path = DEFAULT_DATASETS) -> None:
-    design = build_design(cosmetics_labels(datasets))
+    horizon = 3
+    design = build_design(cosmetics_labels(datasets, horizon=horizon))
     assert not design.isna().to_numpy().any(), "design matrix still holds NaN"
     assert design["month"].is_monotonic_increasing
     assert "target_yoy_fwd" in design
 
-    result = evaluate(datasets)
-    assert result["rows_train"] + result["rows_test"] == result["rows_usable"]
+    result = evaluate(datasets, horizon=horizon)
+    assert result["rows_train"] + result["rows_test"] + horizon == result["rows_usable"]
     assert result["rows_test"] == HOLDOUT_MONTHS
-    # The split must be temporal: every training month precedes every test month.
-    train_end = design.iloc[-HOLDOUT_MONTHS - 1]["month"]
+    # The split must be temporal on the FEATURE month...
+    train_end = design.iloc[-HOLDOUT_MONTHS - horizon - 1]["month"]
     assert str(train_end) < result["test_from"]  # type: ignore[operator]
+    # ...but that alone is not enough: the row at feature-month t is labelled with the
+    # value from t+horizon, so the real leakage check is on the TARGET month. Every
+    # training target must land strictly before the test period starts -- if the purge
+    # above were ever removed, the last `horizon` training targets would fall inside the
+    # test window and this assertion is what would catch it.
+    train_target_end = train_end + horizon
+    assert str(train_target_end) < result["test_from"]  # type: ignore[operator]
     for name in ("ridge", "persistence", "zero"):
         assert 0.0 <= result[name]["direction"] <= 1.0  # type: ignore[index]
     print(f"self-check OK: {result['rows_usable']} usable rows")
+
+
+WINDOW_HORIZONS = (1, 3, 6)
+WINDOW_HOLDOUTS = (6, 12, 18)
+
+
+def report_windows(datasets: Path) -> str:
+    """One (horizon, holdout) pair can be a lucky window. Show all of them."""
+    lines = [f"{'horizon':>7} {'holdout':>7} {'ridge':>8} {'persistence':>12} {'zero':>8} {'beats both':>10}"]
+    for horizon in WINDOW_HORIZONS:
+        for holdout in WINDOW_HOLDOUTS:
+            try:
+                result = evaluate(datasets, horizon=horizon, holdout=holdout)
+            except SystemExit as exc:
+                lines.append(f"{horizon:>7} {holdout:>7}  skipped: {exc}")
+                continue
+            ridge, persistence, zero = (result[k]["mae"] for k in ("ridge", "persistence", "zero"))
+            beats = "yes" if ridge < persistence and ridge < zero else "no"
+            lines.append(
+                f"{horizon:>7} {holdout:>7} {ridge:>8.4f} {persistence:>12.4f} {zero:>8.4f} {beats:>10}"
+            )
+    return "\n".join(lines)
 
 
 def main() -> int:
@@ -208,10 +243,19 @@ def main() -> int:
         help="monthly publication counts CSV, to add the academic axis as a feature",
     )
     parser.add_argument("--self-check", action="store_true")
+    parser.add_argument(
+        "--windows", action="store_true",
+        help="evaluate every (horizon, holdout) combination in WINDOW_HORIZONS x "
+        "WINDOW_HOLDOUTS instead of a single window",
+    )
     args = parser.parse_args()
 
     if args.self_check:
         _self_check(args.datasets)
+        return 0
+
+    if args.windows:
+        print(report_windows(args.datasets))
         return 0
 
     baseline = evaluate(args.datasets, horizon=args.horizon, holdout=args.holdout)

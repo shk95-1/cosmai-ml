@@ -48,7 +48,8 @@ is; say so explicitly in whatever it goes into.
 
 ## Model A — category demand, 3 months out
 
-**Trainable now, and trained.** Also the weakest.
+**Trainable now, and trained. Also the weakest — and less consistent than one window
+made it look.**
 
 | | |
 |---|---|
@@ -58,23 +59,45 @@ is; say so explicitly in whatever it goes into.
 | Source | `labels_sales.py`, already implemented |
 
 The honest sample count: 78 months, minus the year-over-year window, the forward shift
-and the feature lags, leaves **60 usable rows** — and a last-12-months holdout leaves 48
-to fit on. That is a statistics problem, not a machine-learning one.
+and the feature lags, leaves **60 usable rows** — and a last-12-months holdout leaves 45
+to fit on once the split is purged correctly (below). That is a statistics problem, not a
+machine-learning one.
 
-`model_a.py` fits closed-form ridge (numpy; scikit-learn is not worth a dependency for
-one linear solve) and scores it against two baselines. Measured on the
-2024-04 → 2025-03 holdout:
+An earlier version of this section reported a single-window score off a split that had a
+leakage bug: the split cut the train/test boundary on the *feature* month, but the label
+at feature-month `t` is the value at `t+horizon`. That leaves the last `horizon` training
+rows carrying targets from months inside the test window — with horizon=3, the three
+training rows for 2024-01..2024-03 were labelled with the actual 2024-04..2024-06 growth,
+the same months the 2024-04→2025-03 holdout starts on. The self-check didn't catch it
+because it only asserted the feature-month cut, not the target-month one. `model_a.py`
+now purges the last `horizon` training rows so no training target reaches into the test
+period, and the self-check asserts the target-month boundary directly, so removing the
+purge fails it.
 
-| model | MAE | RMSE | direction |
-|---|---|---|---|
-| ridge | 0.1398 | 0.1763 | 0.83 |
-| persistence | 0.2205 | 0.2667 | 0.67 |
-| zero | 0.2063 | 0.2474 | n/a |
+Purging alone barely moved the single-window number (0.1398 → 0.1360 MAE at
+horizon=3/holdout=12) — the bigger problem was trusting one window at all. `--windows`
+now runs every combination of horizon ∈ {1,3,6} and holdout ∈ {6,12,18} against the
+purged split:
 
-Ridge beats both. **Do not report this as a result.** 48 training rows, and the 12 test
-months are one contiguous, autocorrelated year, so the effective sample is far smaller
-than twelve independent observations. It is a hypothesis that survived one honest test,
-which is worth exactly that much and no more.
+| horizon | holdout | ridge | persistence | zero | beats both |
+|---|---|---|---|---|---|
+| 1 | 6  | 0.1587 | 0.2986 | 0.2529 | yes |
+| 1 | 12 | 0.1421 | 0.2183 | 0.2063 | yes |
+| 1 | 18 | 0.2869 | 0.3121 | 0.2327 | **no** |
+| 3 | 6  | 0.1846 | 0.2712 | 0.2529 | yes |
+| 3 | 12 | 0.1360 | 0.2205 | 0.2063 | yes |
+| 3 | 18 | 0.2150 | 0.3254 | 0.2327 | yes |
+| 6 | 6  | 0.2339 | 0.1732 | 0.2529 | **no** |
+| 6 | 12 | 0.1217 | 0.2678 | 0.2063 | yes |
+| 6 | 18 | 0.3157 | 0.3217 | 0.2327 | **no** |
+
+Ridge beats both baselines on 6 of 9 windows and loses on 3 — including to plain
+persistence at horizon=6/holdout=6 (0.2339 vs 0.1732). **Verdict changed: this is not a
+robust result.** The one window originally reported (horizon=3/holdout=12) happens to be
+one of the wins, which is exactly the failure mode multi-window evaluation exists to
+catch — a single lucky window read as "the model works." Report the split-by-split table,
+not the single number, and do not claim ridge beats the baselines without naming which
+windows it loses.
 
 ## Model B — product ranking movement
 

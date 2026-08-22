@@ -31,6 +31,18 @@ HORIZON_DAYS = 7  # how far ahead the label looks
 HOLDOUT_DAYS = 7  # temporal holdout, never a random split
 REQUIRED_DAYS = MOMENTUM_DAYS + HORIZON_DAYS + HOLDOUT_DAYS + 1
 
+# A product only produces a usable row if it has REQUIRED_DAYS of *consecutive* daily
+# observations -- a global count of unique days across all products cannot tell disjoint
+# coverage from continuous coverage (two products covering 11 disjoint days each pass a
+# global "22 unique days" check and produce zero design rows). And one qualifying product
+# is not enough for a train/test split to mean anything: its holdout rows are one
+# autocorrelated series, not a market, and the ridge fit sees only that one product's
+# price/review/age combination. Five is the smallest count that puts more than a
+# single-product story on each side of the split while still being reachable early --
+# with 529 products tracked, waiting for dozens to individually clear 22 consecutive days
+# would delay training long after the panel is actually usable.
+MIN_QUALIFYING_PRODUCTS = 5
+
 PANEL_SQL = """
 select
     source,
@@ -112,17 +124,34 @@ def build_design(panel: pd.DataFrame, horizon: int = HORIZON_DAYS) -> pd.DataFra
     return frame[["source", "product_key", "day", *columns, "target_rank_change"]].dropna()
 
 
+def _longest_run(days: pd.Series) -> int:
+    """Longest streak of calendar-consecutive dates in `days` (duplicates ignored)."""
+    ordered = pd.Series(pd.to_datetime(days).unique()).sort_values()
+    if ordered.empty:
+        return 0
+    new_streak = ordered.diff().dt.days.fillna(1) != 1
+    return int(new_streak.cumsum().value_counts().max())
+
+
 def sufficiency(panel: pd.DataFrame) -> dict[str, object]:
     if panel.empty:
-        return {"days": 0, "products": 0, "enough": False, "first_day": None, "last_day": None}
-    days = panel["day"].nunique()
+        return {
+            "days": 0, "products": 0, "rows": 0, "first_day": None, "last_day": None,
+            "qualifying_products": 0, "best_run": 0, "best_run_product": None,
+            "enough": False,
+        }
+    runs = panel.groupby(["source", "product_key"])["day"].apply(_longest_run)
+    best_key = runs.idxmax()
     return {
-        "days": days,
-        "products": panel.groupby(["source", "product_key"]).ngroups,
+        "days": panel["day"].nunique(),
+        "products": len(runs),
         "rows": len(panel),
         "first_day": str(panel["day"].min().date()),
         "last_day": str(panel["day"].max().date()),
-        "enough": days >= REQUIRED_DAYS,
+        "qualifying_products": int((runs >= REQUIRED_DAYS).sum()),
+        "best_run": int(runs.max()),
+        "best_run_product": "/".join(best_key),
+        "enough": int((runs >= REQUIRED_DAYS).sum()) >= MIN_QUALIFYING_PRODUCTS,
     }
 
 
@@ -141,8 +170,17 @@ def evaluate(panel: pd.DataFrame, horizon: int = HORIZON_DAYS) -> dict[str, obje
         c for c in design.columns if c not in ("source", "product_key", "day", "target_rank_change")
     ]
 
+    # Split by day, never at random -- a random split lets the model see days either side
+    # of the one it is scored on, which for a series this autocorrelated is indistinguishable
+    # from reading the answer.
+    #
+    # A row on `day` carries a target from `day + horizon`. Cutting the split at `day`
+    # alone leaves the last `horizon` days of training rows with targets that land inside
+    # the test period -- purge them too, so no training target reaches past the start of
+    # the test window (same leakage model_a.py had, and fixed the same way).
     cutoff = design["day"].max() - pd.Timedelta(days=HOLDOUT_DAYS)
-    train, test = design[design["day"] <= cutoff], design[design["day"] > cutoff]
+    purge_before = cutoff - pd.Timedelta(days=horizon)
+    train, test = design[design["day"] <= purge_before], design[design["day"] > cutoff]
     if train.empty or test.empty:
         raise SystemExit("temporal split left one side empty; more days needed")
 
@@ -173,12 +211,72 @@ def evaluate(panel: pd.DataFrame, horizon: int = HORIZON_DAYS) -> dict[str, obje
     }
 
 
+def _product_panel(product_key: str, days: pd.DatetimeIndex) -> pd.DataFrame:
+    return pd.DataFrame({
+        "source": "s", "product_key": product_key, "day": days,
+        "best_rank": range(10, 10 + len(days)), "price": 100.0, "discount_rate": 0.0,
+        "first_seen": days[0],
+    })
+
+
+def _self_check() -> None:
+    # The audited bug: two products, 11 disjoint days each. 22 unique days globally
+    # clears REQUIRED_DAYS, but neither product has a continuous run long enough to
+    # produce even one design row.
+    disjoint = pd.concat([
+        _product_panel("a", pd.date_range("2026-01-01", periods=11)),
+        _product_panel("b", pd.date_range("2026-01-12", periods=11)),
+    ], ignore_index=True)
+
+    state = sufficiency(disjoint)
+    assert state["days"] == 22
+    assert state["qualifying_products"] == 0
+    assert not state["enough"], "disjoint per-product coverage must not read as sufficient"
+    assert build_design(disjoint).empty, "no product here has a usable continuous window"
+
+    # One product with a real REQUIRED_DAYS run is recognized as qualifying, but a single
+    # qualifying product still isn't `enough` -- that is the whole point of
+    # MIN_QUALIFYING_PRODUCTS.
+    one_continuous = pd.concat(
+        [disjoint, _product_panel("c", pd.date_range("2026-01-01", periods=REQUIRED_DAYS))],
+        ignore_index=True,
+    )
+    state = sufficiency(one_continuous)
+    assert state["qualifying_products"] == 1
+    assert not state["enough"], f"one product must not clear MIN_QUALIFYING_PRODUCTS={MIN_QUALIFYING_PRODUCTS}"
+
+    # evaluate()'s split must purge training rows whose target lands in the test window.
+    panel = pd.concat(
+        [_product_panel(str(i), pd.date_range("2026-01-01", periods=REQUIRED_DAYS + 10))
+         for i in range(MIN_QUALIFYING_PRODUCTS)],
+        ignore_index=True,
+    )
+    design = build_design(panel)
+    cutoff = design["day"].max() - pd.Timedelta(days=HOLDOUT_DAYS)
+    purge_before = cutoff - pd.Timedelta(days=HORIZON_DAYS)
+    train_days = design.loc[design["day"] <= purge_before, "day"]
+    test_days = design.loc[design["day"] > cutoff, "day"]
+    assert train_days.max() + pd.Timedelta(days=HORIZON_DAYS) <= test_days.min(), (
+        "a training row's target must never land inside the test window"
+    )
+    evaluate(panel)  # must not raise
+
+    print("self-check OK")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dsn", required=True, help="trend-radar Postgres DSN")
+    parser.add_argument("--dsn", help="trend-radar Postgres DSN")
     parser.add_argument("--horizon", type=int, default=HORIZON_DAYS)
     parser.add_argument("--check", action="store_true", help="report sufficiency and stop")
+    parser.add_argument("--self-check", action="store_true")
     args = parser.parse_args()
+
+    if args.self_check:
+        _self_check()
+        return 0
+    if not args.dsn:
+        raise SystemExit("--dsn is required unless --self-check is given")
 
     panel = load_panel(args.dsn)
     state = sufficiency(panel)
@@ -189,17 +287,30 @@ def main() -> int:
     )
     if state["first_day"]:
         print(f"range: {state['first_day']} .. {state['last_day']}")
+        print(
+            f"longest continuous run for a single product: {state['best_run']} day(s) "
+            f"({state['best_run_product']}); {state['qualifying_products']} product(s) "
+            f"reach the {REQUIRED_DAYS}-day bar, need {MIN_QUALIFYING_PRODUCTS}"
+        )
 
     if not state["enough"]:
-        missing = REQUIRED_DAYS - int(state["days"])
         print(
-            f"\nINSUFFICIENT DATA. This design needs {REQUIRED_DAYS} days of daily rank "
-            f"history: {MOMENTUM_DAYS} for the momentum window, {args.horizon} for the "
-            f"label to resolve, {HOLDOUT_DAYS} for a temporal holdout, and one to stand on."
-            f"\nHave {state['days']}. Missing {missing} more day(s) of hourly collection."
+            f"\nINSUFFICIENT DATA. This design needs a run of {REQUIRED_DAYS} *consecutive* "
+            f"daily observations per product: {MOMENTUM_DAYS} for the momentum window, "
+            f"{args.horizon} for the label to resolve, {HOLDOUT_DAYS} for a temporal "
+            "holdout, and one to stand on -- and needs at least "
+            f"{MIN_QUALIFYING_PRODUCTS} products clearing that bar, or the split is scored "
+            "on one product's autocorrelated history rather than a market."
+            f"\n{state['qualifying_products']} product(s) currently clear it. The longest "
+            f"run anywhere in the panel is {state['best_run']} day(s), on "
+            f"{state['best_run_product']}. A global count of {state['days']} unique "
+            "day(s) across all products is not the same thing -- products covering "
+            "disjoint stretches of days add up to plenty of unique days and zero rows "
+            "any product can actually be scored on."
             "\n\nThis is not a bug and not a modelling choice — trend-radar is forward-only "
-            "and has no backfill, so the history has to accrue. The cron has been running "
-            "since 2026-08-20; nothing else is required for this to start working."
+            "and has no backfill, so the history has to accrue, per product, day by day. "
+            "The cron has been running since 2026-08-20; nothing else is required for "
+            "this to start working."
         )
         return 1
 
