@@ -29,9 +29,14 @@ stamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
 echo "deploying $short to $HOST:$DEST"
 
-# The venv, the data and the model outputs live in the destination and are not ours to
-# remove; only the tracked .py and .md files are replaced.
-git ls-files -z '*.py' '*.md' | ssh "$HOST" "cd '$DEST' && xargs -0 -r rm -f"
+# Delete by extension, not by `git ls-files`. Listing tracked files names only what the
+# repository still has, so a file deleted from the repository is exactly the one that
+# survives on the host -- which is the drift this script exists to stop, and which it
+# reproduced on its first run by doing precisely that.
+#
+# Everything matching these extensions in the destination came from this repository. Data,
+# venv, model outputs and MANIFEST.txt have other extensions and are left alone.
+ssh "$HOST" "cd '$DEST' && rm -f -- *.py *.md && rm -rf -- __pycache__ experiments"
 
 git archive --format=tar HEAD $(git ls-files '*.py' '*.md') \
   | ssh "$HOST" "tar xf - -C '$DEST'"
