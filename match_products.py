@@ -293,7 +293,14 @@ def label_sample(pairs: pd.DataFrame, size: int = 300, seed: int = 0) -> pd.Data
     """
     if pairs.empty:
         return pairs
-    bands = pd.cut(pairs["score"], bins=[0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1])
+    # Upper edge from the data, not a guess. A fixed 1.1 dropped every pair above it --
+    # the score is cosine plus two weighted agreements and reaches 1.45, so 138 of 627
+    # candidates fell outside every band and never appeared in the file that exists to
+    # measure them. An audit found that; the sample had been calling itself stratified.
+    bands = pd.cut(
+        pairs["score"],
+        bins=[0, 0.5, 0.6, 0.7, 0.8, 0.9, float(pairs["score"].max()) + 0.01],
+    )
     per_band = max(1, size // bands.nunique())
     picked = (
         pairs.groupby(bands, observed=True, group_keys=False)

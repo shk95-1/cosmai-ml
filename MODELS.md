@@ -36,7 +36,7 @@ Earliest date each becomes trainable, counting from when collection started:
 | Model | Trainable | vs deadline |
 |---|---|---|
 | A | now | ✓ |
-| B (daily) | 2026-09-10 | 15 days late |
+| B (daily) | code removed 2026-08-22, see below | — |
 | C | 2026-10 or later | late |
 | D | needs the ingredient layer built first | — |
 | E | tested — no signal at category level | ✓ (answered) |
@@ -101,9 +101,20 @@ windows it loses.
 
 ## Model B — product ranking movement
 
-**Written and running; refuses to fit until 2026-09-10.** The first model here that is
-genuinely ML. `model_b.py` reads the live Postgres, builds the panel, and either fits or
-prints exactly how many days are missing.
+**Design kept, code deleted 2026-08-22.** `model_b.py` was removed rather than repaired.
+An audit found that its feature construction shifted by *row* (`groupby.shift(7)`), not by
+calendar day, so on a product with gaps a "7-day momentum" spanned whatever seven
+observations happened to exist — up to 214 days in the auditor's counterexample. An earlier
+fix had corrected only the readiness check and left the feature construction alone, so the
+bug the fix claimed to close was still there.
+
+It also printed "the cron has been running; nothing else is required" as a fixed string
+that checked nothing, and kept saying it after collection moved to another host and stopped
+here.
+
+Nothing was lost by deleting it: no product has 22 consecutive days of observation, so the
+code had never run on real data and could not be verified against any. Rewrite it as a
+calendar join when the data exists — the design below is unchanged and is the spec.
 
 | | |
 |---|---|
@@ -118,7 +129,12 @@ different measurement processes. But rank momentum in `X` is strongly autocorrel
 comparison. Beating it is the entire claim.
 
 Needs 7 days of momentum window + 7 for the label to resolve + 7 of temporal holdout +
-1 to stand on = **22 days**. Collection started 2026-08-20, so 2026-09-10.
+1 to stand on = **22 days** of *calendar-consecutive* observation per product. Row counts
+are not days; that distinction is what the deleted code got wrong.
+
+The 2026-09-10 date previously given here assumed our collector kept running. It did not:
+collection moved to the integration host on 2026-08-22 and ours was stopped. Whoever
+rewrites this must read the date off the data, not off a plan.
 
 Caveat that must be carried into any result: hwahae is robots-limited to about 10 rows of
 each 50–100-row board, so the observed rank distribution has an artificially short tail.
@@ -167,14 +183,19 @@ axis: monthly cosmetics publication counts, 2017-01 → 2026-08. Joined to Model
 
 | | ridge MAE | vs baseline |
 |---|---|---|
-| sales only | 0.1398 | — |
-| + Europe PMC counts | 0.1381 | −1.2%, noise |
-| + PubMed counts | 0.1489 | **+6.5%, worse** |
+| sales only | 0.1360 | — |
+| + Europe PMC counts | 0.1414 | **+4.0%, worse** |
+| + PubMed counts | 0.1544 | **+13.6%, worse** |
 
-One neutral and one actively harmful. That is a much stronger answer than either run alone
-would have been: a real signal would have shown up in both, since both are measuring
-cosmetics publication volume over the same months. `model_a.py` names the Europe PMC move
-as noise itself rather than leaving the sign of the difference to be read as a finding.
+**Corrected 2026-08-22.** An earlier version of this table read 0.1398 / 0.1381 / 0.1489
+and described Europe PMC as neutral. Those figures came from the leaking split, and were
+left in place when the Model A section above was recomputed — an audit found the
+inconsistency. Recomputed against the purged split, both sources make the fit worse and
+neither is neutral.
+
+The conclusion survives the correction and gets stronger. A real signal would have shown
+up in both, since both measure cosmetics publication volume over the same months; instead
+both degrade it.
 
 That is a real answer, not a failure: **global cosmetics publication volume does not
 predict Korean duty-free category sales three months out.** It was never especially likely
