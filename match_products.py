@@ -308,7 +308,11 @@ def label_sample(pairs: pd.DataFrame, size: int = 300, seed: int = 0) -> pd.Data
         .reset_index(drop=True)
     )
     picked.insert(0, "is_same_product", "")  # the column a human fills in: y / n
-    return picked
+    # Put the two names next to the answer column. Someone is reading 298 of these by eye,
+    # and in the emitted order name_a and name_b sat three columns apart with keys between
+    # them, so the one comparison the file exists for was the awkward one to make.
+    lead = ["is_same_product", "name_a", "name_b", "score", "brand"]
+    return picked[lead + [c for c in picked.columns if c not in lead]]
 
 
 def main() -> int:
