@@ -11,6 +11,12 @@
 # because a stale file that nobody overwrites is exactly how the last drift happened.
 
 set -eu
+set -f  # 아래 GLOBS 를 로컬 셸이 먼저 전개하면 git ls-files 가 엉뚱한 것을 본다
+
+# 이 저장소가 호스트에 놓는 것의 전체 목록. **한 군데에만 둔다.**
+# 삭제 / 아카이브 / MANIFEST / 검증 네 곳이 이 목록을 공유해야 하며, 처음에는 삭제 쪽만
+# 고치고 아카이브 쪽 하드코딩을 놓쳐서 schema_split.sql 이 지워지고 다시 깔리지 않았다.
+GLOBS='*.py *.md *.sql'
 
 HOST="${DEPLOY_HOST:-user@spark-2ea6}"
 DEST="${DEPLOY_DEST:-cosmai-data}"
@@ -36,9 +42,9 @@ echo "deploying $short to $HOST:$DEST"
 #
 # Everything matching these extensions in the destination came from this repository. Data,
 # venv, model outputs and MANIFEST.txt have other extensions and are left alone.
-ssh "$HOST" "cd '$DEST' && rm -f -- *.py *.md *.sql && rm -rf -- __pycache__ experiments"
+ssh "$HOST" "cd '$DEST' && rm -f -- $GLOBS && rm -rf -- __pycache__ experiments"
 
-git archive --format=tar HEAD $(git ls-files '*.py' '*.md') \
+git archive --format=tar HEAD $(git ls-files $GLOBS) \
   | ssh "$HOST" "tar xf - -C '$DEST'"
 
 ssh "$HOST" "cat > '$DEST/MANIFEST.txt'" <<EOF
@@ -46,11 +52,11 @@ commit:    $commit
 short:     $short
 deployed:  $stamp
 from:      $(git config --get remote.origin.url)
-files:     $(git ls-files '*.py' '*.md' | wc -l | tr -d ' ')
+files:     $(git ls-files $GLOBS | wc -l | tr -d ' ')
 EOF
 
 echo "verifying"
 remote=$(ssh "$HOST" "grep '^commit:' '$DEST/MANIFEST.txt' | awk '{print \$2}'")
 [ "$remote" = "$commit" ] || { echo "manifest mismatch: $remote != $commit" >&2; exit 1; }
-ssh "$HOST" "cd '$DEST' && ls *.py"
+ssh "$HOST" "cd '$DEST' && ls $GLOBS"
 echo "ok: $short"
