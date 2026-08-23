@@ -36,7 +36,7 @@ echo "deploying $short to $HOST:$DEST"
 #
 # Everything matching these extensions in the destination came from this repository. Data,
 # venv, model outputs and MANIFEST.txt have other extensions and are left alone.
-ssh "$HOST" "cd '$DEST' && rm -f -- *.py *.md && rm -rf -- __pycache__ experiments"
+ssh "$HOST" "cd '$DEST' && rm -f -- *.py *.md *.sql && rm -rf -- __pycache__ experiments"
 
 git archive --format=tar HEAD $(git ls-files '*.py' '*.md') \
   | ssh "$HOST" "tar xf - -C '$DEST'"
