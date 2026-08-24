@@ -93,6 +93,37 @@ def load(dsn: str, files: list[tuple[str, str, Path]]) -> None:
     print("[측정 아님] 소스가 다르면 계열도 다르다. 합산·접합 금지.")
 
 
+def summarise(dsn: str) -> None:
+    """검색어별 2019년 대비 최근 12개월 증가 배수.
+
+    임시 스크립트로 두었더니 deploy.sh 가 추적 안 되는 .py 를 지우면서 매번 사라졌다.
+    성분별 증가 배수는 학계동향 축의 머리 숫자라 스크립트가 아니라 도구에 있어야 한다.
+    """
+    import psycopg
+
+    query = (
+        "select query,"
+        " avg(count) filter (where period between date '2019-01-01'"
+        "   and date '2019-12-01') as early,"
+        " avg(count) filter (where period between date '2025-07-01'"
+        "   and date '2026-06-01') as recent"
+        " from academic.paper_trend where source = %s group by query"
+        " order by 3 desc nulls last")
+    with psycopg.connect(dsn) as connection, connection.cursor() as cursor:
+        for source in ("pubmed", "europepmc"):
+            cursor.execute(query, (source,))
+            print(f"[측정] {source} 월평균 논문 수 — 2019년 vs 최근 12개월")
+            print(f"{'검색어':<26}{'2019':>9}{'최근':>9}{'배수':>8}")
+            for term, early, recent in cursor.fetchall():
+                if early is None or recent is None:
+                    continue
+                e, r = float(early), float(recent)
+                print(f"{term:<26}{e:>9.1f}{r:>9.1f}{(r / e if e else 0):>7.2f}x")
+            print()
+    print("[측정 아님] 배수는 같은 소스 안에서만 비교 가능하다. 두 소스에서 방향이")
+    print("엇갈리는 검색어는 색인 차이를 뜻하므로 한쪽만 보고 결론 내지 말 것.")
+
+
 def _self_check() -> None:
     assert period_to_date("2019-01") == date(2019, 1, 1)
     assert period_to_date("2026-12") == date(2026, 12, 1)
@@ -106,14 +137,21 @@ def main() -> int:
     parser.add_argument("--file", action="append", default=[],
                         metavar="SOURCE:QUERY:PATH",
                         help="예: pubmed:cosmetic:papers_pubmed_2019_2026.csv")
+    parser.add_argument("--summary", action="store_true",
+                        help="--dsn 과 함께: 검색어별 증가 배수만 출력한다")
     parser.add_argument("--self-check", action="store_true")
     args = parser.parse_args()
 
     if args.self_check:
         _self_check()
         return 0
+    if args.summary:
+        if not args.dsn:
+            parser.error("--summary 는 --dsn 이 필요하다")
+        summarise(args.dsn)
+        return 0
     if not args.dsn or not args.file:
-        parser.error("--dsn 과 --file, 또는 --self-check")
+        parser.error("--dsn 과 --file, 또는 --summary, 또는 --self-check")
 
     files = []
     for spec in args.file:
