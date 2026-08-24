@@ -9,3 +9,6 @@ build/
 anthropic.key
 app.log
 *.log
+
+# 논문 데이터셋은 산출물이다. 팀이 clone 해서 쓰라고 두는 것이므로 예외.
+!datasets/papers/*.csv

@@ -1,0 +1,2771 @@
+# academic.paper_trend — 화장품 성분·주제별 월간 논문 수
+#
+# 소스가 다르면 세는 대상이 다르다. 절대값을 합치거나 이어붙이지 말 것.
+#   PubMed      MeSH 확장 주제매칭. 'cosmetic' 이라는 단어가 없는 논문까지 닿는다.
+#   Europe PMC  생명과학 색인. 프리프린트와 특허를 포함한다.
+# 2019-01 'cosmetic' 이 각각 1205 / 843 인 것은 이견이 아니라 두 개의 다른 질문이다.
+#
+# 최근 2~3개월은 색인 지연으로 항상 과소집계된다. 하락으로 읽지 말 것.
+# 절대 건수가 한 자릿수인 검색어(ethylhexyl triazone 등)는 배수를 쓰면 안 된다 —
+# 연 논문 두세 편 차이가 3배로 보인다.
+source,query,period,count
+europepmc,adenosine,2019-01-01,1919
+europepmc,adenosine,2019-02-01,1457
+europepmc,adenosine,2019-03-01,1573
+europepmc,adenosine,2019-04-01,1577
+europepmc,adenosine,2019-05-01,1590
+europepmc,adenosine,2019-06-01,1454
+europepmc,adenosine,2019-07-01,1591
+europepmc,adenosine,2019-08-01,1503
+europepmc,adenosine,2019-09-01,1467
+europepmc,adenosine,2019-10-01,1644
+europepmc,adenosine,2019-11-01,1672
+europepmc,adenosine,2019-12-01,1632
+europepmc,adenosine,2020-01-01,2172
+europepmc,adenosine,2020-02-01,1743
+europepmc,adenosine,2020-03-01,1791
+europepmc,adenosine,2020-04-01,1995
+europepmc,adenosine,2020-05-01,2005
+europepmc,adenosine,2020-06-01,2143
+europepmc,adenosine,2020-07-01,2276
+europepmc,adenosine,2020-08-01,2120
+europepmc,adenosine,2020-09-01,2252
+europepmc,adenosine,2020-10-01,2295
+europepmc,adenosine,2020-11-01,2265
+europepmc,adenosine,2020-12-01,2189
+europepmc,adenosine,2021-01-01,3057
+europepmc,adenosine,2021-02-01,2336
+europepmc,adenosine,2021-03-01,2510
+europepmc,adenosine,2021-04-01,2310
+europepmc,adenosine,2021-05-01,2396
+europepmc,adenosine,2021-06-01,2494
+europepmc,adenosine,2021-07-01,2541
+europepmc,adenosine,2021-08-01,2327
+europepmc,adenosine,2021-09-01,2383
+europepmc,adenosine,2021-10-01,2367
+europepmc,adenosine,2021-11-01,2459
+europepmc,adenosine,2021-12-01,2421
+europepmc,adenosine,2022-01-01,2991
+europepmc,adenosine,2022-02-01,2417
+europepmc,adenosine,2022-03-01,2742
+europepmc,adenosine,2022-04-01,2466
+europepmc,adenosine,2022-05-01,2462
+europepmc,adenosine,2022-06-01,2610
+europepmc,adenosine,2022-07-01,2670
+europepmc,adenosine,2022-08-01,2832
+europepmc,adenosine,2022-09-01,2945
+europepmc,adenosine,2022-10-01,2837
+europepmc,adenosine,2022-11-01,2616
+europepmc,adenosine,2022-12-01,2625
+europepmc,adenosine,2023-01-01,3020
+europepmc,adenosine,2023-02-01,2575
+europepmc,adenosine,2023-03-01,2641
+europepmc,adenosine,2023-04-01,2325
+europepmc,adenosine,2023-05-01,2504
+europepmc,adenosine,2023-06-01,2312
+europepmc,adenosine,2023-07-01,2303
+europepmc,adenosine,2023-08-01,2305
+europepmc,adenosine,2023-09-01,2306
+europepmc,adenosine,2023-10-01,2273
+europepmc,adenosine,2023-11-01,2381
+europepmc,adenosine,2023-12-01,2252
+europepmc,adenosine,2024-01-01,3035
+europepmc,adenosine,2024-02-01,2396
+europepmc,adenosine,2024-03-01,2355
+europepmc,adenosine,2024-04-01,2375
+europepmc,adenosine,2024-05-01,2497
+europepmc,adenosine,2024-06-01,2414
+europepmc,adenosine,2024-07-01,2642
+europepmc,adenosine,2024-08-01,2516
+europepmc,adenosine,2024-09-01,2462
+europepmc,adenosine,2024-10-01,2601
+europepmc,adenosine,2024-11-01,2558
+europepmc,adenosine,2024-12-01,2458
+europepmc,adenosine,2025-01-01,3170
+europepmc,adenosine,2025-02-01,2551
+europepmc,adenosine,2025-03-01,2747
+europepmc,adenosine,2025-04-01,2843
+europepmc,adenosine,2025-05-01,2787
+europepmc,adenosine,2025-06-01,2639
+europepmc,adenosine,2025-07-01,3044
+europepmc,adenosine,2025-08-01,2674
+europepmc,adenosine,2025-09-01,2646
+europepmc,adenosine,2025-10-01,2803
+europepmc,adenosine,2025-11-01,2813
+europepmc,adenosine,2025-12-01,2673
+europepmc,adenosine,2026-01-01,3054
+europepmc,adenosine,2026-02-01,2447
+europepmc,adenosine,2026-03-01,2723
+europepmc,adenosine,2026-04-01,2532
+europepmc,adenosine,2026-05-01,2267
+europepmc,adenosine,2026-06-01,1639
+europepmc,adenosine,2026-07-01,566
+europepmc,adenosine,2026-08-01,235
+europepmc,ascorbic acid,2019-01-01,835
+europepmc,ascorbic acid,2019-02-01,680
+europepmc,ascorbic acid,2019-03-01,726
+europepmc,ascorbic acid,2019-04-01,722
+europepmc,ascorbic acid,2019-05-01,756
+europepmc,ascorbic acid,2019-06-01,706
+europepmc,ascorbic acid,2019-07-01,714
+europepmc,ascorbic acid,2019-08-01,691
+europepmc,ascorbic acid,2019-09-01,719
+europepmc,ascorbic acid,2019-10-01,768
+europepmc,ascorbic acid,2019-11-01,780
+europepmc,ascorbic acid,2019-12-01,865
+europepmc,ascorbic acid,2020-01-01,904
+europepmc,ascorbic acid,2020-02-01,805
+europepmc,ascorbic acid,2020-03-01,867
+europepmc,ascorbic acid,2020-04-01,833
+europepmc,ascorbic acid,2020-05-01,915
+europepmc,ascorbic acid,2020-06-01,1005
+europepmc,ascorbic acid,2020-07-01,1006
+europepmc,ascorbic acid,2020-08-01,964
+europepmc,ascorbic acid,2020-09-01,1033
+europepmc,ascorbic acid,2020-10-01,1049
+europepmc,ascorbic acid,2020-11-01,987
+europepmc,ascorbic acid,2020-12-01,1002
+europepmc,ascorbic acid,2021-01-01,1379
+europepmc,ascorbic acid,2021-02-01,1036
+europepmc,ascorbic acid,2021-03-01,1198
+europepmc,ascorbic acid,2021-04-01,1085
+europepmc,ascorbic acid,2021-05-01,1119
+europepmc,ascorbic acid,2021-06-01,1124
+europepmc,ascorbic acid,2021-07-01,1095
+europepmc,ascorbic acid,2021-08-01,1032
+europepmc,ascorbic acid,2021-09-01,1179
+europepmc,ascorbic acid,2021-10-01,1102
+europepmc,ascorbic acid,2021-11-01,1139
+europepmc,ascorbic acid,2021-12-01,1177
+europepmc,ascorbic acid,2022-01-01,1390
+europepmc,ascorbic acid,2022-02-01,1050
+europepmc,ascorbic acid,2022-03-01,1238
+europepmc,ascorbic acid,2022-04-01,1142
+europepmc,ascorbic acid,2022-05-01,1251
+europepmc,ascorbic acid,2022-06-01,1225
+europepmc,ascorbic acid,2022-07-01,1284
+europepmc,ascorbic acid,2022-08-01,1317
+europepmc,ascorbic acid,2022-09-01,1342
+europepmc,ascorbic acid,2022-10-01,1335
+europepmc,ascorbic acid,2022-11-01,1276
+europepmc,ascorbic acid,2022-12-01,1452
+europepmc,ascorbic acid,2023-01-01,1473
+europepmc,ascorbic acid,2023-02-01,1247
+europepmc,ascorbic acid,2023-03-01,1410
+europepmc,ascorbic acid,2023-04-01,1152
+europepmc,ascorbic acid,2023-05-01,1198
+europepmc,ascorbic acid,2023-06-01,1168
+europepmc,ascorbic acid,2023-07-01,1157
+europepmc,ascorbic acid,2023-08-01,1152
+europepmc,ascorbic acid,2023-09-01,1189
+europepmc,ascorbic acid,2023-10-01,1081
+europepmc,ascorbic acid,2023-11-01,1106
+europepmc,ascorbic acid,2023-12-01,1044
+europepmc,ascorbic acid,2024-01-01,1374
+europepmc,ascorbic acid,2024-02-01,1124
+europepmc,ascorbic acid,2024-03-01,1103
+europepmc,ascorbic acid,2024-04-01,1140
+europepmc,ascorbic acid,2024-05-01,1222
+europepmc,ascorbic acid,2024-06-01,1144
+europepmc,ascorbic acid,2024-07-01,1241
+europepmc,ascorbic acid,2024-08-01,1173
+europepmc,ascorbic acid,2024-09-01,1231
+europepmc,ascorbic acid,2024-10-01,1300
+europepmc,ascorbic acid,2024-11-01,1298
+europepmc,ascorbic acid,2024-12-01,1160
+europepmc,ascorbic acid,2025-01-01,1486
+europepmc,ascorbic acid,2025-02-01,1198
+europepmc,ascorbic acid,2025-03-01,1180
+europepmc,ascorbic acid,2025-04-01,1244
+europepmc,ascorbic acid,2025-05-01,1303
+europepmc,ascorbic acid,2025-06-01,1138
+europepmc,ascorbic acid,2025-07-01,1471
+europepmc,ascorbic acid,2025-08-01,1286
+europepmc,ascorbic acid,2025-09-01,1292
+europepmc,ascorbic acid,2025-10-01,1300
+europepmc,ascorbic acid,2025-11-01,1344
+europepmc,ascorbic acid,2025-12-01,1279
+europepmc,ascorbic acid,2026-01-01,1361
+europepmc,ascorbic acid,2026-02-01,1158
+europepmc,ascorbic acid,2026-03-01,1161
+europepmc,ascorbic acid,2026-04-01,1227
+europepmc,ascorbic acid,2026-05-01,983
+europepmc,ascorbic acid,2026-06-01,737
+europepmc,ascorbic acid,2026-07-01,213
+europepmc,ascorbic acid,2026-08-01,98
+europepmc,centella asiatica,2019-01-01,21
+europepmc,centella asiatica,2019-02-01,8
+europepmc,centella asiatica,2019-03-01,16
+europepmc,centella asiatica,2019-04-01,12
+europepmc,centella asiatica,2019-05-01,18
+europepmc,centella asiatica,2019-06-01,13
+europepmc,centella asiatica,2019-07-01,19
+europepmc,centella asiatica,2019-08-01,9
+europepmc,centella asiatica,2019-09-01,15
+europepmc,centella asiatica,2019-10-01,10
+europepmc,centella asiatica,2019-11-01,15
+europepmc,centella asiatica,2019-12-01,16
+europepmc,centella asiatica,2020-01-01,35
+europepmc,centella asiatica,2020-02-01,10
+europepmc,centella asiatica,2020-03-01,20
+europepmc,centella asiatica,2020-04-01,23
+europepmc,centella asiatica,2020-05-01,28
+europepmc,centella asiatica,2020-06-01,31
+europepmc,centella asiatica,2020-07-01,20
+europepmc,centella asiatica,2020-08-01,18
+europepmc,centella asiatica,2020-09-01,23
+europepmc,centella asiatica,2020-10-01,36
+europepmc,centella asiatica,2020-11-01,23
+europepmc,centella asiatica,2020-12-01,22
+europepmc,centella asiatica,2021-01-01,52
+europepmc,centella asiatica,2021-02-01,24
+europepmc,centella asiatica,2021-03-01,26
+europepmc,centella asiatica,2021-04-01,28
+europepmc,centella asiatica,2021-05-01,33
+europepmc,centella asiatica,2021-06-01,29
+europepmc,centella asiatica,2021-07-01,38
+europepmc,centella asiatica,2021-08-01,25
+europepmc,centella asiatica,2021-09-01,47
+europepmc,centella asiatica,2021-10-01,42
+europepmc,centella asiatica,2021-11-01,40
+europepmc,centella asiatica,2021-12-01,39
+europepmc,centella asiatica,2022-01-01,44
+europepmc,centella asiatica,2022-02-01,31
+europepmc,centella asiatica,2022-03-01,39
+europepmc,centella asiatica,2022-04-01,33
+europepmc,centella asiatica,2022-05-01,50
+europepmc,centella asiatica,2022-06-01,28
+europepmc,centella asiatica,2022-07-01,20
+europepmc,centella asiatica,2022-08-01,37
+europepmc,centella asiatica,2022-09-01,34
+europepmc,centella asiatica,2022-10-01,40
+europepmc,centella asiatica,2022-11-01,34
+europepmc,centella asiatica,2022-12-01,36
+europepmc,centella asiatica,2023-01-01,45
+europepmc,centella asiatica,2023-02-01,50
+europepmc,centella asiatica,2023-03-01,43
+europepmc,centella asiatica,2023-04-01,36
+europepmc,centella asiatica,2023-05-01,35
+europepmc,centella asiatica,2023-06-01,28
+europepmc,centella asiatica,2023-07-01,37
+europepmc,centella asiatica,2023-08-01,29
+europepmc,centella asiatica,2023-09-01,39
+europepmc,centella asiatica,2023-10-01,29
+europepmc,centella asiatica,2023-11-01,28
+europepmc,centella asiatica,2023-12-01,27
+europepmc,centella asiatica,2024-01-01,63
+europepmc,centella asiatica,2024-02-01,39
+europepmc,centella asiatica,2024-03-01,27
+europepmc,centella asiatica,2024-04-01,38
+europepmc,centella asiatica,2024-05-01,40
+europepmc,centella asiatica,2024-06-01,28
+europepmc,centella asiatica,2024-07-01,38
+europepmc,centella asiatica,2024-08-01,44
+europepmc,centella asiatica,2024-09-01,55
+europepmc,centella asiatica,2024-10-01,47
+europepmc,centella asiatica,2024-11-01,41
+europepmc,centella asiatica,2024-12-01,47
+europepmc,centella asiatica,2025-01-01,55
+europepmc,centella asiatica,2025-02-01,46
+europepmc,centella asiatica,2025-03-01,47
+europepmc,centella asiatica,2025-04-01,43
+europepmc,centella asiatica,2025-05-01,42
+europepmc,centella asiatica,2025-06-01,44
+europepmc,centella asiatica,2025-07-01,57
+europepmc,centella asiatica,2025-08-01,55
+europepmc,centella asiatica,2025-09-01,58
+europepmc,centella asiatica,2025-10-01,62
+europepmc,centella asiatica,2025-11-01,53
+europepmc,centella asiatica,2025-12-01,48
+europepmc,centella asiatica,2026-01-01,61
+europepmc,centella asiatica,2026-02-01,55
+europepmc,centella asiatica,2026-03-01,54
+europepmc,centella asiatica,2026-04-01,48
+europepmc,centella asiatica,2026-05-01,39
+europepmc,centella asiatica,2026-06-01,35
+europepmc,centella asiatica,2026-07-01,14
+europepmc,centella asiatica,2026-08-01,2
+europepmc,ceramide,2019-01-01,284
+europepmc,ceramide,2019-02-01,217
+europepmc,ceramide,2019-03-01,257
+europepmc,ceramide,2019-04-01,244
+europepmc,ceramide,2019-05-01,220
+europepmc,ceramide,2019-06-01,245
+europepmc,ceramide,2019-07-01,224
+europepmc,ceramide,2019-08-01,218
+europepmc,ceramide,2019-09-01,220
+europepmc,ceramide,2019-10-01,234
+europepmc,ceramide,2019-11-01,239
+europepmc,ceramide,2019-12-01,267
+europepmc,ceramide,2020-01-01,335
+europepmc,ceramide,2020-02-01,249
+europepmc,ceramide,2020-03-01,276
+europepmc,ceramide,2020-04-01,254
+europepmc,ceramide,2020-05-01,314
+europepmc,ceramide,2020-06-01,302
+europepmc,ceramide,2020-07-01,352
+europepmc,ceramide,2020-08-01,342
+europepmc,ceramide,2020-09-01,363
+europepmc,ceramide,2020-10-01,354
+europepmc,ceramide,2020-11-01,341
+europepmc,ceramide,2020-12-01,310
+europepmc,ceramide,2021-01-01,496
+europepmc,ceramide,2021-02-01,389
+europepmc,ceramide,2021-03-01,403
+europepmc,ceramide,2021-04-01,379
+europepmc,ceramide,2021-05-01,358
+europepmc,ceramide,2021-06-01,393
+europepmc,ceramide,2021-07-01,381
+europepmc,ceramide,2021-08-01,385
+europepmc,ceramide,2021-09-01,387
+europepmc,ceramide,2021-10-01,399
+europepmc,ceramide,2021-11-01,368
+europepmc,ceramide,2021-12-01,390
+europepmc,ceramide,2022-01-01,440
+europepmc,ceramide,2022-02-01,382
+europepmc,ceramide,2022-03-01,440
+europepmc,ceramide,2022-04-01,376
+europepmc,ceramide,2022-05-01,354
+europepmc,ceramide,2022-06-01,405
+europepmc,ceramide,2022-07-01,400
+europepmc,ceramide,2022-08-01,424
+europepmc,ceramide,2022-09-01,452
+europepmc,ceramide,2022-10-01,419
+europepmc,ceramide,2022-11-01,448
+europepmc,ceramide,2022-12-01,421
+europepmc,ceramide,2023-01-01,496
+europepmc,ceramide,2023-02-01,416
+europepmc,ceramide,2023-03-01,453
+europepmc,ceramide,2023-04-01,374
+europepmc,ceramide,2023-05-01,418
+europepmc,ceramide,2023-06-01,384
+europepmc,ceramide,2023-07-01,368
+europepmc,ceramide,2023-08-01,384
+europepmc,ceramide,2023-09-01,343
+europepmc,ceramide,2023-10-01,368
+europepmc,ceramide,2023-11-01,362
+europepmc,ceramide,2023-12-01,362
+europepmc,ceramide,2024-01-01,478
+europepmc,ceramide,2024-02-01,372
+europepmc,ceramide,2024-03-01,386
+europepmc,ceramide,2024-04-01,340
+europepmc,ceramide,2024-05-01,406
+europepmc,ceramide,2024-06-01,383
+europepmc,ceramide,2024-07-01,423
+europepmc,ceramide,2024-08-01,405
+europepmc,ceramide,2024-09-01,373
+europepmc,ceramide,2024-10-01,404
+europepmc,ceramide,2024-11-01,448
+europepmc,ceramide,2024-12-01,410
+europepmc,ceramide,2025-01-01,534
+europepmc,ceramide,2025-02-01,411
+europepmc,ceramide,2025-03-01,480
+europepmc,ceramide,2025-04-01,479
+europepmc,ceramide,2025-05-01,448
+europepmc,ceramide,2025-06-01,439
+europepmc,ceramide,2025-07-01,476
+europepmc,ceramide,2025-08-01,434
+europepmc,ceramide,2025-09-01,471
+europepmc,ceramide,2025-10-01,524
+europepmc,ceramide,2025-11-01,485
+europepmc,ceramide,2025-12-01,504
+europepmc,ceramide,2026-01-01,550
+europepmc,ceramide,2026-02-01,451
+europepmc,ceramide,2026-03-01,467
+europepmc,ceramide,2026-04-01,466
+europepmc,ceramide,2026-05-01,421
+europepmc,ceramide,2026-06-01,287
+europepmc,ceramide,2026-07-01,129
+europepmc,ceramide,2026-08-01,43
+europepmc,collagen,2019-01-01,3307
+europepmc,collagen,2019-02-01,2504
+europepmc,collagen,2019-03-01,2695
+europepmc,collagen,2019-04-01,2752
+europepmc,collagen,2019-05-01,2888
+europepmc,collagen,2019-06-01,2805
+europepmc,collagen,2019-07-01,2914
+europepmc,collagen,2019-08-01,2803
+europepmc,collagen,2019-09-01,2529
+europepmc,collagen,2019-10-01,2683
+europepmc,collagen,2019-11-01,2852
+europepmc,collagen,2019-12-01,2902
+europepmc,collagen,2020-01-01,3727
+europepmc,collagen,2020-02-01,2889
+europepmc,collagen,2020-03-01,3075
+europepmc,collagen,2020-04-01,3143
+europepmc,collagen,2020-05-01,3385
+europepmc,collagen,2020-06-01,3550
+europepmc,collagen,2020-07-01,3862
+europepmc,collagen,2020-08-01,3394
+europepmc,collagen,2020-09-01,3767
+europepmc,collagen,2020-10-01,3843
+europepmc,collagen,2020-11-01,3605
+europepmc,collagen,2020-12-01,3565
+europepmc,collagen,2021-01-01,4817
+europepmc,collagen,2021-02-01,3751
+europepmc,collagen,2021-03-01,4439
+europepmc,collagen,2021-04-01,3907
+europepmc,collagen,2021-05-01,4189
+europepmc,collagen,2021-06-01,4214
+europepmc,collagen,2021-07-01,4124
+europepmc,collagen,2021-08-01,3977
+europepmc,collagen,2021-09-01,4145
+europepmc,collagen,2021-10-01,4016
+europepmc,collagen,2021-11-01,4103
+europepmc,collagen,2021-12-01,4160
+europepmc,collagen,2022-01-01,4950
+europepmc,collagen,2022-02-01,3927
+europepmc,collagen,2022-03-01,4672
+europepmc,collagen,2022-04-01,4093
+europepmc,collagen,2022-05-01,4189
+europepmc,collagen,2022-06-01,4243
+europepmc,collagen,2022-07-01,4388
+europepmc,collagen,2022-08-01,4430
+europepmc,collagen,2022-09-01,4486
+europepmc,collagen,2022-10-01,4406
+europepmc,collagen,2022-11-01,4430
+europepmc,collagen,2022-12-01,4511
+europepmc,collagen,2023-01-01,5053
+europepmc,collagen,2023-02-01,4159
+europepmc,collagen,2023-03-01,4436
+europepmc,collagen,2023-04-01,4002
+europepmc,collagen,2023-05-01,4259
+europepmc,collagen,2023-06-01,3954
+europepmc,collagen,2023-07-01,3945
+europepmc,collagen,2023-08-01,3986
+europepmc,collagen,2023-09-01,3962
+europepmc,collagen,2023-10-01,4087
+europepmc,collagen,2023-11-01,4149
+europepmc,collagen,2023-12-01,3830
+europepmc,collagen,2024-01-01,5034
+europepmc,collagen,2024-02-01,4029
+europepmc,collagen,2024-03-01,4040
+europepmc,collagen,2024-04-01,4160
+europepmc,collagen,2024-05-01,4314
+europepmc,collagen,2024-06-01,4080
+europepmc,collagen,2024-07-01,4458
+europepmc,collagen,2024-08-01,4292
+europepmc,collagen,2024-09-01,4453
+europepmc,collagen,2024-10-01,4608
+europepmc,collagen,2024-11-01,4425
+europepmc,collagen,2024-12-01,4223
+europepmc,collagen,2025-01-01,5620
+europepmc,collagen,2025-02-01,4433
+europepmc,collagen,2025-03-01,4738
+europepmc,collagen,2025-04-01,5040
+europepmc,collagen,2025-05-01,5046
+europepmc,collagen,2025-06-01,4685
+europepmc,collagen,2025-07-01,5748
+europepmc,collagen,2025-08-01,4902
+europepmc,collagen,2025-09-01,5028
+europepmc,collagen,2025-10-01,5362
+europepmc,collagen,2025-11-01,5183
+europepmc,collagen,2025-12-01,5238
+europepmc,collagen,2026-01-01,5945
+europepmc,collagen,2026-02-01,4823
+europepmc,collagen,2026-03-01,5381
+europepmc,collagen,2026-04-01,5017
+europepmc,collagen,2026-05-01,4499
+europepmc,collagen,2026-06-01,3367
+europepmc,collagen,2026-07-01,1344
+europepmc,collagen,2026-08-01,695
+europepmc,cosmetic,2019-01-01,843
+europepmc,cosmetic,2019-02-01,583
+europepmc,cosmetic,2019-03-01,657
+europepmc,cosmetic,2019-04-01,688
+europepmc,cosmetic,2019-05-01,717
+europepmc,cosmetic,2019-06-01,684
+europepmc,cosmetic,2019-07-01,734
+europepmc,cosmetic,2019-08-01,669
+europepmc,cosmetic,2019-09-01,693
+europepmc,cosmetic,2019-10-01,676
+europepmc,cosmetic,2019-11-01,757
+europepmc,cosmetic,2019-12-01,748
+europepmc,cosmetic,2020-01-01,1001
+europepmc,cosmetic,2020-02-01,727
+europepmc,cosmetic,2020-03-01,739
+europepmc,cosmetic,2020-04-01,872
+europepmc,cosmetic,2020-05-01,899
+europepmc,cosmetic,2020-06-01,937
+europepmc,cosmetic,2020-07-01,1019
+europepmc,cosmetic,2020-08-01,965
+europepmc,cosmetic,2020-09-01,1005
+europepmc,cosmetic,2020-10-01,1039
+europepmc,cosmetic,2020-11-01,976
+europepmc,cosmetic,2020-12-01,931
+europepmc,cosmetic,2021-01-01,1317
+europepmc,cosmetic,2021-02-01,998
+europepmc,cosmetic,2021-03-01,1129
+europepmc,cosmetic,2021-04-01,1116
+europepmc,cosmetic,2021-05-01,1115
+europepmc,cosmetic,2021-06-01,1119
+europepmc,cosmetic,2021-07-01,1080
+europepmc,cosmetic,2021-08-01,1086
+europepmc,cosmetic,2021-09-01,1126
+europepmc,cosmetic,2021-10-01,1206
+europepmc,cosmetic,2021-11-01,1142
+europepmc,cosmetic,2021-12-01,1060
+europepmc,cosmetic,2022-01-01,1353
+europepmc,cosmetic,2022-02-01,1068
+europepmc,cosmetic,2022-03-01,1235
+europepmc,cosmetic,2022-04-01,1135
+europepmc,cosmetic,2022-05-01,1146
+europepmc,cosmetic,2022-06-01,1111
+europepmc,cosmetic,2022-07-01,1224
+europepmc,cosmetic,2022-08-01,1156
+europepmc,cosmetic,2022-09-01,1352
+europepmc,cosmetic,2022-10-01,1221
+europepmc,cosmetic,2022-11-01,1224
+europepmc,cosmetic,2022-12-01,1301
+europepmc,cosmetic,2023-01-01,1519
+europepmc,cosmetic,2023-02-01,1118
+europepmc,cosmetic,2023-03-01,1277
+europepmc,cosmetic,2023-04-01,1190
+europepmc,cosmetic,2023-05-01,1139
+europepmc,cosmetic,2023-06-01,1176
+europepmc,cosmetic,2023-07-01,1204
+europepmc,cosmetic,2023-08-01,1123
+europepmc,cosmetic,2023-09-01,1139
+europepmc,cosmetic,2023-10-01,1124
+europepmc,cosmetic,2023-11-01,1230
+europepmc,cosmetic,2023-12-01,1075
+europepmc,cosmetic,2024-01-01,1507
+europepmc,cosmetic,2024-02-01,1154
+europepmc,cosmetic,2024-03-01,1221
+europepmc,cosmetic,2024-04-01,1185
+europepmc,cosmetic,2024-05-01,1245
+europepmc,cosmetic,2024-06-01,1194
+europepmc,cosmetic,2024-07-01,1322
+europepmc,cosmetic,2024-08-01,1292
+europepmc,cosmetic,2024-09-01,1337
+europepmc,cosmetic,2024-10-01,1315
+europepmc,cosmetic,2024-11-01,1322
+europepmc,cosmetic,2024-12-01,1228
+europepmc,cosmetic,2025-01-01,1673
+europepmc,cosmetic,2025-02-01,1221
+europepmc,cosmetic,2025-03-01,1408
+europepmc,cosmetic,2025-04-01,1395
+europepmc,cosmetic,2025-05-01,1416
+europepmc,cosmetic,2025-06-01,1361
+europepmc,cosmetic,2025-07-01,1608
+europepmc,cosmetic,2025-08-01,1424
+europepmc,cosmetic,2025-09-01,1539
+europepmc,cosmetic,2025-10-01,1590
+europepmc,cosmetic,2025-11-01,1526
+europepmc,cosmetic,2025-12-01,1611
+europepmc,cosmetic,2026-01-01,1672
+europepmc,cosmetic,2026-02-01,1349
+europepmc,cosmetic,2026-03-01,1490
+europepmc,cosmetic,2026-04-01,1501
+europepmc,cosmetic,2026-05-01,1309
+europepmc,cosmetic,2026-06-01,1136
+europepmc,cosmetic,2026-07-01,512
+europepmc,cosmetic,2026-08-01,254
+europepmc,ethylhexyl triazone,2019-01-01,0
+europepmc,ethylhexyl triazone,2019-02-01,0
+europepmc,ethylhexyl triazone,2019-03-01,0
+europepmc,ethylhexyl triazone,2019-04-01,1
+europepmc,ethylhexyl triazone,2019-05-01,1
+europepmc,ethylhexyl triazone,2019-06-01,1
+europepmc,ethylhexyl triazone,2019-07-01,1
+europepmc,ethylhexyl triazone,2019-08-01,0
+europepmc,ethylhexyl triazone,2019-09-01,1
+europepmc,ethylhexyl triazone,2019-10-01,1
+europepmc,ethylhexyl triazone,2019-11-01,0
+europepmc,ethylhexyl triazone,2019-12-01,0
+europepmc,ethylhexyl triazone,2020-01-01,2
+europepmc,ethylhexyl triazone,2020-02-01,1
+europepmc,ethylhexyl triazone,2020-03-01,1
+europepmc,ethylhexyl triazone,2020-04-01,2
+europepmc,ethylhexyl triazone,2020-05-01,0
+europepmc,ethylhexyl triazone,2020-06-01,1
+europepmc,ethylhexyl triazone,2020-07-01,1
+europepmc,ethylhexyl triazone,2020-08-01,1
+europepmc,ethylhexyl triazone,2020-09-01,1
+europepmc,ethylhexyl triazone,2020-10-01,1
+europepmc,ethylhexyl triazone,2020-11-01,0
+europepmc,ethylhexyl triazone,2020-12-01,2
+europepmc,ethylhexyl triazone,2021-01-01,1
+europepmc,ethylhexyl triazone,2021-02-01,3
+europepmc,ethylhexyl triazone,2021-03-01,0
+europepmc,ethylhexyl triazone,2021-04-01,2
+europepmc,ethylhexyl triazone,2021-05-01,1
+europepmc,ethylhexyl triazone,2021-06-01,1
+europepmc,ethylhexyl triazone,2021-07-01,0
+europepmc,ethylhexyl triazone,2021-08-01,1
+europepmc,ethylhexyl triazone,2021-09-01,0
+europepmc,ethylhexyl triazone,2021-10-01,2
+europepmc,ethylhexyl triazone,2021-11-01,0
+europepmc,ethylhexyl triazone,2021-12-01,1
+europepmc,ethylhexyl triazone,2022-01-01,1
+europepmc,ethylhexyl triazone,2022-02-01,1
+europepmc,ethylhexyl triazone,2022-03-01,1
+europepmc,ethylhexyl triazone,2022-04-01,0
+europepmc,ethylhexyl triazone,2022-05-01,0
+europepmc,ethylhexyl triazone,2022-06-01,0
+europepmc,ethylhexyl triazone,2022-07-01,2
+europepmc,ethylhexyl triazone,2022-08-01,0
+europepmc,ethylhexyl triazone,2022-09-01,2
+europepmc,ethylhexyl triazone,2022-10-01,2
+europepmc,ethylhexyl triazone,2022-11-01,2
+europepmc,ethylhexyl triazone,2022-12-01,0
+europepmc,ethylhexyl triazone,2023-01-01,1
+europepmc,ethylhexyl triazone,2023-02-01,0
+europepmc,ethylhexyl triazone,2023-03-01,2
+europepmc,ethylhexyl triazone,2023-04-01,0
+europepmc,ethylhexyl triazone,2023-05-01,1
+europepmc,ethylhexyl triazone,2023-06-01,0
+europepmc,ethylhexyl triazone,2023-07-01,0
+europepmc,ethylhexyl triazone,2023-08-01,0
+europepmc,ethylhexyl triazone,2023-09-01,1
+europepmc,ethylhexyl triazone,2023-10-01,2
+europepmc,ethylhexyl triazone,2023-11-01,1
+europepmc,ethylhexyl triazone,2023-12-01,0
+europepmc,ethylhexyl triazone,2024-01-01,0
+europepmc,ethylhexyl triazone,2024-02-01,3
+europepmc,ethylhexyl triazone,2024-03-01,1
+europepmc,ethylhexyl triazone,2024-04-01,1
+europepmc,ethylhexyl triazone,2024-05-01,2
+europepmc,ethylhexyl triazone,2024-06-01,0
+europepmc,ethylhexyl triazone,2024-07-01,0
+europepmc,ethylhexyl triazone,2024-08-01,1
+europepmc,ethylhexyl triazone,2024-09-01,1
+europepmc,ethylhexyl triazone,2024-10-01,3
+europepmc,ethylhexyl triazone,2024-11-01,2
+europepmc,ethylhexyl triazone,2024-12-01,2
+europepmc,ethylhexyl triazone,2025-01-01,1
+europepmc,ethylhexyl triazone,2025-02-01,1
+europepmc,ethylhexyl triazone,2025-03-01,2
+europepmc,ethylhexyl triazone,2025-04-01,0
+europepmc,ethylhexyl triazone,2025-05-01,0
+europepmc,ethylhexyl triazone,2025-06-01,1
+europepmc,ethylhexyl triazone,2025-07-01,4
+europepmc,ethylhexyl triazone,2025-08-01,2
+europepmc,ethylhexyl triazone,2025-09-01,3
+europepmc,ethylhexyl triazone,2025-10-01,2
+europepmc,ethylhexyl triazone,2025-11-01,1
+europepmc,ethylhexyl triazone,2025-12-01,2
+europepmc,ethylhexyl triazone,2026-01-01,2
+europepmc,ethylhexyl triazone,2026-02-01,3
+europepmc,ethylhexyl triazone,2026-03-01,1
+europepmc,ethylhexyl triazone,2026-04-01,2
+europepmc,ethylhexyl triazone,2026-05-01,1
+europepmc,ethylhexyl triazone,2026-06-01,0
+europepmc,ethylhexyl triazone,2026-07-01,3
+europepmc,ethylhexyl triazone,2026-08-01,0
+europepmc,hyaluronic acid,2019-01-01,498
+europepmc,hyaluronic acid,2019-02-01,347
+europepmc,hyaluronic acid,2019-03-01,326
+europepmc,hyaluronic acid,2019-04-01,422
+europepmc,hyaluronic acid,2019-05-01,432
+europepmc,hyaluronic acid,2019-06-01,395
+europepmc,hyaluronic acid,2019-07-01,434
+europepmc,hyaluronic acid,2019-08-01,383
+europepmc,hyaluronic acid,2019-09-01,358
+europepmc,hyaluronic acid,2019-10-01,392
+europepmc,hyaluronic acid,2019-11-01,402
+europepmc,hyaluronic acid,2019-12-01,420
+europepmc,hyaluronic acid,2020-01-01,585
+europepmc,hyaluronic acid,2020-02-01,455
+europepmc,hyaluronic acid,2020-03-01,480
+europepmc,hyaluronic acid,2020-04-01,517
+europepmc,hyaluronic acid,2020-05-01,502
+europepmc,hyaluronic acid,2020-06-01,563
+europepmc,hyaluronic acid,2020-07-01,661
+europepmc,hyaluronic acid,2020-08-01,537
+europepmc,hyaluronic acid,2020-09-01,582
+europepmc,hyaluronic acid,2020-10-01,626
+europepmc,hyaluronic acid,2020-11-01,531
+europepmc,hyaluronic acid,2020-12-01,588
+europepmc,hyaluronic acid,2021-01-01,770
+europepmc,hyaluronic acid,2021-02-01,628
+europepmc,hyaluronic acid,2021-03-01,775
+europepmc,hyaluronic acid,2021-04-01,669
+europepmc,hyaluronic acid,2021-05-01,681
+europepmc,hyaluronic acid,2021-06-01,697
+europepmc,hyaluronic acid,2021-07-01,673
+europepmc,hyaluronic acid,2021-08-01,626
+europepmc,hyaluronic acid,2021-09-01,723
+europepmc,hyaluronic acid,2021-10-01,696
+europepmc,hyaluronic acid,2021-11-01,703
+europepmc,hyaluronic acid,2021-12-01,717
+europepmc,hyaluronic acid,2022-01-01,875
+europepmc,hyaluronic acid,2022-02-01,685
+europepmc,hyaluronic acid,2022-03-01,747
+europepmc,hyaluronic acid,2022-04-01,688
+europepmc,hyaluronic acid,2022-05-01,759
+europepmc,hyaluronic acid,2022-06-01,703
+europepmc,hyaluronic acid,2022-07-01,778
+europepmc,hyaluronic acid,2022-08-01,752
+europepmc,hyaluronic acid,2022-09-01,817
+europepmc,hyaluronic acid,2022-10-01,771
+europepmc,hyaluronic acid,2022-11-01,826
+europepmc,hyaluronic acid,2022-12-01,861
+europepmc,hyaluronic acid,2023-01-01,915
+europepmc,hyaluronic acid,2023-02-01,789
+europepmc,hyaluronic acid,2023-03-01,827
+europepmc,hyaluronic acid,2023-04-01,760
+europepmc,hyaluronic acid,2023-05-01,761
+europepmc,hyaluronic acid,2023-06-01,769
+europepmc,hyaluronic acid,2023-07-01,752
+europepmc,hyaluronic acid,2023-08-01,754
+europepmc,hyaluronic acid,2023-09-01,682
+europepmc,hyaluronic acid,2023-10-01,709
+europepmc,hyaluronic acid,2023-11-01,760
+europepmc,hyaluronic acid,2023-12-01,711
+europepmc,hyaluronic acid,2024-01-01,876
+europepmc,hyaluronic acid,2024-02-01,750
+europepmc,hyaluronic acid,2024-03-01,755
+europepmc,hyaluronic acid,2024-04-01,755
+europepmc,hyaluronic acid,2024-05-01,821
+europepmc,hyaluronic acid,2024-06-01,818
+europepmc,hyaluronic acid,2024-07-01,895
+europepmc,hyaluronic acid,2024-08-01,813
+europepmc,hyaluronic acid,2024-09-01,912
+europepmc,hyaluronic acid,2024-10-01,874
+europepmc,hyaluronic acid,2024-11-01,928
+europepmc,hyaluronic acid,2024-12-01,843
+europepmc,hyaluronic acid,2025-01-01,1129
+europepmc,hyaluronic acid,2025-02-01,883
+europepmc,hyaluronic acid,2025-03-01,915
+europepmc,hyaluronic acid,2025-04-01,1002
+europepmc,hyaluronic acid,2025-05-01,967
+europepmc,hyaluronic acid,2025-06-01,947
+europepmc,hyaluronic acid,2025-07-01,1099
+europepmc,hyaluronic acid,2025-08-01,1007
+europepmc,hyaluronic acid,2025-09-01,1014
+europepmc,hyaluronic acid,2025-10-01,1062
+europepmc,hyaluronic acid,2025-11-01,995
+europepmc,hyaluronic acid,2025-12-01,1030
+europepmc,hyaluronic acid,2026-01-01,1148
+europepmc,hyaluronic acid,2026-02-01,870
+europepmc,hyaluronic acid,2026-03-01,1016
+europepmc,hyaluronic acid,2026-04-01,968
+europepmc,hyaluronic acid,2026-05-01,856
+europepmc,hyaluronic acid,2026-06-01,658
+europepmc,hyaluronic acid,2026-07-01,294
+europepmc,hyaluronic acid,2026-08-01,151
+europepmc,madecassoside,2019-01-01,4
+europepmc,madecassoside,2019-02-01,0
+europepmc,madecassoside,2019-03-01,4
+europepmc,madecassoside,2019-04-01,7
+europepmc,madecassoside,2019-05-01,1
+europepmc,madecassoside,2019-06-01,2
+europepmc,madecassoside,2019-07-01,9
+europepmc,madecassoside,2019-08-01,3
+europepmc,madecassoside,2019-09-01,5
+europepmc,madecassoside,2019-10-01,1
+europepmc,madecassoside,2019-11-01,3
+europepmc,madecassoside,2019-12-01,4
+europepmc,madecassoside,2020-01-01,3
+europepmc,madecassoside,2020-02-01,5
+europepmc,madecassoside,2020-03-01,2
+europepmc,madecassoside,2020-04-01,4
+europepmc,madecassoside,2020-05-01,4
+europepmc,madecassoside,2020-06-01,5
+europepmc,madecassoside,2020-07-01,5
+europepmc,madecassoside,2020-08-01,3
+europepmc,madecassoside,2020-09-01,8
+europepmc,madecassoside,2020-10-01,6
+europepmc,madecassoside,2020-11-01,7
+europepmc,madecassoside,2020-12-01,5
+europepmc,madecassoside,2021-01-01,8
+europepmc,madecassoside,2021-02-01,2
+europepmc,madecassoside,2021-03-01,6
+europepmc,madecassoside,2021-04-01,8
+europepmc,madecassoside,2021-05-01,3
+europepmc,madecassoside,2021-06-01,6
+europepmc,madecassoside,2021-07-01,12
+europepmc,madecassoside,2021-08-01,1
+europepmc,madecassoside,2021-09-01,8
+europepmc,madecassoside,2021-10-01,7
+europepmc,madecassoside,2021-11-01,5
+europepmc,madecassoside,2021-12-01,9
+europepmc,madecassoside,2022-01-01,12
+europepmc,madecassoside,2022-02-01,6
+europepmc,madecassoside,2022-03-01,5
+europepmc,madecassoside,2022-04-01,5
+europepmc,madecassoside,2022-05-01,5
+europepmc,madecassoside,2022-06-01,1
+europepmc,madecassoside,2022-07-01,5
+europepmc,madecassoside,2022-08-01,12
+europepmc,madecassoside,2022-09-01,7
+europepmc,madecassoside,2022-10-01,7
+europepmc,madecassoside,2022-11-01,6
+europepmc,madecassoside,2022-12-01,6
+europepmc,madecassoside,2023-01-01,4
+europepmc,madecassoside,2023-02-01,9
+europepmc,madecassoside,2023-03-01,7
+europepmc,madecassoside,2023-04-01,7
+europepmc,madecassoside,2023-05-01,5
+europepmc,madecassoside,2023-06-01,8
+europepmc,madecassoside,2023-07-01,11
+europepmc,madecassoside,2023-08-01,5
+europepmc,madecassoside,2023-09-01,5
+europepmc,madecassoside,2023-10-01,5
+europepmc,madecassoside,2023-11-01,7
+europepmc,madecassoside,2023-12-01,6
+europepmc,madecassoside,2024-01-01,12
+europepmc,madecassoside,2024-02-01,5
+europepmc,madecassoside,2024-03-01,4
+europepmc,madecassoside,2024-04-01,12
+europepmc,madecassoside,2024-05-01,8
+europepmc,madecassoside,2024-06-01,4
+europepmc,madecassoside,2024-07-01,10
+europepmc,madecassoside,2024-08-01,3
+europepmc,madecassoside,2024-09-01,10
+europepmc,madecassoside,2024-10-01,9
+europepmc,madecassoside,2024-11-01,7
+europepmc,madecassoside,2024-12-01,6
+europepmc,madecassoside,2025-01-01,11
+europepmc,madecassoside,2025-02-01,10
+europepmc,madecassoside,2025-03-01,9
+europepmc,madecassoside,2025-04-01,10
+europepmc,madecassoside,2025-05-01,10
+europepmc,madecassoside,2025-06-01,9
+europepmc,madecassoside,2025-07-01,21
+europepmc,madecassoside,2025-08-01,17
+europepmc,madecassoside,2025-09-01,14
+europepmc,madecassoside,2025-10-01,11
+europepmc,madecassoside,2025-11-01,16
+europepmc,madecassoside,2025-12-01,8
+europepmc,madecassoside,2026-01-01,12
+europepmc,madecassoside,2026-02-01,8
+europepmc,madecassoside,2026-03-01,12
+europepmc,madecassoside,2026-04-01,8
+europepmc,madecassoside,2026-05-01,9
+europepmc,madecassoside,2026-06-01,5
+europepmc,madecassoside,2026-07-01,2
+europepmc,madecassoside,2026-08-01,1
+europepmc,niacinamide,2019-01-01,55
+europepmc,niacinamide,2019-02-01,38
+europepmc,niacinamide,2019-03-01,38
+europepmc,niacinamide,2019-04-01,27
+europepmc,niacinamide,2019-05-01,41
+europepmc,niacinamide,2019-06-01,36
+europepmc,niacinamide,2019-07-01,49
+europepmc,niacinamide,2019-08-01,23
+europepmc,niacinamide,2019-09-01,29
+europepmc,niacinamide,2019-10-01,44
+europepmc,niacinamide,2019-11-01,38
+europepmc,niacinamide,2019-12-01,45
+europepmc,niacinamide,2020-01-01,50
+europepmc,niacinamide,2020-02-01,45
+europepmc,niacinamide,2020-03-01,39
+europepmc,niacinamide,2020-04-01,41
+europepmc,niacinamide,2020-05-01,54
+europepmc,niacinamide,2020-06-01,53
+europepmc,niacinamide,2020-07-01,45
+europepmc,niacinamide,2020-08-01,52
+europepmc,niacinamide,2020-09-01,43
+europepmc,niacinamide,2020-10-01,57
+europepmc,niacinamide,2020-11-01,55
+europepmc,niacinamide,2020-12-01,42
+europepmc,niacinamide,2021-01-01,73
+europepmc,niacinamide,2021-02-01,40
+europepmc,niacinamide,2021-03-01,62
+europepmc,niacinamide,2021-04-01,51
+europepmc,niacinamide,2021-05-01,43
+europepmc,niacinamide,2021-06-01,57
+europepmc,niacinamide,2021-07-01,69
+europepmc,niacinamide,2021-08-01,41
+europepmc,niacinamide,2021-09-01,66
+europepmc,niacinamide,2021-10-01,48
+europepmc,niacinamide,2021-11-01,48
+europepmc,niacinamide,2021-12-01,40
+europepmc,niacinamide,2022-01-01,81
+europepmc,niacinamide,2022-02-01,50
+europepmc,niacinamide,2022-03-01,67
+europepmc,niacinamide,2022-04-01,50
+europepmc,niacinamide,2022-05-01,55
+europepmc,niacinamide,2022-06-01,51
+europepmc,niacinamide,2022-07-01,69
+europepmc,niacinamide,2022-08-01,77
+europepmc,niacinamide,2022-09-01,79
+europepmc,niacinamide,2022-10-01,67
+europepmc,niacinamide,2022-11-01,59
+europepmc,niacinamide,2022-12-01,89
+europepmc,niacinamide,2023-01-01,94
+europepmc,niacinamide,2023-02-01,56
+europepmc,niacinamide,2023-03-01,82
+europepmc,niacinamide,2023-04-01,56
+europepmc,niacinamide,2023-05-01,57
+europepmc,niacinamide,2023-06-01,53
+europepmc,niacinamide,2023-07-01,77
+europepmc,niacinamide,2023-08-01,54
+europepmc,niacinamide,2023-09-01,56
+europepmc,niacinamide,2023-10-01,59
+europepmc,niacinamide,2023-11-01,67
+europepmc,niacinamide,2023-12-01,76
+europepmc,niacinamide,2024-01-01,78
+europepmc,niacinamide,2024-02-01,65
+europepmc,niacinamide,2024-03-01,77
+europepmc,niacinamide,2024-04-01,59
+europepmc,niacinamide,2024-05-01,75
+europepmc,niacinamide,2024-06-01,77
+europepmc,niacinamide,2024-07-01,86
+europepmc,niacinamide,2024-08-01,77
+europepmc,niacinamide,2024-09-01,92
+europepmc,niacinamide,2024-10-01,77
+europepmc,niacinamide,2024-11-01,88
+europepmc,niacinamide,2024-12-01,67
+europepmc,niacinamide,2025-01-01,88
+europepmc,niacinamide,2025-02-01,83
+europepmc,niacinamide,2025-03-01,86
+europepmc,niacinamide,2025-04-01,74
+europepmc,niacinamide,2025-05-01,85
+europepmc,niacinamide,2025-06-01,89
+europepmc,niacinamide,2025-07-01,101
+europepmc,niacinamide,2025-08-01,81
+europepmc,niacinamide,2025-09-01,88
+europepmc,niacinamide,2025-10-01,92
+europepmc,niacinamide,2025-11-01,66
+europepmc,niacinamide,2025-12-01,86
+europepmc,niacinamide,2026-01-01,101
+europepmc,niacinamide,2026-02-01,77
+europepmc,niacinamide,2026-03-01,84
+europepmc,niacinamide,2026-04-01,72
+europepmc,niacinamide,2026-05-01,71
+europepmc,niacinamide,2026-06-01,50
+europepmc,niacinamide,2026-07-01,18
+europepmc,niacinamide,2026-08-01,10
+europepmc,panthenol,2019-01-01,6
+europepmc,panthenol,2019-02-01,3
+europepmc,panthenol,2019-03-01,3
+europepmc,panthenol,2019-04-01,4
+europepmc,panthenol,2019-05-01,6
+europepmc,panthenol,2019-06-01,3
+europepmc,panthenol,2019-07-01,1
+europepmc,panthenol,2019-08-01,1
+europepmc,panthenol,2019-09-01,3
+europepmc,panthenol,2019-10-01,3
+europepmc,panthenol,2019-11-01,4
+europepmc,panthenol,2019-12-01,4
+europepmc,panthenol,2020-01-01,4
+europepmc,panthenol,2020-02-01,7
+europepmc,panthenol,2020-03-01,2
+europepmc,panthenol,2020-04-01,1
+europepmc,panthenol,2020-05-01,8
+europepmc,panthenol,2020-06-01,4
+europepmc,panthenol,2020-07-01,7
+europepmc,panthenol,2020-08-01,6
+europepmc,panthenol,2020-09-01,3
+europepmc,panthenol,2020-10-01,10
+europepmc,panthenol,2020-11-01,3
+europepmc,panthenol,2020-12-01,4
+europepmc,panthenol,2021-01-01,5
+europepmc,panthenol,2021-02-01,3
+europepmc,panthenol,2021-03-01,5
+europepmc,panthenol,2021-04-01,8
+europepmc,panthenol,2021-05-01,6
+europepmc,panthenol,2021-06-01,5
+europepmc,panthenol,2021-07-01,4
+europepmc,panthenol,2021-08-01,7
+europepmc,panthenol,2021-09-01,4
+europepmc,panthenol,2021-10-01,9
+europepmc,panthenol,2021-11-01,9
+europepmc,panthenol,2021-12-01,3
+europepmc,panthenol,2022-01-01,10
+europepmc,panthenol,2022-02-01,10
+europepmc,panthenol,2022-03-01,9
+europepmc,panthenol,2022-04-01,4
+europepmc,panthenol,2022-05-01,7
+europepmc,panthenol,2022-06-01,8
+europepmc,panthenol,2022-07-01,5
+europepmc,panthenol,2022-08-01,6
+europepmc,panthenol,2022-09-01,12
+europepmc,panthenol,2022-10-01,7
+europepmc,panthenol,2022-11-01,11
+europepmc,panthenol,2022-12-01,8
+europepmc,panthenol,2023-01-01,15
+europepmc,panthenol,2023-02-01,7
+europepmc,panthenol,2023-03-01,12
+europepmc,panthenol,2023-04-01,11
+europepmc,panthenol,2023-05-01,8
+europepmc,panthenol,2023-06-01,8
+europepmc,panthenol,2023-07-01,9
+europepmc,panthenol,2023-08-01,7
+europepmc,panthenol,2023-09-01,7
+europepmc,panthenol,2023-10-01,13
+europepmc,panthenol,2023-11-01,12
+europepmc,panthenol,2023-12-01,7
+europepmc,panthenol,2024-01-01,11
+europepmc,panthenol,2024-02-01,12
+europepmc,panthenol,2024-03-01,12
+europepmc,panthenol,2024-04-01,11
+europepmc,panthenol,2024-05-01,15
+europepmc,panthenol,2024-06-01,12
+europepmc,panthenol,2024-07-01,15
+europepmc,panthenol,2024-08-01,7
+europepmc,panthenol,2024-09-01,20
+europepmc,panthenol,2024-10-01,11
+europepmc,panthenol,2024-11-01,9
+europepmc,panthenol,2024-12-01,13
+europepmc,panthenol,2025-01-01,17
+europepmc,panthenol,2025-02-01,11
+europepmc,panthenol,2025-03-01,14
+europepmc,panthenol,2025-04-01,14
+europepmc,panthenol,2025-05-01,13
+europepmc,panthenol,2025-06-01,7
+europepmc,panthenol,2025-07-01,24
+europepmc,panthenol,2025-08-01,22
+europepmc,panthenol,2025-09-01,18
+europepmc,panthenol,2025-10-01,10
+europepmc,panthenol,2025-11-01,10
+europepmc,panthenol,2025-12-01,15
+europepmc,panthenol,2026-01-01,17
+europepmc,panthenol,2026-02-01,19
+europepmc,panthenol,2026-03-01,16
+europepmc,panthenol,2026-04-01,10
+europepmc,panthenol,2026-05-01,13
+europepmc,panthenol,2026-06-01,11
+europepmc,panthenol,2026-07-01,3
+europepmc,panthenol,2026-08-01,1
+europepmc,polydeoxyribonucleotide,2019-01-01,2
+europepmc,polydeoxyribonucleotide,2019-02-01,0
+europepmc,polydeoxyribonucleotide,2019-03-01,1
+europepmc,polydeoxyribonucleotide,2019-04-01,3
+europepmc,polydeoxyribonucleotide,2019-05-01,1
+europepmc,polydeoxyribonucleotide,2019-06-01,0
+europepmc,polydeoxyribonucleotide,2019-07-01,2
+europepmc,polydeoxyribonucleotide,2019-08-01,2
+europepmc,polydeoxyribonucleotide,2019-09-01,2
+europepmc,polydeoxyribonucleotide,2019-10-01,3
+europepmc,polydeoxyribonucleotide,2019-11-01,1
+europepmc,polydeoxyribonucleotide,2019-12-01,1
+europepmc,polydeoxyribonucleotide,2020-01-01,3
+europepmc,polydeoxyribonucleotide,2020-02-01,4
+europepmc,polydeoxyribonucleotide,2020-03-01,4
+europepmc,polydeoxyribonucleotide,2020-04-01,1
+europepmc,polydeoxyribonucleotide,2020-05-01,5
+europepmc,polydeoxyribonucleotide,2020-06-01,1
+europepmc,polydeoxyribonucleotide,2020-07-01,3
+europepmc,polydeoxyribonucleotide,2020-08-01,2
+europepmc,polydeoxyribonucleotide,2020-09-01,5
+europepmc,polydeoxyribonucleotide,2020-10-01,6
+europepmc,polydeoxyribonucleotide,2020-11-01,3
+europepmc,polydeoxyribonucleotide,2020-12-01,4
+europepmc,polydeoxyribonucleotide,2021-01-01,2
+europepmc,polydeoxyribonucleotide,2021-02-01,1
+europepmc,polydeoxyribonucleotide,2021-03-01,4
+europepmc,polydeoxyribonucleotide,2021-04-01,0
+europepmc,polydeoxyribonucleotide,2021-05-01,6
+europepmc,polydeoxyribonucleotide,2021-06-01,6
+europepmc,polydeoxyribonucleotide,2021-07-01,7
+europepmc,polydeoxyribonucleotide,2021-08-01,1
+europepmc,polydeoxyribonucleotide,2021-09-01,1
+europepmc,polydeoxyribonucleotide,2021-10-01,3
+europepmc,polydeoxyribonucleotide,2021-11-01,6
+europepmc,polydeoxyribonucleotide,2021-12-01,2
+europepmc,polydeoxyribonucleotide,2022-01-01,3
+europepmc,polydeoxyribonucleotide,2022-02-01,6
+europepmc,polydeoxyribonucleotide,2022-03-01,4
+europepmc,polydeoxyribonucleotide,2022-04-01,3
+europepmc,polydeoxyribonucleotide,2022-05-01,6
+europepmc,polydeoxyribonucleotide,2022-06-01,2
+europepmc,polydeoxyribonucleotide,2022-07-01,2
+europepmc,polydeoxyribonucleotide,2022-08-01,9
+europepmc,polydeoxyribonucleotide,2022-09-01,2
+europepmc,polydeoxyribonucleotide,2022-10-01,5
+europepmc,polydeoxyribonucleotide,2022-11-01,8
+europepmc,polydeoxyribonucleotide,2022-12-01,4
+europepmc,polydeoxyribonucleotide,2023-01-01,2
+europepmc,polydeoxyribonucleotide,2023-02-01,5
+europepmc,polydeoxyribonucleotide,2023-03-01,3
+europepmc,polydeoxyribonucleotide,2023-04-01,7
+europepmc,polydeoxyribonucleotide,2023-05-01,6
+europepmc,polydeoxyribonucleotide,2023-06-01,5
+europepmc,polydeoxyribonucleotide,2023-07-01,4
+europepmc,polydeoxyribonucleotide,2023-08-01,4
+europepmc,polydeoxyribonucleotide,2023-09-01,8
+europepmc,polydeoxyribonucleotide,2023-10-01,8
+europepmc,polydeoxyribonucleotide,2023-11-01,2
+europepmc,polydeoxyribonucleotide,2023-12-01,7
+europepmc,polydeoxyribonucleotide,2024-01-01,4
+europepmc,polydeoxyribonucleotide,2024-02-01,3
+europepmc,polydeoxyribonucleotide,2024-03-01,4
+europepmc,polydeoxyribonucleotide,2024-04-01,9
+europepmc,polydeoxyribonucleotide,2024-05-01,4
+europepmc,polydeoxyribonucleotide,2024-06-01,3
+europepmc,polydeoxyribonucleotide,2024-07-01,9
+europepmc,polydeoxyribonucleotide,2024-08-01,9
+europepmc,polydeoxyribonucleotide,2024-09-01,3
+europepmc,polydeoxyribonucleotide,2024-10-01,3
+europepmc,polydeoxyribonucleotide,2024-11-01,4
+europepmc,polydeoxyribonucleotide,2024-12-01,5
+europepmc,polydeoxyribonucleotide,2025-01-01,9
+europepmc,polydeoxyribonucleotide,2025-02-01,8
+europepmc,polydeoxyribonucleotide,2025-03-01,3
+europepmc,polydeoxyribonucleotide,2025-04-01,5
+europepmc,polydeoxyribonucleotide,2025-05-01,7
+europepmc,polydeoxyribonucleotide,2025-06-01,7
+europepmc,polydeoxyribonucleotide,2025-07-01,7
+europepmc,polydeoxyribonucleotide,2025-08-01,11
+europepmc,polydeoxyribonucleotide,2025-09-01,11
+europepmc,polydeoxyribonucleotide,2025-10-01,6
+europepmc,polydeoxyribonucleotide,2025-11-01,13
+europepmc,polydeoxyribonucleotide,2025-12-01,20
+europepmc,polydeoxyribonucleotide,2026-01-01,13
+europepmc,polydeoxyribonucleotide,2026-02-01,9
+europepmc,polydeoxyribonucleotide,2026-03-01,11
+europepmc,polydeoxyribonucleotide,2026-04-01,5
+europepmc,polydeoxyribonucleotide,2026-05-01,11
+europepmc,polydeoxyribonucleotide,2026-06-01,11
+europepmc,polydeoxyribonucleotide,2026-07-01,6
+europepmc,polydeoxyribonucleotide,2026-08-01,4
+europepmc,retinol,2019-01-01,232
+europepmc,retinol,2019-02-01,158
+europepmc,retinol,2019-03-01,152
+europepmc,retinol,2019-04-01,153
+europepmc,retinol,2019-05-01,202
+europepmc,retinol,2019-06-01,216
+europepmc,retinol,2019-07-01,181
+europepmc,retinol,2019-08-01,177
+europepmc,retinol,2019-09-01,187
+europepmc,retinol,2019-10-01,166
+europepmc,retinol,2019-11-01,215
+europepmc,retinol,2019-12-01,225
+europepmc,retinol,2020-01-01,223
+europepmc,retinol,2020-02-01,192
+europepmc,retinol,2020-03-01,204
+europepmc,retinol,2020-04-01,217
+europepmc,retinol,2020-05-01,242
+europepmc,retinol,2020-06-01,233
+europepmc,retinol,2020-07-01,272
+europepmc,retinol,2020-08-01,231
+europepmc,retinol,2020-09-01,258
+europepmc,retinol,2020-10-01,288
+europepmc,retinol,2020-11-01,291
+europepmc,retinol,2020-12-01,248
+europepmc,retinol,2021-01-01,316
+europepmc,retinol,2021-02-01,291
+europepmc,retinol,2021-03-01,290
+europepmc,retinol,2021-04-01,285
+europepmc,retinol,2021-05-01,290
+europepmc,retinol,2021-06-01,278
+europepmc,retinol,2021-07-01,247
+europepmc,retinol,2021-08-01,285
+europepmc,retinol,2021-09-01,299
+europepmc,retinol,2021-10-01,290
+europepmc,retinol,2021-11-01,277
+europepmc,retinol,2021-12-01,294
+europepmc,retinol,2022-01-01,303
+europepmc,retinol,2022-02-01,266
+europepmc,retinol,2022-03-01,349
+europepmc,retinol,2022-04-01,323
+europepmc,retinol,2022-05-01,263
+europepmc,retinol,2022-06-01,288
+europepmc,retinol,2022-07-01,311
+europepmc,retinol,2022-08-01,334
+europepmc,retinol,2022-09-01,335
+europepmc,retinol,2022-10-01,334
+europepmc,retinol,2022-11-01,309
+europepmc,retinol,2022-12-01,295
+europepmc,retinol,2023-01-01,357
+europepmc,retinol,2023-02-01,286
+europepmc,retinol,2023-03-01,316
+europepmc,retinol,2023-04-01,314
+europepmc,retinol,2023-05-01,291
+europepmc,retinol,2023-06-01,286
+europepmc,retinol,2023-07-01,248
+europepmc,retinol,2023-08-01,289
+europepmc,retinol,2023-09-01,284
+europepmc,retinol,2023-10-01,251
+europepmc,retinol,2023-11-01,264
+europepmc,retinol,2023-12-01,259
+europepmc,retinol,2024-01-01,324
+europepmc,retinol,2024-02-01,257
+europepmc,retinol,2024-03-01,251
+europepmc,retinol,2024-04-01,300
+europepmc,retinol,2024-05-01,304
+europepmc,retinol,2024-06-01,294
+europepmc,retinol,2024-07-01,286
+europepmc,retinol,2024-08-01,298
+europepmc,retinol,2024-09-01,294
+europepmc,retinol,2024-10-01,327
+europepmc,retinol,2024-11-01,278
+europepmc,retinol,2024-12-01,295
+europepmc,retinol,2025-01-01,360
+europepmc,retinol,2025-02-01,316
+europepmc,retinol,2025-03-01,290
+europepmc,retinol,2025-04-01,336
+europepmc,retinol,2025-05-01,311
+europepmc,retinol,2025-06-01,318
+europepmc,retinol,2025-07-01,381
+europepmc,retinol,2025-08-01,315
+europepmc,retinol,2025-09-01,343
+europepmc,retinol,2025-10-01,323
+europepmc,retinol,2025-11-01,331
+europepmc,retinol,2025-12-01,331
+europepmc,retinol,2026-01-01,347
+europepmc,retinol,2026-02-01,288
+europepmc,retinol,2026-03-01,294
+europepmc,retinol,2026-04-01,272
+europepmc,retinol,2026-05-01,249
+europepmc,retinol,2026-06-01,188
+europepmc,retinol,2026-07-01,60
+europepmc,retinol,2026-08-01,25
+europepmc,salicylic acid,2019-01-01,300
+europepmc,salicylic acid,2019-02-01,276
+europepmc,salicylic acid,2019-03-01,257
+europepmc,salicylic acid,2019-04-01,262
+europepmc,salicylic acid,2019-05-01,302
+europepmc,salicylic acid,2019-06-01,235
+europepmc,salicylic acid,2019-07-01,268
+europepmc,salicylic acid,2019-08-01,265
+europepmc,salicylic acid,2019-09-01,283
+europepmc,salicylic acid,2019-10-01,325
+europepmc,salicylic acid,2019-11-01,324
+europepmc,salicylic acid,2019-12-01,317
+europepmc,salicylic acid,2020-01-01,351
+europepmc,salicylic acid,2020-02-01,316
+europepmc,salicylic acid,2020-03-01,331
+europepmc,salicylic acid,2020-04-01,323
+europepmc,salicylic acid,2020-05-01,337
+europepmc,salicylic acid,2020-06-01,348
+europepmc,salicylic acid,2020-07-01,402
+europepmc,salicylic acid,2020-08-01,383
+europepmc,salicylic acid,2020-09-01,417
+europepmc,salicylic acid,2020-10-01,397
+europepmc,salicylic acid,2020-11-01,358
+europepmc,salicylic acid,2020-12-01,374
+europepmc,salicylic acid,2021-01-01,473
+europepmc,salicylic acid,2021-02-01,444
+europepmc,salicylic acid,2021-03-01,445
+europepmc,salicylic acid,2021-04-01,463
+europepmc,salicylic acid,2021-05-01,432
+europepmc,salicylic acid,2021-06-01,473
+europepmc,salicylic acid,2021-07-01,470
+europepmc,salicylic acid,2021-08-01,477
+europepmc,salicylic acid,2021-09-01,459
+europepmc,salicylic acid,2021-10-01,476
+europepmc,salicylic acid,2021-11-01,476
+europepmc,salicylic acid,2021-12-01,496
+europepmc,salicylic acid,2022-01-01,584
+europepmc,salicylic acid,2022-02-01,475
+europepmc,salicylic acid,2022-03-01,562
+europepmc,salicylic acid,2022-04-01,507
+europepmc,salicylic acid,2022-05-01,542
+europepmc,salicylic acid,2022-06-01,561
+europepmc,salicylic acid,2022-07-01,545
+europepmc,salicylic acid,2022-08-01,579
+europepmc,salicylic acid,2022-09-01,642
+europepmc,salicylic acid,2022-10-01,659
+europepmc,salicylic acid,2022-11-01,591
+europepmc,salicylic acid,2022-12-01,675
+europepmc,salicylic acid,2023-01-01,617
+europepmc,salicylic acid,2023-02-01,557
+europepmc,salicylic acid,2023-03-01,607
+europepmc,salicylic acid,2023-04-01,502
+europepmc,salicylic acid,2023-05-01,528
+europepmc,salicylic acid,2023-06-01,514
+europepmc,salicylic acid,2023-07-01,503
+europepmc,salicylic acid,2023-08-01,482
+europepmc,salicylic acid,2023-09-01,537
+europepmc,salicylic acid,2023-10-01,485
+europepmc,salicylic acid,2023-11-01,565
+europepmc,salicylic acid,2023-12-01,481
+europepmc,salicylic acid,2024-01-01,637
+europepmc,salicylic acid,2024-02-01,507
+europepmc,salicylic acid,2024-03-01,535
+europepmc,salicylic acid,2024-04-01,496
+europepmc,salicylic acid,2024-05-01,575
+europepmc,salicylic acid,2024-06-01,494
+europepmc,salicylic acid,2024-07-01,589
+europepmc,salicylic acid,2024-08-01,529
+europepmc,salicylic acid,2024-09-01,546
+europepmc,salicylic acid,2024-10-01,550
+europepmc,salicylic acid,2024-11-01,575
+europepmc,salicylic acid,2024-12-01,563
+europepmc,salicylic acid,2025-01-01,645
+europepmc,salicylic acid,2025-02-01,601
+europepmc,salicylic acid,2025-03-01,596
+europepmc,salicylic acid,2025-04-01,575
+europepmc,salicylic acid,2025-05-01,608
+europepmc,salicylic acid,2025-06-01,577
+europepmc,salicylic acid,2025-07-01,723
+europepmc,salicylic acid,2025-08-01,652
+europepmc,salicylic acid,2025-09-01,655
+europepmc,salicylic acid,2025-10-01,640
+europepmc,salicylic acid,2025-11-01,638
+europepmc,salicylic acid,2025-12-01,661
+europepmc,salicylic acid,2026-01-01,685
+europepmc,salicylic acid,2026-02-01,540
+europepmc,salicylic acid,2026-03-01,591
+europepmc,salicylic acid,2026-04-01,574
+europepmc,salicylic acid,2026-05-01,468
+europepmc,salicylic acid,2026-06-01,387
+europepmc,salicylic acid,2026-07-01,127
+europepmc,salicylic acid,2026-08-01,57
+europepmc,tranexamic acid,2019-01-01,126
+europepmc,tranexamic acid,2019-02-01,94
+europepmc,tranexamic acid,2019-03-01,92
+europepmc,tranexamic acid,2019-04-01,90
+europepmc,tranexamic acid,2019-05-01,86
+europepmc,tranexamic acid,2019-06-01,80
+europepmc,tranexamic acid,2019-07-01,102
+europepmc,tranexamic acid,2019-08-01,99
+europepmc,tranexamic acid,2019-09-01,108
+europepmc,tranexamic acid,2019-10-01,93
+europepmc,tranexamic acid,2019-11-01,115
+europepmc,tranexamic acid,2019-12-01,115
+europepmc,tranexamic acid,2020-01-01,169
+europepmc,tranexamic acid,2020-02-01,84
+europepmc,tranexamic acid,2020-03-01,136
+europepmc,tranexamic acid,2020-04-01,134
+europepmc,tranexamic acid,2020-05-01,131
+europepmc,tranexamic acid,2020-06-01,157
+europepmc,tranexamic acid,2020-07-01,155
+europepmc,tranexamic acid,2020-08-01,150
+europepmc,tranexamic acid,2020-09-01,163
+europepmc,tranexamic acid,2020-10-01,170
+europepmc,tranexamic acid,2020-11-01,151
+europepmc,tranexamic acid,2020-12-01,141
+europepmc,tranexamic acid,2021-01-01,247
+europepmc,tranexamic acid,2021-02-01,144
+europepmc,tranexamic acid,2021-03-01,185
+europepmc,tranexamic acid,2021-04-01,163
+europepmc,tranexamic acid,2021-05-01,172
+europepmc,tranexamic acid,2021-06-01,176
+europepmc,tranexamic acid,2021-07-01,188
+europepmc,tranexamic acid,2021-08-01,177
+europepmc,tranexamic acid,2021-09-01,161
+europepmc,tranexamic acid,2021-10-01,166
+europepmc,tranexamic acid,2021-11-01,160
+europepmc,tranexamic acid,2021-12-01,150
+europepmc,tranexamic acid,2022-01-01,268
+europepmc,tranexamic acid,2022-02-01,155
+europepmc,tranexamic acid,2022-03-01,191
+europepmc,tranexamic acid,2022-04-01,146
+europepmc,tranexamic acid,2022-05-01,161
+europepmc,tranexamic acid,2022-06-01,177
+europepmc,tranexamic acid,2022-07-01,176
+europepmc,tranexamic acid,2022-08-01,182
+europepmc,tranexamic acid,2022-09-01,161
+europepmc,tranexamic acid,2022-10-01,171
+europepmc,tranexamic acid,2022-11-01,176
+europepmc,tranexamic acid,2022-12-01,166
+europepmc,tranexamic acid,2023-01-01,255
+europepmc,tranexamic acid,2023-02-01,153
+europepmc,tranexamic acid,2023-03-01,172
+europepmc,tranexamic acid,2023-04-01,175
+europepmc,tranexamic acid,2023-05-01,175
+europepmc,tranexamic acid,2023-06-01,157
+europepmc,tranexamic acid,2023-07-01,170
+europepmc,tranexamic acid,2023-08-01,179
+europepmc,tranexamic acid,2023-09-01,153
+europepmc,tranexamic acid,2023-10-01,191
+europepmc,tranexamic acid,2023-11-01,188
+europepmc,tranexamic acid,2023-12-01,170
+europepmc,tranexamic acid,2024-01-01,234
+europepmc,tranexamic acid,2024-02-01,182
+europepmc,tranexamic acid,2024-03-01,203
+europepmc,tranexamic acid,2024-04-01,190
+europepmc,tranexamic acid,2024-05-01,204
+europepmc,tranexamic acid,2024-06-01,167
+europepmc,tranexamic acid,2024-07-01,212
+europepmc,tranexamic acid,2024-08-01,184
+europepmc,tranexamic acid,2024-09-01,230
+europepmc,tranexamic acid,2024-10-01,203
+europepmc,tranexamic acid,2024-11-01,198
+europepmc,tranexamic acid,2024-12-01,216
+europepmc,tranexamic acid,2025-01-01,253
+europepmc,tranexamic acid,2025-02-01,172
+europepmc,tranexamic acid,2025-03-01,219
+europepmc,tranexamic acid,2025-04-01,230
+europepmc,tranexamic acid,2025-05-01,248
+europepmc,tranexamic acid,2025-06-01,231
+europepmc,tranexamic acid,2025-07-01,279
+europepmc,tranexamic acid,2025-08-01,212
+europepmc,tranexamic acid,2025-09-01,250
+europepmc,tranexamic acid,2025-10-01,291
+europepmc,tranexamic acid,2025-11-01,265
+europepmc,tranexamic acid,2025-12-01,256
+europepmc,tranexamic acid,2026-01-01,276
+europepmc,tranexamic acid,2026-02-01,231
+europepmc,tranexamic acid,2026-03-01,225
+europepmc,tranexamic acid,2026-04-01,227
+europepmc,tranexamic acid,2026-05-01,226
+europepmc,tranexamic acid,2026-06-01,175
+europepmc,tranexamic acid,2026-07-01,82
+europepmc,tranexamic acid,2026-08-01,29
+pubmed,adenosine,2019-01-01,1498
+pubmed,adenosine,2019-02-01,782
+pubmed,adenosine,2019-03-01,893
+pubmed,adenosine,2019-04-01,853
+pubmed,adenosine,2019-05-01,845
+pubmed,adenosine,2019-06-01,780
+pubmed,adenosine,2019-07-01,851
+pubmed,adenosine,2019-08-01,846
+pubmed,adenosine,2019-09-01,772
+pubmed,adenosine,2019-10-01,836
+pubmed,adenosine,2019-11-01,819
+pubmed,adenosine,2019-12-01,802
+pubmed,adenosine,2020-01-01,1587
+pubmed,adenosine,2020-02-01,848
+pubmed,adenosine,2020-03-01,805
+pubmed,adenosine,2020-04-01,881
+pubmed,adenosine,2020-05-01,889
+pubmed,adenosine,2020-06-01,942
+pubmed,adenosine,2020-07-01,937
+pubmed,adenosine,2020-08-01,941
+pubmed,adenosine,2020-09-01,944
+pubmed,adenosine,2020-10-01,962
+pubmed,adenosine,2020-11-01,989
+pubmed,adenosine,2020-12-01,947
+pubmed,adenosine,2021-01-01,1890
+pubmed,adenosine,2021-02-01,823
+pubmed,adenosine,2021-03-01,968
+pubmed,adenosine,2021-04-01,796
+pubmed,adenosine,2021-05-01,846
+pubmed,adenosine,2021-06-01,883
+pubmed,adenosine,2021-07-01,908
+pubmed,adenosine,2021-08-01,873
+pubmed,adenosine,2021-09-01,895
+pubmed,adenosine,2021-10-01,859
+pubmed,adenosine,2021-11-01,902
+pubmed,adenosine,2021-12-01,931
+pubmed,adenosine,2022-01-01,1991
+pubmed,adenosine,2022-02-01,836
+pubmed,adenosine,2022-03-01,941
+pubmed,adenosine,2022-04-01,884
+pubmed,adenosine,2022-05-01,936
+pubmed,adenosine,2022-06-01,944
+pubmed,adenosine,2022-07-01,995
+pubmed,adenosine,2022-08-01,1085
+pubmed,adenosine,2022-09-01,1167
+pubmed,adenosine,2022-10-01,1154
+pubmed,adenosine,2022-11-01,983
+pubmed,adenosine,2022-12-01,1015
+pubmed,adenosine,2023-01-01,1524
+pubmed,adenosine,2023-02-01,855
+pubmed,adenosine,2023-03-01,864
+pubmed,adenosine,2023-04-01,773
+pubmed,adenosine,2023-05-01,841
+pubmed,adenosine,2023-06-01,814
+pubmed,adenosine,2023-07-01,829
+pubmed,adenosine,2023-08-01,811
+pubmed,adenosine,2023-09-01,827
+pubmed,adenosine,2023-10-01,842
+pubmed,adenosine,2023-11-01,801
+pubmed,adenosine,2023-12-01,950
+pubmed,adenosine,2024-01-01,1535
+pubmed,adenosine,2024-02-01,887
+pubmed,adenosine,2024-03-01,822
+pubmed,adenosine,2024-04-01,916
+pubmed,adenosine,2024-05-01,913
+pubmed,adenosine,2024-06-01,916
+pubmed,adenosine,2024-07-01,847
+pubmed,adenosine,2024-08-01,949
+pubmed,adenosine,2024-09-01,905
+pubmed,adenosine,2024-10-01,956
+pubmed,adenosine,2024-11-01,880
+pubmed,adenosine,2024-12-01,1020
+pubmed,adenosine,2025-01-01,1554
+pubmed,adenosine,2025-02-01,928
+pubmed,adenosine,2025-03-01,931
+pubmed,adenosine,2025-04-01,949
+pubmed,adenosine,2025-05-01,965
+pubmed,adenosine,2025-06-01,931
+pubmed,adenosine,2025-07-01,951
+pubmed,adenosine,2025-08-01,916
+pubmed,adenosine,2025-09-01,896
+pubmed,adenosine,2025-10-01,968
+pubmed,adenosine,2025-11-01,993
+pubmed,adenosine,2025-12-01,1035
+pubmed,adenosine,2026-01-01,1451
+pubmed,adenosine,2026-02-01,896
+pubmed,adenosine,2026-03-01,965
+pubmed,adenosine,2026-04-01,927
+pubmed,adenosine,2026-05-01,876
+pubmed,adenosine,2026-06-01,870
+pubmed,adenosine,2026-07-01,758
+pubmed,adenosine,2026-08-01,453
+pubmed,ascorbic acid,2019-01-01,406
+pubmed,ascorbic acid,2019-02-01,218
+pubmed,ascorbic acid,2019-03-01,249
+pubmed,ascorbic acid,2019-04-01,250
+pubmed,ascorbic acid,2019-05-01,256
+pubmed,ascorbic acid,2019-06-01,227
+pubmed,ascorbic acid,2019-07-01,217
+pubmed,ascorbic acid,2019-08-01,240
+pubmed,ascorbic acid,2019-09-01,214
+pubmed,ascorbic acid,2019-10-01,219
+pubmed,ascorbic acid,2019-11-01,234
+pubmed,ascorbic acid,2019-12-01,238
+pubmed,ascorbic acid,2020-01-01,410
+pubmed,ascorbic acid,2020-02-01,257
+pubmed,ascorbic acid,2020-03-01,240
+pubmed,ascorbic acid,2020-04-01,237
+pubmed,ascorbic acid,2020-05-01,204
+pubmed,ascorbic acid,2020-06-01,248
+pubmed,ascorbic acid,2020-07-01,266
+pubmed,ascorbic acid,2020-08-01,255
+pubmed,ascorbic acid,2020-09-01,237
+pubmed,ascorbic acid,2020-10-01,227
+pubmed,ascorbic acid,2020-11-01,251
+pubmed,ascorbic acid,2020-12-01,244
+pubmed,ascorbic acid,2021-01-01,476
+pubmed,ascorbic acid,2021-02-01,266
+pubmed,ascorbic acid,2021-03-01,244
+pubmed,ascorbic acid,2021-04-01,235
+pubmed,ascorbic acid,2021-05-01,230
+pubmed,ascorbic acid,2021-06-01,231
+pubmed,ascorbic acid,2021-07-01,225
+pubmed,ascorbic acid,2021-08-01,229
+pubmed,ascorbic acid,2021-09-01,229
+pubmed,ascorbic acid,2021-10-01,231
+pubmed,ascorbic acid,2021-11-01,206
+pubmed,ascorbic acid,2021-12-01,242
+pubmed,ascorbic acid,2022-01-01,562
+pubmed,ascorbic acid,2022-02-01,238
+pubmed,ascorbic acid,2022-03-01,226
+pubmed,ascorbic acid,2022-04-01,222
+pubmed,ascorbic acid,2022-05-01,248
+pubmed,ascorbic acid,2022-06-01,212
+pubmed,ascorbic acid,2022-07-01,234
+pubmed,ascorbic acid,2022-08-01,246
+pubmed,ascorbic acid,2022-09-01,297
+pubmed,ascorbic acid,2022-10-01,260
+pubmed,ascorbic acid,2022-11-01,249
+pubmed,ascorbic acid,2022-12-01,280
+pubmed,ascorbic acid,2023-01-01,465
+pubmed,ascorbic acid,2023-02-01,254
+pubmed,ascorbic acid,2023-03-01,300
+pubmed,ascorbic acid,2023-04-01,215
+pubmed,ascorbic acid,2023-05-01,276
+pubmed,ascorbic acid,2023-06-01,261
+pubmed,ascorbic acid,2023-07-01,227
+pubmed,ascorbic acid,2023-08-01,243
+pubmed,ascorbic acid,2023-09-01,258
+pubmed,ascorbic acid,2023-10-01,243
+pubmed,ascorbic acid,2023-11-01,232
+pubmed,ascorbic acid,2023-12-01,250
+pubmed,ascorbic acid,2024-01-01,462
+pubmed,ascorbic acid,2024-02-01,224
+pubmed,ascorbic acid,2024-03-01,245
+pubmed,ascorbic acid,2024-04-01,237
+pubmed,ascorbic acid,2024-05-01,264
+pubmed,ascorbic acid,2024-06-01,265
+pubmed,ascorbic acid,2024-07-01,274
+pubmed,ascorbic acid,2024-08-01,244
+pubmed,ascorbic acid,2024-09-01,257
+pubmed,ascorbic acid,2024-10-01,268
+pubmed,ascorbic acid,2024-11-01,300
+pubmed,ascorbic acid,2024-12-01,291
+pubmed,ascorbic acid,2025-01-01,456
+pubmed,ascorbic acid,2025-02-01,259
+pubmed,ascorbic acid,2025-03-01,234
+pubmed,ascorbic acid,2025-04-01,243
+pubmed,ascorbic acid,2025-05-01,302
+pubmed,ascorbic acid,2025-06-01,257
+pubmed,ascorbic acid,2025-07-01,255
+pubmed,ascorbic acid,2025-08-01,200
+pubmed,ascorbic acid,2025-09-01,256
+pubmed,ascorbic acid,2025-10-01,268
+pubmed,ascorbic acid,2025-11-01,275
+pubmed,ascorbic acid,2025-12-01,302
+pubmed,ascorbic acid,2026-01-01,362
+pubmed,ascorbic acid,2026-02-01,236
+pubmed,ascorbic acid,2026-03-01,241
+pubmed,ascorbic acid,2026-04-01,255
+pubmed,ascorbic acid,2026-05-01,230
+pubmed,ascorbic acid,2026-06-01,263
+pubmed,ascorbic acid,2026-07-01,199
+pubmed,ascorbic acid,2026-08-01,120
+pubmed,centella asiatica,2019-01-01,11
+pubmed,centella asiatica,2019-02-01,7
+pubmed,centella asiatica,2019-03-01,9
+pubmed,centella asiatica,2019-04-01,8
+pubmed,centella asiatica,2019-05-01,10
+pubmed,centella asiatica,2019-06-01,8
+pubmed,centella asiatica,2019-07-01,7
+pubmed,centella asiatica,2019-08-01,7
+pubmed,centella asiatica,2019-09-01,6
+pubmed,centella asiatica,2019-10-01,7
+pubmed,centella asiatica,2019-11-01,6
+pubmed,centella asiatica,2019-12-01,9
+pubmed,centella asiatica,2020-01-01,30
+pubmed,centella asiatica,2020-02-01,11
+pubmed,centella asiatica,2020-03-01,7
+pubmed,centella asiatica,2020-04-01,11
+pubmed,centella asiatica,2020-05-01,11
+pubmed,centella asiatica,2020-06-01,16
+pubmed,centella asiatica,2020-07-01,12
+pubmed,centella asiatica,2020-08-01,4
+pubmed,centella asiatica,2020-09-01,12
+pubmed,centella asiatica,2020-10-01,15
+pubmed,centella asiatica,2020-11-01,12
+pubmed,centella asiatica,2020-12-01,9
+pubmed,centella asiatica,2021-01-01,36
+pubmed,centella asiatica,2021-02-01,6
+pubmed,centella asiatica,2021-03-01,11
+pubmed,centella asiatica,2021-04-01,12
+pubmed,centella asiatica,2021-05-01,5
+pubmed,centella asiatica,2021-06-01,11
+pubmed,centella asiatica,2021-07-01,9
+pubmed,centella asiatica,2021-08-01,7
+pubmed,centella asiatica,2021-09-01,9
+pubmed,centella asiatica,2021-10-01,16
+pubmed,centella asiatica,2021-11-01,13
+pubmed,centella asiatica,2021-12-01,11
+pubmed,centella asiatica,2022-01-01,31
+pubmed,centella asiatica,2022-02-01,9
+pubmed,centella asiatica,2022-03-01,13
+pubmed,centella asiatica,2022-04-01,4
+pubmed,centella asiatica,2022-05-01,11
+pubmed,centella asiatica,2022-06-01,11
+pubmed,centella asiatica,2022-07-01,5
+pubmed,centella asiatica,2022-08-01,13
+pubmed,centella asiatica,2022-09-01,14
+pubmed,centella asiatica,2022-10-01,9
+pubmed,centella asiatica,2022-11-01,14
+pubmed,centella asiatica,2022-12-01,17
+pubmed,centella asiatica,2023-01-01,24
+pubmed,centella asiatica,2023-02-01,12
+pubmed,centella asiatica,2023-03-01,10
+pubmed,centella asiatica,2023-04-01,10
+pubmed,centella asiatica,2023-05-01,9
+pubmed,centella asiatica,2023-06-01,14
+pubmed,centella asiatica,2023-07-01,12
+pubmed,centella asiatica,2023-08-01,12
+pubmed,centella asiatica,2023-09-01,13
+pubmed,centella asiatica,2023-10-01,14
+pubmed,centella asiatica,2023-11-01,10
+pubmed,centella asiatica,2023-12-01,14
+pubmed,centella asiatica,2024-01-01,45
+pubmed,centella asiatica,2024-02-01,11
+pubmed,centella asiatica,2024-03-01,12
+pubmed,centella asiatica,2024-04-01,12
+pubmed,centella asiatica,2024-05-01,10
+pubmed,centella asiatica,2024-06-01,9
+pubmed,centella asiatica,2024-07-01,15
+pubmed,centella asiatica,2024-08-01,9
+pubmed,centella asiatica,2024-09-01,19
+pubmed,centella asiatica,2024-10-01,13
+pubmed,centella asiatica,2024-11-01,12
+pubmed,centella asiatica,2024-12-01,17
+pubmed,centella asiatica,2025-01-01,40
+pubmed,centella asiatica,2025-02-01,17
+pubmed,centella asiatica,2025-03-01,5
+pubmed,centella asiatica,2025-04-01,15
+pubmed,centella asiatica,2025-05-01,18
+pubmed,centella asiatica,2025-06-01,14
+pubmed,centella asiatica,2025-07-01,24
+pubmed,centella asiatica,2025-08-01,21
+pubmed,centella asiatica,2025-09-01,27
+pubmed,centella asiatica,2025-10-01,17
+pubmed,centella asiatica,2025-11-01,17
+pubmed,centella asiatica,2025-12-01,18
+pubmed,centella asiatica,2026-01-01,32
+pubmed,centella asiatica,2026-02-01,23
+pubmed,centella asiatica,2026-03-01,12
+pubmed,centella asiatica,2026-04-01,9
+pubmed,centella asiatica,2026-05-01,13
+pubmed,centella asiatica,2026-06-01,20
+pubmed,centella asiatica,2026-07-01,19
+pubmed,centella asiatica,2026-08-01,4
+pubmed,ceramide,2019-01-01,202
+pubmed,ceramide,2019-02-01,105
+pubmed,ceramide,2019-03-01,123
+pubmed,ceramide,2019-04-01,110
+pubmed,ceramide,2019-05-01,101
+pubmed,ceramide,2019-06-01,97
+pubmed,ceramide,2019-07-01,108
+pubmed,ceramide,2019-08-01,91
+pubmed,ceramide,2019-09-01,85
+pubmed,ceramide,2019-10-01,87
+pubmed,ceramide,2019-11-01,112
+pubmed,ceramide,2019-12-01,75
+pubmed,ceramide,2020-01-01,217
+pubmed,ceramide,2020-02-01,101
+pubmed,ceramide,2020-03-01,112
+pubmed,ceramide,2020-04-01,101
+pubmed,ceramide,2020-05-01,97
+pubmed,ceramide,2020-06-01,97
+pubmed,ceramide,2020-07-01,103
+pubmed,ceramide,2020-08-01,102
+pubmed,ceramide,2020-09-01,118
+pubmed,ceramide,2020-10-01,108
+pubmed,ceramide,2020-11-01,117
+pubmed,ceramide,2020-12-01,102
+pubmed,ceramide,2021-01-01,278
+pubmed,ceramide,2021-02-01,110
+pubmed,ceramide,2021-03-01,104
+pubmed,ceramide,2021-04-01,104
+pubmed,ceramide,2021-05-01,115
+pubmed,ceramide,2021-06-01,100
+pubmed,ceramide,2021-07-01,110
+pubmed,ceramide,2021-08-01,98
+pubmed,ceramide,2021-09-01,123
+pubmed,ceramide,2021-10-01,119
+pubmed,ceramide,2021-11-01,134
+pubmed,ceramide,2021-12-01,118
+pubmed,ceramide,2022-01-01,232
+pubmed,ceramide,2022-02-01,106
+pubmed,ceramide,2022-03-01,133
+pubmed,ceramide,2022-04-01,94
+pubmed,ceramide,2022-05-01,102
+pubmed,ceramide,2022-06-01,107
+pubmed,ceramide,2022-07-01,106
+pubmed,ceramide,2022-08-01,106
+pubmed,ceramide,2022-09-01,127
+pubmed,ceramide,2022-10-01,107
+pubmed,ceramide,2022-11-01,113
+pubmed,ceramide,2022-12-01,116
+pubmed,ceramide,2023-01-01,198
+pubmed,ceramide,2023-02-01,102
+pubmed,ceramide,2023-03-01,114
+pubmed,ceramide,2023-04-01,103
+pubmed,ceramide,2023-05-01,115
+pubmed,ceramide,2023-06-01,108
+pubmed,ceramide,2023-07-01,95
+pubmed,ceramide,2023-08-01,102
+pubmed,ceramide,2023-09-01,105
+pubmed,ceramide,2023-10-01,99
+pubmed,ceramide,2023-11-01,86
+pubmed,ceramide,2023-12-01,114
+pubmed,ceramide,2024-01-01,192
+pubmed,ceramide,2024-02-01,119
+pubmed,ceramide,2024-03-01,99
+pubmed,ceramide,2024-04-01,113
+pubmed,ceramide,2024-05-01,115
+pubmed,ceramide,2024-06-01,129
+pubmed,ceramide,2024-07-01,114
+pubmed,ceramide,2024-08-01,117
+pubmed,ceramide,2024-09-01,103
+pubmed,ceramide,2024-10-01,92
+pubmed,ceramide,2024-11-01,85
+pubmed,ceramide,2024-12-01,125
+pubmed,ceramide,2025-01-01,205
+pubmed,ceramide,2025-02-01,109
+pubmed,ceramide,2025-03-01,132
+pubmed,ceramide,2025-04-01,116
+pubmed,ceramide,2025-05-01,123
+pubmed,ceramide,2025-06-01,125
+pubmed,ceramide,2025-07-01,121
+pubmed,ceramide,2025-08-01,110
+pubmed,ceramide,2025-09-01,121
+pubmed,ceramide,2025-10-01,111
+pubmed,ceramide,2025-11-01,131
+pubmed,ceramide,2025-12-01,131
+pubmed,ceramide,2026-01-01,215
+pubmed,ceramide,2026-02-01,119
+pubmed,ceramide,2026-03-01,138
+pubmed,ceramide,2026-04-01,97
+pubmed,ceramide,2026-05-01,121
+pubmed,ceramide,2026-06-01,122
+pubmed,ceramide,2026-07-01,147
+pubmed,ceramide,2026-08-01,67
+pubmed,collagen,2019-01-01,2339
+pubmed,collagen,2019-02-01,1191
+pubmed,collagen,2019-03-01,1168
+pubmed,collagen,2019-04-01,1190
+pubmed,collagen,2019-05-01,1178
+pubmed,collagen,2019-06-01,1215
+pubmed,collagen,2019-07-01,1265
+pubmed,collagen,2019-08-01,1195
+pubmed,collagen,2019-09-01,1158
+pubmed,collagen,2019-10-01,1139
+pubmed,collagen,2019-11-01,1229
+pubmed,collagen,2019-12-01,1228
+pubmed,collagen,2020-01-01,2584
+pubmed,collagen,2020-02-01,1186
+pubmed,collagen,2020-03-01,1207
+pubmed,collagen,2020-04-01,1150
+pubmed,collagen,2020-05-01,1258
+pubmed,collagen,2020-06-01,1292
+pubmed,collagen,2020-07-01,1280
+pubmed,collagen,2020-08-01,1227
+pubmed,collagen,2020-09-01,1322
+pubmed,collagen,2020-10-01,1289
+pubmed,collagen,2020-11-01,1268
+pubmed,collagen,2020-12-01,1350
+pubmed,collagen,2021-01-01,2805
+pubmed,collagen,2021-02-01,1254
+pubmed,collagen,2021-03-01,1353
+pubmed,collagen,2021-04-01,1219
+pubmed,collagen,2021-05-01,1262
+pubmed,collagen,2021-06-01,1268
+pubmed,collagen,2021-07-01,1319
+pubmed,collagen,2021-08-01,1295
+pubmed,collagen,2021-09-01,1346
+pubmed,collagen,2021-10-01,1255
+pubmed,collagen,2021-11-01,1309
+pubmed,collagen,2021-12-01,1420
+pubmed,collagen,2022-01-01,2882
+pubmed,collagen,2022-02-01,1210
+pubmed,collagen,2022-03-01,1293
+pubmed,collagen,2022-04-01,1230
+pubmed,collagen,2022-05-01,1215
+pubmed,collagen,2022-06-01,1248
+pubmed,collagen,2022-07-01,1181
+pubmed,collagen,2022-08-01,1187
+pubmed,collagen,2022-09-01,1208
+pubmed,collagen,2022-10-01,1235
+pubmed,collagen,2022-11-01,1233
+pubmed,collagen,2022-12-01,1368
+pubmed,collagen,2023-01-01,2331
+pubmed,collagen,2023-02-01,1188
+pubmed,collagen,2023-03-01,1271
+pubmed,collagen,2023-04-01,1228
+pubmed,collagen,2023-05-01,1200
+pubmed,collagen,2023-06-01,1243
+pubmed,collagen,2023-07-01,1214
+pubmed,collagen,2023-08-01,1190
+pubmed,collagen,2023-09-01,1219
+pubmed,collagen,2023-10-01,1234
+pubmed,collagen,2023-11-01,1258
+pubmed,collagen,2023-12-01,1347
+pubmed,collagen,2024-01-01,2432
+pubmed,collagen,2024-02-01,1263
+pubmed,collagen,2024-03-01,1260
+pubmed,collagen,2024-04-01,1235
+pubmed,collagen,2024-05-01,1274
+pubmed,collagen,2024-06-01,1370
+pubmed,collagen,2024-07-01,1287
+pubmed,collagen,2024-08-01,1280
+pubmed,collagen,2024-09-01,1324
+pubmed,collagen,2024-10-01,1380
+pubmed,collagen,2024-11-01,1310
+pubmed,collagen,2024-12-01,1524
+pubmed,collagen,2025-01-01,2755
+pubmed,collagen,2025-02-01,1396
+pubmed,collagen,2025-03-01,1431
+pubmed,collagen,2025-04-01,1520
+pubmed,collagen,2025-05-01,1514
+pubmed,collagen,2025-06-01,1536
+pubmed,collagen,2025-07-01,1585
+pubmed,collagen,2025-08-01,1398
+pubmed,collagen,2025-09-01,1488
+pubmed,collagen,2025-10-01,1548
+pubmed,collagen,2025-11-01,1557
+pubmed,collagen,2025-12-01,1740
+pubmed,collagen,2026-01-01,2625
+pubmed,collagen,2026-02-01,1544
+pubmed,collagen,2026-03-01,1696
+pubmed,collagen,2026-04-01,1592
+pubmed,collagen,2026-05-01,1614
+pubmed,collagen,2026-06-01,1754
+pubmed,collagen,2026-07-01,1571
+pubmed,collagen,2026-08-01,990
+pubmed,cosmetic,2019-01-01,1205
+pubmed,cosmetic,2019-02-01,638
+pubmed,cosmetic,2019-03-01,749
+pubmed,cosmetic,2019-04-01,723
+pubmed,cosmetic,2019-05-01,775
+pubmed,cosmetic,2019-06-01,774
+pubmed,cosmetic,2019-07-01,752
+pubmed,cosmetic,2019-08-01,717
+pubmed,cosmetic,2019-09-01,741
+pubmed,cosmetic,2019-10-01,693
+pubmed,cosmetic,2019-11-01,767
+pubmed,cosmetic,2019-12-01,871
+pubmed,cosmetic,2020-01-01,1319
+pubmed,cosmetic,2020-02-01,773
+pubmed,cosmetic,2020-03-01,753
+pubmed,cosmetic,2020-04-01,905
+pubmed,cosmetic,2020-05-01,783
+pubmed,cosmetic,2020-06-01,811
+pubmed,cosmetic,2020-07-01,939
+pubmed,cosmetic,2020-08-01,794
+pubmed,cosmetic,2020-09-01,889
+pubmed,cosmetic,2020-10-01,941
+pubmed,cosmetic,2020-11-01,921
+pubmed,cosmetic,2020-12-01,875
+pubmed,cosmetic,2021-01-01,1499
+pubmed,cosmetic,2021-02-01,755
+pubmed,cosmetic,2021-03-01,902
+pubmed,cosmetic,2021-04-01,856
+pubmed,cosmetic,2021-05-01,878
+pubmed,cosmetic,2021-06-01,879
+pubmed,cosmetic,2021-07-01,908
+pubmed,cosmetic,2021-08-01,912
+pubmed,cosmetic,2021-09-01,908
+pubmed,cosmetic,2021-10-01,997
+pubmed,cosmetic,2021-11-01,857
+pubmed,cosmetic,2021-12-01,924
+pubmed,cosmetic,2022-01-01,1754
+pubmed,cosmetic,2022-02-01,823
+pubmed,cosmetic,2022-03-01,992
+pubmed,cosmetic,2022-04-01,860
+pubmed,cosmetic,2022-05-01,984
+pubmed,cosmetic,2022-06-01,948
+pubmed,cosmetic,2022-07-01,867
+pubmed,cosmetic,2022-08-01,922
+pubmed,cosmetic,2022-09-01,1061
+pubmed,cosmetic,2022-10-01,928
+pubmed,cosmetic,2022-11-01,986
+pubmed,cosmetic,2022-12-01,980
+pubmed,cosmetic,2023-01-01,1568
+pubmed,cosmetic,2023-02-01,853
+pubmed,cosmetic,2023-03-01,943
+pubmed,cosmetic,2023-04-01,779
+pubmed,cosmetic,2023-05-01,817
+pubmed,cosmetic,2023-06-01,903
+pubmed,cosmetic,2023-07-01,900
+pubmed,cosmetic,2023-08-01,848
+pubmed,cosmetic,2023-09-01,880
+pubmed,cosmetic,2023-10-01,914
+pubmed,cosmetic,2023-11-01,925
+pubmed,cosmetic,2023-12-01,1051
+pubmed,cosmetic,2024-01-01,1596
+pubmed,cosmetic,2024-02-01,1009
+pubmed,cosmetic,2024-03-01,1076
+pubmed,cosmetic,2024-04-01,924
+pubmed,cosmetic,2024-05-01,1000
+pubmed,cosmetic,2024-06-01,1023
+pubmed,cosmetic,2024-07-01,1048
+pubmed,cosmetic,2024-08-01,988
+pubmed,cosmetic,2024-09-01,1048
+pubmed,cosmetic,2024-10-01,1097
+pubmed,cosmetic,2024-11-01,1072
+pubmed,cosmetic,2024-12-01,1135
+pubmed,cosmetic,2025-01-01,1879
+pubmed,cosmetic,2025-02-01,980
+pubmed,cosmetic,2025-03-01,1013
+pubmed,cosmetic,2025-04-01,977
+pubmed,cosmetic,2025-05-01,1057
+pubmed,cosmetic,2025-06-01,1034
+pubmed,cosmetic,2025-07-01,1089
+pubmed,cosmetic,2025-08-01,986
+pubmed,cosmetic,2025-09-01,1125
+pubmed,cosmetic,2025-10-01,1134
+pubmed,cosmetic,2025-11-01,1101
+pubmed,cosmetic,2025-12-01,1268
+pubmed,cosmetic,2026-01-01,1794
+pubmed,cosmetic,2026-02-01,1008
+pubmed,cosmetic,2026-03-01,995
+pubmed,cosmetic,2026-04-01,1008
+pubmed,cosmetic,2026-05-01,1004
+pubmed,cosmetic,2026-06-01,1066
+pubmed,cosmetic,2026-07-01,895
+pubmed,cosmetic,2026-08-01,539
+pubmed,ethylhexyl triazone,2019-01-01,1
+pubmed,ethylhexyl triazone,2019-02-01,0
+pubmed,ethylhexyl triazone,2019-03-01,0
+pubmed,ethylhexyl triazone,2019-04-01,0
+pubmed,ethylhexyl triazone,2019-05-01,0
+pubmed,ethylhexyl triazone,2019-06-01,0
+pubmed,ethylhexyl triazone,2019-07-01,0
+pubmed,ethylhexyl triazone,2019-08-01,0
+pubmed,ethylhexyl triazone,2019-09-01,0
+pubmed,ethylhexyl triazone,2019-10-01,1
+pubmed,ethylhexyl triazone,2019-11-01,0
+pubmed,ethylhexyl triazone,2019-12-01,1
+pubmed,ethylhexyl triazone,2020-01-01,0
+pubmed,ethylhexyl triazone,2020-02-01,1
+pubmed,ethylhexyl triazone,2020-03-01,0
+pubmed,ethylhexyl triazone,2020-04-01,2
+pubmed,ethylhexyl triazone,2020-05-01,0
+pubmed,ethylhexyl triazone,2020-06-01,0
+pubmed,ethylhexyl triazone,2020-07-01,0
+pubmed,ethylhexyl triazone,2020-08-01,0
+pubmed,ethylhexyl triazone,2020-09-01,1
+pubmed,ethylhexyl triazone,2020-10-01,1
+pubmed,ethylhexyl triazone,2020-11-01,0
+pubmed,ethylhexyl triazone,2020-12-01,0
+pubmed,ethylhexyl triazone,2021-01-01,1
+pubmed,ethylhexyl triazone,2021-02-01,1
+pubmed,ethylhexyl triazone,2021-03-01,0
+pubmed,ethylhexyl triazone,2021-04-01,2
+pubmed,ethylhexyl triazone,2021-05-01,0
+pubmed,ethylhexyl triazone,2021-06-01,0
+pubmed,ethylhexyl triazone,2021-07-01,0
+pubmed,ethylhexyl triazone,2021-08-01,0
+pubmed,ethylhexyl triazone,2021-09-01,0
+pubmed,ethylhexyl triazone,2021-10-01,0
+pubmed,ethylhexyl triazone,2021-11-01,0
+pubmed,ethylhexyl triazone,2021-12-01,0
+pubmed,ethylhexyl triazone,2022-01-01,0
+pubmed,ethylhexyl triazone,2022-02-01,0
+pubmed,ethylhexyl triazone,2022-03-01,1
+pubmed,ethylhexyl triazone,2022-04-01,1
+pubmed,ethylhexyl triazone,2022-05-01,0
+pubmed,ethylhexyl triazone,2022-06-01,0
+pubmed,ethylhexyl triazone,2022-07-01,1
+pubmed,ethylhexyl triazone,2022-08-01,0
+pubmed,ethylhexyl triazone,2022-09-01,2
+pubmed,ethylhexyl triazone,2022-10-01,1
+pubmed,ethylhexyl triazone,2022-11-01,1
+pubmed,ethylhexyl triazone,2022-12-01,1
+pubmed,ethylhexyl triazone,2023-01-01,0
+pubmed,ethylhexyl triazone,2023-02-01,0
+pubmed,ethylhexyl triazone,2023-03-01,0
+pubmed,ethylhexyl triazone,2023-04-01,0
+pubmed,ethylhexyl triazone,2023-05-01,1
+pubmed,ethylhexyl triazone,2023-06-01,0
+pubmed,ethylhexyl triazone,2023-07-01,0
+pubmed,ethylhexyl triazone,2023-08-01,1
+pubmed,ethylhexyl triazone,2023-09-01,0
+pubmed,ethylhexyl triazone,2023-10-01,0
+pubmed,ethylhexyl triazone,2023-11-01,1
+pubmed,ethylhexyl triazone,2023-12-01,1
+pubmed,ethylhexyl triazone,2024-01-01,0
+pubmed,ethylhexyl triazone,2024-02-01,0
+pubmed,ethylhexyl triazone,2024-03-01,0
+pubmed,ethylhexyl triazone,2024-04-01,1
+pubmed,ethylhexyl triazone,2024-05-01,1
+pubmed,ethylhexyl triazone,2024-06-01,1
+pubmed,ethylhexyl triazone,2024-07-01,0
+pubmed,ethylhexyl triazone,2024-08-01,0
+pubmed,ethylhexyl triazone,2024-09-01,0
+pubmed,ethylhexyl triazone,2024-10-01,1
+pubmed,ethylhexyl triazone,2024-11-01,0
+pubmed,ethylhexyl triazone,2024-12-01,1
+pubmed,ethylhexyl triazone,2025-01-01,1
+pubmed,ethylhexyl triazone,2025-02-01,1
+pubmed,ethylhexyl triazone,2025-03-01,1
+pubmed,ethylhexyl triazone,2025-04-01,0
+pubmed,ethylhexyl triazone,2025-05-01,0
+pubmed,ethylhexyl triazone,2025-06-01,0
+pubmed,ethylhexyl triazone,2025-07-01,2
+pubmed,ethylhexyl triazone,2025-08-01,0
+pubmed,ethylhexyl triazone,2025-09-01,1
+pubmed,ethylhexyl triazone,2025-10-01,1
+pubmed,ethylhexyl triazone,2025-11-01,0
+pubmed,ethylhexyl triazone,2025-12-01,1
+pubmed,ethylhexyl triazone,2026-01-01,2
+pubmed,ethylhexyl triazone,2026-02-01,2
+pubmed,ethylhexyl triazone,2026-03-01,0
+pubmed,ethylhexyl triazone,2026-04-01,1
+pubmed,ethylhexyl triazone,2026-05-01,1
+pubmed,ethylhexyl triazone,2026-06-01,0
+pubmed,ethylhexyl triazone,2026-07-01,3
+pubmed,ethylhexyl triazone,2026-08-01,1
+pubmed,hyaluronic acid,2019-01-01,409
+pubmed,hyaluronic acid,2019-02-01,224
+pubmed,hyaluronic acid,2019-03-01,210
+pubmed,hyaluronic acid,2019-04-01,218
+pubmed,hyaluronic acid,2019-05-01,260
+pubmed,hyaluronic acid,2019-06-01,237
+pubmed,hyaluronic acid,2019-07-01,217
+pubmed,hyaluronic acid,2019-08-01,220
+pubmed,hyaluronic acid,2019-09-01,208
+pubmed,hyaluronic acid,2019-10-01,213
+pubmed,hyaluronic acid,2019-11-01,222
+pubmed,hyaluronic acid,2019-12-01,209
+pubmed,hyaluronic acid,2020-01-01,428
+pubmed,hyaluronic acid,2020-02-01,253
+pubmed,hyaluronic acid,2020-03-01,235
+pubmed,hyaluronic acid,2020-04-01,250
+pubmed,hyaluronic acid,2020-05-01,230
+pubmed,hyaluronic acid,2020-06-01,260
+pubmed,hyaluronic acid,2020-07-01,265
+pubmed,hyaluronic acid,2020-08-01,227
+pubmed,hyaluronic acid,2020-09-01,257
+pubmed,hyaluronic acid,2020-10-01,264
+pubmed,hyaluronic acid,2020-11-01,214
+pubmed,hyaluronic acid,2020-12-01,266
+pubmed,hyaluronic acid,2021-01-01,483
+pubmed,hyaluronic acid,2021-02-01,279
+pubmed,hyaluronic acid,2021-03-01,287
+pubmed,hyaluronic acid,2021-04-01,271
+pubmed,hyaluronic acid,2021-05-01,282
+pubmed,hyaluronic acid,2021-06-01,255
+pubmed,hyaluronic acid,2021-07-01,287
+pubmed,hyaluronic acid,2021-08-01,262
+pubmed,hyaluronic acid,2021-09-01,295
+pubmed,hyaluronic acid,2021-10-01,276
+pubmed,hyaluronic acid,2021-11-01,240
+pubmed,hyaluronic acid,2021-12-01,328
+pubmed,hyaluronic acid,2022-01-01,503
+pubmed,hyaluronic acid,2022-02-01,250
+pubmed,hyaluronic acid,2022-03-01,272
+pubmed,hyaluronic acid,2022-04-01,278
+pubmed,hyaluronic acid,2022-05-01,289
+pubmed,hyaluronic acid,2022-06-01,285
+pubmed,hyaluronic acid,2022-07-01,289
+pubmed,hyaluronic acid,2022-08-01,270
+pubmed,hyaluronic acid,2022-09-01,303
+pubmed,hyaluronic acid,2022-10-01,275
+pubmed,hyaluronic acid,2022-11-01,320
+pubmed,hyaluronic acid,2022-12-01,327
+pubmed,hyaluronic acid,2023-01-01,471
+pubmed,hyaluronic acid,2023-02-01,260
+pubmed,hyaluronic acid,2023-03-01,291
+pubmed,hyaluronic acid,2023-04-01,264
+pubmed,hyaluronic acid,2023-05-01,255
+pubmed,hyaluronic acid,2023-06-01,303
+pubmed,hyaluronic acid,2023-07-01,325
+pubmed,hyaluronic acid,2023-08-01,306
+pubmed,hyaluronic acid,2023-09-01,286
+pubmed,hyaluronic acid,2023-10-01,314
+pubmed,hyaluronic acid,2023-11-01,300
+pubmed,hyaluronic acid,2023-12-01,332
+pubmed,hyaluronic acid,2024-01-01,505
+pubmed,hyaluronic acid,2024-02-01,325
+pubmed,hyaluronic acid,2024-03-01,314
+pubmed,hyaluronic acid,2024-04-01,323
+pubmed,hyaluronic acid,2024-05-01,319
+pubmed,hyaluronic acid,2024-06-01,362
+pubmed,hyaluronic acid,2024-07-01,375
+pubmed,hyaluronic acid,2024-08-01,318
+pubmed,hyaluronic acid,2024-09-01,377
+pubmed,hyaluronic acid,2024-10-01,373
+pubmed,hyaluronic acid,2024-11-01,417
+pubmed,hyaluronic acid,2024-12-01,453
+pubmed,hyaluronic acid,2025-01-01,693
+pubmed,hyaluronic acid,2025-02-01,387
+pubmed,hyaluronic acid,2025-03-01,392
+pubmed,hyaluronic acid,2025-04-01,443
+pubmed,hyaluronic acid,2025-05-01,420
+pubmed,hyaluronic acid,2025-06-01,439
+pubmed,hyaluronic acid,2025-07-01,401
+pubmed,hyaluronic acid,2025-08-01,368
+pubmed,hyaluronic acid,2025-09-01,437
+pubmed,hyaluronic acid,2025-10-01,436
+pubmed,hyaluronic acid,2025-11-01,427
+pubmed,hyaluronic acid,2025-12-01,494
+pubmed,hyaluronic acid,2026-01-01,646
+pubmed,hyaluronic acid,2026-02-01,432
+pubmed,hyaluronic acid,2026-03-01,449
+pubmed,hyaluronic acid,2026-04-01,431
+pubmed,hyaluronic acid,2026-05-01,400
+pubmed,hyaluronic acid,2026-06-01,441
+pubmed,hyaluronic acid,2026-07-01,387
+pubmed,hyaluronic acid,2026-08-01,236
+pubmed,madecassoside,2019-01-01,2
+pubmed,madecassoside,2019-02-01,1
+pubmed,madecassoside,2019-03-01,2
+pubmed,madecassoside,2019-04-01,4
+pubmed,madecassoside,2019-05-01,1
+pubmed,madecassoside,2019-06-01,1
+pubmed,madecassoside,2019-07-01,2
+pubmed,madecassoside,2019-08-01,3
+pubmed,madecassoside,2019-09-01,2
+pubmed,madecassoside,2019-10-01,1
+pubmed,madecassoside,2019-11-01,2
+pubmed,madecassoside,2019-12-01,5
+pubmed,madecassoside,2020-01-01,4
+pubmed,madecassoside,2020-02-01,4
+pubmed,madecassoside,2020-03-01,1
+pubmed,madecassoside,2020-04-01,1
+pubmed,madecassoside,2020-05-01,2
+pubmed,madecassoside,2020-06-01,5
+pubmed,madecassoside,2020-07-01,3
+pubmed,madecassoside,2020-08-01,1
+pubmed,madecassoside,2020-09-01,1
+pubmed,madecassoside,2020-10-01,5
+pubmed,madecassoside,2020-11-01,0
+pubmed,madecassoside,2020-12-01,2
+pubmed,madecassoside,2021-01-01,5
+pubmed,madecassoside,2021-02-01,2
+pubmed,madecassoside,2021-03-01,3
+pubmed,madecassoside,2021-04-01,1
+pubmed,madecassoside,2021-05-01,0
+pubmed,madecassoside,2021-06-01,2
+pubmed,madecassoside,2021-07-01,0
+pubmed,madecassoside,2021-08-01,0
+pubmed,madecassoside,2021-09-01,1
+pubmed,madecassoside,2021-10-01,1
+pubmed,madecassoside,2021-11-01,3
+pubmed,madecassoside,2021-12-01,1
+pubmed,madecassoside,2022-01-01,4
+pubmed,madecassoside,2022-02-01,1
+pubmed,madecassoside,2022-03-01,0
+pubmed,madecassoside,2022-04-01,0
+pubmed,madecassoside,2022-05-01,1
+pubmed,madecassoside,2022-06-01,0
+pubmed,madecassoside,2022-07-01,1
+pubmed,madecassoside,2022-08-01,1
+pubmed,madecassoside,2022-09-01,1
+pubmed,madecassoside,2022-10-01,4
+pubmed,madecassoside,2022-11-01,0
+pubmed,madecassoside,2022-12-01,3
+pubmed,madecassoside,2023-01-01,1
+pubmed,madecassoside,2023-02-01,3
+pubmed,madecassoside,2023-03-01,2
+pubmed,madecassoside,2023-04-01,1
+pubmed,madecassoside,2023-05-01,0
+pubmed,madecassoside,2023-06-01,1
+pubmed,madecassoside,2023-07-01,4
+pubmed,madecassoside,2023-08-01,3
+pubmed,madecassoside,2023-09-01,1
+pubmed,madecassoside,2023-10-01,2
+pubmed,madecassoside,2023-11-01,5
+pubmed,madecassoside,2023-12-01,2
+pubmed,madecassoside,2024-01-01,4
+pubmed,madecassoside,2024-02-01,2
+pubmed,madecassoside,2024-03-01,3
+pubmed,madecassoside,2024-04-01,6
+pubmed,madecassoside,2024-05-01,2
+pubmed,madecassoside,2024-06-01,3
+pubmed,madecassoside,2024-07-01,2
+pubmed,madecassoside,2024-08-01,2
+pubmed,madecassoside,2024-09-01,2
+pubmed,madecassoside,2024-10-01,3
+pubmed,madecassoside,2024-11-01,3
+pubmed,madecassoside,2024-12-01,1
+pubmed,madecassoside,2025-01-01,6
+pubmed,madecassoside,2025-02-01,3
+pubmed,madecassoside,2025-03-01,0
+pubmed,madecassoside,2025-04-01,4
+pubmed,madecassoside,2025-05-01,7
+pubmed,madecassoside,2025-06-01,4
+pubmed,madecassoside,2025-07-01,5
+pubmed,madecassoside,2025-08-01,10
+pubmed,madecassoside,2025-09-01,6
+pubmed,madecassoside,2025-10-01,4
+pubmed,madecassoside,2025-11-01,7
+pubmed,madecassoside,2025-12-01,4
+pubmed,madecassoside,2026-01-01,6
+pubmed,madecassoside,2026-02-01,2
+pubmed,madecassoside,2026-03-01,4
+pubmed,madecassoside,2026-04-01,2
+pubmed,madecassoside,2026-05-01,3
+pubmed,madecassoside,2026-06-01,1
+pubmed,madecassoside,2026-07-01,4
+pubmed,madecassoside,2026-08-01,2
+pubmed,niacinamide,2019-01-01,137
+pubmed,niacinamide,2019-02-01,85
+pubmed,niacinamide,2019-03-01,78
+pubmed,niacinamide,2019-04-01,74
+pubmed,niacinamide,2019-05-01,82
+pubmed,niacinamide,2019-06-01,104
+pubmed,niacinamide,2019-07-01,93
+pubmed,niacinamide,2019-08-01,90
+pubmed,niacinamide,2019-09-01,91
+pubmed,niacinamide,2019-10-01,103
+pubmed,niacinamide,2019-11-01,84
+pubmed,niacinamide,2019-12-01,96
+pubmed,niacinamide,2020-01-01,156
+pubmed,niacinamide,2020-02-01,101
+pubmed,niacinamide,2020-03-01,91
+pubmed,niacinamide,2020-04-01,96
+pubmed,niacinamide,2020-05-01,108
+pubmed,niacinamide,2020-06-01,104
+pubmed,niacinamide,2020-07-01,106
+pubmed,niacinamide,2020-08-01,116
+pubmed,niacinamide,2020-09-01,116
+pubmed,niacinamide,2020-10-01,103
+pubmed,niacinamide,2020-11-01,99
+pubmed,niacinamide,2020-12-01,105
+pubmed,niacinamide,2021-01-01,164
+pubmed,niacinamide,2021-02-01,91
+pubmed,niacinamide,2021-03-01,92
+pubmed,niacinamide,2021-04-01,96
+pubmed,niacinamide,2021-05-01,89
+pubmed,niacinamide,2021-06-01,91
+pubmed,niacinamide,2021-07-01,101
+pubmed,niacinamide,2021-08-01,81
+pubmed,niacinamide,2021-09-01,86
+pubmed,niacinamide,2021-10-01,76
+pubmed,niacinamide,2021-11-01,81
+pubmed,niacinamide,2021-12-01,84
+pubmed,niacinamide,2022-01-01,160
+pubmed,niacinamide,2022-02-01,81
+pubmed,niacinamide,2022-03-01,87
+pubmed,niacinamide,2022-04-01,81
+pubmed,niacinamide,2022-05-01,95
+pubmed,niacinamide,2022-06-01,80
+pubmed,niacinamide,2022-07-01,86
+pubmed,niacinamide,2022-08-01,108
+pubmed,niacinamide,2022-09-01,124
+pubmed,niacinamide,2022-10-01,128
+pubmed,niacinamide,2022-11-01,107
+pubmed,niacinamide,2022-12-01,85
+pubmed,niacinamide,2023-01-01,161
+pubmed,niacinamide,2023-02-01,82
+pubmed,niacinamide,2023-03-01,105
+pubmed,niacinamide,2023-04-01,90
+pubmed,niacinamide,2023-05-01,84
+pubmed,niacinamide,2023-06-01,83
+pubmed,niacinamide,2023-07-01,104
+pubmed,niacinamide,2023-08-01,82
+pubmed,niacinamide,2023-09-01,78
+pubmed,niacinamide,2023-10-01,97
+pubmed,niacinamide,2023-11-01,85
+pubmed,niacinamide,2023-12-01,102
+pubmed,niacinamide,2024-01-01,159
+pubmed,niacinamide,2024-02-01,95
+pubmed,niacinamide,2024-03-01,111
+pubmed,niacinamide,2024-04-01,77
+pubmed,niacinamide,2024-05-01,84
+pubmed,niacinamide,2024-06-01,100
+pubmed,niacinamide,2024-07-01,115
+pubmed,niacinamide,2024-08-01,102
+pubmed,niacinamide,2024-09-01,103
+pubmed,niacinamide,2024-10-01,101
+pubmed,niacinamide,2024-11-01,94
+pubmed,niacinamide,2024-12-01,104
+pubmed,niacinamide,2025-01-01,153
+pubmed,niacinamide,2025-02-01,94
+pubmed,niacinamide,2025-03-01,83
+pubmed,niacinamide,2025-04-01,84
+pubmed,niacinamide,2025-05-01,87
+pubmed,niacinamide,2025-06-01,79
+pubmed,niacinamide,2025-07-01,96
+pubmed,niacinamide,2025-08-01,77
+pubmed,niacinamide,2025-09-01,80
+pubmed,niacinamide,2025-10-01,86
+pubmed,niacinamide,2025-11-01,79
+pubmed,niacinamide,2025-12-01,91
+pubmed,niacinamide,2026-01-01,118
+pubmed,niacinamide,2026-02-01,80
+pubmed,niacinamide,2026-03-01,70
+pubmed,niacinamide,2026-04-01,83
+pubmed,niacinamide,2026-05-01,86
+pubmed,niacinamide,2026-06-01,67
+pubmed,niacinamide,2026-07-01,51
+pubmed,niacinamide,2026-08-01,36
+pubmed,panthenol,2019-01-01,3
+pubmed,panthenol,2019-02-01,5
+pubmed,panthenol,2019-03-01,2
+pubmed,panthenol,2019-04-01,5
+pubmed,panthenol,2019-05-01,2
+pubmed,panthenol,2019-06-01,2
+pubmed,panthenol,2019-07-01,1
+pubmed,panthenol,2019-08-01,3
+pubmed,panthenol,2019-09-01,4
+pubmed,panthenol,2019-10-01,1
+pubmed,panthenol,2019-11-01,2
+pubmed,panthenol,2019-12-01,3
+pubmed,panthenol,2020-01-01,3
+pubmed,panthenol,2020-02-01,3
+pubmed,panthenol,2020-03-01,0
+pubmed,panthenol,2020-04-01,2
+pubmed,panthenol,2020-05-01,6
+pubmed,panthenol,2020-06-01,2
+pubmed,panthenol,2020-07-01,3
+pubmed,panthenol,2020-08-01,5
+pubmed,panthenol,2020-09-01,4
+pubmed,panthenol,2020-10-01,4
+pubmed,panthenol,2020-11-01,6
+pubmed,panthenol,2020-12-01,3
+pubmed,panthenol,2021-01-01,10
+pubmed,panthenol,2021-02-01,3
+pubmed,panthenol,2021-03-01,3
+pubmed,panthenol,2021-04-01,6
+pubmed,panthenol,2021-05-01,5
+pubmed,panthenol,2021-06-01,0
+pubmed,panthenol,2021-07-01,0
+pubmed,panthenol,2021-08-01,3
+pubmed,panthenol,2021-09-01,4
+pubmed,panthenol,2021-10-01,4
+pubmed,panthenol,2021-11-01,3
+pubmed,panthenol,2021-12-01,3
+pubmed,panthenol,2022-01-01,11
+pubmed,panthenol,2022-02-01,3
+pubmed,panthenol,2022-03-01,2
+pubmed,panthenol,2022-04-01,2
+pubmed,panthenol,2022-05-01,4
+pubmed,panthenol,2022-06-01,4
+pubmed,panthenol,2022-07-01,5
+pubmed,panthenol,2022-08-01,4
+pubmed,panthenol,2022-09-01,10
+pubmed,panthenol,2022-10-01,2
+pubmed,panthenol,2022-11-01,5
+pubmed,panthenol,2022-12-01,3
+pubmed,panthenol,2023-01-01,10
+pubmed,panthenol,2023-02-01,3
+pubmed,panthenol,2023-03-01,4
+pubmed,panthenol,2023-04-01,5
+pubmed,panthenol,2023-05-01,2
+pubmed,panthenol,2023-06-01,3
+pubmed,panthenol,2023-07-01,1
+pubmed,panthenol,2023-08-01,6
+pubmed,panthenol,2023-09-01,3
+pubmed,panthenol,2023-10-01,8
+pubmed,panthenol,2023-11-01,7
+pubmed,panthenol,2023-12-01,4
+pubmed,panthenol,2024-01-01,8
+pubmed,panthenol,2024-02-01,5
+pubmed,panthenol,2024-03-01,5
+pubmed,panthenol,2024-04-01,3
+pubmed,panthenol,2024-05-01,4
+pubmed,panthenol,2024-06-01,2
+pubmed,panthenol,2024-07-01,5
+pubmed,panthenol,2024-08-01,6
+pubmed,panthenol,2024-09-01,9
+pubmed,panthenol,2024-10-01,2
+pubmed,panthenol,2024-11-01,3
+pubmed,panthenol,2024-12-01,7
+pubmed,panthenol,2025-01-01,10
+pubmed,panthenol,2025-02-01,4
+pubmed,panthenol,2025-03-01,6
+pubmed,panthenol,2025-04-01,2
+pubmed,panthenol,2025-05-01,3
+pubmed,panthenol,2025-06-01,5
+pubmed,panthenol,2025-07-01,8
+pubmed,panthenol,2025-08-01,2
+pubmed,panthenol,2025-09-01,4
+pubmed,panthenol,2025-10-01,1
+pubmed,panthenol,2025-11-01,3
+pubmed,panthenol,2025-12-01,3
+pubmed,panthenol,2026-01-01,5
+pubmed,panthenol,2026-02-01,4
+pubmed,panthenol,2026-03-01,4
+pubmed,panthenol,2026-04-01,9
+pubmed,panthenol,2026-05-01,7
+pubmed,panthenol,2026-06-01,10
+pubmed,panthenol,2026-07-01,7
+pubmed,panthenol,2026-08-01,4
+pubmed,polydeoxyribonucleotide,2019-01-01,7
+pubmed,polydeoxyribonucleotide,2019-02-01,2
+pubmed,polydeoxyribonucleotide,2019-03-01,3
+pubmed,polydeoxyribonucleotide,2019-04-01,4
+pubmed,polydeoxyribonucleotide,2019-05-01,3
+pubmed,polydeoxyribonucleotide,2019-06-01,1
+pubmed,polydeoxyribonucleotide,2019-07-01,6
+pubmed,polydeoxyribonucleotide,2019-08-01,6
+pubmed,polydeoxyribonucleotide,2019-09-01,5
+pubmed,polydeoxyribonucleotide,2019-10-01,8
+pubmed,polydeoxyribonucleotide,2019-11-01,8
+pubmed,polydeoxyribonucleotide,2019-12-01,4
+pubmed,polydeoxyribonucleotide,2020-01-01,8
+pubmed,polydeoxyribonucleotide,2020-02-01,3
+pubmed,polydeoxyribonucleotide,2020-03-01,9
+pubmed,polydeoxyribonucleotide,2020-04-01,5
+pubmed,polydeoxyribonucleotide,2020-05-01,5
+pubmed,polydeoxyribonucleotide,2020-06-01,5
+pubmed,polydeoxyribonucleotide,2020-07-01,4
+pubmed,polydeoxyribonucleotide,2020-08-01,9
+pubmed,polydeoxyribonucleotide,2020-09-01,6
+pubmed,polydeoxyribonucleotide,2020-10-01,4
+pubmed,polydeoxyribonucleotide,2020-11-01,13
+pubmed,polydeoxyribonucleotide,2020-12-01,6
+pubmed,polydeoxyribonucleotide,2021-01-01,11
+pubmed,polydeoxyribonucleotide,2021-02-01,11
+pubmed,polydeoxyribonucleotide,2021-03-01,7
+pubmed,polydeoxyribonucleotide,2021-04-01,4
+pubmed,polydeoxyribonucleotide,2021-05-01,8
+pubmed,polydeoxyribonucleotide,2021-06-01,6
+pubmed,polydeoxyribonucleotide,2021-07-01,6
+pubmed,polydeoxyribonucleotide,2021-08-01,5
+pubmed,polydeoxyribonucleotide,2021-09-01,4
+pubmed,polydeoxyribonucleotide,2021-10-01,6
+pubmed,polydeoxyribonucleotide,2021-11-01,3
+pubmed,polydeoxyribonucleotide,2021-12-01,5
+pubmed,polydeoxyribonucleotide,2022-01-01,12
+pubmed,polydeoxyribonucleotide,2022-02-01,7
+pubmed,polydeoxyribonucleotide,2022-03-01,6
+pubmed,polydeoxyribonucleotide,2022-04-01,6
+pubmed,polydeoxyribonucleotide,2022-05-01,3
+pubmed,polydeoxyribonucleotide,2022-06-01,2
+pubmed,polydeoxyribonucleotide,2022-07-01,2
+pubmed,polydeoxyribonucleotide,2022-08-01,9
+pubmed,polydeoxyribonucleotide,2022-09-01,2
+pubmed,polydeoxyribonucleotide,2022-10-01,3
+pubmed,polydeoxyribonucleotide,2022-11-01,10
+pubmed,polydeoxyribonucleotide,2022-12-01,5
+pubmed,polydeoxyribonucleotide,2023-01-01,6
+pubmed,polydeoxyribonucleotide,2023-02-01,2
+pubmed,polydeoxyribonucleotide,2023-03-01,6
+pubmed,polydeoxyribonucleotide,2023-04-01,7
+pubmed,polydeoxyribonucleotide,2023-05-01,7
+pubmed,polydeoxyribonucleotide,2023-06-01,5
+pubmed,polydeoxyribonucleotide,2023-07-01,7
+pubmed,polydeoxyribonucleotide,2023-08-01,7
+pubmed,polydeoxyribonucleotide,2023-09-01,5
+pubmed,polydeoxyribonucleotide,2023-10-01,5
+pubmed,polydeoxyribonucleotide,2023-11-01,4
+pubmed,polydeoxyribonucleotide,2023-12-01,8
+pubmed,polydeoxyribonucleotide,2024-01-01,5
+pubmed,polydeoxyribonucleotide,2024-02-01,3
+pubmed,polydeoxyribonucleotide,2024-03-01,4
+pubmed,polydeoxyribonucleotide,2024-04-01,5
+pubmed,polydeoxyribonucleotide,2024-05-01,2
+pubmed,polydeoxyribonucleotide,2024-06-01,4
+pubmed,polydeoxyribonucleotide,2024-07-01,7
+pubmed,polydeoxyribonucleotide,2024-08-01,4
+pubmed,polydeoxyribonucleotide,2024-09-01,5
+pubmed,polydeoxyribonucleotide,2024-10-01,9
+pubmed,polydeoxyribonucleotide,2024-11-01,6
+pubmed,polydeoxyribonucleotide,2024-12-01,6
+pubmed,polydeoxyribonucleotide,2025-01-01,13
+pubmed,polydeoxyribonucleotide,2025-02-01,8
+pubmed,polydeoxyribonucleotide,2025-03-01,6
+pubmed,polydeoxyribonucleotide,2025-04-01,7
+pubmed,polydeoxyribonucleotide,2025-05-01,6
+pubmed,polydeoxyribonucleotide,2025-06-01,7
+pubmed,polydeoxyribonucleotide,2025-07-01,9
+pubmed,polydeoxyribonucleotide,2025-08-01,13
+pubmed,polydeoxyribonucleotide,2025-09-01,6
+pubmed,polydeoxyribonucleotide,2025-10-01,6
+pubmed,polydeoxyribonucleotide,2025-11-01,7
+pubmed,polydeoxyribonucleotide,2025-12-01,13
+pubmed,polydeoxyribonucleotide,2026-01-01,18
+pubmed,polydeoxyribonucleotide,2026-02-01,8
+pubmed,polydeoxyribonucleotide,2026-03-01,6
+pubmed,polydeoxyribonucleotide,2026-04-01,10
+pubmed,polydeoxyribonucleotide,2026-05-01,7
+pubmed,polydeoxyribonucleotide,2026-06-01,8
+pubmed,polydeoxyribonucleotide,2026-07-01,6
+pubmed,polydeoxyribonucleotide,2026-08-01,6
+pubmed,retinol,2019-01-01,346
+pubmed,retinol,2019-02-01,152
+pubmed,retinol,2019-03-01,154
+pubmed,retinol,2019-04-01,172
+pubmed,retinol,2019-05-01,148
+pubmed,retinol,2019-06-01,167
+pubmed,retinol,2019-07-01,195
+pubmed,retinol,2019-08-01,148
+pubmed,retinol,2019-09-01,162
+pubmed,retinol,2019-10-01,165
+pubmed,retinol,2019-11-01,173
+pubmed,retinol,2019-12-01,176
+pubmed,retinol,2020-01-01,400
+pubmed,retinol,2020-02-01,159
+pubmed,retinol,2020-03-01,155
+pubmed,retinol,2020-04-01,169
+pubmed,retinol,2020-05-01,163
+pubmed,retinol,2020-06-01,151
+pubmed,retinol,2020-07-01,187
+pubmed,retinol,2020-08-01,141
+pubmed,retinol,2020-09-01,176
+pubmed,retinol,2020-10-01,200
+pubmed,retinol,2020-11-01,188
+pubmed,retinol,2020-12-01,167
+pubmed,retinol,2021-01-01,459
+pubmed,retinol,2021-02-01,165
+pubmed,retinol,2021-03-01,179
+pubmed,retinol,2021-04-01,173
+pubmed,retinol,2021-05-01,198
+pubmed,retinol,2021-06-01,180
+pubmed,retinol,2021-07-01,155
+pubmed,retinol,2021-08-01,175
+pubmed,retinol,2021-09-01,168
+pubmed,retinol,2021-10-01,183
+pubmed,retinol,2021-11-01,190
+pubmed,retinol,2021-12-01,172
+pubmed,retinol,2022-01-01,474
+pubmed,retinol,2022-02-01,149
+pubmed,retinol,2022-03-01,184
+pubmed,retinol,2022-04-01,152
+pubmed,retinol,2022-05-01,164
+pubmed,retinol,2022-06-01,169
+pubmed,retinol,2022-07-01,165
+pubmed,retinol,2022-08-01,205
+pubmed,retinol,2022-09-01,185
+pubmed,retinol,2022-10-01,211
+pubmed,retinol,2022-11-01,184
+pubmed,retinol,2022-12-01,220
+pubmed,retinol,2023-01-01,431
+pubmed,retinol,2023-02-01,173
+pubmed,retinol,2023-03-01,204
+pubmed,retinol,2023-04-01,182
+pubmed,retinol,2023-05-01,174
+pubmed,retinol,2023-06-01,176
+pubmed,retinol,2023-07-01,179
+pubmed,retinol,2023-08-01,190
+pubmed,retinol,2023-09-01,193
+pubmed,retinol,2023-10-01,185
+pubmed,retinol,2023-11-01,176
+pubmed,retinol,2023-12-01,205
+pubmed,retinol,2024-01-01,395
+pubmed,retinol,2024-02-01,168
+pubmed,retinol,2024-03-01,158
+pubmed,retinol,2024-04-01,163
+pubmed,retinol,2024-05-01,162
+pubmed,retinol,2024-06-01,167
+pubmed,retinol,2024-07-01,164
+pubmed,retinol,2024-08-01,158
+pubmed,retinol,2024-09-01,156
+pubmed,retinol,2024-10-01,196
+pubmed,retinol,2024-11-01,159
+pubmed,retinol,2024-12-01,206
+pubmed,retinol,2025-01-01,406
+pubmed,retinol,2025-02-01,170
+pubmed,retinol,2025-03-01,163
+pubmed,retinol,2025-04-01,149
+pubmed,retinol,2025-05-01,160
+pubmed,retinol,2025-06-01,158
+pubmed,retinol,2025-07-01,165
+pubmed,retinol,2025-08-01,160
+pubmed,retinol,2025-09-01,190
+pubmed,retinol,2025-10-01,193
+pubmed,retinol,2025-11-01,188
+pubmed,retinol,2025-12-01,178
+pubmed,retinol,2026-01-01,300
+pubmed,retinol,2026-02-01,170
+pubmed,retinol,2026-03-01,159
+pubmed,retinol,2026-04-01,166
+pubmed,retinol,2026-05-01,160
+pubmed,retinol,2026-06-01,182
+pubmed,retinol,2026-07-01,168
+pubmed,retinol,2026-08-01,96
+pubmed,salicylic acid,2019-01-01,221
+pubmed,salicylic acid,2019-02-01,105
+pubmed,salicylic acid,2019-03-01,116
+pubmed,salicylic acid,2019-04-01,88
+pubmed,salicylic acid,2019-05-01,110
+pubmed,salicylic acid,2019-06-01,84
+pubmed,salicylic acid,2019-07-01,98
+pubmed,salicylic acid,2019-08-01,101
+pubmed,salicylic acid,2019-09-01,99
+pubmed,salicylic acid,2019-10-01,94
+pubmed,salicylic acid,2019-11-01,124
+pubmed,salicylic acid,2019-12-01,105
+pubmed,salicylic acid,2020-01-01,236
+pubmed,salicylic acid,2020-02-01,114
+pubmed,salicylic acid,2020-03-01,103
+pubmed,salicylic acid,2020-04-01,110
+pubmed,salicylic acid,2020-05-01,116
+pubmed,salicylic acid,2020-06-01,116
+pubmed,salicylic acid,2020-07-01,132
+pubmed,salicylic acid,2020-08-01,123
+pubmed,salicylic acid,2020-09-01,128
+pubmed,salicylic acid,2020-10-01,121
+pubmed,salicylic acid,2020-11-01,120
+pubmed,salicylic acid,2020-12-01,107
+pubmed,salicylic acid,2021-01-01,262
+pubmed,salicylic acid,2021-02-01,130
+pubmed,salicylic acid,2021-03-01,103
+pubmed,salicylic acid,2021-04-01,111
+pubmed,salicylic acid,2021-05-01,116
+pubmed,salicylic acid,2021-06-01,114
+pubmed,salicylic acid,2021-07-01,112
+pubmed,salicylic acid,2021-08-01,115
+pubmed,salicylic acid,2021-09-01,115
+pubmed,salicylic acid,2021-10-01,125
+pubmed,salicylic acid,2021-11-01,100
+pubmed,salicylic acid,2021-12-01,125
+pubmed,salicylic acid,2022-01-01,334
+pubmed,salicylic acid,2022-02-01,105
+pubmed,salicylic acid,2022-03-01,127
+pubmed,salicylic acid,2022-04-01,117
+pubmed,salicylic acid,2022-05-01,118
+pubmed,salicylic acid,2022-06-01,129
+pubmed,salicylic acid,2022-07-01,118
+pubmed,salicylic acid,2022-08-01,130
+pubmed,salicylic acid,2022-09-01,125
+pubmed,salicylic acid,2022-10-01,129
+pubmed,salicylic acid,2022-11-01,120
+pubmed,salicylic acid,2022-12-01,134
+pubmed,salicylic acid,2023-01-01,234
+pubmed,salicylic acid,2023-02-01,114
+pubmed,salicylic acid,2023-03-01,124
+pubmed,salicylic acid,2023-04-01,109
+pubmed,salicylic acid,2023-05-01,130
+pubmed,salicylic acid,2023-06-01,109
+pubmed,salicylic acid,2023-07-01,117
+pubmed,salicylic acid,2023-08-01,120
+pubmed,salicylic acid,2023-09-01,136
+pubmed,salicylic acid,2023-10-01,107
+pubmed,salicylic acid,2023-11-01,120
+pubmed,salicylic acid,2023-12-01,113
+pubmed,salicylic acid,2024-01-01,218
+pubmed,salicylic acid,2024-02-01,110
+pubmed,salicylic acid,2024-03-01,109
+pubmed,salicylic acid,2024-04-01,100
+pubmed,salicylic acid,2024-05-01,130
+pubmed,salicylic acid,2024-06-01,110
+pubmed,salicylic acid,2024-07-01,123
+pubmed,salicylic acid,2024-08-01,120
+pubmed,salicylic acid,2024-09-01,120
+pubmed,salicylic acid,2024-10-01,134
+pubmed,salicylic acid,2024-11-01,130
+pubmed,salicylic acid,2024-12-01,147
+pubmed,salicylic acid,2025-01-01,250
+pubmed,salicylic acid,2025-02-01,131
+pubmed,salicylic acid,2025-03-01,132
+pubmed,salicylic acid,2025-04-01,127
+pubmed,salicylic acid,2025-05-01,130
+pubmed,salicylic acid,2025-06-01,112
+pubmed,salicylic acid,2025-07-01,156
+pubmed,salicylic acid,2025-08-01,127
+pubmed,salicylic acid,2025-09-01,160
+pubmed,salicylic acid,2025-10-01,140
+pubmed,salicylic acid,2025-11-01,161
+pubmed,salicylic acid,2025-12-01,189
+pubmed,salicylic acid,2026-01-01,212
+pubmed,salicylic acid,2026-02-01,128
+pubmed,salicylic acid,2026-03-01,142
+pubmed,salicylic acid,2026-04-01,147
+pubmed,salicylic acid,2026-05-01,128
+pubmed,salicylic acid,2026-06-01,178
+pubmed,salicylic acid,2026-07-01,146
+pubmed,salicylic acid,2026-08-01,82
+pubmed,tranexamic acid,2019-01-01,89
+pubmed,tranexamic acid,2019-02-01,74
+pubmed,tranexamic acid,2019-03-01,59
+pubmed,tranexamic acid,2019-04-01,57
+pubmed,tranexamic acid,2019-05-01,62
+pubmed,tranexamic acid,2019-06-01,56
+pubmed,tranexamic acid,2019-07-01,61
+pubmed,tranexamic acid,2019-08-01,52
+pubmed,tranexamic acid,2019-09-01,59
+pubmed,tranexamic acid,2019-10-01,74
+pubmed,tranexamic acid,2019-11-01,62
+pubmed,tranexamic acid,2019-12-01,69
+pubmed,tranexamic acid,2020-01-01,136
+pubmed,tranexamic acid,2020-02-01,51
+pubmed,tranexamic acid,2020-03-01,73
+pubmed,tranexamic acid,2020-04-01,76
+pubmed,tranexamic acid,2020-05-01,69
+pubmed,tranexamic acid,2020-06-01,79
+pubmed,tranexamic acid,2020-07-01,61
+pubmed,tranexamic acid,2020-08-01,70
+pubmed,tranexamic acid,2020-09-01,86
+pubmed,tranexamic acid,2020-10-01,83
+pubmed,tranexamic acid,2020-11-01,71
+pubmed,tranexamic acid,2020-12-01,84
+pubmed,tranexamic acid,2021-01-01,138
+pubmed,tranexamic acid,2021-02-01,71
+pubmed,tranexamic acid,2021-03-01,85
+pubmed,tranexamic acid,2021-04-01,75
+pubmed,tranexamic acid,2021-05-01,75
+pubmed,tranexamic acid,2021-06-01,69
+pubmed,tranexamic acid,2021-07-01,85
+pubmed,tranexamic acid,2021-08-01,78
+pubmed,tranexamic acid,2021-09-01,77
+pubmed,tranexamic acid,2021-10-01,70
+pubmed,tranexamic acid,2021-11-01,69
+pubmed,tranexamic acid,2021-12-01,76
+pubmed,tranexamic acid,2022-01-01,171
+pubmed,tranexamic acid,2022-02-01,68
+pubmed,tranexamic acid,2022-03-01,85
+pubmed,tranexamic acid,2022-04-01,86
+pubmed,tranexamic acid,2022-05-01,76
+pubmed,tranexamic acid,2022-06-01,72
+pubmed,tranexamic acid,2022-07-01,83
+pubmed,tranexamic acid,2022-08-01,83
+pubmed,tranexamic acid,2022-09-01,91
+pubmed,tranexamic acid,2022-10-01,68
+pubmed,tranexamic acid,2022-11-01,74
+pubmed,tranexamic acid,2022-12-01,85
+pubmed,tranexamic acid,2023-01-01,143
+pubmed,tranexamic acid,2023-02-01,74
+pubmed,tranexamic acid,2023-03-01,72
+pubmed,tranexamic acid,2023-04-01,73
+pubmed,tranexamic acid,2023-05-01,70
+pubmed,tranexamic acid,2023-06-01,96
+pubmed,tranexamic acid,2023-07-01,90
+pubmed,tranexamic acid,2023-08-01,83
+pubmed,tranexamic acid,2023-09-01,72
+pubmed,tranexamic acid,2023-10-01,87
+pubmed,tranexamic acid,2023-11-01,84
+pubmed,tranexamic acid,2023-12-01,96
+pubmed,tranexamic acid,2024-01-01,137
+pubmed,tranexamic acid,2024-02-01,85
+pubmed,tranexamic acid,2024-03-01,96
+pubmed,tranexamic acid,2024-04-01,86
+pubmed,tranexamic acid,2024-05-01,90
+pubmed,tranexamic acid,2024-06-01,85
+pubmed,tranexamic acid,2024-07-01,87
+pubmed,tranexamic acid,2024-08-01,83
+pubmed,tranexamic acid,2024-09-01,112
+pubmed,tranexamic acid,2024-10-01,93
+pubmed,tranexamic acid,2024-11-01,90
+pubmed,tranexamic acid,2024-12-01,89
+pubmed,tranexamic acid,2025-01-01,173
+pubmed,tranexamic acid,2025-02-01,80
+pubmed,tranexamic acid,2025-03-01,115
+pubmed,tranexamic acid,2025-04-01,77
+pubmed,tranexamic acid,2025-05-01,111
+pubmed,tranexamic acid,2025-06-01,92
+pubmed,tranexamic acid,2025-07-01,103
+pubmed,tranexamic acid,2025-08-01,89
+pubmed,tranexamic acid,2025-09-01,106
+pubmed,tranexamic acid,2025-10-01,109
+pubmed,tranexamic acid,2025-11-01,103
+pubmed,tranexamic acid,2025-12-01,103
+pubmed,tranexamic acid,2026-01-01,151
+pubmed,tranexamic acid,2026-02-01,99
+pubmed,tranexamic acid,2026-03-01,109
+pubmed,tranexamic acid,2026-04-01,97
+pubmed,tranexamic acid,2026-05-01,111
+pubmed,tranexamic acid,2026-06-01,108
+pubmed,tranexamic acid,2026-07-01,103
+pubmed,tranexamic acid,2026-08-01,48

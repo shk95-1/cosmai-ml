@@ -1,0 +1,41 @@
+# academic.paper_trend — 화장품 성분·주제별 월간 논문 수
+#
+# 소스가 다르면 세는 대상이 다르다. 절대값을 합치거나 이어붙이지 말 것.
+#   PubMed      MeSH 확장 주제매칭. 'cosmetic' 이라는 단어가 없는 논문까지 닿는다.
+#   Europe PMC  생명과학 색인. 프리프린트와 특허를 포함한다.
+# 2019-01 'cosmetic' 이 각각 1205 / 843 인 것은 이견이 아니라 두 개의 다른 질문이다.
+#
+# 최근 2~3개월은 색인 지연으로 항상 과소집계된다. 하락으로 읽지 말 것.
+# 절대 건수가 한 자릿수인 검색어(ethylhexyl triazone 등)는 배수를 쓰면 안 된다 —
+# 연 논문 두세 편 차이가 3배로 보인다.
+source,query,avg_2019,avg_recent,first_month,last_month,months,growth,ratio_usable
+europepmc,collagen,2802.83,5041.08,2019-01-01,2026-08-01,92,1.8,True
+europepmc,adenosine,1589.92,2609.58,2019-01-01,2026-08-01,92,1.64,True
+europepmc,cosmetic,704.08,1479.58,2019-01-01,2026-08-01,92,2.1,True
+europepmc,ascorbic acid,746.83,1216.58,2019-01-01,2026-08-01,92,1.63,True
+europepmc,hyaluronic acid,400.75,976.92,2019-01-01,2026-08-01,92,2.44,True
+europepmc,salicylic acid,284.50,601.17,2019-01-01,2026-08-01,92,2.11,True
+europepmc,ceramide,239.08,461.33,2019-01-01,2026-08-01,92,1.93,True
+europepmc,retinol,188.67,305.17,2019-01-01,2026-08-01,92,1.62,True
+europepmc,tranexamic acid,100.00,242.75,2019-01-01,2026-08-01,92,2.43,True
+europepmc,niacinamide,38.58,80.75,2019-01-01,2026-08-01,92,2.09,True
+europepmc,centella asiatica,14.33,52.08,2019-01-01,2026-08-01,92,3.63,True
+europepmc,panthenol,3.42,15.42,2019-01-01,2026-08-01,92,4.51,False
+europepmc,madecassoside,3.58,11.75,2019-01-01,2026-08-01,92,3.28,False
+europepmc,polydeoxyribonucleotide,1.50,10.67,2019-01-01,2026-08-01,92,7.11,False
+europepmc,ethylhexyl triazone,0.50,1.92,2019-01-01,2026-08-01,92,3.84,False
+pubmed,collagen,1291.25,1678.42,2019-01-01,2026-08-01,92,1.3,True
+pubmed,cosmetic,783.75,1131.50,2019-01-01,2026-08-01,92,1.44,True
+pubmed,adenosine,881.42,978.67,2019-01-01,2026-08-01,92,1.11,True
+pubmed,hyaluronic acid,237.25,446.83,2019-01-01,2026-08-01,92,1.88,True
+pubmed,ascorbic acid,247.33,261.92,2019-01-01,2026-08-01,92,1.06,True
+pubmed,retinol,179.83,184.25,2019-01-01,2026-08-01,92,1.02,True
+pubmed,salicylic acid,112.08,155.67,2019-01-01,2026-08-01,92,1.39,True
+pubmed,ceramide,108.00,128.08,2019-01-01,2026-08-01,92,1.19,True
+pubmed,tranexamic acid,64.50,107.33,2019-01-01,2026-08-01,92,1.66,True
+pubmed,niacinamide,93.08,84.42,2019-01-01,2026-08-01,92,0.91,True
+pubmed,centella asiatica,7.92,19.42,2019-01-01,2026-08-01,92,2.45,True
+pubmed,polydeoxyribonucleotide,4.75,9.25,2019-01-01,2026-08-01,92,1.95,False
+pubmed,panthenol,2.75,5.00,2019-01-01,2026-08-01,92,1.82,False
+pubmed,madecassoside,2.17,4.50,2019-01-01,2026-08-01,92,2.07,False
+pubmed,ethylhexyl triazone,0.25,0.92,2019-01-01,2026-08-01,92,3.68,False
