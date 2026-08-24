@@ -26,6 +26,7 @@ import os
 import sys
 import traceback
 from datetime import datetime
+from decimal import Decimal
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -296,20 +297,123 @@ SYSTEM = """당신은 COSMAI 화장품 트렌드 데이터에 답하는 도우�
 """
 
 
+# ---------------------------------------------------------------- 예산 하드스톱
+#
+# 이 앱은 tailnet 에 공개돼 있고 질문 한 번이 API 호출을 여러 번 만든다(도구 왕복마다
+# 대화 전체가 다시 올라간다). 상한이 없으면 데모 중 누가 반복 질문하는 것만으로 청구가
+# 열려 있다.
+#
+# 설계는 `cosmai` 의 analysis/polarity/pricing.py 를 그대로 따른다. 팀에 패턴이 둘이면
+# 안 되고, 그 설계가 맞다:
+#   - 차단은 호출 *전*이다. 호출 후에 세면 이미 나간 돈은 돌아오지 않는다.
+#   - reserve() 가 한 트랜잭션에서 잠그고·읽고·견적 행을 쓰고 커밋한다. 그 뒤 응답이
+#     오지 않아도(타임아웃·예외) 예약분은 원장에 남는다.
+#   - settle() 은 그 행을 실측으로 **덮어쓴다**. 새 행을 더하면 이중 계상이 된다.
+#   - 잠금이 없으면 두 요청이 같은 잔액을 읽고 둘 다 통과한다. ThreadingHTTPServer 라
+#     동시 요청이 실제로 생긴다.
+#
+# 단가는 `cosmai` analysis/polarity/pricing.py 에서 가져왔다(석현님이 2026-08-24 에
+# claude-api 스킬을 읽어 기록한 값). 내가 독립적으로 확인하지 못했으므로 새로 만들지
+# 않는다 — 팀이 서로 다른 두 숫자를 갖는 것보다 같은 숫자를 갖는 편이 낫다.
+BUDGET_USD = Decimal(os.environ.get("COSMAI_BUDGET_USD", "10.00"))
+PRICE_IN = Decimal("3.00") / 1_000_000    # claude-sonnet-5, $/토큰
+PRICE_OUT = Decimal("15.00") / 1_000_000
+PRICE_CACHE_READ = PRICE_IN / 10
+PRICE_CACHE_WRITE = PRICE_IN * Decimal("1.25")
+
+# 요청 하나의 비관적 견적. 실제로는 이보다 훨씬 싸지만, 견적이 낮으면 상한을 넘긴 뒤에야
+# 막힌다. 넘치게 잡고 settle 에서 되돌린다.
+ESTIMATE_USD = Decimal("0.15")
+
+LEDGER_DDL = """
+create schema if not exists app;
+create table if not exists app.llm_usage (
+    id            bigserial primary key,
+    called_at     timestamptz not null default now(),
+    model         text not null,
+    purpose       text not null,
+    input_tokens  int not null default 0,
+    output_tokens int not null default 0,
+    cache_read    int not null default 0,
+    cache_write   int not null default 0,
+    usd           numeric not null default 0,
+    settled       boolean not null default false
+);
+create index if not exists llm_usage_called_at_idx on app.llm_usage (called_at);
+"""
+
+LOCK_KEY = 0x0C05_A1_01   # 이 원장 전용. 다른 무엇과도 겹치지 않게 상수로 고정한다.
+
+
+class BudgetExceeded(RuntimeError):
+    """하드스톱. 이 예외가 던져진 시점에 그 호출은 아직 나가지 않았다."""
+
+
+def cost_of(input_tokens: int, output_tokens: int, cache_read: int, cache_write: int) -> Decimal:
+    return (PRICE_IN * input_tokens + PRICE_OUT * output_tokens
+            + PRICE_CACHE_READ * cache_read + PRICE_CACHE_WRITE * cache_write)
+
+
+def reserve(purpose: str) -> int:
+    """잠그고·읽고·견적을 남긴다. 상한을 넘으면 호출 전에 막는다."""
+    import psycopg
+
+    with psycopg.connect(DSN) as connection, connection.cursor() as cursor:
+        cursor.execute(LEDGER_DDL)
+        cursor.execute("select pg_advisory_xact_lock(%s)", (LOCK_KEY,))
+        cursor.execute("select coalesce(sum(usd), 0) from app.llm_usage")
+        spent = Decimal(cursor.fetchone()[0])
+        if spent + ESTIMATE_USD > BUDGET_USD:
+            raise BudgetExceeded(
+                f"예산 하드스톱: 누적 ${spent:.4f} + 견적 ${ESTIMATE_USD} > 상한 ${BUDGET_USD}. "
+                "호출하지 않았습니다. COSMAI_BUDGET_USD 로 상한을 올릴 수 있습니다.")
+        cursor.execute(
+            "insert into app.llm_usage (model, purpose, usd) values (%s, %s, %s) returning id",
+            (MODEL, purpose, ESTIMATE_USD))
+        return cursor.fetchone()[0]
+
+
+def settle(row_id: int, totals: dict[str, int]) -> None:
+    """견적 행을 실측으로 덮어쓴다. 더하지 않는다 — 더하면 이중 계상이다."""
+    import psycopg
+
+    usd = cost_of(totals["input"], totals["output"], totals["cache_read"], totals["cache_write"])
+    with psycopg.connect(DSN) as connection, connection.cursor() as cursor:
+        cursor.execute(
+            "update app.llm_usage set input_tokens = %s, output_tokens = %s,"
+            " cache_read = %s, cache_write = %s, usd = %s, settled = true where id = %s",
+            (totals["input"], totals["output"], totals["cache_read"],
+             totals["cache_write"], usd, row_id))
+
+
 def ask(question: str) -> str:
-    client = Anthropic()
-    runner = client.beta.messages.tool_runner(
-        model=MODEL,
-        max_tokens=8000,
-        system=SYSTEM,
-        thinking={"type": "adaptive"},
-        output_config={"effort": "low"},   # 도구 고르기는 어려운 판단이 아니다. 응답속도 우선.
-        tools=TOOLS,
-        messages=[{"role": "user", "content": question}],
-    )
-    last = None
-    for message in runner:
-        last = message
+    row_id = reserve("gui:ask")           # 넘치면 여기서 끝난다. API 는 아직 안 불렀다.
+    totals = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
+    try:
+        client = Anthropic()
+        runner = client.beta.messages.tool_runner(
+            model=MODEL,
+            max_tokens=8000,
+            system=SYSTEM,
+            thinking={"type": "adaptive"},
+            output_config={"effort": "low"},  # 도구 고르기는 어려운 판단이 아니다. 속도 우선.
+            tools=TOOLS,
+            messages=[{"role": "user", "content": question}],
+        )
+        last = None
+        for message in runner:
+            last = message
+            # 도구 왕복마다 대화 전체가 다시 올라가므로 usage 는 메시지마다 누적한다.
+            usage = getattr(message, "usage", None)
+            if usage is not None:
+                totals["input"] += getattr(usage, "input_tokens", 0) or 0
+                totals["output"] += getattr(usage, "output_tokens", 0) or 0
+                totals["cache_read"] += getattr(usage, "cache_read_input_tokens", 0) or 0
+                totals["cache_write"] += getattr(usage, "cache_creation_input_tokens", 0) or 0
+    finally:
+        # 예외가 나도 정산한다. 안 하면 견적이 원장에 남아 잔액을 과하게 깎는다.
+        settle(row_id, totals)
+
     if last is None:
         return "응답이 없습니다."
     return "\n".join(b.text for b in last.content if b.type == "text").strip() or "(빈 응답)"
@@ -412,8 +516,23 @@ SAMPLE_ARGS = {
 }
 
 
+def _check_budget_math() -> None:
+    """단가 계산과 하드스톱 산술. API 도 DB 도 건드리지 않는다."""
+    # 100만 입력 토큰 = $3.00, 100만 출력 = $15.00
+    assert cost_of(1_000_000, 0, 0, 0) == Decimal("3.00")
+    assert cost_of(0, 1_000_000, 0, 0) == Decimal("15.00")
+    # 캐시 읽기는 입력의 1/10, 캐시 쓰기는 1.25배
+    assert cost_of(0, 0, 1_000_000, 0) == Decimal("0.30")
+    assert cost_of(0, 0, 0, 1_000_000) == Decimal("3.75")
+    # 견적이 상한보다 크면 첫 요청부터 막혀야 한다 — 상한을 0 으로 두면 그렇게 된다
+    assert ESTIMATE_USD > 0 and BUDGET_USD > 0
+    assert Decimal("9.90") + ESTIMATE_USD > Decimal("10.00"), "상한 근처에서 막히지 않는다"
+    print(f"  예산 산술 OK   상한 ${BUDGET_USD}  요청당 견적 ${ESTIMATE_USD}")
+
+
 def _self_check() -> None:
     """도구가 실제로 도는지. Claude 는 부르지 않는다 — 토큰을 쓰지 않고 배선만 본다."""
+    _check_budget_math()
     # @beta_tool 은 함수를 BetaFunctionTool 로 감싼다 — 원래 함수는 .func, 이름은 .name.
     for tool in TOOLS:
         name = tool.name
