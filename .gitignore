@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 build/
 *.csv
+anthropic.key
+app.log
+*.log
