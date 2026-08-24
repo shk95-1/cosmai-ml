@@ -114,16 +114,37 @@ def top_products(source: str = "oliveyoung", limit: int = 15) -> str:
         source: oliveyoung, daisomall, glowpick, hwahae 중 하나.
         limit: 몇 개. 최대 40.
     """
+    want = min(limit, MAX_ROWS)
+    # distinct on 은 지금 아무것도 지우지 않는다 — 173,007행에서 완전 중복 0건을
+    # 측정했고 shk 원본도 같다. 그래도 두는 이유는 두 가지다. 하나, 같은 순위에 두
+    # 행이 생기면 limit 이 조용히 진짜 순위를 밀어낸다. 둘, 결과가 결정적이 된다.
     rows = _rows(
-        "select rank, product_name, brand, price, discount_rate, review_count,"
+        "select distinct on (rank, product_key)"
+        " rank, product_name, brand, price, discount_rate, review_count,"
         " review_rating, rank_delta, is_new, board, category_name, captured_at"
         " from rank_snapshot where source = %s and captured_at ="
         " (select max(captured_at) from rank_snapshot where source = %s)"
-        " order by rank limit %s", (source, source, min(limit, MAX_ROWS)))
-    return _pack(rows, "rank_snapshot",
-                 "hwahae 는 robots 제한으로 각 보드의 50~100행 중 약 10행만 보인다 — "
-                 "관측된 순위 분포의 꼬리가 인위적으로 짧다. "
-                 "다변형 리스팅의 순위는 리스팅의 순위이지 그 안 개별 변형의 순위가 아니다.")
+        " order by rank, product_key, captured_at desc limit %s",
+        (source, source, want))
+
+    # 관측 깊이. 얕은 스냅샷에 없는 제품을 그대로 읽으면 "이탈"이나 "급락"이 된다 —
+    # 유튜브 파트에서 채널당 상한 10편이 트렌드로 보였던 것과 같은 종류다. 걸러내는
+    # 대신 깊이를 답변에 실어, 관측하지 않은 순위를 말할 수 없게 한다.
+    depth = _rows(
+        "select max(rank) as deepest, count(distinct board) as boards"
+        " from rank_snapshot where source = %s and captured_at ="
+        " (select max(captured_at) from rank_snapshot where source = %s)",
+        (source, source))
+    deepest = (depth[0]["deepest"] if depth else None) or 0
+
+    note = ("hwahae 는 robots 제한으로 각 보드의 50~100행 중 약 10행만 보인다 — "
+            "관측된 순위 분포의 꼬리가 인위적으로 짧다. "
+            "다변형 리스팅의 순위는 리스팅의 순위이지 그 안 개별 변형의 순위가 아니다. "
+            f"이 스냅샷이 관측한 최하위 순위는 {deepest}위다.")
+    if deepest and deepest < want:
+        note += (f" 요청한 {want}위까지 관측되지 않았으므로 그 아래를 '이탈'이나 "
+                 "'순위 없음'으로 읽어서는 안 된다.")
+    return _pack(rows, "rank_snapshot", note)
 
 
 @beta_tool
