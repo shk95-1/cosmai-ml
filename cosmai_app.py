@@ -107,25 +107,42 @@ def paper_growth(source: str = "pubmed") -> str:
 
 
 @beta_tool
-def top_products(source: str = "oliveyoung", limit: int = 15) -> str:
+def top_products(source: str = "oliveyoung", board: str = "", limit: int = 15) -> str:
     """가장 최근 순위 스냅샷의 상위 제품.
+
+    한 소스는 보드를 여러 개 가진다(연령별·피부별·카테고리별·세일 등). board 를 비우면
+    여러 보드가 섞여 나오므로 "통합 N위" 가 아니다. 순위를 순위로 읽으려면 보드를 지정하라.
+    어떤 보드가 있는지는 board="?" 로 물으면 목록만 돌려준다.
 
     Args:
         source: oliveyoung, daisomall, glowpick, hwahae 중 하나.
+        board: 보드 이름. 비우면 섞인다. "?" 면 사용 가능한 보드 목록만 반환한다.
         limit: 몇 개. 최대 40.
     """
+    if board == "?":
+        rows = _rows(
+            "select board, count(distinct category_key) as categories,"
+            " max(rank) as deepest, count(*) as rows"
+            " from rank_snapshot where source = %s and captured_at ="
+            " (select max(captured_at) from rank_snapshot where source = %s)"
+            " group by board order by rows desc", (source, source))
+        return _pack(rows, "rank_snapshot",
+                     "보드마다 관측 깊이가 다르다. 보드를 지정하지 않고 뽑은 상위 N개는 "
+                     "여러 보드가 섞인 것이지 통합 순위가 아니다.")
+
     want = min(limit, MAX_ROWS)
     # distinct on 은 지금 아무것도 지우지 않는다 — 173,007행에서 완전 중복 0건을
     # 측정했고 shk 원본도 같다. 그래도 두는 이유는 두 가지다. 하나, 같은 순위에 두
     # 행이 생기면 limit 이 조용히 진짜 순위를 밀어낸다. 둘, 결과가 결정적이 된다.
+    where = " and board = %s" if board else ""
+    args: tuple = (source, source) + ((board,) if board else ())
     rows = _rows(
         "select distinct on (rank, product_key)"
         " rank, product_name, brand, price, discount_rate, review_count,"
         " review_rating, rank_delta, is_new, board, category_name, captured_at"
         " from rank_snapshot where source = %s and captured_at ="
-        " (select max(captured_at) from rank_snapshot where source = %s)"
-        " order by rank, product_key, captured_at desc limit %s",
-        (source, source, want))
+        " (select max(captured_at) from rank_snapshot where source = %s)" + where +
+        " order by rank, product_key, captured_at desc limit %s", args + (want,))
 
     # 관측 깊이. 얕은 스냅샷에 없는 제품을 그대로 읽으면 "이탈"이나 "급락"이 된다 —
     # 유튜브 파트에서 채널당 상한 10편이 트렌드로 보였던 것과 같은 종류다. 걸러내는
@@ -133,14 +150,19 @@ def top_products(source: str = "oliveyoung", limit: int = 15) -> str:
     depth = _rows(
         "select max(rank) as deepest, count(distinct board) as boards"
         " from rank_snapshot where source = %s and captured_at ="
-        " (select max(captured_at) from rank_snapshot where source = %s)",
-        (source, source))
+        " (select max(captured_at) from rank_snapshot where source = %s)" + where, args)
     deepest = (depth[0]["deepest"] if depth else None) or 0
+    boards = (depth[0]["boards"] if depth else None) or 0
 
     note = ("hwahae 는 robots 제한으로 각 보드의 50~100행 중 약 10행만 보인다 — "
             "관측된 순위 분포의 꼬리가 인위적으로 짧다. "
             "다변형 리스팅의 순위는 리스팅의 순위이지 그 안 개별 변형의 순위가 아니다. "
             f"이 스냅샷이 관측한 최하위 순위는 {deepest}위다.")
+    if not board and boards > 1:
+        note += (f" **board 를 지정하지 않아 {boards}개 보드가 섞여 있다.** 반환된 행은"
+                 " 통합 순위가 아니라 보드마다 1위부터 다시 시작하는 순위들이므로,"
+                 " 'N위' 라고 말하려면 board 를 지정해 다시 물어야 한다."
+                 ' 보드 목록은 board="?" 로 확인한다.')
     if deepest and deepest < want:
         note += (f" 요청한 {want}위까지 관측되지 않았으므로 그 아래를 '이탈'이나 "
                  "'순위 없음'으로 읽어서는 안 된다.")
@@ -381,7 +403,7 @@ class Handler(BaseHTTPRequestHandler):
 SAMPLE_ARGS = {
     "paper_trend": {"query": "retinol"},
     "paper_growth": {},
-    "top_products": {"source": "oliveyoung", "limit": 3},
+    "top_products": {"source": "oliveyoung", "board": "?", "limit": 3},
     "price_history": {"name_contains": "세럼", "days": 30},
     "new_products": {"days": 30},
     "review_topics": {"name_contains": "세럼"},
