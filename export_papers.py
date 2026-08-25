@@ -47,6 +47,16 @@ HEADER = """# academic.paper_trend — 화장품 성분·주제별 월간 논문
 # 절대 건수가 한 자릿수인 검색어(ethylhexyl triazone 등)는 배수를 쓰면 안 된다 —
 # 연 논문 두세 편 차이가 3배로 보인다.
 #
+# **검색어가 두 벌이다.** `X` 는 성분명만으로 검색한 원본이고 `X (skin)` 는
+# `AND (skin OR cosmetic OR dermatology)` 를 건 것이다. 화장품 결론에는 **(skin) 쪽만**
+# 써야 한다 — 원본은 대부분 화장품이 아닌 논문을 센다(2025 PubMed 실측: adenosine 2.7%,
+# retinol 7.0%, exosome 7.6%, collagen 17.9% 만 남는다). context_filtered 컬럼이 그 표시다.
+# 필터를 걸면 PubMed 배수 순위가 17개 중 16개 바뀌고, niacinamide 는 0.91x(감소)에서
+# 1.16x(증가)로 방향이 뒤집힌다.
+#
+# 필터는 거칠다. MeSH 가 아니라 평문 키워드라 "Cosmetics"[MeSH] 만큼 정확하지 않다.
+# 다만 모든 검색어에 같은 필터를 걸므로 검색어 간 비교는 유지된다.
+#
 # PubMed 1월은 나머지 달의 1.65~2.40배다. 측정한 10개 검색어 전부에서 예외 없이 그렇고,
 # Europe PMC 는 1.16배로 훨씬 약하다. 모든 성분이 같은 방향으로 튀므로 성분 얘기가 아니라
 # 연초 게재일 몰림에 따른 색인 아티팩트다. 연 단위 비교(paper_growth)는 1월을 양쪽이 한
@@ -83,6 +93,10 @@ def export(dsn: str, out: Path) -> None:
                     # 배수를 쓸 수 있는지 여기서 판정해 둔다. 읽는 쪽이 매번 판단하게
                     # 두면 언젠가 월 0.2편짜리 3.67배가 표에 실린다.
                     row["ratio_usable"] = bool(early and float(early) >= 5)
+                    # 화장품 맥락 필터를 건 계열인지. 성분명만으로 검색한 계열은 대부분
+                    # 화장품이 아닌 논문을 센다(2025 PubMed 실측: adenosine 2.7%,
+                    # retinol 7.0%, exosome 7.6% 만 남는다). 화장품 결론에는 True 만 쓴다.
+                    row["context_filtered"] = row["query"].endswith(" (skin)")
             write(out / name, rows, HEADER)
 
     print(f"\n[측정 아님] 소스별로 계열이 다르다. paper_growth 의 배수는 같은 source "

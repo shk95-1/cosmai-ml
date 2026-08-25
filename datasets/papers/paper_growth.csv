@@ -9,42 +9,86 @@
 # 절대 건수가 한 자릿수인 검색어(ethylhexyl triazone 등)는 배수를 쓰면 안 된다 —
 # 연 논문 두세 편 차이가 3배로 보인다.
 #
+# **검색어가 두 벌이다.** `X` 는 성분명만으로 검색한 원본이고 `X (skin)` 는
+# `AND (skin OR cosmetic OR dermatology)` 를 건 것이다. 화장품 결론에는 **(skin) 쪽만**
+# 써야 한다 — 원본은 대부분 화장품이 아닌 논문을 센다(2025 PubMed 실측: adenosine 2.7%,
+# retinol 7.0%, exosome 7.6%, collagen 17.9% 만 남는다). context_filtered 컬럼이 그 표시다.
+# 필터를 걸면 PubMed 배수 순위가 17개 중 16개 바뀌고, niacinamide 는 0.91x(감소)에서
+# 1.16x(증가)로 방향이 뒤집힌다.
+#
+# 필터는 거칠다. MeSH 가 아니라 평문 키워드라 "Cosmetics"[MeSH] 만큼 정확하지 않다.
+# 다만 모든 검색어에 같은 필터를 걸므로 검색어 간 비교는 유지된다.
+#
 # PubMed 1월은 나머지 달의 1.65~2.40배다. 측정한 10개 검색어 전부에서 예외 없이 그렇고,
 # Europe PMC 는 1.16배로 훨씬 약하다. 모든 성분이 같은 방향으로 튀므로 성분 얘기가 아니라
 # 연초 게재일 몰림에 따른 색인 아티팩트다. 연 단위 비교(paper_growth)는 1월을 양쪽이 한
 # 번씩 포함하므로 안전하고, 월별 계열(paper_trend)을 그리면 매년 1월에 봉우리가 선다.
-source,query,avg_2019,avg_recent,first_month,last_month,months,growth,ratio_usable
-europepmc,collagen,2802.83,5041.08,2019-01-01,2026-08-01,92,1.8,True
-europepmc,adenosine,1589.92,2609.58,2019-01-01,2026-08-01,92,1.64,True
-europepmc,cosmetic,704.08,1479.58,2019-01-01,2026-08-01,92,2.1,True
-europepmc,ascorbic acid,746.83,1216.58,2019-01-01,2026-08-01,92,1.63,True
-europepmc,hyaluronic acid,400.75,976.92,2019-01-01,2026-08-01,92,2.44,True
-europepmc,exosome,390.08,954.25,2019-01-01,2026-08-01,92,2.45,True
-europepmc,salicylic acid,284.50,601.17,2019-01-01,2026-08-01,92,2.11,True
-europepmc,ceramide,239.08,461.33,2019-01-01,2026-08-01,92,1.93,True
-europepmc,retinol,188.67,305.17,2019-01-01,2026-08-01,92,1.62,True
-europepmc,tranexamic acid,100.00,242.75,2019-01-01,2026-08-01,92,2.43,True
-europepmc,niacinamide,38.58,80.75,2019-01-01,2026-08-01,92,2.09,True
-europepmc,centella asiatica,14.33,52.08,2019-01-01,2026-08-01,92,3.63,True
-europepmc,retinaldehyde,23.75,26.58,2019-01-01,2026-08-01,92,1.12,True
-europepmc,panthenol,3.42,15.42,2019-01-01,2026-08-01,92,4.51,False
-europepmc,madecassoside,3.58,11.75,2019-01-01,2026-08-01,92,3.28,False
-europepmc,polydeoxyribonucleotide,1.50,10.67,2019-01-01,2026-08-01,92,7.11,False
-europepmc,ethylhexyl triazone,0.50,1.92,2019-01-01,2026-08-01,92,3.84,False
-pubmed,collagen,1291.25,1678.42,2019-01-01,2026-08-01,92,1.3,True
-pubmed,cosmetic,783.75,1131.50,2019-01-01,2026-08-01,92,1.44,True
-pubmed,adenosine,881.42,978.67,2019-01-01,2026-08-01,92,1.11,True
-pubmed,exosome,381.33,730.67,2019-01-01,2026-08-01,92,1.92,True
-pubmed,hyaluronic acid,237.25,446.83,2019-01-01,2026-08-01,92,1.88,True
-pubmed,ascorbic acid,247.33,261.92,2019-01-01,2026-08-01,92,1.06,True
-pubmed,retinol,179.83,184.25,2019-01-01,2026-08-01,92,1.02,True
-pubmed,salicylic acid,112.08,155.67,2019-01-01,2026-08-01,92,1.39,True
-pubmed,ceramide,108.00,128.08,2019-01-01,2026-08-01,92,1.19,True
-pubmed,tranexamic acid,64.50,107.33,2019-01-01,2026-08-01,92,1.66,True
-pubmed,niacinamide,93.08,84.42,2019-01-01,2026-08-01,92,0.91,True
-pubmed,centella asiatica,7.92,19.42,2019-01-01,2026-08-01,92,2.45,True
-pubmed,polydeoxyribonucleotide,4.75,9.25,2019-01-01,2026-08-01,92,1.95,False
-pubmed,retinaldehyde,9.25,6.08,2019-01-01,2026-08-01,92,0.66,True
-pubmed,panthenol,2.75,5.00,2019-01-01,2026-08-01,92,1.82,False
-pubmed,madecassoside,2.17,4.50,2019-01-01,2026-08-01,92,2.07,False
-pubmed,ethylhexyl triazone,0.25,0.92,2019-01-01,2026-08-01,92,3.68,False
+source,query,avg_2019,avg_recent,first_month,last_month,months,growth,ratio_usable,context_filtered
+europepmc,collagen,2802.83,5041.08,2019-01-01,2026-08-01,92,1.8,True,False
+europepmc,adenosine,1589.92,2609.58,2019-01-01,2026-08-01,92,1.64,True,False
+europepmc,collagen (skin),834.58,1701.50,2019-01-01,2026-08-01,92,2.04,True,True
+europepmc,cosmetic (skin),704.08,1486.42,2019-01-01,2026-08-01,92,2.11,True,True
+europepmc,cosmetic,704.08,1479.58,2019-01-01,2026-08-01,92,2.1,True,False
+europepmc,ascorbic acid,746.83,1216.58,2019-01-01,2026-08-01,92,1.63,True,False
+europepmc,hyaluronic acid,400.75,976.92,2019-01-01,2026-08-01,92,2.44,True,False
+europepmc,exosome,390.08,954.25,2019-01-01,2026-08-01,92,2.45,True,False
+europepmc,salicylic acid,284.50,601.17,2019-01-01,2026-08-01,92,2.11,True,False
+europepmc,adenosine (skin),258.25,521.83,2019-01-01,2026-08-01,92,2.02,True,True
+europepmc,ceramide,239.08,461.33,2019-01-01,2026-08-01,92,1.93,True,False
+europepmc,hyaluronic acid (skin),146.36,430.67,2019-01-01,2026-08-01,91,2.94,True,True
+europepmc,ascorbic acid (skin),162.08,326.50,2019-01-01,2026-08-01,92,2.01,True,True
+europepmc,retinol,188.67,305.17,2019-01-01,2026-08-01,92,1.62,True,False
+europepmc,tranexamic acid,100.00,242.75,2019-01-01,2026-08-01,92,2.43,True,False
+europepmc,exosome (skin),63.58,229.42,2019-01-01,2026-08-01,92,3.61,True,True
+europepmc,ceramide (skin),56.92,124.50,2019-01-01,2026-08-01,91,2.19,True,True
+europepmc,salicylic acid (skin),41.92,109.67,2019-01-01,2026-08-01,92,2.62,True,True
+europepmc,tranexamic acid (skin),25.67,83.08,2019-01-01,2026-08-01,92,3.24,True,True
+europepmc,niacinamide,38.58,80.75,2019-01-01,2026-08-01,92,2.09,True,False
+europepmc,retinol (skin),42.83,75.00,2019-01-01,2026-08-01,92,1.75,True,True
+europepmc,centella asiatica,14.33,52.08,2019-01-01,2026-08-01,92,3.63,True,False
+europepmc,niacinamide (skin),9.92,33.08,2019-01-01,2026-08-01,91,3.33,True,True
+europepmc,retinaldehyde,23.75,26.58,2019-01-01,2026-08-01,92,1.12,True,False
+europepmc,centella asiatica (skin),5.75,26.50,2019-01-01,2026-08-01,92,4.61,True,True
+europepmc,panthenol,3.42,15.42,2019-01-01,2026-08-01,92,4.51,False,False
+europepmc,madecassoside,3.58,11.75,2019-01-01,2026-08-01,92,3.28,False,False
+europepmc,polydeoxyribonucleotide,1.50,10.67,2019-01-01,2026-08-01,92,7.11,False,False
+europepmc,panthenol (skin),2.42,10.58,2019-01-01,2026-08-01,92,4.37,False,True
+europepmc,retinaldehyde (skin),7.50,9.00,2019-01-01,2026-08-01,92,1.2,True,True
+europepmc,polydeoxyribonucleotide (skin),0.75,6.83,2019-01-01,2026-08-01,92,9.11,False,True
+europepmc,madecassoside (skin),1.58,6.83,2019-01-01,2026-08-01,92,4.32,False,True
+europepmc,ethylhexyl triazone,0.50,1.92,2019-01-01,2026-08-01,92,3.84,False,False
+europepmc,ethylhexyl triazone (skin),0.50,1.50,2019-01-01,2026-08-01,92,3.0,False,True
+pubmed,collagen,1291.25,1678.42,2019-01-01,2026-08-01,92,1.3,True,False
+pubmed,cosmetic (skin),783.75,1131.75,2019-01-01,2026-08-01,92,1.44,True,True
+pubmed,cosmetic,783.75,1131.50,2019-01-01,2026-08-01,92,1.44,True,False
+pubmed,adenosine,881.42,978.67,2019-01-01,2026-08-01,92,1.11,True,False
+pubmed,exosome,381.33,730.67,2019-01-01,2026-08-01,92,1.92,True,False
+pubmed,hyaluronic acid,237.25,446.83,2019-01-01,2026-08-01,92,1.88,True,False
+pubmed,collagen (skin),175.17,298.00,2019-01-01,2026-08-01,92,1.7,True,True
+pubmed,ascorbic acid,247.33,261.92,2019-01-01,2026-08-01,92,1.06,True,False
+pubmed,retinol,179.83,184.25,2019-01-01,2026-08-01,92,1.02,True,False
+pubmed,salicylic acid,112.08,155.67,2019-01-01,2026-08-01,92,1.39,True,False
+pubmed,ceramide,108.00,128.08,2019-01-01,2026-08-01,92,1.19,True,False
+pubmed,tranexamic acid,64.50,107.33,2019-01-01,2026-08-01,92,1.66,True,False
+pubmed,hyaluronic acid (skin),45.17,99.00,2019-01-01,2026-08-01,92,2.19,True,True
+pubmed,niacinamide,93.08,84.42,2019-01-01,2026-08-01,92,0.91,True,False
+pubmed,exosome (skin),12.92,56.58,2019-01-01,2026-08-01,92,4.38,True,True
+pubmed,adenosine (skin),21.25,26.92,2019-01-01,2026-08-01,91,1.27,True,True
+pubmed,centella asiatica,7.92,19.42,2019-01-01,2026-08-01,92,2.45,True,False
+pubmed,ascorbic acid (skin),14.58,19.33,2019-01-01,2026-08-01,92,1.33,True,True
+pubmed,ceramide (skin),13.83,15.50,2019-01-01,2026-08-01,92,1.12,True,True
+pubmed,retinol (skin),15.33,15.25,2019-01-01,2026-08-01,92,0.99,True,True
+pubmed,tranexamic acid (skin),5.25,14.50,2019-01-01,2026-08-01,92,2.76,True,True
+pubmed,salicylic acid (skin),7.92,10.58,2019-01-01,2026-08-01,92,1.34,True,True
+pubmed,polydeoxyribonucleotide,4.75,9.25,2019-01-01,2026-08-01,92,1.95,False,False
+pubmed,niacinamide (skin),8.00,9.25,2019-01-01,2026-08-01,92,1.16,True,True
+pubmed,retinaldehyde,9.25,6.08,2019-01-01,2026-08-01,92,0.66,True,False
+pubmed,centella asiatica (skin),1.33,5.50,2019-01-01,2026-08-01,92,4.14,False,True
+pubmed,panthenol,2.75,5.00,2019-01-01,2026-08-01,92,1.82,False,False
+pubmed,madecassoside,2.17,4.50,2019-01-01,2026-08-01,92,2.07,False,False
+pubmed,polydeoxyribonucleotide (skin),0.58,3.42,2019-01-01,2026-08-01,92,5.9,False,True
+pubmed,panthenol (skin),1.33,2.42,2019-01-01,2026-08-01,92,1.82,False,True
+pubmed,madecassoside (skin),0.33,1.58,2019-01-01,2026-08-01,92,4.79,False,True
+pubmed,retinaldehyde (skin),1.00,1.00,2019-01-01,2026-08-01,92,1.0,False,True
+pubmed,ethylhexyl triazone,0.25,0.92,2019-01-01,2026-08-01,92,3.68,False,False
+pubmed,ethylhexyl triazone (skin),0.25,0.75,2019-01-01,2026-08-01,92,3.0,False,True

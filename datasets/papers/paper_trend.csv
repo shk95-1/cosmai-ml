@@ -9,6 +9,16 @@
 # 절대 건수가 한 자릿수인 검색어(ethylhexyl triazone 등)는 배수를 쓰면 안 된다 —
 # 연 논문 두세 편 차이가 3배로 보인다.
 #
+# **검색어가 두 벌이다.** `X` 는 성분명만으로 검색한 원본이고 `X (skin)` 는
+# `AND (skin OR cosmetic OR dermatology)` 를 건 것이다. 화장품 결론에는 **(skin) 쪽만**
+# 써야 한다 — 원본은 대부분 화장품이 아닌 논문을 센다(2025 PubMed 실측: adenosine 2.7%,
+# retinol 7.0%, exosome 7.6%, collagen 17.9% 만 남는다). context_filtered 컬럼이 그 표시다.
+# 필터를 걸면 PubMed 배수 순위가 17개 중 16개 바뀌고, niacinamide 는 0.91x(감소)에서
+# 1.16x(증가)로 방향이 뒤집힌다.
+#
+# 필터는 거칠다. MeSH 가 아니라 평문 키워드라 "Cosmetics"[MeSH] 만큼 정확하지 않다.
+# 다만 모든 검색어에 같은 필터를 걸므로 검색어 간 비교는 유지된다.
+#
 # PubMed 1월은 나머지 달의 1.65~2.40배다. 측정한 10개 검색어 전부에서 예외 없이 그렇고,
 # Europe PMC 는 1.16배로 훨씬 약하다. 모든 성분이 같은 방향으로 튀므로 성분 얘기가 아니라
 # 연초 게재일 몰림에 따른 색인 아티팩트다. 연 단위 비교(paper_growth)는 1월을 양쪽이 한
@@ -106,6 +116,98 @@ europepmc,adenosine,2026-05-01,2267
 europepmc,adenosine,2026-06-01,1639
 europepmc,adenosine,2026-07-01,566
 europepmc,adenosine,2026-08-01,235
+europepmc,adenosine (skin),2019-01-01,292
+europepmc,adenosine (skin),2019-02-01,210
+europepmc,adenosine (skin),2019-03-01,242
+europepmc,adenosine (skin),2019-04-01,254
+europepmc,adenosine (skin),2019-05-01,274
+europepmc,adenosine (skin),2019-06-01,249
+europepmc,adenosine (skin),2019-07-01,262
+europepmc,adenosine (skin),2019-08-01,249
+europepmc,adenosine (skin),2019-09-01,253
+europepmc,adenosine (skin),2019-10-01,259
+europepmc,adenosine (skin),2019-11-01,268
+europepmc,adenosine (skin),2019-12-01,287
+europepmc,adenosine (skin),2020-01-01,322
+europepmc,adenosine (skin),2020-02-01,269
+europepmc,adenosine (skin),2020-03-01,298
+europepmc,adenosine (skin),2020-04-01,306
+europepmc,adenosine (skin),2020-05-01,342
+europepmc,adenosine (skin),2020-06-01,365
+europepmc,adenosine (skin),2020-07-01,385
+europepmc,adenosine (skin),2020-08-01,353
+europepmc,adenosine (skin),2020-09-01,414
+europepmc,adenosine (skin),2020-10-01,453
+europepmc,adenosine (skin),2020-11-01,404
+europepmc,adenosine (skin),2020-12-01,404
+europepmc,adenosine (skin),2021-01-01,547
+europepmc,adenosine (skin),2021-02-01,461
+europepmc,adenosine (skin),2021-03-01,509
+europepmc,adenosine (skin),2021-04-01,449
+europepmc,adenosine (skin),2021-05-01,456
+europepmc,adenosine (skin),2021-06-01,508
+europepmc,adenosine (skin),2021-07-01,461
+europepmc,adenosine (skin),2021-08-01,398
+europepmc,adenosine (skin),2021-09-01,439
+europepmc,adenosine (skin),2021-10-01,457
+europepmc,adenosine (skin),2021-11-01,443
+europepmc,adenosine (skin),2021-12-01,469
+europepmc,adenosine (skin),2022-01-01,560
+europepmc,adenosine (skin),2022-02-01,470
+europepmc,adenosine (skin),2022-03-01,501
+europepmc,adenosine (skin),2022-04-01,467
+europepmc,adenosine (skin),2022-05-01,472
+europepmc,adenosine (skin),2022-06-01,502
+europepmc,adenosine (skin),2022-07-01,520
+europepmc,adenosine (skin),2022-08-01,542
+europepmc,adenosine (skin),2022-09-01,548
+europepmc,adenosine (skin),2022-10-01,562
+europepmc,adenosine (skin),2022-11-01,517
+europepmc,adenosine (skin),2022-12-01,581
+europepmc,adenosine (skin),2023-01-01,597
+europepmc,adenosine (skin),2023-02-01,503
+europepmc,adenosine (skin),2023-03-01,512
+europepmc,adenosine (skin),2023-04-01,464
+europepmc,adenosine (skin),2023-05-01,499
+europepmc,adenosine (skin),2023-06-01,467
+europepmc,adenosine (skin),2023-07-01,446
+europepmc,adenosine (skin),2023-08-01,455
+europepmc,adenosine (skin),2023-09-01,456
+europepmc,adenosine (skin),2023-10-01,437
+europepmc,adenosine (skin),2023-11-01,481
+europepmc,adenosine (skin),2023-12-01,442
+europepmc,adenosine (skin),2024-01-01,621
+europepmc,adenosine (skin),2024-02-01,503
+europepmc,adenosine (skin),2024-03-01,487
+europepmc,adenosine (skin),2024-04-01,468
+europepmc,adenosine (skin),2024-05-01,484
+europepmc,adenosine (skin),2024-06-01,508
+europepmc,adenosine (skin),2024-07-01,538
+europepmc,adenosine (skin),2024-08-01,482
+europepmc,adenosine (skin),2024-09-01,518
+europepmc,adenosine (skin),2024-10-01,516
+europepmc,adenosine (skin),2024-11-01,503
+europepmc,adenosine (skin),2024-12-01,490
+europepmc,adenosine (skin),2025-01-01,594
+europepmc,adenosine (skin),2025-02-01,510
+europepmc,adenosine (skin),2025-03-01,578
+europepmc,adenosine (skin),2025-04-01,562
+europepmc,adenosine (skin),2025-05-01,537
+europepmc,adenosine (skin),2025-06-01,519
+europepmc,adenosine (skin),2025-07-01,630
+europepmc,adenosine (skin),2025-08-01,529
+europepmc,adenosine (skin),2025-09-01,509
+europepmc,adenosine (skin),2025-10-01,585
+europepmc,adenosine (skin),2025-11-01,579
+europepmc,adenosine (skin),2025-12-01,551
+europepmc,adenosine (skin),2026-01-01,616
+europepmc,adenosine (skin),2026-02-01,524
+europepmc,adenosine (skin),2026-03-01,516
+europepmc,adenosine (skin),2026-04-01,515
+europepmc,adenosine (skin),2026-05-01,437
+europepmc,adenosine (skin),2026-06-01,271
+europepmc,adenosine (skin),2026-07-01,33
+europepmc,adenosine (skin),2026-08-01,12
 europepmc,ascorbic acid,2019-01-01,835
 europepmc,ascorbic acid,2019-02-01,680
 europepmc,ascorbic acid,2019-03-01,726
@@ -198,6 +300,98 @@ europepmc,ascorbic acid,2026-05-01,983
 europepmc,ascorbic acid,2026-06-01,737
 europepmc,ascorbic acid,2026-07-01,213
 europepmc,ascorbic acid,2026-08-01,98
+europepmc,ascorbic acid (skin),2019-01-01,158
+europepmc,ascorbic acid (skin),2019-02-01,161
+europepmc,ascorbic acid (skin),2019-03-01,161
+europepmc,ascorbic acid (skin),2019-04-01,148
+europepmc,ascorbic acid (skin),2019-05-01,153
+europepmc,ascorbic acid (skin),2019-06-01,146
+europepmc,ascorbic acid (skin),2019-07-01,153
+europepmc,ascorbic acid (skin),2019-08-01,145
+europepmc,ascorbic acid (skin),2019-09-01,159
+europepmc,ascorbic acid (skin),2019-10-01,182
+europepmc,ascorbic acid (skin),2019-11-01,181
+europepmc,ascorbic acid (skin),2019-12-01,198
+europepmc,ascorbic acid (skin),2020-01-01,214
+europepmc,ascorbic acid (skin),2020-02-01,175
+europepmc,ascorbic acid (skin),2020-03-01,182
+europepmc,ascorbic acid (skin),2020-04-01,180
+europepmc,ascorbic acid (skin),2020-05-01,211
+europepmc,ascorbic acid (skin),2020-06-01,255
+europepmc,ascorbic acid (skin),2020-07-01,237
+europepmc,ascorbic acid (skin),2020-08-01,244
+europepmc,ascorbic acid (skin),2020-09-01,253
+europepmc,ascorbic acid (skin),2020-10-01,287
+europepmc,ascorbic acid (skin),2020-11-01,253
+europepmc,ascorbic acid (skin),2020-12-01,232
+europepmc,ascorbic acid (skin),2021-01-01,352
+europepmc,ascorbic acid (skin),2021-02-01,263
+europepmc,ascorbic acid (skin),2021-03-01,309
+europepmc,ascorbic acid (skin),2021-04-01,278
+europepmc,ascorbic acid (skin),2021-05-01,294
+europepmc,ascorbic acid (skin),2021-06-01,306
+europepmc,ascorbic acid (skin),2021-07-01,279
+europepmc,ascorbic acid (skin),2021-08-01,262
+europepmc,ascorbic acid (skin),2021-09-01,325
+europepmc,ascorbic acid (skin),2021-10-01,311
+europepmc,ascorbic acid (skin),2021-11-01,328
+europepmc,ascorbic acid (skin),2021-12-01,295
+europepmc,ascorbic acid (skin),2022-01-01,342
+europepmc,ascorbic acid (skin),2022-02-01,297
+europepmc,ascorbic acid (skin),2022-03-01,340
+europepmc,ascorbic acid (skin),2022-04-01,302
+europepmc,ascorbic acid (skin),2022-05-01,335
+europepmc,ascorbic acid (skin),2022-06-01,322
+europepmc,ascorbic acid (skin),2022-07-01,325
+europepmc,ascorbic acid (skin),2022-08-01,349
+europepmc,ascorbic acid (skin),2022-09-01,342
+europepmc,ascorbic acid (skin),2022-10-01,344
+europepmc,ascorbic acid (skin),2022-11-01,342
+europepmc,ascorbic acid (skin),2022-12-01,434
+europepmc,ascorbic acid (skin),2023-01-01,425
+europepmc,ascorbic acid (skin),2023-02-01,335
+europepmc,ascorbic acid (skin),2023-03-01,410
+europepmc,ascorbic acid (skin),2023-04-01,314
+europepmc,ascorbic acid (skin),2023-05-01,325
+europepmc,ascorbic acid (skin),2023-06-01,311
+europepmc,ascorbic acid (skin),2023-07-01,302
+europepmc,ascorbic acid (skin),2023-08-01,294
+europepmc,ascorbic acid (skin),2023-09-01,322
+europepmc,ascorbic acid (skin),2023-10-01,304
+europepmc,ascorbic acid (skin),2023-11-01,288
+europepmc,ascorbic acid (skin),2023-12-01,262
+europepmc,ascorbic acid (skin),2024-01-01,368
+europepmc,ascorbic acid (skin),2024-02-01,293
+europepmc,ascorbic acid (skin),2024-03-01,295
+europepmc,ascorbic acid (skin),2024-04-01,318
+europepmc,ascorbic acid (skin),2024-05-01,310
+europepmc,ascorbic acid (skin),2024-06-01,310
+europepmc,ascorbic acid (skin),2024-07-01,358
+europepmc,ascorbic acid (skin),2024-08-01,310
+europepmc,ascorbic acid (skin),2024-09-01,357
+europepmc,ascorbic acid (skin),2024-10-01,325
+europepmc,ascorbic acid (skin),2024-11-01,361
+europepmc,ascorbic acid (skin),2024-12-01,317
+europepmc,ascorbic acid (skin),2025-01-01,399
+europepmc,ascorbic acid (skin),2025-02-01,312
+europepmc,ascorbic acid (skin),2025-03-01,354
+europepmc,ascorbic acid (skin),2025-04-01,350
+europepmc,ascorbic acid (skin),2025-05-01,373
+europepmc,ascorbic acid (skin),2025-06-01,315
+europepmc,ascorbic acid (skin),2025-07-01,410
+europepmc,ascorbic acid (skin),2025-08-01,334
+europepmc,ascorbic acid (skin),2025-09-01,374
+europepmc,ascorbic acid (skin),2025-10-01,384
+europepmc,ascorbic acid (skin),2025-11-01,369
+europepmc,ascorbic acid (skin),2025-12-01,344
+europepmc,ascorbic acid (skin),2026-01-01,358
+europepmc,ascorbic acid (skin),2026-02-01,321
+europepmc,ascorbic acid (skin),2026-03-01,300
+europepmc,ascorbic acid (skin),2026-04-01,313
+europepmc,ascorbic acid (skin),2026-05-01,251
+europepmc,ascorbic acid (skin),2026-06-01,160
+europepmc,ascorbic acid (skin),2026-07-01,23
+europepmc,ascorbic acid (skin),2026-08-01,1
 europepmc,centella asiatica,2019-01-01,21
 europepmc,centella asiatica,2019-02-01,8
 europepmc,centella asiatica,2019-03-01,16
@@ -290,6 +484,98 @@ europepmc,centella asiatica,2026-05-01,39
 europepmc,centella asiatica,2026-06-01,35
 europepmc,centella asiatica,2026-07-01,14
 europepmc,centella asiatica,2026-08-01,2
+europepmc,centella asiatica (skin),2019-01-01,10
+europepmc,centella asiatica (skin),2019-02-01,2
+europepmc,centella asiatica (skin),2019-03-01,5
+europepmc,centella asiatica (skin),2019-04-01,3
+europepmc,centella asiatica (skin),2019-05-01,9
+europepmc,centella asiatica (skin),2019-06-01,6
+europepmc,centella asiatica (skin),2019-07-01,9
+europepmc,centella asiatica (skin),2019-08-01,4
+europepmc,centella asiatica (skin),2019-09-01,6
+europepmc,centella asiatica (skin),2019-10-01,3
+europepmc,centella asiatica (skin),2019-11-01,8
+europepmc,centella asiatica (skin),2019-12-01,4
+europepmc,centella asiatica (skin),2020-01-01,12
+europepmc,centella asiatica (skin),2020-02-01,5
+europepmc,centella asiatica (skin),2020-03-01,12
+europepmc,centella asiatica (skin),2020-04-01,8
+europepmc,centella asiatica (skin),2020-05-01,12
+europepmc,centella asiatica (skin),2020-06-01,13
+europepmc,centella asiatica (skin),2020-07-01,9
+europepmc,centella asiatica (skin),2020-08-01,9
+europepmc,centella asiatica (skin),2020-09-01,13
+europepmc,centella asiatica (skin),2020-10-01,15
+europepmc,centella asiatica (skin),2020-11-01,12
+europepmc,centella asiatica (skin),2020-12-01,8
+europepmc,centella asiatica (skin),2021-01-01,21
+europepmc,centella asiatica (skin),2021-02-01,15
+europepmc,centella asiatica (skin),2021-03-01,11
+europepmc,centella asiatica (skin),2021-04-01,11
+europepmc,centella asiatica (skin),2021-05-01,14
+europepmc,centella asiatica (skin),2021-06-01,18
+europepmc,centella asiatica (skin),2021-07-01,19
+europepmc,centella asiatica (skin),2021-08-01,15
+europepmc,centella asiatica (skin),2021-09-01,20
+europepmc,centella asiatica (skin),2021-10-01,19
+europepmc,centella asiatica (skin),2021-11-01,20
+europepmc,centella asiatica (skin),2021-12-01,19
+europepmc,centella asiatica (skin),2022-01-01,22
+europepmc,centella asiatica (skin),2022-02-01,14
+europepmc,centella asiatica (skin),2022-03-01,12
+europepmc,centella asiatica (skin),2022-04-01,15
+europepmc,centella asiatica (skin),2022-05-01,26
+europepmc,centella asiatica (skin),2022-06-01,16
+europepmc,centella asiatica (skin),2022-07-01,9
+europepmc,centella asiatica (skin),2022-08-01,17
+europepmc,centella asiatica (skin),2022-09-01,16
+europepmc,centella asiatica (skin),2022-10-01,14
+europepmc,centella asiatica (skin),2022-11-01,20
+europepmc,centella asiatica (skin),2022-12-01,18
+europepmc,centella asiatica (skin),2023-01-01,21
+europepmc,centella asiatica (skin),2023-02-01,30
+europepmc,centella asiatica (skin),2023-03-01,21
+europepmc,centella asiatica (skin),2023-04-01,21
+europepmc,centella asiatica (skin),2023-05-01,16
+europepmc,centella asiatica (skin),2023-06-01,17
+europepmc,centella asiatica (skin),2023-07-01,17
+europepmc,centella asiatica (skin),2023-08-01,14
+europepmc,centella asiatica (skin),2023-09-01,15
+europepmc,centella asiatica (skin),2023-10-01,16
+europepmc,centella asiatica (skin),2023-11-01,15
+europepmc,centella asiatica (skin),2023-12-01,17
+europepmc,centella asiatica (skin),2024-01-01,24
+europepmc,centella asiatica (skin),2024-02-01,17
+europepmc,centella asiatica (skin),2024-03-01,12
+europepmc,centella asiatica (skin),2024-04-01,20
+europepmc,centella asiatica (skin),2024-05-01,14
+europepmc,centella asiatica (skin),2024-06-01,12
+europepmc,centella asiatica (skin),2024-07-01,16
+europepmc,centella asiatica (skin),2024-08-01,26
+europepmc,centella asiatica (skin),2024-09-01,27
+europepmc,centella asiatica (skin),2024-10-01,22
+europepmc,centella asiatica (skin),2024-11-01,21
+europepmc,centella asiatica (skin),2024-12-01,22
+europepmc,centella asiatica (skin),2025-01-01,28
+europepmc,centella asiatica (skin),2025-02-01,21
+europepmc,centella asiatica (skin),2025-03-01,26
+europepmc,centella asiatica (skin),2025-04-01,22
+europepmc,centella asiatica (skin),2025-05-01,27
+europepmc,centella asiatica (skin),2025-06-01,18
+europepmc,centella asiatica (skin),2025-07-01,33
+europepmc,centella asiatica (skin),2025-08-01,28
+europepmc,centella asiatica (skin),2025-09-01,24
+europepmc,centella asiatica (skin),2025-10-01,28
+europepmc,centella asiatica (skin),2025-11-01,32
+europepmc,centella asiatica (skin),2025-12-01,24
+europepmc,centella asiatica (skin),2026-01-01,35
+europepmc,centella asiatica (skin),2026-02-01,26
+europepmc,centella asiatica (skin),2026-03-01,28
+europepmc,centella asiatica (skin),2026-04-01,22
+europepmc,centella asiatica (skin),2026-05-01,23
+europepmc,centella asiatica (skin),2026-06-01,15
+europepmc,centella asiatica (skin),2026-07-01,0
+europepmc,centella asiatica (skin),2026-08-01,0
 europepmc,ceramide,2019-01-01,284
 europepmc,ceramide,2019-02-01,217
 europepmc,ceramide,2019-03-01,257
@@ -382,6 +668,97 @@ europepmc,ceramide,2026-05-01,421
 europepmc,ceramide,2026-06-01,287
 europepmc,ceramide,2026-07-01,129
 europepmc,ceramide,2026-08-01,43
+europepmc,ceramide (skin),2019-01-01,68
+europepmc,ceramide (skin),2019-02-01,50
+europepmc,ceramide (skin),2019-03-01,56
+europepmc,ceramide (skin),2019-04-01,56
+europepmc,ceramide (skin),2019-05-01,45
+europepmc,ceramide (skin),2019-06-01,54
+europepmc,ceramide (skin),2019-07-01,58
+europepmc,ceramide (skin),2019-08-01,50
+europepmc,ceramide (skin),2019-09-01,67
+europepmc,ceramide (skin),2019-10-01,61
+europepmc,ceramide (skin),2019-11-01,52
+europepmc,ceramide (skin),2019-12-01,66
+europepmc,ceramide (skin),2020-01-01,85
+europepmc,ceramide (skin),2020-02-01,62
+europepmc,ceramide (skin),2020-03-01,73
+europepmc,ceramide (skin),2020-04-01,66
+europepmc,ceramide (skin),2020-05-01,62
+europepmc,ceramide (skin),2020-06-01,67
+europepmc,ceramide (skin),2020-07-01,82
+europepmc,ceramide (skin),2020-08-01,87
+europepmc,ceramide (skin),2020-09-01,82
+europepmc,ceramide (skin),2020-10-01,86
+europepmc,ceramide (skin),2020-11-01,94
+europepmc,ceramide (skin),2020-12-01,69
+europepmc,ceramide (skin),2021-01-01,113
+europepmc,ceramide (skin),2021-02-01,104
+europepmc,ceramide (skin),2021-03-01,110
+europepmc,ceramide (skin),2021-04-01,93
+europepmc,ceramide (skin),2021-05-01,100
+europepmc,ceramide (skin),2021-06-01,101
+europepmc,ceramide (skin),2021-07-01,109
+europepmc,ceramide (skin),2021-08-01,101
+europepmc,ceramide (skin),2021-09-01,109
+europepmc,ceramide (skin),2021-10-01,87
+europepmc,ceramide (skin),2021-11-01,91
+europepmc,ceramide (skin),2021-12-01,107
+europepmc,ceramide (skin),2022-01-01,112
+europepmc,ceramide (skin),2022-02-01,108
+europepmc,ceramide (skin),2022-03-01,116
+europepmc,ceramide (skin),2022-04-01,102
+europepmc,ceramide (skin),2022-05-01,102
+europepmc,ceramide (skin),2022-06-01,97
+europepmc,ceramide (skin),2022-07-01,112
+europepmc,ceramide (skin),2022-08-01,100
+europepmc,ceramide (skin),2022-09-01,120
+europepmc,ceramide (skin),2022-10-01,116
+europepmc,ceramide (skin),2022-11-01,106
+europepmc,ceramide (skin),2022-12-01,124
+europepmc,ceramide (skin),2023-01-01,122
+europepmc,ceramide (skin),2023-02-01,100
+europepmc,ceramide (skin),2023-03-01,107
+europepmc,ceramide (skin),2023-04-01,88
+europepmc,ceramide (skin),2023-05-01,103
+europepmc,ceramide (skin),2023-06-01,111
+europepmc,ceramide (skin),2023-07-01,100
+europepmc,ceramide (skin),2023-08-01,104
+europepmc,ceramide (skin),2023-09-01,100
+europepmc,ceramide (skin),2023-10-01,88
+europepmc,ceramide (skin),2023-11-01,95
+europepmc,ceramide (skin),2024-01-01,130
+europepmc,ceramide (skin),2024-02-01,113
+europepmc,ceramide (skin),2024-03-01,105
+europepmc,ceramide (skin),2024-04-01,91
+europepmc,ceramide (skin),2024-05-01,103
+europepmc,ceramide (skin),2024-06-01,104
+europepmc,ceramide (skin),2024-07-01,131
+europepmc,ceramide (skin),2024-08-01,134
+europepmc,ceramide (skin),2024-09-01,107
+europepmc,ceramide (skin),2024-10-01,127
+europepmc,ceramide (skin),2024-11-01,110
+europepmc,ceramide (skin),2024-12-01,96
+europepmc,ceramide (skin),2025-01-01,138
+europepmc,ceramide (skin),2025-02-01,109
+europepmc,ceramide (skin),2025-03-01,127
+europepmc,ceramide (skin),2025-04-01,124
+europepmc,ceramide (skin),2025-05-01,127
+europepmc,ceramide (skin),2025-06-01,113
+europepmc,ceramide (skin),2025-07-01,144
+europepmc,ceramide (skin),2025-08-01,119
+europepmc,ceramide (skin),2025-09-01,128
+europepmc,ceramide (skin),2025-10-01,138
+europepmc,ceramide (skin),2025-11-01,132
+europepmc,ceramide (skin),2025-12-01,121
+europepmc,ceramide (skin),2026-01-01,142
+europepmc,ceramide (skin),2026-02-01,142
+europepmc,ceramide (skin),2026-03-01,114
+europepmc,ceramide (skin),2026-04-01,135
+europepmc,ceramide (skin),2026-05-01,110
+europepmc,ceramide (skin),2026-06-01,69
+europepmc,ceramide (skin),2026-07-01,26
+europepmc,ceramide (skin),2026-08-01,5
 europepmc,collagen,2019-01-01,3307
 europepmc,collagen,2019-02-01,2504
 europepmc,collagen,2019-03-01,2695
@@ -474,6 +851,98 @@ europepmc,collagen,2026-05-01,4499
 europepmc,collagen,2026-06-01,3367
 europepmc,collagen,2026-07-01,1344
 europepmc,collagen,2026-08-01,695
+europepmc,collagen (skin),2019-01-01,944
+europepmc,collagen (skin),2019-02-01,728
+europepmc,collagen (skin),2019-03-01,827
+europepmc,collagen (skin),2019-04-01,832
+europepmc,collagen (skin),2019-05-01,893
+europepmc,collagen (skin),2019-06-01,814
+europepmc,collagen (skin),2019-07-01,860
+europepmc,collagen (skin),2019-08-01,847
+europepmc,collagen (skin),2019-09-01,779
+europepmc,collagen (skin),2019-10-01,808
+europepmc,collagen (skin),2019-11-01,810
+europepmc,collagen (skin),2019-12-01,873
+europepmc,collagen (skin),2020-01-01,1106
+europepmc,collagen (skin),2020-02-01,849
+europepmc,collagen (skin),2020-03-01,932
+europepmc,collagen (skin),2020-04-01,971
+europepmc,collagen (skin),2020-05-01,996
+europepmc,collagen (skin),2020-06-01,1114
+europepmc,collagen (skin),2020-07-01,1181
+europepmc,collagen (skin),2020-08-01,1059
+europepmc,collagen (skin),2020-09-01,1201
+europepmc,collagen (skin),2020-10-01,1232
+europepmc,collagen (skin),2020-11-01,1186
+europepmc,collagen (skin),2020-12-01,1137
+europepmc,collagen (skin),2021-01-01,1554
+europepmc,collagen (skin),2021-02-01,1224
+europepmc,collagen (skin),2021-03-01,1435
+europepmc,collagen (skin),2021-04-01,1238
+europepmc,collagen (skin),2021-05-01,1387
+europepmc,collagen (skin),2021-06-01,1398
+europepmc,collagen (skin),2021-07-01,1336
+europepmc,collagen (skin),2021-08-01,1320
+europepmc,collagen (skin),2021-09-01,1362
+europepmc,collagen (skin),2021-10-01,1366
+europepmc,collagen (skin),2021-11-01,1353
+europepmc,collagen (skin),2021-12-01,1373
+europepmc,collagen (skin),2022-01-01,1651
+europepmc,collagen (skin),2022-02-01,1274
+europepmc,collagen (skin),2022-03-01,1574
+europepmc,collagen (skin),2022-04-01,1398
+europepmc,collagen (skin),2022-05-01,1405
+europepmc,collagen (skin),2022-06-01,1410
+europepmc,collagen (skin),2022-07-01,1503
+europepmc,collagen (skin),2022-08-01,1470
+europepmc,collagen (skin),2022-09-01,1553
+europepmc,collagen (skin),2022-10-01,1492
+europepmc,collagen (skin),2022-11-01,1474
+europepmc,collagen (skin),2022-12-01,1651
+europepmc,collagen (skin),2023-01-01,1790
+europepmc,collagen (skin),2023-02-01,1468
+europepmc,collagen (skin),2023-03-01,1559
+europepmc,collagen (skin),2023-04-01,1358
+europepmc,collagen (skin),2023-05-01,1473
+europepmc,collagen (skin),2023-06-01,1369
+europepmc,collagen (skin),2023-07-01,1343
+europepmc,collagen (skin),2023-08-01,1380
+europepmc,collagen (skin),2023-09-01,1405
+europepmc,collagen (skin),2023-10-01,1427
+europepmc,collagen (skin),2023-11-01,1381
+europepmc,collagen (skin),2023-12-01,1319
+europepmc,collagen (skin),2024-01-01,1748
+europepmc,collagen (skin),2024-02-01,1375
+europepmc,collagen (skin),2024-03-01,1432
+europepmc,collagen (skin),2024-04-01,1437
+europepmc,collagen (skin),2024-05-01,1477
+europepmc,collagen (skin),2024-06-01,1417
+europepmc,collagen (skin),2024-07-01,1605
+europepmc,collagen (skin),2024-08-01,1526
+europepmc,collagen (skin),2024-09-01,1642
+europepmc,collagen (skin),2024-10-01,1652
+europepmc,collagen (skin),2024-11-01,1526
+europepmc,collagen (skin),2024-12-01,1500
+europepmc,collagen (skin),2025-01-01,2029
+europepmc,collagen (skin),2025-02-01,1561
+europepmc,collagen (skin),2025-03-01,1717
+europepmc,collagen (skin),2025-04-01,1748
+europepmc,collagen (skin),2025-05-01,1722
+europepmc,collagen (skin),2025-06-01,1661
+europepmc,collagen (skin),2025-07-01,1999
+europepmc,collagen (skin),2025-08-01,1721
+europepmc,collagen (skin),2025-09-01,1768
+europepmc,collagen (skin),2025-10-01,1850
+europepmc,collagen (skin),2025-11-01,1773
+europepmc,collagen (skin),2025-12-01,1722
+europepmc,collagen (skin),2026-01-01,2040
+europepmc,collagen (skin),2026-02-01,1659
+europepmc,collagen (skin),2026-03-01,1782
+europepmc,collagen (skin),2026-04-01,1662
+europepmc,collagen (skin),2026-05-01,1439
+europepmc,collagen (skin),2026-06-01,1003
+europepmc,collagen (skin),2026-07-01,259
+europepmc,collagen (skin),2026-08-01,120
 europepmc,cosmetic,2019-01-01,843
 europepmc,cosmetic,2019-02-01,583
 europepmc,cosmetic,2019-03-01,657
@@ -566,6 +1035,98 @@ europepmc,cosmetic,2026-05-01,1309
 europepmc,cosmetic,2026-06-01,1136
 europepmc,cosmetic,2026-07-01,512
 europepmc,cosmetic,2026-08-01,254
+europepmc,cosmetic (skin),2019-01-01,843
+europepmc,cosmetic (skin),2019-02-01,583
+europepmc,cosmetic (skin),2019-03-01,657
+europepmc,cosmetic (skin),2019-04-01,688
+europepmc,cosmetic (skin),2019-05-01,717
+europepmc,cosmetic (skin),2019-06-01,684
+europepmc,cosmetic (skin),2019-07-01,734
+europepmc,cosmetic (skin),2019-08-01,669
+europepmc,cosmetic (skin),2019-09-01,693
+europepmc,cosmetic (skin),2019-10-01,676
+europepmc,cosmetic (skin),2019-11-01,757
+europepmc,cosmetic (skin),2019-12-01,748
+europepmc,cosmetic (skin),2020-01-01,1001
+europepmc,cosmetic (skin),2020-02-01,727
+europepmc,cosmetic (skin),2020-03-01,739
+europepmc,cosmetic (skin),2020-04-01,872
+europepmc,cosmetic (skin),2020-05-01,899
+europepmc,cosmetic (skin),2020-06-01,937
+europepmc,cosmetic (skin),2020-07-01,1019
+europepmc,cosmetic (skin),2020-08-01,965
+europepmc,cosmetic (skin),2020-09-01,1005
+europepmc,cosmetic (skin),2020-10-01,1039
+europepmc,cosmetic (skin),2020-11-01,976
+europepmc,cosmetic (skin),2020-12-01,931
+europepmc,cosmetic (skin),2021-01-01,1317
+europepmc,cosmetic (skin),2021-02-01,998
+europepmc,cosmetic (skin),2021-03-01,1129
+europepmc,cosmetic (skin),2021-04-01,1116
+europepmc,cosmetic (skin),2021-05-01,1115
+europepmc,cosmetic (skin),2021-06-01,1119
+europepmc,cosmetic (skin),2021-07-01,1080
+europepmc,cosmetic (skin),2021-08-01,1086
+europepmc,cosmetic (skin),2021-09-01,1126
+europepmc,cosmetic (skin),2021-10-01,1206
+europepmc,cosmetic (skin),2021-11-01,1142
+europepmc,cosmetic (skin),2021-12-01,1060
+europepmc,cosmetic (skin),2022-01-01,1353
+europepmc,cosmetic (skin),2022-02-01,1068
+europepmc,cosmetic (skin),2022-03-01,1235
+europepmc,cosmetic (skin),2022-04-01,1135
+europepmc,cosmetic (skin),2022-05-01,1146
+europepmc,cosmetic (skin),2022-06-01,1111
+europepmc,cosmetic (skin),2022-07-01,1224
+europepmc,cosmetic (skin),2022-08-01,1156
+europepmc,cosmetic (skin),2022-09-01,1352
+europepmc,cosmetic (skin),2022-10-01,1221
+europepmc,cosmetic (skin),2022-11-01,1224
+europepmc,cosmetic (skin),2022-12-01,1301
+europepmc,cosmetic (skin),2023-01-01,1519
+europepmc,cosmetic (skin),2023-02-01,1118
+europepmc,cosmetic (skin),2023-03-01,1277
+europepmc,cosmetic (skin),2023-04-01,1190
+europepmc,cosmetic (skin),2023-05-01,1139
+europepmc,cosmetic (skin),2023-06-01,1176
+europepmc,cosmetic (skin),2023-07-01,1204
+europepmc,cosmetic (skin),2023-08-01,1123
+europepmc,cosmetic (skin),2023-09-01,1139
+europepmc,cosmetic (skin),2023-10-01,1124
+europepmc,cosmetic (skin),2023-11-01,1230
+europepmc,cosmetic (skin),2023-12-01,1075
+europepmc,cosmetic (skin),2024-01-01,1507
+europepmc,cosmetic (skin),2024-02-01,1154
+europepmc,cosmetic (skin),2024-03-01,1221
+europepmc,cosmetic (skin),2024-04-01,1185
+europepmc,cosmetic (skin),2024-05-01,1246
+europepmc,cosmetic (skin),2024-06-01,1194
+europepmc,cosmetic (skin),2024-07-01,1323
+europepmc,cosmetic (skin),2024-08-01,1293
+europepmc,cosmetic (skin),2024-09-01,1337
+europepmc,cosmetic (skin),2024-10-01,1315
+europepmc,cosmetic (skin),2024-11-01,1323
+europepmc,cosmetic (skin),2024-12-01,1229
+europepmc,cosmetic (skin),2025-01-01,1674
+europepmc,cosmetic (skin),2025-02-01,1226
+europepmc,cosmetic (skin),2025-03-01,1409
+europepmc,cosmetic (skin),2025-04-01,1397
+europepmc,cosmetic (skin),2025-05-01,1421
+europepmc,cosmetic (skin),2025-06-01,1364
+europepmc,cosmetic (skin),2025-07-01,1612
+europepmc,cosmetic (skin),2025-08-01,1425
+europepmc,cosmetic (skin),2025-09-01,1539
+europepmc,cosmetic (skin),2025-10-01,1592
+europepmc,cosmetic (skin),2025-11-01,1526
+europepmc,cosmetic (skin),2025-12-01,1612
+europepmc,cosmetic (skin),2026-01-01,1685
+europepmc,cosmetic (skin),2026-02-01,1401
+europepmc,cosmetic (skin),2026-03-01,1492
+europepmc,cosmetic (skin),2026-04-01,1502
+europepmc,cosmetic (skin),2026-05-01,1310
+europepmc,cosmetic (skin),2026-06-01,1141
+europepmc,cosmetic (skin),2026-07-01,512
+europepmc,cosmetic (skin),2026-08-01,264
 europepmc,ethylhexyl triazone,2019-01-01,0
 europepmc,ethylhexyl triazone,2019-02-01,0
 europepmc,ethylhexyl triazone,2019-03-01,0
@@ -658,6 +1219,98 @@ europepmc,ethylhexyl triazone,2026-05-01,1
 europepmc,ethylhexyl triazone,2026-06-01,0
 europepmc,ethylhexyl triazone,2026-07-01,3
 europepmc,ethylhexyl triazone,2026-08-01,0
+europepmc,ethylhexyl triazone (skin),2019-01-01,0
+europepmc,ethylhexyl triazone (skin),2019-02-01,0
+europepmc,ethylhexyl triazone (skin),2019-03-01,0
+europepmc,ethylhexyl triazone (skin),2019-04-01,1
+europepmc,ethylhexyl triazone (skin),2019-05-01,1
+europepmc,ethylhexyl triazone (skin),2019-06-01,1
+europepmc,ethylhexyl triazone (skin),2019-07-01,1
+europepmc,ethylhexyl triazone (skin),2019-08-01,0
+europepmc,ethylhexyl triazone (skin),2019-09-01,1
+europepmc,ethylhexyl triazone (skin),2019-10-01,1
+europepmc,ethylhexyl triazone (skin),2019-11-01,0
+europepmc,ethylhexyl triazone (skin),2019-12-01,0
+europepmc,ethylhexyl triazone (skin),2020-01-01,1
+europepmc,ethylhexyl triazone (skin),2020-02-01,1
+europepmc,ethylhexyl triazone (skin),2020-03-01,1
+europepmc,ethylhexyl triazone (skin),2020-04-01,2
+europepmc,ethylhexyl triazone (skin),2020-05-01,0
+europepmc,ethylhexyl triazone (skin),2020-06-01,1
+europepmc,ethylhexyl triazone (skin),2020-07-01,1
+europepmc,ethylhexyl triazone (skin),2020-08-01,1
+europepmc,ethylhexyl triazone (skin),2020-09-01,1
+europepmc,ethylhexyl triazone (skin),2020-10-01,1
+europepmc,ethylhexyl triazone (skin),2020-11-01,0
+europepmc,ethylhexyl triazone (skin),2020-12-01,2
+europepmc,ethylhexyl triazone (skin),2021-01-01,1
+europepmc,ethylhexyl triazone (skin),2021-02-01,2
+europepmc,ethylhexyl triazone (skin),2021-03-01,0
+europepmc,ethylhexyl triazone (skin),2021-04-01,2
+europepmc,ethylhexyl triazone (skin),2021-05-01,1
+europepmc,ethylhexyl triazone (skin),2021-06-01,1
+europepmc,ethylhexyl triazone (skin),2021-07-01,0
+europepmc,ethylhexyl triazone (skin),2021-08-01,1
+europepmc,ethylhexyl triazone (skin),2021-09-01,0
+europepmc,ethylhexyl triazone (skin),2021-10-01,1
+europepmc,ethylhexyl triazone (skin),2021-11-01,0
+europepmc,ethylhexyl triazone (skin),2021-12-01,1
+europepmc,ethylhexyl triazone (skin),2022-01-01,1
+europepmc,ethylhexyl triazone (skin),2022-02-01,0
+europepmc,ethylhexyl triazone (skin),2022-03-01,0
+europepmc,ethylhexyl triazone (skin),2022-04-01,0
+europepmc,ethylhexyl triazone (skin),2022-05-01,0
+europepmc,ethylhexyl triazone (skin),2022-06-01,0
+europepmc,ethylhexyl triazone (skin),2022-07-01,2
+europepmc,ethylhexyl triazone (skin),2022-08-01,0
+europepmc,ethylhexyl triazone (skin),2022-09-01,1
+europepmc,ethylhexyl triazone (skin),2022-10-01,2
+europepmc,ethylhexyl triazone (skin),2022-11-01,2
+europepmc,ethylhexyl triazone (skin),2022-12-01,0
+europepmc,ethylhexyl triazone (skin),2023-01-01,1
+europepmc,ethylhexyl triazone (skin),2023-02-01,0
+europepmc,ethylhexyl triazone (skin),2023-03-01,2
+europepmc,ethylhexyl triazone (skin),2023-04-01,0
+europepmc,ethylhexyl triazone (skin),2023-05-01,1
+europepmc,ethylhexyl triazone (skin),2023-06-01,0
+europepmc,ethylhexyl triazone (skin),2023-07-01,0
+europepmc,ethylhexyl triazone (skin),2023-08-01,0
+europepmc,ethylhexyl triazone (skin),2023-09-01,1
+europepmc,ethylhexyl triazone (skin),2023-10-01,2
+europepmc,ethylhexyl triazone (skin),2023-11-01,1
+europepmc,ethylhexyl triazone (skin),2023-12-01,0
+europepmc,ethylhexyl triazone (skin),2024-01-01,0
+europepmc,ethylhexyl triazone (skin),2024-02-01,3
+europepmc,ethylhexyl triazone (skin),2024-03-01,1
+europepmc,ethylhexyl triazone (skin),2024-04-01,0
+europepmc,ethylhexyl triazone (skin),2024-05-01,2
+europepmc,ethylhexyl triazone (skin),2024-06-01,0
+europepmc,ethylhexyl triazone (skin),2024-07-01,0
+europepmc,ethylhexyl triazone (skin),2024-08-01,1
+europepmc,ethylhexyl triazone (skin),2024-09-01,1
+europepmc,ethylhexyl triazone (skin),2024-10-01,2
+europepmc,ethylhexyl triazone (skin),2024-11-01,2
+europepmc,ethylhexyl triazone (skin),2024-12-01,2
+europepmc,ethylhexyl triazone (skin),2025-01-01,1
+europepmc,ethylhexyl triazone (skin),2025-02-01,1
+europepmc,ethylhexyl triazone (skin),2025-03-01,2
+europepmc,ethylhexyl triazone (skin),2025-04-01,0
+europepmc,ethylhexyl triazone (skin),2025-05-01,0
+europepmc,ethylhexyl triazone (skin),2025-06-01,1
+europepmc,ethylhexyl triazone (skin),2025-07-01,3
+europepmc,ethylhexyl triazone (skin),2025-08-01,2
+europepmc,ethylhexyl triazone (skin),2025-09-01,3
+europepmc,ethylhexyl triazone (skin),2025-10-01,2
+europepmc,ethylhexyl triazone (skin),2025-11-01,1
+europepmc,ethylhexyl triazone (skin),2025-12-01,1
+europepmc,ethylhexyl triazone (skin),2026-01-01,1
+europepmc,ethylhexyl triazone (skin),2026-02-01,2
+europepmc,ethylhexyl triazone (skin),2026-03-01,1
+europepmc,ethylhexyl triazone (skin),2026-04-01,1
+europepmc,ethylhexyl triazone (skin),2026-05-01,1
+europepmc,ethylhexyl triazone (skin),2026-06-01,0
+europepmc,ethylhexyl triazone (skin),2026-07-01,1
+europepmc,ethylhexyl triazone (skin),2026-08-01,0
 europepmc,exosome,2019-01-01,440
 europepmc,exosome,2019-02-01,313
 europepmc,exosome,2019-03-01,387
@@ -750,6 +1403,98 @@ europepmc,exosome,2026-05-01,897
 europepmc,exosome,2026-06-01,666
 europepmc,exosome,2026-07-01,295
 europepmc,exosome,2026-08-01,158
+europepmc,exosome (skin),2019-01-01,71
+europepmc,exosome (skin),2019-02-01,51
+europepmc,exosome (skin),2019-03-01,62
+europepmc,exosome (skin),2019-04-01,66
+europepmc,exosome (skin),2019-05-01,75
+europepmc,exosome (skin),2019-06-01,60
+europepmc,exosome (skin),2019-07-01,56
+europepmc,exosome (skin),2019-08-01,68
+europepmc,exosome (skin),2019-09-01,58
+europepmc,exosome (skin),2019-10-01,65
+europepmc,exosome (skin),2019-11-01,60
+europepmc,exosome (skin),2019-12-01,71
+europepmc,exosome (skin),2020-01-01,87
+europepmc,exosome (skin),2020-02-01,85
+europepmc,exosome (skin),2020-03-01,69
+europepmc,exosome (skin),2020-04-01,70
+europepmc,exosome (skin),2020-05-01,85
+europepmc,exosome (skin),2020-06-01,94
+europepmc,exosome (skin),2020-07-01,95
+europepmc,exosome (skin),2020-08-01,76
+europepmc,exosome (skin),2020-09-01,116
+europepmc,exosome (skin),2020-10-01,102
+europepmc,exosome (skin),2020-11-01,103
+europepmc,exosome (skin),2020-12-01,113
+europepmc,exosome (skin),2021-01-01,126
+europepmc,exosome (skin),2021-02-01,116
+europepmc,exosome (skin),2021-03-01,127
+europepmc,exosome (skin),2021-04-01,125
+europepmc,exosome (skin),2021-05-01,130
+europepmc,exosome (skin),2021-06-01,133
+europepmc,exosome (skin),2021-07-01,111
+europepmc,exosome (skin),2021-08-01,121
+europepmc,exosome (skin),2021-09-01,121
+europepmc,exosome (skin),2021-10-01,135
+europepmc,exosome (skin),2021-11-01,124
+europepmc,exosome (skin),2021-12-01,137
+europepmc,exosome (skin),2022-01-01,175
+europepmc,exosome (skin),2022-02-01,113
+europepmc,exosome (skin),2022-03-01,131
+europepmc,exosome (skin),2022-04-01,122
+europepmc,exosome (skin),2022-05-01,130
+europepmc,exosome (skin),2022-06-01,147
+europepmc,exosome (skin),2022-07-01,139
+europepmc,exosome (skin),2022-08-01,157
+europepmc,exosome (skin),2022-09-01,141
+europepmc,exosome (skin),2022-10-01,143
+europepmc,exosome (skin),2022-11-01,143
+europepmc,exosome (skin),2022-12-01,152
+europepmc,exosome (skin),2023-01-01,174
+europepmc,exosome (skin),2023-02-01,157
+europepmc,exosome (skin),2023-03-01,154
+europepmc,exosome (skin),2023-04-01,141
+europepmc,exosome (skin),2023-05-01,153
+europepmc,exosome (skin),2023-06-01,141
+europepmc,exosome (skin),2023-07-01,129
+europepmc,exosome (skin),2023-08-01,156
+europepmc,exosome (skin),2023-09-01,127
+europepmc,exosome (skin),2023-10-01,132
+europepmc,exosome (skin),2023-11-01,144
+europepmc,exosome (skin),2023-12-01,129
+europepmc,exosome (skin),2024-01-01,163
+europepmc,exosome (skin),2024-02-01,158
+europepmc,exosome (skin),2024-03-01,146
+europepmc,exosome (skin),2024-04-01,160
+europepmc,exosome (skin),2024-05-01,182
+europepmc,exosome (skin),2024-06-01,144
+europepmc,exosome (skin),2024-07-01,171
+europepmc,exosome (skin),2024-08-01,177
+europepmc,exosome (skin),2024-09-01,158
+europepmc,exosome (skin),2024-10-01,180
+europepmc,exosome (skin),2024-11-01,179
+europepmc,exosome (skin),2024-12-01,143
+europepmc,exosome (skin),2025-01-01,231
+europepmc,exosome (skin),2025-02-01,182
+europepmc,exosome (skin),2025-03-01,208
+europepmc,exosome (skin),2025-04-01,211
+europepmc,exosome (skin),2025-05-01,201
+europepmc,exosome (skin),2025-06-01,209
+europepmc,exosome (skin),2025-07-01,270
+europepmc,exosome (skin),2025-08-01,202
+europepmc,exosome (skin),2025-09-01,211
+europepmc,exosome (skin),2025-10-01,254
+europepmc,exosome (skin),2025-11-01,223
+europepmc,exosome (skin),2025-12-01,248
+europepmc,exosome (skin),2026-01-01,303
+europepmc,exosome (skin),2026-02-01,229
+europepmc,exosome (skin),2026-03-01,216
+europepmc,exosome (skin),2026-04-01,246
+europepmc,exosome (skin),2026-05-01,219
+europepmc,exosome (skin),2026-06-01,132
+europepmc,exosome (skin),2026-07-01,24
+europepmc,exosome (skin),2026-08-01,11
 europepmc,hyaluronic acid,2019-01-01,498
 europepmc,hyaluronic acid,2019-02-01,347
 europepmc,hyaluronic acid,2019-03-01,326
@@ -842,6 +1587,97 @@ europepmc,hyaluronic acid,2026-05-01,856
 europepmc,hyaluronic acid,2026-06-01,658
 europepmc,hyaluronic acid,2026-07-01,294
 europepmc,hyaluronic acid,2026-08-01,151
+europepmc,hyaluronic acid (skin),2019-01-01,166
+europepmc,hyaluronic acid (skin),2019-02-01,115
+europepmc,hyaluronic acid (skin),2019-03-01,109
+europepmc,hyaluronic acid (skin),2019-04-01,163
+europepmc,hyaluronic acid (skin),2019-05-01,162
+europepmc,hyaluronic acid (skin),2019-06-01,145
+europepmc,hyaluronic acid (skin),2019-07-01,150
+europepmc,hyaluronic acid (skin),2019-08-01,146
+europepmc,hyaluronic acid (skin),2019-09-01,134
+europepmc,hyaluronic acid (skin),2019-10-01,149
+europepmc,hyaluronic acid (skin),2019-12-01,171
+europepmc,hyaluronic acid (skin),2020-01-01,219
+europepmc,hyaluronic acid (skin),2020-02-01,167
+europepmc,hyaluronic acid (skin),2020-03-01,187
+europepmc,hyaluronic acid (skin),2020-04-01,208
+europepmc,hyaluronic acid (skin),2020-05-01,194
+europepmc,hyaluronic acid (skin),2020-06-01,232
+europepmc,hyaluronic acid (skin),2020-07-01,260
+europepmc,hyaluronic acid (skin),2020-08-01,223
+europepmc,hyaluronic acid (skin),2020-09-01,236
+europepmc,hyaluronic acid (skin),2020-10-01,237
+europepmc,hyaluronic acid (skin),2020-11-01,226
+europepmc,hyaluronic acid (skin),2020-12-01,242
+europepmc,hyaluronic acid (skin),2021-01-01,285
+europepmc,hyaluronic acid (skin),2021-02-01,235
+europepmc,hyaluronic acid (skin),2021-03-01,333
+europepmc,hyaluronic acid (skin),2021-04-01,273
+europepmc,hyaluronic acid (skin),2021-05-01,283
+europepmc,hyaluronic acid (skin),2021-06-01,303
+europepmc,hyaluronic acid (skin),2021-07-01,298
+europepmc,hyaluronic acid (skin),2021-08-01,283
+europepmc,hyaluronic acid (skin),2021-09-01,319
+europepmc,hyaluronic acid (skin),2021-10-01,304
+europepmc,hyaluronic acid (skin),2021-11-01,306
+europepmc,hyaluronic acid (skin),2021-12-01,305
+europepmc,hyaluronic acid (skin),2022-01-01,374
+europepmc,hyaluronic acid (skin),2022-02-01,305
+europepmc,hyaluronic acid (skin),2022-03-01,336
+europepmc,hyaluronic acid (skin),2022-04-01,329
+europepmc,hyaluronic acid (skin),2022-05-01,342
+europepmc,hyaluronic acid (skin),2022-06-01,320
+europepmc,hyaluronic acid (skin),2022-07-01,345
+europepmc,hyaluronic acid (skin),2022-08-01,324
+europepmc,hyaluronic acid (skin),2022-09-01,336
+europepmc,hyaluronic acid (skin),2022-10-01,347
+europepmc,hyaluronic acid (skin),2022-11-01,345
+europepmc,hyaluronic acid (skin),2022-12-01,404
+europepmc,hyaluronic acid (skin),2023-01-01,403
+europepmc,hyaluronic acid (skin),2023-02-01,341
+europepmc,hyaluronic acid (skin),2023-03-01,391
+europepmc,hyaluronic acid (skin),2023-04-01,352
+europepmc,hyaluronic acid (skin),2023-05-01,327
+europepmc,hyaluronic acid (skin),2023-06-01,354
+europepmc,hyaluronic acid (skin),2023-07-01,327
+europepmc,hyaluronic acid (skin),2023-08-01,360
+europepmc,hyaluronic acid (skin),2023-09-01,317
+europepmc,hyaluronic acid (skin),2023-10-01,337
+europepmc,hyaluronic acid (skin),2023-11-01,339
+europepmc,hyaluronic acid (skin),2023-12-01,323
+europepmc,hyaluronic acid (skin),2024-01-01,377
+europepmc,hyaluronic acid (skin),2024-02-01,325
+europepmc,hyaluronic acid (skin),2024-03-01,350
+europepmc,hyaluronic acid (skin),2024-04-01,330
+europepmc,hyaluronic acid (skin),2024-05-01,355
+europepmc,hyaluronic acid (skin),2024-06-01,358
+europepmc,hyaluronic acid (skin),2024-07-01,396
+europepmc,hyaluronic acid (skin),2024-08-01,378
+europepmc,hyaluronic acid (skin),2024-09-01,445
+europepmc,hyaluronic acid (skin),2024-10-01,404
+europepmc,hyaluronic acid (skin),2024-11-01,415
+europepmc,hyaluronic acid (skin),2024-12-01,369
+europepmc,hyaluronic acid (skin),2025-01-01,496
+europepmc,hyaluronic acid (skin),2025-02-01,400
+europepmc,hyaluronic acid (skin),2025-03-01,407
+europepmc,hyaluronic acid (skin),2025-04-01,444
+europepmc,hyaluronic acid (skin),2025-05-01,453
+europepmc,hyaluronic acid (skin),2025-06-01,446
+europepmc,hyaluronic acid (skin),2025-07-01,473
+europepmc,hyaluronic acid (skin),2025-08-01,434
+europepmc,hyaluronic acid (skin),2025-09-01,473
+europepmc,hyaluronic acid (skin),2025-10-01,473
+europepmc,hyaluronic acid (skin),2025-11-01,442
+europepmc,hyaluronic acid (skin),2025-12-01,448
+europepmc,hyaluronic acid (skin),2026-01-01,524
+europepmc,hyaluronic acid (skin),2026-02-01,401
+europepmc,hyaluronic acid (skin),2026-03-01,441
+europepmc,hyaluronic acid (skin),2026-04-01,412
+europepmc,hyaluronic acid (skin),2026-05-01,367
+europepmc,hyaluronic acid (skin),2026-06-01,280
+europepmc,hyaluronic acid (skin),2026-07-01,77
+europepmc,hyaluronic acid (skin),2026-08-01,26
 europepmc,madecassoside,2019-01-01,4
 europepmc,madecassoside,2019-02-01,0
 europepmc,madecassoside,2019-03-01,4
@@ -934,6 +1770,98 @@ europepmc,madecassoside,2026-05-01,9
 europepmc,madecassoside,2026-06-01,5
 europepmc,madecassoside,2026-07-01,2
 europepmc,madecassoside,2026-08-01,1
+europepmc,madecassoside (skin),2019-01-01,1
+europepmc,madecassoside (skin),2019-02-01,0
+europepmc,madecassoside (skin),2019-03-01,0
+europepmc,madecassoside (skin),2019-04-01,3
+europepmc,madecassoside (skin),2019-05-01,1
+europepmc,madecassoside (skin),2019-06-01,2
+europepmc,madecassoside (skin),2019-07-01,5
+europepmc,madecassoside (skin),2019-08-01,1
+europepmc,madecassoside (skin),2019-09-01,4
+europepmc,madecassoside (skin),2019-10-01,1
+europepmc,madecassoside (skin),2019-11-01,1
+europepmc,madecassoside (skin),2019-12-01,0
+europepmc,madecassoside (skin),2020-01-01,0
+europepmc,madecassoside (skin),2020-02-01,2
+europepmc,madecassoside (skin),2020-03-01,0
+europepmc,madecassoside (skin),2020-04-01,2
+europepmc,madecassoside (skin),2020-05-01,3
+europepmc,madecassoside (skin),2020-06-01,1
+europepmc,madecassoside (skin),2020-07-01,4
+europepmc,madecassoside (skin),2020-08-01,2
+europepmc,madecassoside (skin),2020-09-01,6
+europepmc,madecassoside (skin),2020-10-01,2
+europepmc,madecassoside (skin),2020-11-01,3
+europepmc,madecassoside (skin),2020-12-01,2
+europepmc,madecassoside (skin),2021-01-01,5
+europepmc,madecassoside (skin),2021-02-01,2
+europepmc,madecassoside (skin),2021-03-01,2
+europepmc,madecassoside (skin),2021-04-01,6
+europepmc,madecassoside (skin),2021-05-01,2
+europepmc,madecassoside (skin),2021-06-01,6
+europepmc,madecassoside (skin),2021-07-01,8
+europepmc,madecassoside (skin),2021-08-01,1
+europepmc,madecassoside (skin),2021-09-01,3
+europepmc,madecassoside (skin),2021-10-01,3
+europepmc,madecassoside (skin),2021-11-01,5
+europepmc,madecassoside (skin),2021-12-01,4
+europepmc,madecassoside (skin),2022-01-01,7
+europepmc,madecassoside (skin),2022-02-01,3
+europepmc,madecassoside (skin),2022-03-01,3
+europepmc,madecassoside (skin),2022-04-01,2
+europepmc,madecassoside (skin),2022-05-01,4
+europepmc,madecassoside (skin),2022-06-01,1
+europepmc,madecassoside (skin),2022-07-01,2
+europepmc,madecassoside (skin),2022-08-01,5
+europepmc,madecassoside (skin),2022-09-01,3
+europepmc,madecassoside (skin),2022-10-01,3
+europepmc,madecassoside (skin),2022-11-01,5
+europepmc,madecassoside (skin),2022-12-01,3
+europepmc,madecassoside (skin),2023-01-01,2
+europepmc,madecassoside (skin),2023-02-01,8
+europepmc,madecassoside (skin),2023-03-01,5
+europepmc,madecassoside (skin),2023-04-01,4
+europepmc,madecassoside (skin),2023-05-01,2
+europepmc,madecassoside (skin),2023-06-01,5
+europepmc,madecassoside (skin),2023-07-01,7
+europepmc,madecassoside (skin),2023-08-01,2
+europepmc,madecassoside (skin),2023-09-01,1
+europepmc,madecassoside (skin),2023-10-01,2
+europepmc,madecassoside (skin),2023-11-01,2
+europepmc,madecassoside (skin),2023-12-01,4
+europepmc,madecassoside (skin),2024-01-01,4
+europepmc,madecassoside (skin),2024-02-01,3
+europepmc,madecassoside (skin),2024-03-01,2
+europepmc,madecassoside (skin),2024-04-01,6
+europepmc,madecassoside (skin),2024-05-01,2
+europepmc,madecassoside (skin),2024-06-01,1
+europepmc,madecassoside (skin),2024-07-01,3
+europepmc,madecassoside (skin),2024-08-01,2
+europepmc,madecassoside (skin),2024-09-01,7
+europepmc,madecassoside (skin),2024-10-01,5
+europepmc,madecassoside (skin),2024-11-01,6
+europepmc,madecassoside (skin),2024-12-01,3
+europepmc,madecassoside (skin),2025-01-01,9
+europepmc,madecassoside (skin),2025-02-01,8
+europepmc,madecassoside (skin),2025-03-01,7
+europepmc,madecassoside (skin),2025-04-01,8
+europepmc,madecassoside (skin),2025-05-01,6
+europepmc,madecassoside (skin),2025-06-01,5
+europepmc,madecassoside (skin),2025-07-01,16
+europepmc,madecassoside (skin),2025-08-01,7
+europepmc,madecassoside (skin),2025-09-01,9
+europepmc,madecassoside (skin),2025-10-01,6
+europepmc,madecassoside (skin),2025-11-01,8
+europepmc,madecassoside (skin),2025-12-01,5
+europepmc,madecassoside (skin),2026-01-01,7
+europepmc,madecassoside (skin),2026-02-01,3
+europepmc,madecassoside (skin),2026-03-01,7
+europepmc,madecassoside (skin),2026-04-01,6
+europepmc,madecassoside (skin),2026-05-01,3
+europepmc,madecassoside (skin),2026-06-01,5
+europepmc,madecassoside (skin),2026-07-01,0
+europepmc,madecassoside (skin),2026-08-01,0
 europepmc,niacinamide,2019-01-01,55
 europepmc,niacinamide,2019-02-01,38
 europepmc,niacinamide,2019-03-01,38
@@ -1026,6 +1954,97 @@ europepmc,niacinamide,2026-05-01,71
 europepmc,niacinamide,2026-06-01,50
 europepmc,niacinamide,2026-07-01,18
 europepmc,niacinamide,2026-08-01,10
+europepmc,niacinamide (skin),2019-01-01,8
+europepmc,niacinamide (skin),2019-02-01,11
+europepmc,niacinamide (skin),2019-03-01,8
+europepmc,niacinamide (skin),2019-04-01,5
+europepmc,niacinamide (skin),2019-05-01,11
+europepmc,niacinamide (skin),2019-06-01,11
+europepmc,niacinamide (skin),2019-07-01,12
+europepmc,niacinamide (skin),2019-08-01,8
+europepmc,niacinamide (skin),2019-09-01,5
+europepmc,niacinamide (skin),2019-10-01,15
+europepmc,niacinamide (skin),2019-11-01,13
+europepmc,niacinamide (skin),2019-12-01,12
+europepmc,niacinamide (skin),2020-01-01,12
+europepmc,niacinamide (skin),2020-02-01,15
+europepmc,niacinamide (skin),2020-03-01,11
+europepmc,niacinamide (skin),2020-04-01,15
+europepmc,niacinamide (skin),2020-05-01,16
+europepmc,niacinamide (skin),2020-06-01,15
+europepmc,niacinamide (skin),2020-07-01,12
+europepmc,niacinamide (skin),2020-08-01,13
+europepmc,niacinamide (skin),2020-09-01,8
+europepmc,niacinamide (skin),2020-10-01,17
+europepmc,niacinamide (skin),2020-11-01,16
+europepmc,niacinamide (skin),2020-12-01,8
+europepmc,niacinamide (skin),2021-01-01,20
+europepmc,niacinamide (skin),2021-02-01,5
+europepmc,niacinamide (skin),2021-04-01,13
+europepmc,niacinamide (skin),2021-05-01,15
+europepmc,niacinamide (skin),2021-06-01,13
+europepmc,niacinamide (skin),2021-07-01,22
+europepmc,niacinamide (skin),2021-08-01,13
+europepmc,niacinamide (skin),2021-09-01,26
+europepmc,niacinamide (skin),2021-10-01,16
+europepmc,niacinamide (skin),2021-11-01,15
+europepmc,niacinamide (skin),2021-12-01,8
+europepmc,niacinamide (skin),2022-01-01,27
+europepmc,niacinamide (skin),2022-02-01,14
+europepmc,niacinamide (skin),2022-03-01,21
+europepmc,niacinamide (skin),2022-04-01,16
+europepmc,niacinamide (skin),2022-05-01,18
+europepmc,niacinamide (skin),2022-06-01,22
+europepmc,niacinamide (skin),2022-07-01,21
+europepmc,niacinamide (skin),2022-08-01,26
+europepmc,niacinamide (skin),2022-09-01,16
+europepmc,niacinamide (skin),2022-10-01,20
+europepmc,niacinamide (skin),2022-11-01,17
+europepmc,niacinamide (skin),2022-12-01,24
+europepmc,niacinamide (skin),2023-01-01,30
+europepmc,niacinamide (skin),2023-02-01,19
+europepmc,niacinamide (skin),2023-03-01,29
+europepmc,niacinamide (skin),2023-04-01,19
+europepmc,niacinamide (skin),2023-05-01,24
+europepmc,niacinamide (skin),2023-06-01,17
+europepmc,niacinamide (skin),2023-07-01,34
+europepmc,niacinamide (skin),2023-08-01,19
+europepmc,niacinamide (skin),2023-09-01,21
+europepmc,niacinamide (skin),2023-10-01,22
+europepmc,niacinamide (skin),2023-11-01,22
+europepmc,niacinamide (skin),2023-12-01,29
+europepmc,niacinamide (skin),2024-01-01,22
+europepmc,niacinamide (skin),2024-02-01,28
+europepmc,niacinamide (skin),2024-03-01,24
+europepmc,niacinamide (skin),2024-04-01,21
+europepmc,niacinamide (skin),2024-05-01,28
+europepmc,niacinamide (skin),2024-06-01,22
+europepmc,niacinamide (skin),2024-07-01,36
+europepmc,niacinamide (skin),2024-08-01,23
+europepmc,niacinamide (skin),2024-09-01,31
+europepmc,niacinamide (skin),2024-10-01,25
+europepmc,niacinamide (skin),2024-11-01,35
+europepmc,niacinamide (skin),2024-12-01,23
+europepmc,niacinamide (skin),2025-01-01,36
+europepmc,niacinamide (skin),2025-02-01,33
+europepmc,niacinamide (skin),2025-03-01,30
+europepmc,niacinamide (skin),2025-04-01,33
+europepmc,niacinamide (skin),2025-05-01,42
+europepmc,niacinamide (skin),2025-06-01,32
+europepmc,niacinamide (skin),2025-07-01,42
+europepmc,niacinamide (skin),2025-08-01,43
+europepmc,niacinamide (skin),2025-09-01,38
+europepmc,niacinamide (skin),2025-10-01,39
+europepmc,niacinamide (skin),2025-11-01,24
+europepmc,niacinamide (skin),2025-12-01,27
+europepmc,niacinamide (skin),2026-01-01,35
+europepmc,niacinamide (skin),2026-02-01,33
+europepmc,niacinamide (skin),2026-03-01,40
+europepmc,niacinamide (skin),2026-04-01,22
+europepmc,niacinamide (skin),2026-05-01,34
+europepmc,niacinamide (skin),2026-06-01,20
+europepmc,niacinamide (skin),2026-07-01,5
+europepmc,niacinamide (skin),2026-08-01,3
 europepmc,panthenol,2019-01-01,6
 europepmc,panthenol,2019-02-01,3
 europepmc,panthenol,2019-03-01,3
@@ -1118,6 +2137,98 @@ europepmc,panthenol,2026-05-01,13
 europepmc,panthenol,2026-06-01,11
 europepmc,panthenol,2026-07-01,3
 europepmc,panthenol,2026-08-01,1
+europepmc,panthenol (skin),2019-01-01,4
+europepmc,panthenol (skin),2019-02-01,2
+europepmc,panthenol (skin),2019-03-01,1
+europepmc,panthenol (skin),2019-04-01,3
+europepmc,panthenol (skin),2019-05-01,4
+europepmc,panthenol (skin),2019-06-01,3
+europepmc,panthenol (skin),2019-07-01,0
+europepmc,panthenol (skin),2019-08-01,1
+europepmc,panthenol (skin),2019-09-01,2
+europepmc,panthenol (skin),2019-10-01,1
+europepmc,panthenol (skin),2019-11-01,4
+europepmc,panthenol (skin),2019-12-01,4
+europepmc,panthenol (skin),2020-01-01,1
+europepmc,panthenol (skin),2020-02-01,5
+europepmc,panthenol (skin),2020-03-01,1
+europepmc,panthenol (skin),2020-04-01,1
+europepmc,panthenol (skin),2020-05-01,7
+europepmc,panthenol (skin),2020-06-01,2
+europepmc,panthenol (skin),2020-07-01,3
+europepmc,panthenol (skin),2020-08-01,3
+europepmc,panthenol (skin),2020-09-01,0
+europepmc,panthenol (skin),2020-10-01,9
+europepmc,panthenol (skin),2020-11-01,2
+europepmc,panthenol (skin),2020-12-01,2
+europepmc,panthenol (skin),2021-01-01,1
+europepmc,panthenol (skin),2021-02-01,2
+europepmc,panthenol (skin),2021-03-01,2
+europepmc,panthenol (skin),2021-04-01,4
+europepmc,panthenol (skin),2021-05-01,4
+europepmc,panthenol (skin),2021-06-01,4
+europepmc,panthenol (skin),2021-07-01,2
+europepmc,panthenol (skin),2021-08-01,4
+europepmc,panthenol (skin),2021-09-01,3
+europepmc,panthenol (skin),2021-10-01,3
+europepmc,panthenol (skin),2021-11-01,7
+europepmc,panthenol (skin),2021-12-01,2
+europepmc,panthenol (skin),2022-01-01,8
+europepmc,panthenol (skin),2022-02-01,4
+europepmc,panthenol (skin),2022-03-01,6
+europepmc,panthenol (skin),2022-04-01,4
+europepmc,panthenol (skin),2022-05-01,6
+europepmc,panthenol (skin),2022-06-01,5
+europepmc,panthenol (skin),2022-07-01,5
+europepmc,panthenol (skin),2022-08-01,2
+europepmc,panthenol (skin),2022-09-01,6
+europepmc,panthenol (skin),2022-10-01,5
+europepmc,panthenol (skin),2022-11-01,7
+europepmc,panthenol (skin),2022-12-01,6
+europepmc,panthenol (skin),2023-01-01,10
+europepmc,panthenol (skin),2023-02-01,2
+europepmc,panthenol (skin),2023-03-01,7
+europepmc,panthenol (skin),2023-04-01,6
+europepmc,panthenol (skin),2023-05-01,8
+europepmc,panthenol (skin),2023-06-01,4
+europepmc,panthenol (skin),2023-07-01,6
+europepmc,panthenol (skin),2023-08-01,6
+europepmc,panthenol (skin),2023-09-01,5
+europepmc,panthenol (skin),2023-10-01,7
+europepmc,panthenol (skin),2023-11-01,9
+europepmc,panthenol (skin),2023-12-01,3
+europepmc,panthenol (skin),2024-01-01,8
+europepmc,panthenol (skin),2024-02-01,10
+europepmc,panthenol (skin),2024-03-01,4
+europepmc,panthenol (skin),2024-04-01,6
+europepmc,panthenol (skin),2024-05-01,7
+europepmc,panthenol (skin),2024-06-01,8
+europepmc,panthenol (skin),2024-07-01,8
+europepmc,panthenol (skin),2024-08-01,4
+europepmc,panthenol (skin),2024-09-01,11
+europepmc,panthenol (skin),2024-10-01,6
+europepmc,panthenol (skin),2024-11-01,5
+europepmc,panthenol (skin),2024-12-01,9
+europepmc,panthenol (skin),2025-01-01,11
+europepmc,panthenol (skin),2025-02-01,9
+europepmc,panthenol (skin),2025-03-01,9
+europepmc,panthenol (skin),2025-04-01,9
+europepmc,panthenol (skin),2025-05-01,10
+europepmc,panthenol (skin),2025-06-01,4
+europepmc,panthenol (skin),2025-07-01,18
+europepmc,panthenol (skin),2025-08-01,15
+europepmc,panthenol (skin),2025-09-01,14
+europepmc,panthenol (skin),2025-10-01,7
+europepmc,panthenol (skin),2025-11-01,7
+europepmc,panthenol (skin),2025-12-01,11
+europepmc,panthenol (skin),2026-01-01,8
+europepmc,panthenol (skin),2026-02-01,14
+europepmc,panthenol (skin),2026-03-01,10
+europepmc,panthenol (skin),2026-04-01,6
+europepmc,panthenol (skin),2026-05-01,9
+europepmc,panthenol (skin),2026-06-01,8
+europepmc,panthenol (skin),2026-07-01,2
+europepmc,panthenol (skin),2026-08-01,1
 europepmc,polydeoxyribonucleotide,2019-01-01,2
 europepmc,polydeoxyribonucleotide,2019-02-01,0
 europepmc,polydeoxyribonucleotide,2019-03-01,1
@@ -1210,6 +2321,98 @@ europepmc,polydeoxyribonucleotide,2026-05-01,11
 europepmc,polydeoxyribonucleotide,2026-06-01,11
 europepmc,polydeoxyribonucleotide,2026-07-01,6
 europepmc,polydeoxyribonucleotide,2026-08-01,4
+europepmc,polydeoxyribonucleotide (skin),2019-01-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-02-01,0
+europepmc,polydeoxyribonucleotide (skin),2019-03-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-04-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-05-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-06-01,0
+europepmc,polydeoxyribonucleotide (skin),2019-07-01,2
+europepmc,polydeoxyribonucleotide (skin),2019-08-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-09-01,1
+europepmc,polydeoxyribonucleotide (skin),2019-10-01,0
+europepmc,polydeoxyribonucleotide (skin),2019-11-01,0
+europepmc,polydeoxyribonucleotide (skin),2019-12-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-01-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-02-01,3
+europepmc,polydeoxyribonucleotide (skin),2020-03-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-04-01,0
+europepmc,polydeoxyribonucleotide (skin),2020-05-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-06-01,0
+europepmc,polydeoxyribonucleotide (skin),2020-07-01,2
+europepmc,polydeoxyribonucleotide (skin),2020-08-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-09-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-10-01,5
+europepmc,polydeoxyribonucleotide (skin),2020-11-01,1
+europepmc,polydeoxyribonucleotide (skin),2020-12-01,1
+europepmc,polydeoxyribonucleotide (skin),2021-01-01,0
+europepmc,polydeoxyribonucleotide (skin),2021-02-01,0
+europepmc,polydeoxyribonucleotide (skin),2021-03-01,2
+europepmc,polydeoxyribonucleotide (skin),2021-04-01,0
+europepmc,polydeoxyribonucleotide (skin),2021-05-01,3
+europepmc,polydeoxyribonucleotide (skin),2021-06-01,3
+europepmc,polydeoxyribonucleotide (skin),2021-07-01,5
+europepmc,polydeoxyribonucleotide (skin),2021-08-01,1
+europepmc,polydeoxyribonucleotide (skin),2021-09-01,1
+europepmc,polydeoxyribonucleotide (skin),2021-10-01,2
+europepmc,polydeoxyribonucleotide (skin),2021-11-01,4
+europepmc,polydeoxyribonucleotide (skin),2021-12-01,1
+europepmc,polydeoxyribonucleotide (skin),2022-01-01,3
+europepmc,polydeoxyribonucleotide (skin),2022-02-01,4
+europepmc,polydeoxyribonucleotide (skin),2022-03-01,3
+europepmc,polydeoxyribonucleotide (skin),2022-04-01,1
+europepmc,polydeoxyribonucleotide (skin),2022-05-01,3
+europepmc,polydeoxyribonucleotide (skin),2022-06-01,2
+europepmc,polydeoxyribonucleotide (skin),2022-07-01,1
+europepmc,polydeoxyribonucleotide (skin),2022-08-01,4
+europepmc,polydeoxyribonucleotide (skin),2022-09-01,1
+europepmc,polydeoxyribonucleotide (skin),2022-10-01,3
+europepmc,polydeoxyribonucleotide (skin),2022-11-01,1
+europepmc,polydeoxyribonucleotide (skin),2022-12-01,0
+europepmc,polydeoxyribonucleotide (skin),2023-01-01,2
+europepmc,polydeoxyribonucleotide (skin),2023-02-01,4
+europepmc,polydeoxyribonucleotide (skin),2023-03-01,0
+europepmc,polydeoxyribonucleotide (skin),2023-04-01,5
+europepmc,polydeoxyribonucleotide (skin),2023-05-01,4
+europepmc,polydeoxyribonucleotide (skin),2023-06-01,2
+europepmc,polydeoxyribonucleotide (skin),2023-07-01,1
+europepmc,polydeoxyribonucleotide (skin),2023-08-01,1
+europepmc,polydeoxyribonucleotide (skin),2023-09-01,5
+europepmc,polydeoxyribonucleotide (skin),2023-10-01,5
+europepmc,polydeoxyribonucleotide (skin),2023-11-01,1
+europepmc,polydeoxyribonucleotide (skin),2023-12-01,4
+europepmc,polydeoxyribonucleotide (skin),2024-01-01,3
+europepmc,polydeoxyribonucleotide (skin),2024-02-01,3
+europepmc,polydeoxyribonucleotide (skin),2024-03-01,3
+europepmc,polydeoxyribonucleotide (skin),2024-04-01,6
+europepmc,polydeoxyribonucleotide (skin),2024-05-01,0
+europepmc,polydeoxyribonucleotide (skin),2024-06-01,2
+europepmc,polydeoxyribonucleotide (skin),2024-07-01,8
+europepmc,polydeoxyribonucleotide (skin),2024-08-01,4
+europepmc,polydeoxyribonucleotide (skin),2024-09-01,3
+europepmc,polydeoxyribonucleotide (skin),2024-10-01,1
+europepmc,polydeoxyribonucleotide (skin),2024-11-01,1
+europepmc,polydeoxyribonucleotide (skin),2024-12-01,1
+europepmc,polydeoxyribonucleotide (skin),2025-01-01,6
+europepmc,polydeoxyribonucleotide (skin),2025-02-01,4
+europepmc,polydeoxyribonucleotide (skin),2025-03-01,2
+europepmc,polydeoxyribonucleotide (skin),2025-04-01,2
+europepmc,polydeoxyribonucleotide (skin),2025-05-01,6
+europepmc,polydeoxyribonucleotide (skin),2025-06-01,6
+europepmc,polydeoxyribonucleotide (skin),2025-07-01,2
+europepmc,polydeoxyribonucleotide (skin),2025-08-01,10
+europepmc,polydeoxyribonucleotide (skin),2025-09-01,7
+europepmc,polydeoxyribonucleotide (skin),2025-10-01,4
+europepmc,polydeoxyribonucleotide (skin),2025-11-01,8
+europepmc,polydeoxyribonucleotide (skin),2025-12-01,15
+europepmc,polydeoxyribonucleotide (skin),2026-01-01,8
+europepmc,polydeoxyribonucleotide (skin),2026-02-01,5
+europepmc,polydeoxyribonucleotide (skin),2026-03-01,5
+europepmc,polydeoxyribonucleotide (skin),2026-04-01,3
+europepmc,polydeoxyribonucleotide (skin),2026-05-01,8
+europepmc,polydeoxyribonucleotide (skin),2026-06-01,7
+europepmc,polydeoxyribonucleotide (skin),2026-07-01,4
+europepmc,polydeoxyribonucleotide (skin),2026-08-01,1
 europepmc,retinaldehyde,2019-01-01,26
 europepmc,retinaldehyde,2019-02-01,28
 europepmc,retinaldehyde,2019-03-01,15
@@ -1302,6 +2505,98 @@ europepmc,retinaldehyde,2026-05-01,28
 europepmc,retinaldehyde,2026-06-01,25
 europepmc,retinaldehyde,2026-07-01,5
 europepmc,retinaldehyde,2026-08-01,1
+europepmc,retinaldehyde (skin),2019-01-01,9
+europepmc,retinaldehyde (skin),2019-02-01,7
+europepmc,retinaldehyde (skin),2019-03-01,3
+europepmc,retinaldehyde (skin),2019-04-01,8
+europepmc,retinaldehyde (skin),2019-05-01,7
+europepmc,retinaldehyde (skin),2019-06-01,5
+europepmc,retinaldehyde (skin),2019-07-01,10
+europepmc,retinaldehyde (skin),2019-08-01,11
+europepmc,retinaldehyde (skin),2019-09-01,5
+europepmc,retinaldehyde (skin),2019-10-01,10
+europepmc,retinaldehyde (skin),2019-11-01,7
+europepmc,retinaldehyde (skin),2019-12-01,8
+europepmc,retinaldehyde (skin),2020-01-01,12
+europepmc,retinaldehyde (skin),2020-02-01,8
+europepmc,retinaldehyde (skin),2020-03-01,9
+europepmc,retinaldehyde (skin),2020-04-01,10
+europepmc,retinaldehyde (skin),2020-05-01,7
+europepmc,retinaldehyde (skin),2020-06-01,2
+europepmc,retinaldehyde (skin),2020-07-01,11
+europepmc,retinaldehyde (skin),2020-08-01,8
+europepmc,retinaldehyde (skin),2020-09-01,4
+europepmc,retinaldehyde (skin),2020-10-01,8
+europepmc,retinaldehyde (skin),2020-11-01,8
+europepmc,retinaldehyde (skin),2020-12-01,9
+europepmc,retinaldehyde (skin),2021-01-01,9
+europepmc,retinaldehyde (skin),2021-02-01,9
+europepmc,retinaldehyde (skin),2021-03-01,7
+europepmc,retinaldehyde (skin),2021-04-01,5
+europepmc,retinaldehyde (skin),2021-05-01,12
+europepmc,retinaldehyde (skin),2021-06-01,6
+europepmc,retinaldehyde (skin),2021-07-01,11
+europepmc,retinaldehyde (skin),2021-08-01,8
+europepmc,retinaldehyde (skin),2021-09-01,10
+europepmc,retinaldehyde (skin),2021-10-01,9
+europepmc,retinaldehyde (skin),2021-11-01,11
+europepmc,retinaldehyde (skin),2021-12-01,8
+europepmc,retinaldehyde (skin),2022-01-01,8
+europepmc,retinaldehyde (skin),2022-02-01,5
+europepmc,retinaldehyde (skin),2022-03-01,9
+europepmc,retinaldehyde (skin),2022-04-01,7
+europepmc,retinaldehyde (skin),2022-05-01,5
+europepmc,retinaldehyde (skin),2022-06-01,13
+europepmc,retinaldehyde (skin),2022-07-01,9
+europepmc,retinaldehyde (skin),2022-08-01,9
+europepmc,retinaldehyde (skin),2022-09-01,8
+europepmc,retinaldehyde (skin),2022-10-01,11
+europepmc,retinaldehyde (skin),2022-11-01,13
+europepmc,retinaldehyde (skin),2022-12-01,9
+europepmc,retinaldehyde (skin),2023-01-01,7
+europepmc,retinaldehyde (skin),2023-02-01,8
+europepmc,retinaldehyde (skin),2023-03-01,7
+europepmc,retinaldehyde (skin),2023-04-01,12
+europepmc,retinaldehyde (skin),2023-05-01,11
+europepmc,retinaldehyde (skin),2023-06-01,7
+europepmc,retinaldehyde (skin),2023-07-01,10
+europepmc,retinaldehyde (skin),2023-08-01,6
+europepmc,retinaldehyde (skin),2023-09-01,7
+europepmc,retinaldehyde (skin),2023-10-01,8
+europepmc,retinaldehyde (skin),2023-11-01,7
+europepmc,retinaldehyde (skin),2023-12-01,4
+europepmc,retinaldehyde (skin),2024-01-01,4
+europepmc,retinaldehyde (skin),2024-02-01,9
+europepmc,retinaldehyde (skin),2024-03-01,4
+europepmc,retinaldehyde (skin),2024-04-01,11
+europepmc,retinaldehyde (skin),2024-05-01,6
+europepmc,retinaldehyde (skin),2024-06-01,15
+europepmc,retinaldehyde (skin),2024-07-01,9
+europepmc,retinaldehyde (skin),2024-08-01,11
+europepmc,retinaldehyde (skin),2024-09-01,6
+europepmc,retinaldehyde (skin),2024-10-01,10
+europepmc,retinaldehyde (skin),2024-11-01,9
+europepmc,retinaldehyde (skin),2024-12-01,11
+europepmc,retinaldehyde (skin),2025-01-01,5
+europepmc,retinaldehyde (skin),2025-02-01,6
+europepmc,retinaldehyde (skin),2025-03-01,7
+europepmc,retinaldehyde (skin),2025-04-01,5
+europepmc,retinaldehyde (skin),2025-05-01,7
+europepmc,retinaldehyde (skin),2025-06-01,9
+europepmc,retinaldehyde (skin),2025-07-01,11
+europepmc,retinaldehyde (skin),2025-08-01,8
+europepmc,retinaldehyde (skin),2025-09-01,9
+europepmc,retinaldehyde (skin),2025-10-01,10
+europepmc,retinaldehyde (skin),2025-11-01,15
+europepmc,retinaldehyde (skin),2025-12-01,11
+europepmc,retinaldehyde (skin),2026-01-01,7
+europepmc,retinaldehyde (skin),2026-02-01,10
+europepmc,retinaldehyde (skin),2026-03-01,4
+europepmc,retinaldehyde (skin),2026-04-01,7
+europepmc,retinaldehyde (skin),2026-05-01,6
+europepmc,retinaldehyde (skin),2026-06-01,10
+europepmc,retinaldehyde (skin),2026-07-01,1
+europepmc,retinaldehyde (skin),2026-08-01,1
 europepmc,retinol,2019-01-01,232
 europepmc,retinol,2019-02-01,158
 europepmc,retinol,2019-03-01,152
@@ -1394,6 +2689,98 @@ europepmc,retinol,2026-05-01,249
 europepmc,retinol,2026-06-01,188
 europepmc,retinol,2026-07-01,60
 europepmc,retinol,2026-08-01,25
+europepmc,retinol (skin),2019-01-01,52
+europepmc,retinol (skin),2019-02-01,36
+europepmc,retinol (skin),2019-03-01,35
+europepmc,retinol (skin),2019-04-01,35
+europepmc,retinol (skin),2019-05-01,47
+europepmc,retinol (skin),2019-06-01,43
+europepmc,retinol (skin),2019-07-01,39
+europepmc,retinol (skin),2019-08-01,44
+europepmc,retinol (skin),2019-09-01,49
+europepmc,retinol (skin),2019-10-01,36
+europepmc,retinol (skin),2019-11-01,42
+europepmc,retinol (skin),2019-12-01,56
+europepmc,retinol (skin),2020-01-01,63
+europepmc,retinol (skin),2020-02-01,47
+europepmc,retinol (skin),2020-03-01,48
+europepmc,retinol (skin),2020-04-01,48
+europepmc,retinol (skin),2020-05-01,51
+europepmc,retinol (skin),2020-06-01,58
+europepmc,retinol (skin),2020-07-01,75
+europepmc,retinol (skin),2020-08-01,54
+europepmc,retinol (skin),2020-09-01,61
+europepmc,retinol (skin),2020-10-01,73
+europepmc,retinol (skin),2020-11-01,71
+europepmc,retinol (skin),2020-12-01,63
+europepmc,retinol (skin),2021-01-01,91
+europepmc,retinol (skin),2021-02-01,70
+europepmc,retinol (skin),2021-03-01,66
+europepmc,retinol (skin),2021-04-01,71
+europepmc,retinol (skin),2021-05-01,82
+europepmc,retinol (skin),2021-06-01,68
+europepmc,retinol (skin),2021-07-01,69
+europepmc,retinol (skin),2021-08-01,62
+europepmc,retinol (skin),2021-09-01,91
+europepmc,retinol (skin),2021-10-01,75
+europepmc,retinol (skin),2021-11-01,65
+europepmc,retinol (skin),2021-12-01,67
+europepmc,retinol (skin),2022-01-01,73
+europepmc,retinol (skin),2022-02-01,75
+europepmc,retinol (skin),2022-03-01,100
+europepmc,retinol (skin),2022-04-01,76
+europepmc,retinol (skin),2022-05-01,53
+europepmc,retinol (skin),2022-06-01,85
+europepmc,retinol (skin),2022-07-01,80
+europepmc,retinol (skin),2022-08-01,92
+europepmc,retinol (skin),2022-09-01,98
+europepmc,retinol (skin),2022-10-01,81
+europepmc,retinol (skin),2022-11-01,77
+europepmc,retinol (skin),2022-12-01,77
+europepmc,retinol (skin),2023-01-01,93
+europepmc,retinol (skin),2023-02-01,65
+europepmc,retinol (skin),2023-03-01,80
+europepmc,retinol (skin),2023-04-01,82
+europepmc,retinol (skin),2023-05-01,88
+europepmc,retinol (skin),2023-06-01,76
+europepmc,retinol (skin),2023-07-01,74
+europepmc,retinol (skin),2023-08-01,85
+europepmc,retinol (skin),2023-09-01,73
+europepmc,retinol (skin),2023-10-01,60
+europepmc,retinol (skin),2023-11-01,75
+europepmc,retinol (skin),2023-12-01,59
+europepmc,retinol (skin),2024-01-01,85
+europepmc,retinol (skin),2024-02-01,54
+europepmc,retinol (skin),2024-03-01,59
+europepmc,retinol (skin),2024-04-01,94
+europepmc,retinol (skin),2024-05-01,86
+europepmc,retinol (skin),2024-06-01,83
+europepmc,retinol (skin),2024-07-01,63
+europepmc,retinol (skin),2024-08-01,83
+europepmc,retinol (skin),2024-09-01,82
+europepmc,retinol (skin),2024-10-01,78
+europepmc,retinol (skin),2024-11-01,89
+europepmc,retinol (skin),2024-12-01,70
+europepmc,retinol (skin),2025-01-01,95
+europepmc,retinol (skin),2025-02-01,72
+europepmc,retinol (skin),2025-03-01,83
+europepmc,retinol (skin),2025-04-01,82
+europepmc,retinol (skin),2025-05-01,80
+europepmc,retinol (skin),2025-06-01,79
+europepmc,retinol (skin),2025-07-01,93
+europepmc,retinol (skin),2025-08-01,72
+europepmc,retinol (skin),2025-09-01,87
+europepmc,retinol (skin),2025-10-01,73
+europepmc,retinol (skin),2025-11-01,97
+europepmc,retinol (skin),2025-12-01,83
+europepmc,retinol (skin),2026-01-01,94
+europepmc,retinol (skin),2026-02-01,78
+europepmc,retinol (skin),2026-03-01,64
+europepmc,retinol (skin),2026-04-01,62
+europepmc,retinol (skin),2026-05-01,54
+europepmc,retinol (skin),2026-06-01,43
+europepmc,retinol (skin),2026-07-01,5
+europepmc,retinol (skin),2026-08-01,7
 europepmc,salicylic acid,2019-01-01,300
 europepmc,salicylic acid,2019-02-01,276
 europepmc,salicylic acid,2019-03-01,257
@@ -1486,6 +2873,98 @@ europepmc,salicylic acid,2026-05-01,468
 europepmc,salicylic acid,2026-06-01,387
 europepmc,salicylic acid,2026-07-01,127
 europepmc,salicylic acid,2026-08-01,57
+europepmc,salicylic acid (skin),2019-01-01,57
+europepmc,salicylic acid (skin),2019-02-01,28
+europepmc,salicylic acid (skin),2019-03-01,42
+europepmc,salicylic acid (skin),2019-04-01,36
+europepmc,salicylic acid (skin),2019-05-01,53
+europepmc,salicylic acid (skin),2019-06-01,30
+europepmc,salicylic acid (skin),2019-07-01,31
+europepmc,salicylic acid (skin),2019-08-01,39
+europepmc,salicylic acid (skin),2019-09-01,41
+europepmc,salicylic acid (skin),2019-10-01,51
+europepmc,salicylic acid (skin),2019-11-01,54
+europepmc,salicylic acid (skin),2019-12-01,41
+europepmc,salicylic acid (skin),2020-01-01,59
+europepmc,salicylic acid (skin),2020-02-01,46
+europepmc,salicylic acid (skin),2020-03-01,47
+europepmc,salicylic acid (skin),2020-04-01,52
+europepmc,salicylic acid (skin),2020-05-01,50
+europepmc,salicylic acid (skin),2020-06-01,60
+europepmc,salicylic acid (skin),2020-07-01,61
+europepmc,salicylic acid (skin),2020-08-01,67
+europepmc,salicylic acid (skin),2020-09-01,79
+europepmc,salicylic acid (skin),2020-10-01,65
+europepmc,salicylic acid (skin),2020-11-01,60
+europepmc,salicylic acid (skin),2020-12-01,66
+europepmc,salicylic acid (skin),2021-01-01,91
+europepmc,salicylic acid (skin),2021-02-01,83
+europepmc,salicylic acid (skin),2021-03-01,75
+europepmc,salicylic acid (skin),2021-04-01,99
+europepmc,salicylic acid (skin),2021-05-01,79
+europepmc,salicylic acid (skin),2021-06-01,78
+europepmc,salicylic acid (skin),2021-07-01,81
+europepmc,salicylic acid (skin),2021-08-01,70
+europepmc,salicylic acid (skin),2021-09-01,92
+europepmc,salicylic acid (skin),2021-10-01,92
+europepmc,salicylic acid (skin),2021-11-01,97
+europepmc,salicylic acid (skin),2021-12-01,84
+europepmc,salicylic acid (skin),2022-01-01,112
+europepmc,salicylic acid (skin),2022-02-01,104
+europepmc,salicylic acid (skin),2022-03-01,99
+europepmc,salicylic acid (skin),2022-04-01,89
+europepmc,salicylic acid (skin),2022-05-01,89
+europepmc,salicylic acid (skin),2022-06-01,88
+europepmc,salicylic acid (skin),2022-07-01,107
+europepmc,salicylic acid (skin),2022-08-01,107
+europepmc,salicylic acid (skin),2022-09-01,120
+europepmc,salicylic acid (skin),2022-10-01,128
+europepmc,salicylic acid (skin),2022-11-01,113
+europepmc,salicylic acid (skin),2022-12-01,136
+europepmc,salicylic acid (skin),2023-01-01,114
+europepmc,salicylic acid (skin),2023-02-01,109
+europepmc,salicylic acid (skin),2023-03-01,137
+europepmc,salicylic acid (skin),2023-04-01,101
+europepmc,salicylic acid (skin),2023-05-01,96
+europepmc,salicylic acid (skin),2023-06-01,97
+europepmc,salicylic acid (skin),2023-07-01,103
+europepmc,salicylic acid (skin),2023-08-01,93
+europepmc,salicylic acid (skin),2023-09-01,108
+europepmc,salicylic acid (skin),2023-10-01,98
+europepmc,salicylic acid (skin),2023-11-01,101
+europepmc,salicylic acid (skin),2023-12-01,90
+europepmc,salicylic acid (skin),2024-01-01,119
+europepmc,salicylic acid (skin),2024-02-01,99
+europepmc,salicylic acid (skin),2024-03-01,115
+europepmc,salicylic acid (skin),2024-04-01,83
+europepmc,salicylic acid (skin),2024-05-01,117
+europepmc,salicylic acid (skin),2024-06-01,97
+europepmc,salicylic acid (skin),2024-07-01,134
+europepmc,salicylic acid (skin),2024-08-01,90
+europepmc,salicylic acid (skin),2024-09-01,110
+europepmc,salicylic acid (skin),2024-10-01,107
+europepmc,salicylic acid (skin),2024-11-01,99
+europepmc,salicylic acid (skin),2024-12-01,96
+europepmc,salicylic acid (skin),2025-01-01,116
+europepmc,salicylic acid (skin),2025-02-01,118
+europepmc,salicylic acid (skin),2025-03-01,115
+europepmc,salicylic acid (skin),2025-04-01,104
+europepmc,salicylic acid (skin),2025-05-01,106
+europepmc,salicylic acid (skin),2025-06-01,114
+europepmc,salicylic acid (skin),2025-07-01,136
+europepmc,salicylic acid (skin),2025-08-01,121
+europepmc,salicylic acid (skin),2025-09-01,127
+europepmc,salicylic acid (skin),2025-10-01,113
+europepmc,salicylic acid (skin),2025-11-01,127
+europepmc,salicylic acid (skin),2025-12-01,131
+europepmc,salicylic acid (skin),2026-01-01,122
+europepmc,salicylic acid (skin),2026-02-01,111
+europepmc,salicylic acid (skin),2026-03-01,92
+europepmc,salicylic acid (skin),2026-04-01,85
+europepmc,salicylic acid (skin),2026-05-01,88
+europepmc,salicylic acid (skin),2026-06-01,63
+europepmc,salicylic acid (skin),2026-07-01,7
+europepmc,salicylic acid (skin),2026-08-01,3
 europepmc,tranexamic acid,2019-01-01,126
 europepmc,tranexamic acid,2019-02-01,94
 europepmc,tranexamic acid,2019-03-01,92
@@ -1578,6 +3057,98 @@ europepmc,tranexamic acid,2026-05-01,226
 europepmc,tranexamic acid,2026-06-01,175
 europepmc,tranexamic acid,2026-07-01,82
 europepmc,tranexamic acid,2026-08-01,29
+europepmc,tranexamic acid (skin),2019-01-01,29
+europepmc,tranexamic acid (skin),2019-02-01,20
+europepmc,tranexamic acid (skin),2019-03-01,24
+europepmc,tranexamic acid (skin),2019-04-01,26
+europepmc,tranexamic acid (skin),2019-05-01,27
+europepmc,tranexamic acid (skin),2019-06-01,17
+europepmc,tranexamic acid (skin),2019-07-01,28
+europepmc,tranexamic acid (skin),2019-08-01,29
+europepmc,tranexamic acid (skin),2019-09-01,36
+europepmc,tranexamic acid (skin),2019-10-01,19
+europepmc,tranexamic acid (skin),2019-11-01,27
+europepmc,tranexamic acid (skin),2019-12-01,26
+europepmc,tranexamic acid (skin),2020-01-01,34
+europepmc,tranexamic acid (skin),2020-02-01,20
+europepmc,tranexamic acid (skin),2020-03-01,40
+europepmc,tranexamic acid (skin),2020-04-01,34
+europepmc,tranexamic acid (skin),2020-05-01,29
+europepmc,tranexamic acid (skin),2020-06-01,53
+europepmc,tranexamic acid (skin),2020-07-01,41
+europepmc,tranexamic acid (skin),2020-08-01,38
+europepmc,tranexamic acid (skin),2020-09-01,49
+europepmc,tranexamic acid (skin),2020-10-01,47
+europepmc,tranexamic acid (skin),2020-11-01,53
+europepmc,tranexamic acid (skin),2020-12-01,45
+europepmc,tranexamic acid (skin),2021-01-01,72
+europepmc,tranexamic acid (skin),2021-02-01,43
+europepmc,tranexamic acid (skin),2021-03-01,41
+europepmc,tranexamic acid (skin),2021-04-01,35
+europepmc,tranexamic acid (skin),2021-05-01,42
+europepmc,tranexamic acid (skin),2021-06-01,66
+europepmc,tranexamic acid (skin),2021-07-01,61
+europepmc,tranexamic acid (skin),2021-08-01,49
+europepmc,tranexamic acid (skin),2021-09-01,57
+europepmc,tranexamic acid (skin),2021-10-01,42
+europepmc,tranexamic acid (skin),2021-11-01,53
+europepmc,tranexamic acid (skin),2021-12-01,48
+europepmc,tranexamic acid (skin),2022-01-01,77
+europepmc,tranexamic acid (skin),2022-02-01,42
+europepmc,tranexamic acid (skin),2022-03-01,58
+europepmc,tranexamic acid (skin),2022-04-01,51
+europepmc,tranexamic acid (skin),2022-05-01,44
+europepmc,tranexamic acid (skin),2022-06-01,47
+europepmc,tranexamic acid (skin),2022-07-01,53
+europepmc,tranexamic acid (skin),2022-08-01,41
+europepmc,tranexamic acid (skin),2022-09-01,48
+europepmc,tranexamic acid (skin),2022-10-01,52
+europepmc,tranexamic acid (skin),2022-11-01,54
+europepmc,tranexamic acid (skin),2022-12-01,48
+europepmc,tranexamic acid (skin),2023-01-01,92
+europepmc,tranexamic acid (skin),2023-02-01,50
+europepmc,tranexamic acid (skin),2023-03-01,55
+europepmc,tranexamic acid (skin),2023-04-01,50
+europepmc,tranexamic acid (skin),2023-05-01,55
+europepmc,tranexamic acid (skin),2023-06-01,55
+europepmc,tranexamic acid (skin),2023-07-01,53
+europepmc,tranexamic acid (skin),2023-08-01,59
+europepmc,tranexamic acid (skin),2023-09-01,54
+europepmc,tranexamic acid (skin),2023-10-01,54
+europepmc,tranexamic acid (skin),2023-11-01,51
+europepmc,tranexamic acid (skin),2023-12-01,50
+europepmc,tranexamic acid (skin),2024-01-01,74
+europepmc,tranexamic acid (skin),2024-02-01,55
+europepmc,tranexamic acid (skin),2024-03-01,59
+europepmc,tranexamic acid (skin),2024-04-01,53
+europepmc,tranexamic acid (skin),2024-05-01,63
+europepmc,tranexamic acid (skin),2024-06-01,66
+europepmc,tranexamic acid (skin),2024-07-01,65
+europepmc,tranexamic acid (skin),2024-08-01,63
+europepmc,tranexamic acid (skin),2024-09-01,80
+europepmc,tranexamic acid (skin),2024-10-01,65
+europepmc,tranexamic acid (skin),2024-11-01,76
+europepmc,tranexamic acid (skin),2024-12-01,70
+europepmc,tranexamic acid (skin),2025-01-01,84
+europepmc,tranexamic acid (skin),2025-02-01,55
+europepmc,tranexamic acid (skin),2025-03-01,73
+europepmc,tranexamic acid (skin),2025-04-01,81
+europepmc,tranexamic acid (skin),2025-05-01,85
+europepmc,tranexamic acid (skin),2025-06-01,75
+europepmc,tranexamic acid (skin),2025-07-01,93
+europepmc,tranexamic acid (skin),2025-08-01,82
+europepmc,tranexamic acid (skin),2025-09-01,96
+europepmc,tranexamic acid (skin),2025-10-01,100
+europepmc,tranexamic acid (skin),2025-11-01,85
+europepmc,tranexamic acid (skin),2025-12-01,72
+europepmc,tranexamic acid (skin),2026-01-01,100
+europepmc,tranexamic acid (skin),2026-02-01,81
+europepmc,tranexamic acid (skin),2026-03-01,80
+europepmc,tranexamic acid (skin),2026-04-01,75
+europepmc,tranexamic acid (skin),2026-05-01,86
+europepmc,tranexamic acid (skin),2026-06-01,47
+europepmc,tranexamic acid (skin),2026-07-01,11
+europepmc,tranexamic acid (skin),2026-08-01,2
 pubmed,adenosine,2019-01-01,1498
 pubmed,adenosine,2019-02-01,782
 pubmed,adenosine,2019-03-01,893
@@ -1670,6 +3241,97 @@ pubmed,adenosine,2026-05-01,876
 pubmed,adenosine,2026-06-01,870
 pubmed,adenosine,2026-07-01,758
 pubmed,adenosine,2026-08-01,453
+pubmed,adenosine (skin),2019-01-01,30
+pubmed,adenosine (skin),2019-02-01,21
+pubmed,adenosine (skin),2019-03-01,21
+pubmed,adenosine (skin),2019-04-01,27
+pubmed,adenosine (skin),2019-05-01,22
+pubmed,adenosine (skin),2019-06-01,13
+pubmed,adenosine (skin),2019-07-01,21
+pubmed,adenosine (skin),2019-08-01,20
+pubmed,adenosine (skin),2019-09-01,21
+pubmed,adenosine (skin),2019-10-01,24
+pubmed,adenosine (skin),2019-11-01,19
+pubmed,adenosine (skin),2019-12-01,16
+pubmed,adenosine (skin),2020-01-01,35
+pubmed,adenosine (skin),2020-02-01,26
+pubmed,adenosine (skin),2020-03-01,19
+pubmed,adenosine (skin),2020-04-01,23
+pubmed,adenosine (skin),2020-05-01,15
+pubmed,adenosine (skin),2020-06-01,23
+pubmed,adenosine (skin),2020-07-01,22
+pubmed,adenosine (skin),2020-08-01,21
+pubmed,adenosine (skin),2020-09-01,18
+pubmed,adenosine (skin),2020-10-01,26
+pubmed,adenosine (skin),2020-11-01,22
+pubmed,adenosine (skin),2020-12-01,21
+pubmed,adenosine (skin),2021-01-01,54
+pubmed,adenosine (skin),2021-02-01,21
+pubmed,adenosine (skin),2021-04-01,25
+pubmed,adenosine (skin),2021-05-01,16
+pubmed,adenosine (skin),2021-06-01,30
+pubmed,adenosine (skin),2021-07-01,28
+pubmed,adenosine (skin),2021-08-01,22
+pubmed,adenosine (skin),2021-09-01,23
+pubmed,adenosine (skin),2021-10-01,25
+pubmed,adenosine (skin),2021-11-01,28
+pubmed,adenosine (skin),2021-12-01,19
+pubmed,adenosine (skin),2022-01-01,54
+pubmed,adenosine (skin),2022-02-01,20
+pubmed,adenosine (skin),2022-03-01,21
+pubmed,adenosine (skin),2022-04-01,26
+pubmed,adenosine (skin),2022-05-01,26
+pubmed,adenosine (skin),2022-06-01,24
+pubmed,adenosine (skin),2022-07-01,19
+pubmed,adenosine (skin),2022-08-01,28
+pubmed,adenosine (skin),2022-09-01,21
+pubmed,adenosine (skin),2022-10-01,32
+pubmed,adenosine (skin),2022-11-01,24
+pubmed,adenosine (skin),2022-12-01,28
+pubmed,adenosine (skin),2023-01-01,35
+pubmed,adenosine (skin),2023-02-01,25
+pubmed,adenosine (skin),2023-03-01,25
+pubmed,adenosine (skin),2023-04-01,24
+pubmed,adenosine (skin),2023-05-01,27
+pubmed,adenosine (skin),2023-06-01,20
+pubmed,adenosine (skin),2023-07-01,23
+pubmed,adenosine (skin),2023-08-01,19
+pubmed,adenosine (skin),2023-09-01,15
+pubmed,adenosine (skin),2023-10-01,23
+pubmed,adenosine (skin),2023-11-01,20
+pubmed,adenosine (skin),2023-12-01,20
+pubmed,adenosine (skin),2024-01-01,44
+pubmed,adenosine (skin),2024-02-01,34
+pubmed,adenosine (skin),2024-03-01,21
+pubmed,adenosine (skin),2024-04-01,27
+pubmed,adenosine (skin),2024-05-01,30
+pubmed,adenosine (skin),2024-06-01,33
+pubmed,adenosine (skin),2024-07-01,24
+pubmed,adenosine (skin),2024-08-01,16
+pubmed,adenosine (skin),2024-09-01,22
+pubmed,adenosine (skin),2024-10-01,21
+pubmed,adenosine (skin),2024-11-01,29
+pubmed,adenosine (skin),2024-12-01,25
+pubmed,adenosine (skin),2025-01-01,43
+pubmed,adenosine (skin),2025-02-01,25
+pubmed,adenosine (skin),2025-03-01,26
+pubmed,adenosine (skin),2025-04-01,23
+pubmed,adenosine (skin),2025-05-01,27
+pubmed,adenosine (skin),2025-06-01,29
+pubmed,adenosine (skin),2025-07-01,17
+pubmed,adenosine (skin),2025-08-01,28
+pubmed,adenosine (skin),2025-09-01,16
+pubmed,adenosine (skin),2025-10-01,29
+pubmed,adenosine (skin),2025-11-01,30
+pubmed,adenosine (skin),2025-12-01,37
+pubmed,adenosine (skin),2026-01-01,42
+pubmed,adenosine (skin),2026-02-01,26
+pubmed,adenosine (skin),2026-03-01,28
+pubmed,adenosine (skin),2026-04-01,19
+pubmed,adenosine (skin),2026-05-01,25
+pubmed,adenosine (skin),2026-06-01,26
+pubmed,adenosine (skin),2026-07-01,14
+pubmed,adenosine (skin),2026-08-01,13
 pubmed,ascorbic acid,2019-01-01,406
 pubmed,ascorbic acid,2019-02-01,218
 pubmed,ascorbic acid,2019-03-01,249
@@ -1762,6 +3424,98 @@ pubmed,ascorbic acid,2026-05-01,230
 pubmed,ascorbic acid,2026-06-01,263
 pubmed,ascorbic acid,2026-07-01,199
 pubmed,ascorbic acid,2026-08-01,120
+pubmed,ascorbic acid (skin),2019-01-01,18
+pubmed,ascorbic acid (skin),2019-02-01,18
+pubmed,ascorbic acid (skin),2019-03-01,19
+pubmed,ascorbic acid (skin),2019-04-01,18
+pubmed,ascorbic acid (skin),2019-05-01,18
+pubmed,ascorbic acid (skin),2019-06-01,13
+pubmed,ascorbic acid (skin),2019-07-01,14
+pubmed,ascorbic acid (skin),2019-08-01,11
+pubmed,ascorbic acid (skin),2019-09-01,13
+pubmed,ascorbic acid (skin),2019-10-01,12
+pubmed,ascorbic acid (skin),2019-11-01,14
+pubmed,ascorbic acid (skin),2019-12-01,7
+pubmed,ascorbic acid (skin),2020-01-01,18
+pubmed,ascorbic acid (skin),2020-02-01,14
+pubmed,ascorbic acid (skin),2020-03-01,15
+pubmed,ascorbic acid (skin),2020-04-01,13
+pubmed,ascorbic acid (skin),2020-05-01,11
+pubmed,ascorbic acid (skin),2020-06-01,14
+pubmed,ascorbic acid (skin),2020-07-01,8
+pubmed,ascorbic acid (skin),2020-08-01,10
+pubmed,ascorbic acid (skin),2020-09-01,11
+pubmed,ascorbic acid (skin),2020-10-01,13
+pubmed,ascorbic acid (skin),2020-11-01,14
+pubmed,ascorbic acid (skin),2020-12-01,19
+pubmed,ascorbic acid (skin),2021-01-01,23
+pubmed,ascorbic acid (skin),2021-02-01,13
+pubmed,ascorbic acid (skin),2021-03-01,13
+pubmed,ascorbic acid (skin),2021-04-01,21
+pubmed,ascorbic acid (skin),2021-05-01,7
+pubmed,ascorbic acid (skin),2021-06-01,10
+pubmed,ascorbic acid (skin),2021-07-01,19
+pubmed,ascorbic acid (skin),2021-08-01,13
+pubmed,ascorbic acid (skin),2021-09-01,11
+pubmed,ascorbic acid (skin),2021-10-01,14
+pubmed,ascorbic acid (skin),2021-11-01,15
+pubmed,ascorbic acid (skin),2021-12-01,16
+pubmed,ascorbic acid (skin),2022-01-01,32
+pubmed,ascorbic acid (skin),2022-02-01,21
+pubmed,ascorbic acid (skin),2022-03-01,10
+pubmed,ascorbic acid (skin),2022-04-01,14
+pubmed,ascorbic acid (skin),2022-05-01,17
+pubmed,ascorbic acid (skin),2022-06-01,12
+pubmed,ascorbic acid (skin),2022-07-01,15
+pubmed,ascorbic acid (skin),2022-08-01,16
+pubmed,ascorbic acid (skin),2022-09-01,16
+pubmed,ascorbic acid (skin),2022-10-01,8
+pubmed,ascorbic acid (skin),2022-11-01,14
+pubmed,ascorbic acid (skin),2022-12-01,20
+pubmed,ascorbic acid (skin),2023-01-01,24
+pubmed,ascorbic acid (skin),2023-02-01,13
+pubmed,ascorbic acid (skin),2023-03-01,17
+pubmed,ascorbic acid (skin),2023-04-01,17
+pubmed,ascorbic acid (skin),2023-05-01,17
+pubmed,ascorbic acid (skin),2023-06-01,12
+pubmed,ascorbic acid (skin),2023-07-01,20
+pubmed,ascorbic acid (skin),2023-08-01,17
+pubmed,ascorbic acid (skin),2023-09-01,13
+pubmed,ascorbic acid (skin),2023-10-01,17
+pubmed,ascorbic acid (skin),2023-11-01,14
+pubmed,ascorbic acid (skin),2023-12-01,18
+pubmed,ascorbic acid (skin),2024-01-01,28
+pubmed,ascorbic acid (skin),2024-02-01,15
+pubmed,ascorbic acid (skin),2024-03-01,15
+pubmed,ascorbic acid (skin),2024-04-01,21
+pubmed,ascorbic acid (skin),2024-05-01,17
+pubmed,ascorbic acid (skin),2024-06-01,14
+pubmed,ascorbic acid (skin),2024-07-01,21
+pubmed,ascorbic acid (skin),2024-08-01,23
+pubmed,ascorbic acid (skin),2024-09-01,16
+pubmed,ascorbic acid (skin),2024-10-01,11
+pubmed,ascorbic acid (skin),2024-11-01,19
+pubmed,ascorbic acid (skin),2024-12-01,17
+pubmed,ascorbic acid (skin),2025-01-01,29
+pubmed,ascorbic acid (skin),2025-02-01,15
+pubmed,ascorbic acid (skin),2025-03-01,18
+pubmed,ascorbic acid (skin),2025-04-01,11
+pubmed,ascorbic acid (skin),2025-05-01,17
+pubmed,ascorbic acid (skin),2025-06-01,22
+pubmed,ascorbic acid (skin),2025-07-01,20
+pubmed,ascorbic acid (skin),2025-08-01,13
+pubmed,ascorbic acid (skin),2025-09-01,14
+pubmed,ascorbic acid (skin),2025-10-01,28
+pubmed,ascorbic acid (skin),2025-11-01,25
+pubmed,ascorbic acid (skin),2025-12-01,23
+pubmed,ascorbic acid (skin),2026-01-01,22
+pubmed,ascorbic acid (skin),2026-02-01,16
+pubmed,ascorbic acid (skin),2026-03-01,17
+pubmed,ascorbic acid (skin),2026-04-01,20
+pubmed,ascorbic acid (skin),2026-05-01,17
+pubmed,ascorbic acid (skin),2026-06-01,17
+pubmed,ascorbic acid (skin),2026-07-01,11
+pubmed,ascorbic acid (skin),2026-08-01,4
 pubmed,centella asiatica,2019-01-01,11
 pubmed,centella asiatica,2019-02-01,7
 pubmed,centella asiatica,2019-03-01,9
@@ -1854,6 +3608,98 @@ pubmed,centella asiatica,2026-05-01,13
 pubmed,centella asiatica,2026-06-01,20
 pubmed,centella asiatica,2026-07-01,19
 pubmed,centella asiatica,2026-08-01,4
+pubmed,centella asiatica (skin),2019-01-01,3
+pubmed,centella asiatica (skin),2019-02-01,0
+pubmed,centella asiatica (skin),2019-03-01,2
+pubmed,centella asiatica (skin),2019-04-01,1
+pubmed,centella asiatica (skin),2019-05-01,3
+pubmed,centella asiatica (skin),2019-06-01,0
+pubmed,centella asiatica (skin),2019-07-01,1
+pubmed,centella asiatica (skin),2019-08-01,3
+pubmed,centella asiatica (skin),2019-09-01,1
+pubmed,centella asiatica (skin),2019-10-01,1
+pubmed,centella asiatica (skin),2019-11-01,0
+pubmed,centella asiatica (skin),2019-12-01,1
+pubmed,centella asiatica (skin),2020-01-01,5
+pubmed,centella asiatica (skin),2020-02-01,2
+pubmed,centella asiatica (skin),2020-03-01,0
+pubmed,centella asiatica (skin),2020-04-01,1
+pubmed,centella asiatica (skin),2020-05-01,0
+pubmed,centella asiatica (skin),2020-06-01,3
+pubmed,centella asiatica (skin),2020-07-01,0
+pubmed,centella asiatica (skin),2020-08-01,1
+pubmed,centella asiatica (skin),2020-09-01,2
+pubmed,centella asiatica (skin),2020-10-01,1
+pubmed,centella asiatica (skin),2020-11-01,2
+pubmed,centella asiatica (skin),2020-12-01,0
+pubmed,centella asiatica (skin),2021-01-01,8
+pubmed,centella asiatica (skin),2021-02-01,1
+pubmed,centella asiatica (skin),2021-03-01,0
+pubmed,centella asiatica (skin),2021-04-01,3
+pubmed,centella asiatica (skin),2021-05-01,0
+pubmed,centella asiatica (skin),2021-06-01,4
+pubmed,centella asiatica (skin),2021-07-01,0
+pubmed,centella asiatica (skin),2021-08-01,0
+pubmed,centella asiatica (skin),2021-09-01,1
+pubmed,centella asiatica (skin),2021-10-01,2
+pubmed,centella asiatica (skin),2021-11-01,6
+pubmed,centella asiatica (skin),2021-12-01,1
+pubmed,centella asiatica (skin),2022-01-01,6
+pubmed,centella asiatica (skin),2022-02-01,1
+pubmed,centella asiatica (skin),2022-03-01,3
+pubmed,centella asiatica (skin),2022-04-01,1
+pubmed,centella asiatica (skin),2022-05-01,2
+pubmed,centella asiatica (skin),2022-06-01,1
+pubmed,centella asiatica (skin),2022-07-01,0
+pubmed,centella asiatica (skin),2022-08-01,1
+pubmed,centella asiatica (skin),2022-09-01,3
+pubmed,centella asiatica (skin),2022-10-01,2
+pubmed,centella asiatica (skin),2022-11-01,7
+pubmed,centella asiatica (skin),2022-12-01,5
+pubmed,centella asiatica (skin),2023-01-01,2
+pubmed,centella asiatica (skin),2023-02-01,4
+pubmed,centella asiatica (skin),2023-03-01,4
+pubmed,centella asiatica (skin),2023-04-01,3
+pubmed,centella asiatica (skin),2023-05-01,0
+pubmed,centella asiatica (skin),2023-06-01,4
+pubmed,centella asiatica (skin),2023-07-01,1
+pubmed,centella asiatica (skin),2023-08-01,3
+pubmed,centella asiatica (skin),2023-09-01,3
+pubmed,centella asiatica (skin),2023-10-01,4
+pubmed,centella asiatica (skin),2023-11-01,1
+pubmed,centella asiatica (skin),2023-12-01,6
+pubmed,centella asiatica (skin),2024-01-01,6
+pubmed,centella asiatica (skin),2024-02-01,1
+pubmed,centella asiatica (skin),2024-03-01,1
+pubmed,centella asiatica (skin),2024-04-01,4
+pubmed,centella asiatica (skin),2024-05-01,1
+pubmed,centella asiatica (skin),2024-06-01,1
+pubmed,centella asiatica (skin),2024-07-01,2
+pubmed,centella asiatica (skin),2024-08-01,2
+pubmed,centella asiatica (skin),2024-09-01,7
+pubmed,centella asiatica (skin),2024-10-01,2
+pubmed,centella asiatica (skin),2024-11-01,3
+pubmed,centella asiatica (skin),2024-12-01,5
+pubmed,centella asiatica (skin),2025-01-01,8
+pubmed,centella asiatica (skin),2025-02-01,5
+pubmed,centella asiatica (skin),2025-03-01,0
+pubmed,centella asiatica (skin),2025-04-01,5
+pubmed,centella asiatica (skin),2025-05-01,4
+pubmed,centella asiatica (skin),2025-06-01,2
+pubmed,centella asiatica (skin),2025-07-01,9
+pubmed,centella asiatica (skin),2025-08-01,6
+pubmed,centella asiatica (skin),2025-09-01,8
+pubmed,centella asiatica (skin),2025-10-01,3
+pubmed,centella asiatica (skin),2025-11-01,3
+pubmed,centella asiatica (skin),2025-12-01,7
+pubmed,centella asiatica (skin),2026-01-01,9
+pubmed,centella asiatica (skin),2026-02-01,6
+pubmed,centella asiatica (skin),2026-03-01,2
+pubmed,centella asiatica (skin),2026-04-01,4
+pubmed,centella asiatica (skin),2026-05-01,4
+pubmed,centella asiatica (skin),2026-06-01,5
+pubmed,centella asiatica (skin),2026-07-01,4
+pubmed,centella asiatica (skin),2026-08-01,0
 pubmed,ceramide,2019-01-01,202
 pubmed,ceramide,2019-02-01,105
 pubmed,ceramide,2019-03-01,123
@@ -1946,6 +3792,98 @@ pubmed,ceramide,2026-05-01,121
 pubmed,ceramide,2026-06-01,122
 pubmed,ceramide,2026-07-01,147
 pubmed,ceramide,2026-08-01,67
+pubmed,ceramide (skin),2019-01-01,20
+pubmed,ceramide (skin),2019-02-01,15
+pubmed,ceramide (skin),2019-03-01,15
+pubmed,ceramide (skin),2019-04-01,13
+pubmed,ceramide (skin),2019-05-01,16
+pubmed,ceramide (skin),2019-06-01,13
+pubmed,ceramide (skin),2019-07-01,16
+pubmed,ceramide (skin),2019-08-01,9
+pubmed,ceramide (skin),2019-09-01,10
+pubmed,ceramide (skin),2019-10-01,7
+pubmed,ceramide (skin),2019-11-01,19
+pubmed,ceramide (skin),2019-12-01,13
+pubmed,ceramide (skin),2020-01-01,24
+pubmed,ceramide (skin),2020-02-01,14
+pubmed,ceramide (skin),2020-03-01,14
+pubmed,ceramide (skin),2020-04-01,10
+pubmed,ceramide (skin),2020-05-01,8
+pubmed,ceramide (skin),2020-06-01,9
+pubmed,ceramide (skin),2020-07-01,10
+pubmed,ceramide (skin),2020-08-01,17
+pubmed,ceramide (skin),2020-09-01,12
+pubmed,ceramide (skin),2020-10-01,13
+pubmed,ceramide (skin),2020-11-01,17
+pubmed,ceramide (skin),2020-12-01,6
+pubmed,ceramide (skin),2021-01-01,38
+pubmed,ceramide (skin),2021-02-01,10
+pubmed,ceramide (skin),2021-03-01,17
+pubmed,ceramide (skin),2021-04-01,19
+pubmed,ceramide (skin),2021-05-01,17
+pubmed,ceramide (skin),2021-06-01,13
+pubmed,ceramide (skin),2021-07-01,17
+pubmed,ceramide (skin),2021-08-01,19
+pubmed,ceramide (skin),2021-09-01,19
+pubmed,ceramide (skin),2021-10-01,16
+pubmed,ceramide (skin),2021-11-01,17
+pubmed,ceramide (skin),2021-12-01,21
+pubmed,ceramide (skin),2022-01-01,22
+pubmed,ceramide (skin),2022-02-01,12
+pubmed,ceramide (skin),2022-03-01,20
+pubmed,ceramide (skin),2022-04-01,8
+pubmed,ceramide (skin),2022-05-01,17
+pubmed,ceramide (skin),2022-06-01,11
+pubmed,ceramide (skin),2022-07-01,16
+pubmed,ceramide (skin),2022-08-01,14
+pubmed,ceramide (skin),2022-09-01,19
+pubmed,ceramide (skin),2022-10-01,13
+pubmed,ceramide (skin),2022-11-01,19
+pubmed,ceramide (skin),2022-12-01,15
+pubmed,ceramide (skin),2023-01-01,26
+pubmed,ceramide (skin),2023-02-01,16
+pubmed,ceramide (skin),2023-03-01,24
+pubmed,ceramide (skin),2023-04-01,14
+pubmed,ceramide (skin),2023-05-01,9
+pubmed,ceramide (skin),2023-06-01,16
+pubmed,ceramide (skin),2023-07-01,17
+pubmed,ceramide (skin),2023-08-01,11
+pubmed,ceramide (skin),2023-09-01,13
+pubmed,ceramide (skin),2023-10-01,9
+pubmed,ceramide (skin),2023-11-01,19
+pubmed,ceramide (skin),2023-12-01,17
+pubmed,ceramide (skin),2024-01-01,28
+pubmed,ceramide (skin),2024-02-01,14
+pubmed,ceramide (skin),2024-03-01,16
+pubmed,ceramide (skin),2024-04-01,16
+pubmed,ceramide (skin),2024-05-01,13
+pubmed,ceramide (skin),2024-06-01,22
+pubmed,ceramide (skin),2024-07-01,20
+pubmed,ceramide (skin),2024-08-01,18
+pubmed,ceramide (skin),2024-09-01,13
+pubmed,ceramide (skin),2024-10-01,16
+pubmed,ceramide (skin),2024-11-01,9
+pubmed,ceramide (skin),2024-12-01,16
+pubmed,ceramide (skin),2025-01-01,25
+pubmed,ceramide (skin),2025-02-01,13
+pubmed,ceramide (skin),2025-03-01,15
+pubmed,ceramide (skin),2025-04-01,17
+pubmed,ceramide (skin),2025-05-01,11
+pubmed,ceramide (skin),2025-06-01,15
+pubmed,ceramide (skin),2025-07-01,17
+pubmed,ceramide (skin),2025-08-01,13
+pubmed,ceramide (skin),2025-09-01,13
+pubmed,ceramide (skin),2025-10-01,15
+pubmed,ceramide (skin),2025-11-01,20
+pubmed,ceramide (skin),2025-12-01,18
+pubmed,ceramide (skin),2026-01-01,20
+pubmed,ceramide (skin),2026-02-01,16
+pubmed,ceramide (skin),2026-03-01,21
+pubmed,ceramide (skin),2026-04-01,11
+pubmed,ceramide (skin),2026-05-01,5
+pubmed,ceramide (skin),2026-06-01,17
+pubmed,ceramide (skin),2026-07-01,22
+pubmed,ceramide (skin),2026-08-01,9
 pubmed,collagen,2019-01-01,2339
 pubmed,collagen,2019-02-01,1191
 pubmed,collagen,2019-03-01,1168
@@ -2038,6 +3976,98 @@ pubmed,collagen,2026-05-01,1614
 pubmed,collagen,2026-06-01,1754
 pubmed,collagen,2026-07-01,1571
 pubmed,collagen,2026-08-01,990
+pubmed,collagen (skin),2019-01-01,292
+pubmed,collagen (skin),2019-02-01,165
+pubmed,collagen (skin),2019-03-01,150
+pubmed,collagen (skin),2019-04-01,145
+pubmed,collagen (skin),2019-05-01,166
+pubmed,collagen (skin),2019-06-01,157
+pubmed,collagen (skin),2019-07-01,187
+pubmed,collagen (skin),2019-08-01,171
+pubmed,collagen (skin),2019-09-01,150
+pubmed,collagen (skin),2019-10-01,165
+pubmed,collagen (skin),2019-11-01,161
+pubmed,collagen (skin),2019-12-01,193
+pubmed,collagen (skin),2020-01-01,331
+pubmed,collagen (skin),2020-02-01,150
+pubmed,collagen (skin),2020-03-01,168
+pubmed,collagen (skin),2020-04-01,189
+pubmed,collagen (skin),2020-05-01,178
+pubmed,collagen (skin),2020-06-01,190
+pubmed,collagen (skin),2020-07-01,184
+pubmed,collagen (skin),2020-08-01,167
+pubmed,collagen (skin),2020-09-01,189
+pubmed,collagen (skin),2020-10-01,179
+pubmed,collagen (skin),2020-11-01,187
+pubmed,collagen (skin),2020-12-01,222
+pubmed,collagen (skin),2021-01-01,389
+pubmed,collagen (skin),2021-02-01,178
+pubmed,collagen (skin),2021-03-01,199
+pubmed,collagen (skin),2021-04-01,150
+pubmed,collagen (skin),2021-05-01,166
+pubmed,collagen (skin),2021-06-01,166
+pubmed,collagen (skin),2021-07-01,181
+pubmed,collagen (skin),2021-08-01,178
+pubmed,collagen (skin),2021-09-01,190
+pubmed,collagen (skin),2021-10-01,200
+pubmed,collagen (skin),2021-11-01,201
+pubmed,collagen (skin),2021-12-01,216
+pubmed,collagen (skin),2022-01-01,434
+pubmed,collagen (skin),2022-02-01,173
+pubmed,collagen (skin),2022-03-01,187
+pubmed,collagen (skin),2022-04-01,204
+pubmed,collagen (skin),2022-05-01,182
+pubmed,collagen (skin),2022-06-01,194
+pubmed,collagen (skin),2022-07-01,187
+pubmed,collagen (skin),2022-08-01,176
+pubmed,collagen (skin),2022-09-01,179
+pubmed,collagen (skin),2022-10-01,189
+pubmed,collagen (skin),2022-11-01,189
+pubmed,collagen (skin),2022-12-01,235
+pubmed,collagen (skin),2023-01-01,372
+pubmed,collagen (skin),2023-02-01,193
+pubmed,collagen (skin),2023-03-01,202
+pubmed,collagen (skin),2023-04-01,182
+pubmed,collagen (skin),2023-05-01,209
+pubmed,collagen (skin),2023-06-01,175
+pubmed,collagen (skin),2023-07-01,194
+pubmed,collagen (skin),2023-08-01,206
+pubmed,collagen (skin),2023-09-01,214
+pubmed,collagen (skin),2023-10-01,217
+pubmed,collagen (skin),2023-11-01,222
+pubmed,collagen (skin),2023-12-01,218
+pubmed,collagen (skin),2024-01-01,442
+pubmed,collagen (skin),2024-02-01,235
+pubmed,collagen (skin),2024-03-01,229
+pubmed,collagen (skin),2024-04-01,237
+pubmed,collagen (skin),2024-05-01,226
+pubmed,collagen (skin),2024-06-01,234
+pubmed,collagen (skin),2024-07-01,239
+pubmed,collagen (skin),2024-08-01,249
+pubmed,collagen (skin),2024-09-01,268
+pubmed,collagen (skin),2024-10-01,244
+pubmed,collagen (skin),2024-11-01,239
+pubmed,collagen (skin),2024-12-01,286
+pubmed,collagen (skin),2025-01-01,513
+pubmed,collagen (skin),2025-02-01,265
+pubmed,collagen (skin),2025-03-01,270
+pubmed,collagen (skin),2025-04-01,296
+pubmed,collagen (skin),2025-05-01,258
+pubmed,collagen (skin),2025-06-01,271
+pubmed,collagen (skin),2025-07-01,271
+pubmed,collagen (skin),2025-08-01,236
+pubmed,collagen (skin),2025-09-01,281
+pubmed,collagen (skin),2025-10-01,266
+pubmed,collagen (skin),2025-11-01,266
+pubmed,collagen (skin),2025-12-01,285
+pubmed,collagen (skin),2026-01-01,489
+pubmed,collagen (skin),2026-02-01,272
+pubmed,collagen (skin),2026-03-01,313
+pubmed,collagen (skin),2026-04-01,290
+pubmed,collagen (skin),2026-05-01,288
+pubmed,collagen (skin),2026-06-01,319
+pubmed,collagen (skin),2026-07-01,280
+pubmed,collagen (skin),2026-08-01,177
 pubmed,cosmetic,2019-01-01,1205
 pubmed,cosmetic,2019-02-01,638
 pubmed,cosmetic,2019-03-01,749
@@ -2130,6 +4160,98 @@ pubmed,cosmetic,2026-05-01,1004
 pubmed,cosmetic,2026-06-01,1066
 pubmed,cosmetic,2026-07-01,895
 pubmed,cosmetic,2026-08-01,539
+pubmed,cosmetic (skin),2019-01-01,1205
+pubmed,cosmetic (skin),2019-02-01,638
+pubmed,cosmetic (skin),2019-03-01,749
+pubmed,cosmetic (skin),2019-04-01,723
+pubmed,cosmetic (skin),2019-05-01,775
+pubmed,cosmetic (skin),2019-06-01,774
+pubmed,cosmetic (skin),2019-07-01,752
+pubmed,cosmetic (skin),2019-08-01,717
+pubmed,cosmetic (skin),2019-09-01,741
+pubmed,cosmetic (skin),2019-10-01,693
+pubmed,cosmetic (skin),2019-11-01,767
+pubmed,cosmetic (skin),2019-12-01,871
+pubmed,cosmetic (skin),2020-01-01,1319
+pubmed,cosmetic (skin),2020-02-01,773
+pubmed,cosmetic (skin),2020-03-01,753
+pubmed,cosmetic (skin),2020-04-01,905
+pubmed,cosmetic (skin),2020-05-01,783
+pubmed,cosmetic (skin),2020-06-01,811
+pubmed,cosmetic (skin),2020-07-01,939
+pubmed,cosmetic (skin),2020-08-01,794
+pubmed,cosmetic (skin),2020-09-01,889
+pubmed,cosmetic (skin),2020-10-01,941
+pubmed,cosmetic (skin),2020-11-01,921
+pubmed,cosmetic (skin),2020-12-01,875
+pubmed,cosmetic (skin),2021-01-01,1499
+pubmed,cosmetic (skin),2021-02-01,755
+pubmed,cosmetic (skin),2021-03-01,902
+pubmed,cosmetic (skin),2021-04-01,856
+pubmed,cosmetic (skin),2021-05-01,878
+pubmed,cosmetic (skin),2021-06-01,879
+pubmed,cosmetic (skin),2021-07-01,908
+pubmed,cosmetic (skin),2021-08-01,912
+pubmed,cosmetic (skin),2021-09-01,908
+pubmed,cosmetic (skin),2021-10-01,997
+pubmed,cosmetic (skin),2021-11-01,857
+pubmed,cosmetic (skin),2021-12-01,924
+pubmed,cosmetic (skin),2022-01-01,1754
+pubmed,cosmetic (skin),2022-02-01,823
+pubmed,cosmetic (skin),2022-03-01,992
+pubmed,cosmetic (skin),2022-04-01,860
+pubmed,cosmetic (skin),2022-05-01,984
+pubmed,cosmetic (skin),2022-06-01,948
+pubmed,cosmetic (skin),2022-07-01,867
+pubmed,cosmetic (skin),2022-08-01,922
+pubmed,cosmetic (skin),2022-09-01,1061
+pubmed,cosmetic (skin),2022-10-01,928
+pubmed,cosmetic (skin),2022-11-01,986
+pubmed,cosmetic (skin),2022-12-01,980
+pubmed,cosmetic (skin),2023-01-01,1568
+pubmed,cosmetic (skin),2023-02-01,853
+pubmed,cosmetic (skin),2023-03-01,943
+pubmed,cosmetic (skin),2023-04-01,779
+pubmed,cosmetic (skin),2023-05-01,817
+pubmed,cosmetic (skin),2023-06-01,903
+pubmed,cosmetic (skin),2023-07-01,900
+pubmed,cosmetic (skin),2023-08-01,848
+pubmed,cosmetic (skin),2023-09-01,880
+pubmed,cosmetic (skin),2023-10-01,914
+pubmed,cosmetic (skin),2023-11-01,925
+pubmed,cosmetic (skin),2023-12-01,1051
+pubmed,cosmetic (skin),2024-01-01,1596
+pubmed,cosmetic (skin),2024-02-01,1009
+pubmed,cosmetic (skin),2024-03-01,1076
+pubmed,cosmetic (skin),2024-04-01,924
+pubmed,cosmetic (skin),2024-05-01,1000
+pubmed,cosmetic (skin),2024-06-01,1023
+pubmed,cosmetic (skin),2024-07-01,1048
+pubmed,cosmetic (skin),2024-08-01,988
+pubmed,cosmetic (skin),2024-09-01,1048
+pubmed,cosmetic (skin),2024-10-01,1097
+pubmed,cosmetic (skin),2024-11-01,1072
+pubmed,cosmetic (skin),2024-12-01,1135
+pubmed,cosmetic (skin),2025-01-01,1879
+pubmed,cosmetic (skin),2025-02-01,980
+pubmed,cosmetic (skin),2025-03-01,1012
+pubmed,cosmetic (skin),2025-04-01,977
+pubmed,cosmetic (skin),2025-05-01,1057
+pubmed,cosmetic (skin),2025-06-01,1034
+pubmed,cosmetic (skin),2025-07-01,1089
+pubmed,cosmetic (skin),2025-08-01,987
+pubmed,cosmetic (skin),2025-09-01,1125
+pubmed,cosmetic (skin),2025-10-01,1134
+pubmed,cosmetic (skin),2025-11-01,1101
+pubmed,cosmetic (skin),2025-12-01,1268
+pubmed,cosmetic (skin),2026-01-01,1795
+pubmed,cosmetic (skin),2026-02-01,1008
+pubmed,cosmetic (skin),2026-03-01,995
+pubmed,cosmetic (skin),2026-04-01,1008
+pubmed,cosmetic (skin),2026-05-01,1004
+pubmed,cosmetic (skin),2026-06-01,1067
+pubmed,cosmetic (skin),2026-07-01,897
+pubmed,cosmetic (skin),2026-08-01,550
 pubmed,ethylhexyl triazone,2019-01-01,1
 pubmed,ethylhexyl triazone,2019-02-01,0
 pubmed,ethylhexyl triazone,2019-03-01,0
@@ -2222,6 +4344,98 @@ pubmed,ethylhexyl triazone,2026-05-01,1
 pubmed,ethylhexyl triazone,2026-06-01,0
 pubmed,ethylhexyl triazone,2026-07-01,3
 pubmed,ethylhexyl triazone,2026-08-01,1
+pubmed,ethylhexyl triazone (skin),2019-01-01,1
+pubmed,ethylhexyl triazone (skin),2019-02-01,0
+pubmed,ethylhexyl triazone (skin),2019-03-01,0
+pubmed,ethylhexyl triazone (skin),2019-04-01,0
+pubmed,ethylhexyl triazone (skin),2019-05-01,0
+pubmed,ethylhexyl triazone (skin),2019-06-01,0
+pubmed,ethylhexyl triazone (skin),2019-07-01,0
+pubmed,ethylhexyl triazone (skin),2019-08-01,0
+pubmed,ethylhexyl triazone (skin),2019-09-01,0
+pubmed,ethylhexyl triazone (skin),2019-10-01,1
+pubmed,ethylhexyl triazone (skin),2019-11-01,0
+pubmed,ethylhexyl triazone (skin),2019-12-01,1
+pubmed,ethylhexyl triazone (skin),2020-01-01,0
+pubmed,ethylhexyl triazone (skin),2020-02-01,1
+pubmed,ethylhexyl triazone (skin),2020-03-01,0
+pubmed,ethylhexyl triazone (skin),2020-04-01,1
+pubmed,ethylhexyl triazone (skin),2020-05-01,0
+pubmed,ethylhexyl triazone (skin),2020-06-01,0
+pubmed,ethylhexyl triazone (skin),2020-07-01,0
+pubmed,ethylhexyl triazone (skin),2020-08-01,0
+pubmed,ethylhexyl triazone (skin),2020-09-01,1
+pubmed,ethylhexyl triazone (skin),2020-10-01,1
+pubmed,ethylhexyl triazone (skin),2020-11-01,0
+pubmed,ethylhexyl triazone (skin),2020-12-01,0
+pubmed,ethylhexyl triazone (skin),2021-01-01,1
+pubmed,ethylhexyl triazone (skin),2021-02-01,1
+pubmed,ethylhexyl triazone (skin),2021-03-01,0
+pubmed,ethylhexyl triazone (skin),2021-04-01,2
+pubmed,ethylhexyl triazone (skin),2021-05-01,0
+pubmed,ethylhexyl triazone (skin),2021-06-01,0
+pubmed,ethylhexyl triazone (skin),2021-07-01,0
+pubmed,ethylhexyl triazone (skin),2021-08-01,0
+pubmed,ethylhexyl triazone (skin),2021-09-01,0
+pubmed,ethylhexyl triazone (skin),2021-10-01,0
+pubmed,ethylhexyl triazone (skin),2021-11-01,0
+pubmed,ethylhexyl triazone (skin),2021-12-01,0
+pubmed,ethylhexyl triazone (skin),2022-01-01,0
+pubmed,ethylhexyl triazone (skin),2022-02-01,0
+pubmed,ethylhexyl triazone (skin),2022-03-01,0
+pubmed,ethylhexyl triazone (skin),2022-04-01,0
+pubmed,ethylhexyl triazone (skin),2022-05-01,0
+pubmed,ethylhexyl triazone (skin),2022-06-01,0
+pubmed,ethylhexyl triazone (skin),2022-07-01,1
+pubmed,ethylhexyl triazone (skin),2022-08-01,0
+pubmed,ethylhexyl triazone (skin),2022-09-01,2
+pubmed,ethylhexyl triazone (skin),2022-10-01,1
+pubmed,ethylhexyl triazone (skin),2022-11-01,1
+pubmed,ethylhexyl triazone (skin),2022-12-01,1
+pubmed,ethylhexyl triazone (skin),2023-01-01,0
+pubmed,ethylhexyl triazone (skin),2023-02-01,0
+pubmed,ethylhexyl triazone (skin),2023-03-01,0
+pubmed,ethylhexyl triazone (skin),2023-04-01,0
+pubmed,ethylhexyl triazone (skin),2023-05-01,1
+pubmed,ethylhexyl triazone (skin),2023-06-01,0
+pubmed,ethylhexyl triazone (skin),2023-07-01,0
+pubmed,ethylhexyl triazone (skin),2023-08-01,1
+pubmed,ethylhexyl triazone (skin),2023-09-01,0
+pubmed,ethylhexyl triazone (skin),2023-10-01,0
+pubmed,ethylhexyl triazone (skin),2023-11-01,1
+pubmed,ethylhexyl triazone (skin),2023-12-01,1
+pubmed,ethylhexyl triazone (skin),2024-01-01,0
+pubmed,ethylhexyl triazone (skin),2024-02-01,0
+pubmed,ethylhexyl triazone (skin),2024-03-01,0
+pubmed,ethylhexyl triazone (skin),2024-04-01,0
+pubmed,ethylhexyl triazone (skin),2024-05-01,1
+pubmed,ethylhexyl triazone (skin),2024-06-01,1
+pubmed,ethylhexyl triazone (skin),2024-07-01,0
+pubmed,ethylhexyl triazone (skin),2024-08-01,0
+pubmed,ethylhexyl triazone (skin),2024-09-01,0
+pubmed,ethylhexyl triazone (skin),2024-10-01,1
+pubmed,ethylhexyl triazone (skin),2024-11-01,0
+pubmed,ethylhexyl triazone (skin),2024-12-01,1
+pubmed,ethylhexyl triazone (skin),2025-01-01,1
+pubmed,ethylhexyl triazone (skin),2025-02-01,1
+pubmed,ethylhexyl triazone (skin),2025-03-01,1
+pubmed,ethylhexyl triazone (skin),2025-04-01,0
+pubmed,ethylhexyl triazone (skin),2025-05-01,0
+pubmed,ethylhexyl triazone (skin),2025-06-01,0
+pubmed,ethylhexyl triazone (skin),2025-07-01,2
+pubmed,ethylhexyl triazone (skin),2025-08-01,0
+pubmed,ethylhexyl triazone (skin),2025-09-01,1
+pubmed,ethylhexyl triazone (skin),2025-10-01,1
+pubmed,ethylhexyl triazone (skin),2025-11-01,0
+pubmed,ethylhexyl triazone (skin),2025-12-01,1
+pubmed,ethylhexyl triazone (skin),2026-01-01,1
+pubmed,ethylhexyl triazone (skin),2026-02-01,1
+pubmed,ethylhexyl triazone (skin),2026-03-01,0
+pubmed,ethylhexyl triazone (skin),2026-04-01,1
+pubmed,ethylhexyl triazone (skin),2026-05-01,1
+pubmed,ethylhexyl triazone (skin),2026-06-01,0
+pubmed,ethylhexyl triazone (skin),2026-07-01,1
+pubmed,ethylhexyl triazone (skin),2026-08-01,1
 pubmed,exosome,2019-01-01,894
 pubmed,exosome,2019-02-01,324
 pubmed,exosome,2019-03-01,324
@@ -2314,6 +4528,98 @@ pubmed,exosome,2026-05-01,690
 pubmed,exosome,2026-06-01,697
 pubmed,exosome,2026-07-01,594
 pubmed,exosome,2026-08-01,413
+pubmed,exosome (skin),2019-01-01,28
+pubmed,exosome (skin),2019-02-01,9
+pubmed,exosome (skin),2019-03-01,12
+pubmed,exosome (skin),2019-04-01,12
+pubmed,exosome (skin),2019-05-01,10
+pubmed,exosome (skin),2019-06-01,18
+pubmed,exosome (skin),2019-07-01,2
+pubmed,exosome (skin),2019-08-01,11
+pubmed,exosome (skin),2019-09-01,14
+pubmed,exosome (skin),2019-10-01,9
+pubmed,exosome (skin),2019-11-01,13
+pubmed,exosome (skin),2019-12-01,17
+pubmed,exosome (skin),2020-01-01,49
+pubmed,exosome (skin),2020-02-01,12
+pubmed,exosome (skin),2020-03-01,16
+pubmed,exosome (skin),2020-04-01,9
+pubmed,exosome (skin),2020-05-01,17
+pubmed,exosome (skin),2020-06-01,13
+pubmed,exosome (skin),2020-07-01,16
+pubmed,exosome (skin),2020-08-01,23
+pubmed,exosome (skin),2020-09-01,14
+pubmed,exosome (skin),2020-10-01,15
+pubmed,exosome (skin),2020-11-01,17
+pubmed,exosome (skin),2020-12-01,13
+pubmed,exosome (skin),2021-01-01,59
+pubmed,exosome (skin),2021-02-01,11
+pubmed,exosome (skin),2021-03-01,13
+pubmed,exosome (skin),2021-04-01,23
+pubmed,exosome (skin),2021-05-01,26
+pubmed,exosome (skin),2021-06-01,19
+pubmed,exosome (skin),2021-07-01,18
+pubmed,exosome (skin),2021-08-01,24
+pubmed,exosome (skin),2021-09-01,27
+pubmed,exosome (skin),2021-10-01,16
+pubmed,exosome (skin),2021-11-01,25
+pubmed,exosome (skin),2021-12-01,19
+pubmed,exosome (skin),2022-01-01,87
+pubmed,exosome (skin),2022-02-01,22
+pubmed,exosome (skin),2022-03-01,29
+pubmed,exosome (skin),2022-04-01,17
+pubmed,exosome (skin),2022-05-01,17
+pubmed,exosome (skin),2022-06-01,34
+pubmed,exosome (skin),2022-07-01,22
+pubmed,exosome (skin),2022-08-01,27
+pubmed,exosome (skin),2022-09-01,22
+pubmed,exosome (skin),2022-10-01,23
+pubmed,exosome (skin),2022-11-01,27
+pubmed,exosome (skin),2022-12-01,29
+pubmed,exosome (skin),2023-01-01,66
+pubmed,exosome (skin),2023-02-01,25
+pubmed,exosome (skin),2023-03-01,31
+pubmed,exosome (skin),2023-04-01,19
+pubmed,exosome (skin),2023-05-01,25
+pubmed,exosome (skin),2023-06-01,32
+pubmed,exosome (skin),2023-07-01,24
+pubmed,exosome (skin),2023-08-01,35
+pubmed,exosome (skin),2023-09-01,31
+pubmed,exosome (skin),2023-10-01,29
+pubmed,exosome (skin),2023-11-01,32
+pubmed,exosome (skin),2023-12-01,34
+pubmed,exosome (skin),2024-01-01,94
+pubmed,exosome (skin),2024-02-01,37
+pubmed,exosome (skin),2024-03-01,31
+pubmed,exosome (skin),2024-04-01,31
+pubmed,exosome (skin),2024-05-01,32
+pubmed,exosome (skin),2024-06-01,41
+pubmed,exosome (skin),2024-07-01,37
+pubmed,exosome (skin),2024-08-01,33
+pubmed,exosome (skin),2024-09-01,29
+pubmed,exosome (skin),2024-10-01,37
+pubmed,exosome (skin),2024-11-01,40
+pubmed,exosome (skin),2024-12-01,39
+pubmed,exosome (skin),2025-01-01,139
+pubmed,exosome (skin),2025-02-01,47
+pubmed,exosome (skin),2025-03-01,40
+pubmed,exosome (skin),2025-04-01,41
+pubmed,exosome (skin),2025-05-01,44
+pubmed,exosome (skin),2025-06-01,48
+pubmed,exosome (skin),2025-07-01,59
+pubmed,exosome (skin),2025-08-01,35
+pubmed,exosome (skin),2025-09-01,50
+pubmed,exosome (skin),2025-10-01,50
+pubmed,exosome (skin),2025-11-01,44
+pubmed,exosome (skin),2025-12-01,67
+pubmed,exosome (skin),2026-01-01,93
+pubmed,exosome (skin),2026-02-01,52
+pubmed,exosome (skin),2026-03-01,59
+pubmed,exosome (skin),2026-04-01,61
+pubmed,exosome (skin),2026-05-01,51
+pubmed,exosome (skin),2026-06-01,58
+pubmed,exosome (skin),2026-07-01,40
+pubmed,exosome (skin),2026-08-01,34
 pubmed,hyaluronic acid,2019-01-01,409
 pubmed,hyaluronic acid,2019-02-01,224
 pubmed,hyaluronic acid,2019-03-01,210
@@ -2406,6 +4712,98 @@ pubmed,hyaluronic acid,2026-05-01,400
 pubmed,hyaluronic acid,2026-06-01,441
 pubmed,hyaluronic acid,2026-07-01,387
 pubmed,hyaluronic acid,2026-08-01,236
+pubmed,hyaluronic acid (skin),2019-01-01,79
+pubmed,hyaluronic acid (skin),2019-02-01,31
+pubmed,hyaluronic acid (skin),2019-03-01,35
+pubmed,hyaluronic acid (skin),2019-04-01,53
+pubmed,hyaluronic acid (skin),2019-05-01,50
+pubmed,hyaluronic acid (skin),2019-06-01,46
+pubmed,hyaluronic acid (skin),2019-07-01,42
+pubmed,hyaluronic acid (skin),2019-08-01,44
+pubmed,hyaluronic acid (skin),2019-09-01,41
+pubmed,hyaluronic acid (skin),2019-10-01,43
+pubmed,hyaluronic acid (skin),2019-11-01,38
+pubmed,hyaluronic acid (skin),2019-12-01,40
+pubmed,hyaluronic acid (skin),2020-01-01,80
+pubmed,hyaluronic acid (skin),2020-02-01,45
+pubmed,hyaluronic acid (skin),2020-03-01,43
+pubmed,hyaluronic acid (skin),2020-04-01,63
+pubmed,hyaluronic acid (skin),2020-05-01,52
+pubmed,hyaluronic acid (skin),2020-06-01,51
+pubmed,hyaluronic acid (skin),2020-07-01,62
+pubmed,hyaluronic acid (skin),2020-08-01,60
+pubmed,hyaluronic acid (skin),2020-09-01,55
+pubmed,hyaluronic acid (skin),2020-10-01,57
+pubmed,hyaluronic acid (skin),2020-11-01,57
+pubmed,hyaluronic acid (skin),2020-12-01,63
+pubmed,hyaluronic acid (skin),2021-01-01,86
+pubmed,hyaluronic acid (skin),2021-02-01,56
+pubmed,hyaluronic acid (skin),2021-03-01,61
+pubmed,hyaluronic acid (skin),2021-04-01,59
+pubmed,hyaluronic acid (skin),2021-05-01,70
+pubmed,hyaluronic acid (skin),2021-06-01,50
+pubmed,hyaluronic acid (skin),2021-07-01,65
+pubmed,hyaluronic acid (skin),2021-08-01,62
+pubmed,hyaluronic acid (skin),2021-09-01,56
+pubmed,hyaluronic acid (skin),2021-10-01,55
+pubmed,hyaluronic acid (skin),2021-11-01,57
+pubmed,hyaluronic acid (skin),2021-12-01,73
+pubmed,hyaluronic acid (skin),2022-01-01,101
+pubmed,hyaluronic acid (skin),2022-02-01,61
+pubmed,hyaluronic acid (skin),2022-03-01,46
+pubmed,hyaluronic acid (skin),2022-04-01,64
+pubmed,hyaluronic acid (skin),2022-05-01,56
+pubmed,hyaluronic acid (skin),2022-06-01,63
+pubmed,hyaluronic acid (skin),2022-07-01,63
+pubmed,hyaluronic acid (skin),2022-08-01,58
+pubmed,hyaluronic acid (skin),2022-09-01,64
+pubmed,hyaluronic acid (skin),2022-10-01,60
+pubmed,hyaluronic acid (skin),2022-11-01,64
+pubmed,hyaluronic acid (skin),2022-12-01,73
+pubmed,hyaluronic acid (skin),2023-01-01,107
+pubmed,hyaluronic acid (skin),2023-02-01,52
+pubmed,hyaluronic acid (skin),2023-03-01,76
+pubmed,hyaluronic acid (skin),2023-04-01,67
+pubmed,hyaluronic acid (skin),2023-05-01,45
+pubmed,hyaluronic acid (skin),2023-06-01,70
+pubmed,hyaluronic acid (skin),2023-07-01,85
+pubmed,hyaluronic acid (skin),2023-08-01,63
+pubmed,hyaluronic acid (skin),2023-09-01,74
+pubmed,hyaluronic acid (skin),2023-10-01,70
+pubmed,hyaluronic acid (skin),2023-11-01,73
+pubmed,hyaluronic acid (skin),2023-12-01,93
+pubmed,hyaluronic acid (skin),2024-01-01,123
+pubmed,hyaluronic acid (skin),2024-02-01,86
+pubmed,hyaluronic acid (skin),2024-03-01,76
+pubmed,hyaluronic acid (skin),2024-04-01,79
+pubmed,hyaluronic acid (skin),2024-05-01,73
+pubmed,hyaluronic acid (skin),2024-06-01,87
+pubmed,hyaluronic acid (skin),2024-07-01,86
+pubmed,hyaluronic acid (skin),2024-08-01,65
+pubmed,hyaluronic acid (skin),2024-09-01,108
+pubmed,hyaluronic acid (skin),2024-10-01,85
+pubmed,hyaluronic acid (skin),2024-11-01,114
+pubmed,hyaluronic acid (skin),2024-12-01,103
+pubmed,hyaluronic acid (skin),2025-01-01,167
+pubmed,hyaluronic acid (skin),2025-02-01,89
+pubmed,hyaluronic acid (skin),2025-03-01,89
+pubmed,hyaluronic acid (skin),2025-04-01,97
+pubmed,hyaluronic acid (skin),2025-05-01,80
+pubmed,hyaluronic acid (skin),2025-06-01,109
+pubmed,hyaluronic acid (skin),2025-07-01,84
+pubmed,hyaluronic acid (skin),2025-08-01,79
+pubmed,hyaluronic acid (skin),2025-09-01,104
+pubmed,hyaluronic acid (skin),2025-10-01,98
+pubmed,hyaluronic acid (skin),2025-11-01,102
+pubmed,hyaluronic acid (skin),2025-12-01,110
+pubmed,hyaluronic acid (skin),2026-01-01,148
+pubmed,hyaluronic acid (skin),2026-02-01,93
+pubmed,hyaluronic acid (skin),2026-03-01,96
+pubmed,hyaluronic acid (skin),2026-04-01,93
+pubmed,hyaluronic acid (skin),2026-05-01,93
+pubmed,hyaluronic acid (skin),2026-06-01,88
+pubmed,hyaluronic acid (skin),2026-07-01,88
+pubmed,hyaluronic acid (skin),2026-08-01,49
 pubmed,madecassoside,2019-01-01,2
 pubmed,madecassoside,2019-02-01,1
 pubmed,madecassoside,2019-03-01,2
@@ -2498,6 +4896,98 @@ pubmed,madecassoside,2026-05-01,3
 pubmed,madecassoside,2026-06-01,1
 pubmed,madecassoside,2026-07-01,4
 pubmed,madecassoside,2026-08-01,2
+pubmed,madecassoside (skin),2019-01-01,0
+pubmed,madecassoside (skin),2019-02-01,0
+pubmed,madecassoside (skin),2019-03-01,1
+pubmed,madecassoside (skin),2019-04-01,2
+pubmed,madecassoside (skin),2019-05-01,0
+pubmed,madecassoside (skin),2019-06-01,0
+pubmed,madecassoside (skin),2019-07-01,0
+pubmed,madecassoside (skin),2019-08-01,0
+pubmed,madecassoside (skin),2019-09-01,0
+pubmed,madecassoside (skin),2019-10-01,0
+pubmed,madecassoside (skin),2019-11-01,0
+pubmed,madecassoside (skin),2019-12-01,1
+pubmed,madecassoside (skin),2020-01-01,1
+pubmed,madecassoside (skin),2020-02-01,1
+pubmed,madecassoside (skin),2020-03-01,0
+pubmed,madecassoside (skin),2020-04-01,1
+pubmed,madecassoside (skin),2020-05-01,2
+pubmed,madecassoside (skin),2020-06-01,1
+pubmed,madecassoside (skin),2020-07-01,1
+pubmed,madecassoside (skin),2020-08-01,1
+pubmed,madecassoside (skin),2020-09-01,0
+pubmed,madecassoside (skin),2020-10-01,0
+pubmed,madecassoside (skin),2020-11-01,0
+pubmed,madecassoside (skin),2020-12-01,1
+pubmed,madecassoside (skin),2021-01-01,3
+pubmed,madecassoside (skin),2021-02-01,0
+pubmed,madecassoside (skin),2021-03-01,0
+pubmed,madecassoside (skin),2021-04-01,1
+pubmed,madecassoside (skin),2021-05-01,0
+pubmed,madecassoside (skin),2021-06-01,1
+pubmed,madecassoside (skin),2021-07-01,0
+pubmed,madecassoside (skin),2021-08-01,0
+pubmed,madecassoside (skin),2021-09-01,0
+pubmed,madecassoside (skin),2021-10-01,1
+pubmed,madecassoside (skin),2021-11-01,2
+pubmed,madecassoside (skin),2021-12-01,1
+pubmed,madecassoside (skin),2022-01-01,1
+pubmed,madecassoside (skin),2022-02-01,0
+pubmed,madecassoside (skin),2022-03-01,0
+pubmed,madecassoside (skin),2022-04-01,0
+pubmed,madecassoside (skin),2022-05-01,1
+pubmed,madecassoside (skin),2022-06-01,0
+pubmed,madecassoside (skin),2022-07-01,0
+pubmed,madecassoside (skin),2022-08-01,0
+pubmed,madecassoside (skin),2022-09-01,0
+pubmed,madecassoside (skin),2022-10-01,1
+pubmed,madecassoside (skin),2022-11-01,0
+pubmed,madecassoside (skin),2022-12-01,0
+pubmed,madecassoside (skin),2023-01-01,0
+pubmed,madecassoside (skin),2023-02-01,2
+pubmed,madecassoside (skin),2023-03-01,1
+pubmed,madecassoside (skin),2023-04-01,0
+pubmed,madecassoside (skin),2023-05-01,0
+pubmed,madecassoside (skin),2023-06-01,0
+pubmed,madecassoside (skin),2023-07-01,1
+pubmed,madecassoside (skin),2023-08-01,1
+pubmed,madecassoside (skin),2023-09-01,1
+pubmed,madecassoside (skin),2023-10-01,1
+pubmed,madecassoside (skin),2023-11-01,2
+pubmed,madecassoside (skin),2023-12-01,2
+pubmed,madecassoside (skin),2024-01-01,1
+pubmed,madecassoside (skin),2024-02-01,0
+pubmed,madecassoside (skin),2024-03-01,0
+pubmed,madecassoside (skin),2024-04-01,3
+pubmed,madecassoside (skin),2024-05-01,0
+pubmed,madecassoside (skin),2024-06-01,0
+pubmed,madecassoside (skin),2024-07-01,0
+pubmed,madecassoside (skin),2024-08-01,1
+pubmed,madecassoside (skin),2024-09-01,2
+pubmed,madecassoside (skin),2024-10-01,1
+pubmed,madecassoside (skin),2024-11-01,2
+pubmed,madecassoside (skin),2024-12-01,0
+pubmed,madecassoside (skin),2025-01-01,3
+pubmed,madecassoside (skin),2025-02-01,2
+pubmed,madecassoside (skin),2025-03-01,0
+pubmed,madecassoside (skin),2025-04-01,4
+pubmed,madecassoside (skin),2025-05-01,4
+pubmed,madecassoside (skin),2025-06-01,2
+pubmed,madecassoside (skin),2025-07-01,4
+pubmed,madecassoside (skin),2025-08-01,3
+pubmed,madecassoside (skin),2025-09-01,2
+pubmed,madecassoside (skin),2025-10-01,1
+pubmed,madecassoside (skin),2025-11-01,1
+pubmed,madecassoside (skin),2025-12-01,1
+pubmed,madecassoside (skin),2026-01-01,2
+pubmed,madecassoside (skin),2026-02-01,1
+pubmed,madecassoside (skin),2026-03-01,2
+pubmed,madecassoside (skin),2026-04-01,0
+pubmed,madecassoside (skin),2026-05-01,1
+pubmed,madecassoside (skin),2026-06-01,1
+pubmed,madecassoside (skin),2026-07-01,1
+pubmed,madecassoside (skin),2026-08-01,0
 pubmed,niacinamide,2019-01-01,137
 pubmed,niacinamide,2019-02-01,85
 pubmed,niacinamide,2019-03-01,78
@@ -2590,6 +5080,98 @@ pubmed,niacinamide,2026-05-01,86
 pubmed,niacinamide,2026-06-01,67
 pubmed,niacinamide,2026-07-01,51
 pubmed,niacinamide,2026-08-01,36
+pubmed,niacinamide (skin),2019-01-01,11
+pubmed,niacinamide (skin),2019-02-01,10
+pubmed,niacinamide (skin),2019-03-01,5
+pubmed,niacinamide (skin),2019-04-01,8
+pubmed,niacinamide (skin),2019-05-01,4
+pubmed,niacinamide (skin),2019-06-01,8
+pubmed,niacinamide (skin),2019-07-01,7
+pubmed,niacinamide (skin),2019-08-01,6
+pubmed,niacinamide (skin),2019-09-01,7
+pubmed,niacinamide (skin),2019-10-01,11
+pubmed,niacinamide (skin),2019-11-01,10
+pubmed,niacinamide (skin),2019-12-01,9
+pubmed,niacinamide (skin),2020-01-01,6
+pubmed,niacinamide (skin),2020-02-01,11
+pubmed,niacinamide (skin),2020-03-01,6
+pubmed,niacinamide (skin),2020-04-01,7
+pubmed,niacinamide (skin),2020-05-01,10
+pubmed,niacinamide (skin),2020-06-01,7
+pubmed,niacinamide (skin),2020-07-01,9
+pubmed,niacinamide (skin),2020-08-01,11
+pubmed,niacinamide (skin),2020-09-01,8
+pubmed,niacinamide (skin),2020-10-01,17
+pubmed,niacinamide (skin),2020-11-01,11
+pubmed,niacinamide (skin),2020-12-01,9
+pubmed,niacinamide (skin),2021-01-01,8
+pubmed,niacinamide (skin),2021-02-01,8
+pubmed,niacinamide (skin),2021-03-01,7
+pubmed,niacinamide (skin),2021-04-01,5
+pubmed,niacinamide (skin),2021-05-01,7
+pubmed,niacinamide (skin),2021-06-01,11
+pubmed,niacinamide (skin),2021-07-01,7
+pubmed,niacinamide (skin),2021-08-01,9
+pubmed,niacinamide (skin),2021-09-01,11
+pubmed,niacinamide (skin),2021-10-01,4
+pubmed,niacinamide (skin),2021-11-01,8
+pubmed,niacinamide (skin),2021-12-01,5
+pubmed,niacinamide (skin),2022-01-01,15
+pubmed,niacinamide (skin),2022-02-01,10
+pubmed,niacinamide (skin),2022-03-01,12
+pubmed,niacinamide (skin),2022-04-01,7
+pubmed,niacinamide (skin),2022-05-01,10
+pubmed,niacinamide (skin),2022-06-01,10
+pubmed,niacinamide (skin),2022-07-01,9
+pubmed,niacinamide (skin),2022-08-01,11
+pubmed,niacinamide (skin),2022-09-01,8
+pubmed,niacinamide (skin),2022-10-01,10
+pubmed,niacinamide (skin),2022-11-01,11
+pubmed,niacinamide (skin),2022-12-01,5
+pubmed,niacinamide (skin),2023-01-01,21
+pubmed,niacinamide (skin),2023-02-01,4
+pubmed,niacinamide (skin),2023-03-01,10
+pubmed,niacinamide (skin),2023-04-01,8
+pubmed,niacinamide (skin),2023-05-01,5
+pubmed,niacinamide (skin),2023-06-01,12
+pubmed,niacinamide (skin),2023-07-01,8
+pubmed,niacinamide (skin),2023-08-01,3
+pubmed,niacinamide (skin),2023-09-01,4
+pubmed,niacinamide (skin),2023-10-01,12
+pubmed,niacinamide (skin),2023-11-01,8
+pubmed,niacinamide (skin),2023-12-01,13
+pubmed,niacinamide (skin),2024-01-01,7
+pubmed,niacinamide (skin),2024-02-01,9
+pubmed,niacinamide (skin),2024-03-01,7
+pubmed,niacinamide (skin),2024-04-01,9
+pubmed,niacinamide (skin),2024-05-01,10
+pubmed,niacinamide (skin),2024-06-01,10
+pubmed,niacinamide (skin),2024-07-01,12
+pubmed,niacinamide (skin),2024-08-01,9
+pubmed,niacinamide (skin),2024-09-01,6
+pubmed,niacinamide (skin),2024-10-01,4
+pubmed,niacinamide (skin),2024-11-01,7
+pubmed,niacinamide (skin),2024-12-01,11
+pubmed,niacinamide (skin),2025-01-01,10
+pubmed,niacinamide (skin),2025-02-01,9
+pubmed,niacinamide (skin),2025-03-01,5
+pubmed,niacinamide (skin),2025-04-01,7
+pubmed,niacinamide (skin),2025-05-01,6
+pubmed,niacinamide (skin),2025-06-01,9
+pubmed,niacinamide (skin),2025-07-01,8
+pubmed,niacinamide (skin),2025-08-01,4
+pubmed,niacinamide (skin),2025-09-01,7
+pubmed,niacinamide (skin),2025-10-01,9
+pubmed,niacinamide (skin),2025-11-01,11
+pubmed,niacinamide (skin),2025-12-01,7
+pubmed,niacinamide (skin),2026-01-01,12
+pubmed,niacinamide (skin),2026-02-01,12
+pubmed,niacinamide (skin),2026-03-01,12
+pubmed,niacinamide (skin),2026-04-01,8
+pubmed,niacinamide (skin),2026-05-01,13
+pubmed,niacinamide (skin),2026-06-01,8
+pubmed,niacinamide (skin),2026-07-01,12
+pubmed,niacinamide (skin),2026-08-01,6
 pubmed,panthenol,2019-01-01,3
 pubmed,panthenol,2019-02-01,5
 pubmed,panthenol,2019-03-01,2
@@ -2682,6 +5264,98 @@ pubmed,panthenol,2026-05-01,7
 pubmed,panthenol,2026-06-01,10
 pubmed,panthenol,2026-07-01,7
 pubmed,panthenol,2026-08-01,4
+pubmed,panthenol (skin),2019-01-01,2
+pubmed,panthenol (skin),2019-02-01,1
+pubmed,panthenol (skin),2019-03-01,2
+pubmed,panthenol (skin),2019-04-01,2
+pubmed,panthenol (skin),2019-05-01,0
+pubmed,panthenol (skin),2019-06-01,1
+pubmed,panthenol (skin),2019-07-01,1
+pubmed,panthenol (skin),2019-08-01,0
+pubmed,panthenol (skin),2019-09-01,2
+pubmed,panthenol (skin),2019-10-01,0
+pubmed,panthenol (skin),2019-11-01,2
+pubmed,panthenol (skin),2019-12-01,3
+pubmed,panthenol (skin),2020-01-01,1
+pubmed,panthenol (skin),2020-02-01,1
+pubmed,panthenol (skin),2020-03-01,0
+pubmed,panthenol (skin),2020-04-01,1
+pubmed,panthenol (skin),2020-05-01,3
+pubmed,panthenol (skin),2020-06-01,1
+pubmed,panthenol (skin),2020-07-01,2
+pubmed,panthenol (skin),2020-08-01,1
+pubmed,panthenol (skin),2020-09-01,1
+pubmed,panthenol (skin),2020-10-01,3
+pubmed,panthenol (skin),2020-11-01,2
+pubmed,panthenol (skin),2020-12-01,1
+pubmed,panthenol (skin),2021-01-01,5
+pubmed,panthenol (skin),2021-02-01,2
+pubmed,panthenol (skin),2021-03-01,2
+pubmed,panthenol (skin),2021-04-01,4
+pubmed,panthenol (skin),2021-05-01,2
+pubmed,panthenol (skin),2021-06-01,0
+pubmed,panthenol (skin),2021-07-01,0
+pubmed,panthenol (skin),2021-08-01,1
+pubmed,panthenol (skin),2021-09-01,3
+pubmed,panthenol (skin),2021-10-01,2
+pubmed,panthenol (skin),2021-11-01,2
+pubmed,panthenol (skin),2021-12-01,1
+pubmed,panthenol (skin),2022-01-01,5
+pubmed,panthenol (skin),2022-02-01,3
+pubmed,panthenol (skin),2022-03-01,1
+pubmed,panthenol (skin),2022-04-01,1
+pubmed,panthenol (skin),2022-05-01,2
+pubmed,panthenol (skin),2022-06-01,2
+pubmed,panthenol (skin),2022-07-01,5
+pubmed,panthenol (skin),2022-08-01,2
+pubmed,panthenol (skin),2022-09-01,6
+pubmed,panthenol (skin),2022-10-01,1
+pubmed,panthenol (skin),2022-11-01,1
+pubmed,panthenol (skin),2022-12-01,2
+pubmed,panthenol (skin),2023-01-01,5
+pubmed,panthenol (skin),2023-02-01,1
+pubmed,panthenol (skin),2023-03-01,0
+pubmed,panthenol (skin),2023-04-01,1
+pubmed,panthenol (skin),2023-05-01,1
+pubmed,panthenol (skin),2023-06-01,2
+pubmed,panthenol (skin),2023-07-01,1
+pubmed,panthenol (skin),2023-08-01,1
+pubmed,panthenol (skin),2023-09-01,1
+pubmed,panthenol (skin),2023-10-01,5
+pubmed,panthenol (skin),2023-11-01,4
+pubmed,panthenol (skin),2023-12-01,3
+pubmed,panthenol (skin),2024-01-01,3
+pubmed,panthenol (skin),2024-02-01,4
+pubmed,panthenol (skin),2024-03-01,2
+pubmed,panthenol (skin),2024-04-01,2
+pubmed,panthenol (skin),2024-05-01,1
+pubmed,panthenol (skin),2024-06-01,1
+pubmed,panthenol (skin),2024-07-01,1
+pubmed,panthenol (skin),2024-08-01,4
+pubmed,panthenol (skin),2024-09-01,4
+pubmed,panthenol (skin),2024-10-01,1
+pubmed,panthenol (skin),2024-11-01,2
+pubmed,panthenol (skin),2024-12-01,6
+pubmed,panthenol (skin),2025-01-01,4
+pubmed,panthenol (skin),2025-02-01,2
+pubmed,panthenol (skin),2025-03-01,2
+pubmed,panthenol (skin),2025-04-01,2
+pubmed,panthenol (skin),2025-05-01,3
+pubmed,panthenol (skin),2025-06-01,3
+pubmed,panthenol (skin),2025-07-01,5
+pubmed,panthenol (skin),2025-08-01,1
+pubmed,panthenol (skin),2025-09-01,3
+pubmed,panthenol (skin),2025-10-01,1
+pubmed,panthenol (skin),2025-11-01,2
+pubmed,panthenol (skin),2025-12-01,0
+pubmed,panthenol (skin),2026-01-01,2
+pubmed,panthenol (skin),2026-02-01,2
+pubmed,panthenol (skin),2026-03-01,2
+pubmed,panthenol (skin),2026-04-01,4
+pubmed,panthenol (skin),2026-05-01,2
+pubmed,panthenol (skin),2026-06-01,5
+pubmed,panthenol (skin),2026-07-01,2
+pubmed,panthenol (skin),2026-08-01,1
 pubmed,polydeoxyribonucleotide,2019-01-01,7
 pubmed,polydeoxyribonucleotide,2019-02-01,2
 pubmed,polydeoxyribonucleotide,2019-03-01,3
@@ -2774,6 +5448,98 @@ pubmed,polydeoxyribonucleotide,2026-05-01,7
 pubmed,polydeoxyribonucleotide,2026-06-01,8
 pubmed,polydeoxyribonucleotide,2026-07-01,6
 pubmed,polydeoxyribonucleotide,2026-08-01,6
+pubmed,polydeoxyribonucleotide (skin),2019-01-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-02-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-04-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-05-01,2
+pubmed,polydeoxyribonucleotide (skin),2019-06-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-07-01,1
+pubmed,polydeoxyribonucleotide (skin),2019-08-01,3
+pubmed,polydeoxyribonucleotide (skin),2019-09-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-10-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-11-01,0
+pubmed,polydeoxyribonucleotide (skin),2019-12-01,1
+pubmed,polydeoxyribonucleotide (skin),2020-01-01,1
+pubmed,polydeoxyribonucleotide (skin),2020-02-01,2
+pubmed,polydeoxyribonucleotide (skin),2020-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-04-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-05-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-06-01,1
+pubmed,polydeoxyribonucleotide (skin),2020-07-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-08-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-09-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-10-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-11-01,0
+pubmed,polydeoxyribonucleotide (skin),2020-12-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-01-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-02-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-04-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-05-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-06-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-07-01,1
+pubmed,polydeoxyribonucleotide (skin),2021-08-01,1
+pubmed,polydeoxyribonucleotide (skin),2021-09-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-10-01,1
+pubmed,polydeoxyribonucleotide (skin),2021-11-01,0
+pubmed,polydeoxyribonucleotide (skin),2021-12-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-01-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-02-01,1
+pubmed,polydeoxyribonucleotide (skin),2022-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-04-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-05-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-06-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-07-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-08-01,2
+pubmed,polydeoxyribonucleotide (skin),2022-09-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-10-01,0
+pubmed,polydeoxyribonucleotide (skin),2022-11-01,1
+pubmed,polydeoxyribonucleotide (skin),2022-12-01,0
+pubmed,polydeoxyribonucleotide (skin),2023-01-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-02-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2023-04-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-05-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-06-01,2
+pubmed,polydeoxyribonucleotide (skin),2023-07-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-08-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-09-01,2
+pubmed,polydeoxyribonucleotide (skin),2023-10-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-11-01,1
+pubmed,polydeoxyribonucleotide (skin),2023-12-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-01-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-02-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-03-01,2
+pubmed,polydeoxyribonucleotide (skin),2024-04-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-05-01,0
+pubmed,polydeoxyribonucleotide (skin),2024-06-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-07-01,0
+pubmed,polydeoxyribonucleotide (skin),2024-08-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-09-01,0
+pubmed,polydeoxyribonucleotide (skin),2024-10-01,3
+pubmed,polydeoxyribonucleotide (skin),2024-11-01,1
+pubmed,polydeoxyribonucleotide (skin),2024-12-01,2
+pubmed,polydeoxyribonucleotide (skin),2025-01-01,5
+pubmed,polydeoxyribonucleotide (skin),2025-02-01,4
+pubmed,polydeoxyribonucleotide (skin),2025-03-01,0
+pubmed,polydeoxyribonucleotide (skin),2025-04-01,1
+pubmed,polydeoxyribonucleotide (skin),2025-05-01,1
+pubmed,polydeoxyribonucleotide (skin),2025-06-01,1
+pubmed,polydeoxyribonucleotide (skin),2025-07-01,3
+pubmed,polydeoxyribonucleotide (skin),2025-08-01,8
+pubmed,polydeoxyribonucleotide (skin),2025-09-01,2
+pubmed,polydeoxyribonucleotide (skin),2025-10-01,1
+pubmed,polydeoxyribonucleotide (skin),2025-11-01,1
+pubmed,polydeoxyribonucleotide (skin),2025-12-01,7
+pubmed,polydeoxyribonucleotide (skin),2026-01-01,5
+pubmed,polydeoxyribonucleotide (skin),2026-02-01,3
+pubmed,polydeoxyribonucleotide (skin),2026-03-01,2
+pubmed,polydeoxyribonucleotide (skin),2026-04-01,2
+pubmed,polydeoxyribonucleotide (skin),2026-05-01,3
+pubmed,polydeoxyribonucleotide (skin),2026-06-01,4
+pubmed,polydeoxyribonucleotide (skin),2026-07-01,3
+pubmed,polydeoxyribonucleotide (skin),2026-08-01,1
 pubmed,retinaldehyde,2019-01-01,14
 pubmed,retinaldehyde,2019-02-01,11
 pubmed,retinaldehyde,2019-03-01,9
@@ -2866,6 +5632,98 @@ pubmed,retinaldehyde,2026-05-01,7
 pubmed,retinaldehyde,2026-06-01,7
 pubmed,retinaldehyde,2026-07-01,2
 pubmed,retinaldehyde,2026-08-01,3
+pubmed,retinaldehyde (skin),2019-01-01,0
+pubmed,retinaldehyde (skin),2019-02-01,1
+pubmed,retinaldehyde (skin),2019-03-01,2
+pubmed,retinaldehyde (skin),2019-04-01,2
+pubmed,retinaldehyde (skin),2019-05-01,1
+pubmed,retinaldehyde (skin),2019-06-01,1
+pubmed,retinaldehyde (skin),2019-07-01,0
+pubmed,retinaldehyde (skin),2019-08-01,1
+pubmed,retinaldehyde (skin),2019-09-01,2
+pubmed,retinaldehyde (skin),2019-10-01,0
+pubmed,retinaldehyde (skin),2019-11-01,2
+pubmed,retinaldehyde (skin),2019-12-01,0
+pubmed,retinaldehyde (skin),2020-01-01,2
+pubmed,retinaldehyde (skin),2020-02-01,2
+pubmed,retinaldehyde (skin),2020-03-01,1
+pubmed,retinaldehyde (skin),2020-04-01,0
+pubmed,retinaldehyde (skin),2020-05-01,0
+pubmed,retinaldehyde (skin),2020-06-01,0
+pubmed,retinaldehyde (skin),2020-07-01,0
+pubmed,retinaldehyde (skin),2020-08-01,0
+pubmed,retinaldehyde (skin),2020-09-01,0
+pubmed,retinaldehyde (skin),2020-10-01,0
+pubmed,retinaldehyde (skin),2020-11-01,0
+pubmed,retinaldehyde (skin),2020-12-01,0
+pubmed,retinaldehyde (skin),2021-01-01,0
+pubmed,retinaldehyde (skin),2021-02-01,1
+pubmed,retinaldehyde (skin),2021-03-01,0
+pubmed,retinaldehyde (skin),2021-04-01,0
+pubmed,retinaldehyde (skin),2021-05-01,0
+pubmed,retinaldehyde (skin),2021-06-01,0
+pubmed,retinaldehyde (skin),2021-07-01,0
+pubmed,retinaldehyde (skin),2021-08-01,0
+pubmed,retinaldehyde (skin),2021-09-01,4
+pubmed,retinaldehyde (skin),2021-10-01,1
+pubmed,retinaldehyde (skin),2021-11-01,1
+pubmed,retinaldehyde (skin),2021-12-01,0
+pubmed,retinaldehyde (skin),2022-01-01,0
+pubmed,retinaldehyde (skin),2022-02-01,1
+pubmed,retinaldehyde (skin),2022-03-01,1
+pubmed,retinaldehyde (skin),2022-04-01,1
+pubmed,retinaldehyde (skin),2022-05-01,0
+pubmed,retinaldehyde (skin),2022-06-01,0
+pubmed,retinaldehyde (skin),2022-07-01,0
+pubmed,retinaldehyde (skin),2022-08-01,0
+pubmed,retinaldehyde (skin),2022-09-01,0
+pubmed,retinaldehyde (skin),2022-10-01,1
+pubmed,retinaldehyde (skin),2022-11-01,1
+pubmed,retinaldehyde (skin),2022-12-01,1
+pubmed,retinaldehyde (skin),2023-01-01,1
+pubmed,retinaldehyde (skin),2023-02-01,1
+pubmed,retinaldehyde (skin),2023-03-01,0
+pubmed,retinaldehyde (skin),2023-04-01,1
+pubmed,retinaldehyde (skin),2023-05-01,0
+pubmed,retinaldehyde (skin),2023-06-01,1
+pubmed,retinaldehyde (skin),2023-07-01,0
+pubmed,retinaldehyde (skin),2023-08-01,1
+pubmed,retinaldehyde (skin),2023-09-01,0
+pubmed,retinaldehyde (skin),2023-10-01,1
+pubmed,retinaldehyde (skin),2023-11-01,0
+pubmed,retinaldehyde (skin),2023-12-01,0
+pubmed,retinaldehyde (skin),2024-01-01,0
+pubmed,retinaldehyde (skin),2024-02-01,0
+pubmed,retinaldehyde (skin),2024-03-01,0
+pubmed,retinaldehyde (skin),2024-04-01,0
+pubmed,retinaldehyde (skin),2024-05-01,1
+pubmed,retinaldehyde (skin),2024-06-01,1
+pubmed,retinaldehyde (skin),2024-07-01,2
+pubmed,retinaldehyde (skin),2024-08-01,2
+pubmed,retinaldehyde (skin),2024-09-01,1
+pubmed,retinaldehyde (skin),2024-10-01,1
+pubmed,retinaldehyde (skin),2024-11-01,2
+pubmed,retinaldehyde (skin),2024-12-01,0
+pubmed,retinaldehyde (skin),2025-01-01,0
+pubmed,retinaldehyde (skin),2025-02-01,2
+pubmed,retinaldehyde (skin),2025-03-01,1
+pubmed,retinaldehyde (skin),2025-04-01,0
+pubmed,retinaldehyde (skin),2025-05-01,0
+pubmed,retinaldehyde (skin),2025-06-01,0
+pubmed,retinaldehyde (skin),2025-07-01,0
+pubmed,retinaldehyde (skin),2025-08-01,1
+pubmed,retinaldehyde (skin),2025-09-01,0
+pubmed,retinaldehyde (skin),2025-10-01,0
+pubmed,retinaldehyde (skin),2025-11-01,1
+pubmed,retinaldehyde (skin),2025-12-01,1
+pubmed,retinaldehyde (skin),2026-01-01,2
+pubmed,retinaldehyde (skin),2026-02-01,2
+pubmed,retinaldehyde (skin),2026-03-01,2
+pubmed,retinaldehyde (skin),2026-04-01,0
+pubmed,retinaldehyde (skin),2026-05-01,1
+pubmed,retinaldehyde (skin),2026-06-01,2
+pubmed,retinaldehyde (skin),2026-07-01,0
+pubmed,retinaldehyde (skin),2026-08-01,1
 pubmed,retinol,2019-01-01,346
 pubmed,retinol,2019-02-01,152
 pubmed,retinol,2019-03-01,154
@@ -2958,6 +5816,98 @@ pubmed,retinol,2026-05-01,160
 pubmed,retinol,2026-06-01,182
 pubmed,retinol,2026-07-01,168
 pubmed,retinol,2026-08-01,96
+pubmed,retinol (skin),2019-01-01,23
+pubmed,retinol (skin),2019-02-01,10
+pubmed,retinol (skin),2019-03-01,13
+pubmed,retinol (skin),2019-04-01,20
+pubmed,retinol (skin),2019-05-01,17
+pubmed,retinol (skin),2019-06-01,16
+pubmed,retinol (skin),2019-07-01,12
+pubmed,retinol (skin),2019-08-01,13
+pubmed,retinol (skin),2019-09-01,21
+pubmed,retinol (skin),2019-10-01,12
+pubmed,retinol (skin),2019-11-01,12
+pubmed,retinol (skin),2019-12-01,15
+pubmed,retinol (skin),2020-01-01,32
+pubmed,retinol (skin),2020-02-01,20
+pubmed,retinol (skin),2020-03-01,15
+pubmed,retinol (skin),2020-04-01,12
+pubmed,retinol (skin),2020-05-01,16
+pubmed,retinol (skin),2020-06-01,11
+pubmed,retinol (skin),2020-07-01,15
+pubmed,retinol (skin),2020-08-01,9
+pubmed,retinol (skin),2020-09-01,25
+pubmed,retinol (skin),2020-10-01,16
+pubmed,retinol (skin),2020-11-01,21
+pubmed,retinol (skin),2020-12-01,19
+pubmed,retinol (skin),2021-01-01,33
+pubmed,retinol (skin),2021-02-01,9
+pubmed,retinol (skin),2021-03-01,15
+pubmed,retinol (skin),2021-04-01,8
+pubmed,retinol (skin),2021-05-01,22
+pubmed,retinol (skin),2021-06-01,16
+pubmed,retinol (skin),2021-07-01,14
+pubmed,retinol (skin),2021-08-01,13
+pubmed,retinol (skin),2021-09-01,18
+pubmed,retinol (skin),2021-10-01,18
+pubmed,retinol (skin),2021-11-01,21
+pubmed,retinol (skin),2021-12-01,13
+pubmed,retinol (skin),2022-01-01,31
+pubmed,retinol (skin),2022-02-01,10
+pubmed,retinol (skin),2022-03-01,18
+pubmed,retinol (skin),2022-04-01,10
+pubmed,retinol (skin),2022-05-01,14
+pubmed,retinol (skin),2022-06-01,13
+pubmed,retinol (skin),2022-07-01,20
+pubmed,retinol (skin),2022-08-01,18
+pubmed,retinol (skin),2022-09-01,19
+pubmed,retinol (skin),2022-10-01,19
+pubmed,retinol (skin),2022-11-01,18
+pubmed,retinol (skin),2022-12-01,12
+pubmed,retinol (skin),2023-01-01,33
+pubmed,retinol (skin),2023-02-01,15
+pubmed,retinol (skin),2023-03-01,13
+pubmed,retinol (skin),2023-04-01,9
+pubmed,retinol (skin),2023-05-01,13
+pubmed,retinol (skin),2023-06-01,13
+pubmed,retinol (skin),2023-07-01,17
+pubmed,retinol (skin),2023-08-01,12
+pubmed,retinol (skin),2023-09-01,17
+pubmed,retinol (skin),2023-10-01,21
+pubmed,retinol (skin),2023-11-01,11
+pubmed,retinol (skin),2023-12-01,17
+pubmed,retinol (skin),2024-01-01,25
+pubmed,retinol (skin),2024-02-01,18
+pubmed,retinol (skin),2024-03-01,16
+pubmed,retinol (skin),2024-04-01,18
+pubmed,retinol (skin),2024-05-01,14
+pubmed,retinol (skin),2024-06-01,17
+pubmed,retinol (skin),2024-07-01,10
+pubmed,retinol (skin),2024-08-01,14
+pubmed,retinol (skin),2024-09-01,12
+pubmed,retinol (skin),2024-10-01,14
+pubmed,retinol (skin),2024-11-01,14
+pubmed,retinol (skin),2024-12-01,15
+pubmed,retinol (skin),2025-01-01,31
+pubmed,retinol (skin),2025-02-01,8
+pubmed,retinol (skin),2025-03-01,12
+pubmed,retinol (skin),2025-04-01,11
+pubmed,retinol (skin),2025-05-01,10
+pubmed,retinol (skin),2025-06-01,6
+pubmed,retinol (skin),2025-07-01,11
+pubmed,retinol (skin),2025-08-01,9
+pubmed,retinol (skin),2025-09-01,16
+pubmed,retinol (skin),2025-10-01,15
+pubmed,retinol (skin),2025-11-01,17
+pubmed,retinol (skin),2025-12-01,13
+pubmed,retinol (skin),2026-01-01,25
+pubmed,retinol (skin),2026-02-01,17
+pubmed,retinol (skin),2026-03-01,10
+pubmed,retinol (skin),2026-04-01,17
+pubmed,retinol (skin),2026-05-01,17
+pubmed,retinol (skin),2026-06-01,16
+pubmed,retinol (skin),2026-07-01,11
+pubmed,retinol (skin),2026-08-01,11
 pubmed,salicylic acid,2019-01-01,221
 pubmed,salicylic acid,2019-02-01,105
 pubmed,salicylic acid,2019-03-01,116
@@ -3050,6 +6000,98 @@ pubmed,salicylic acid,2026-05-01,128
 pubmed,salicylic acid,2026-06-01,178
 pubmed,salicylic acid,2026-07-01,146
 pubmed,salicylic acid,2026-08-01,82
+pubmed,salicylic acid (skin),2019-01-01,15
+pubmed,salicylic acid (skin),2019-02-01,5
+pubmed,salicylic acid (skin),2019-03-01,15
+pubmed,salicylic acid (skin),2019-04-01,3
+pubmed,salicylic acid (skin),2019-05-01,10
+pubmed,salicylic acid (skin),2019-06-01,3
+pubmed,salicylic acid (skin),2019-07-01,10
+pubmed,salicylic acid (skin),2019-08-01,8
+pubmed,salicylic acid (skin),2019-09-01,9
+pubmed,salicylic acid (skin),2019-10-01,8
+pubmed,salicylic acid (skin),2019-11-01,4
+pubmed,salicylic acid (skin),2019-12-01,5
+pubmed,salicylic acid (skin),2020-01-01,10
+pubmed,salicylic acid (skin),2020-02-01,8
+pubmed,salicylic acid (skin),2020-03-01,7
+pubmed,salicylic acid (skin),2020-04-01,5
+pubmed,salicylic acid (skin),2020-05-01,6
+pubmed,salicylic acid (skin),2020-06-01,8
+pubmed,salicylic acid (skin),2020-07-01,8
+pubmed,salicylic acid (skin),2020-08-01,5
+pubmed,salicylic acid (skin),2020-09-01,7
+pubmed,salicylic acid (skin),2020-10-01,9
+pubmed,salicylic acid (skin),2020-11-01,12
+pubmed,salicylic acid (skin),2020-12-01,8
+pubmed,salicylic acid (skin),2021-01-01,8
+pubmed,salicylic acid (skin),2021-02-01,7
+pubmed,salicylic acid (skin),2021-03-01,9
+pubmed,salicylic acid (skin),2021-04-01,9
+pubmed,salicylic acid (skin),2021-05-01,8
+pubmed,salicylic acid (skin),2021-06-01,4
+pubmed,salicylic acid (skin),2021-07-01,8
+pubmed,salicylic acid (skin),2021-08-01,5
+pubmed,salicylic acid (skin),2021-09-01,9
+pubmed,salicylic acid (skin),2021-10-01,2
+pubmed,salicylic acid (skin),2021-11-01,7
+pubmed,salicylic acid (skin),2021-12-01,5
+pubmed,salicylic acid (skin),2022-01-01,17
+pubmed,salicylic acid (skin),2022-02-01,2
+pubmed,salicylic acid (skin),2022-03-01,8
+pubmed,salicylic acid (skin),2022-04-01,6
+pubmed,salicylic acid (skin),2022-05-01,7
+pubmed,salicylic acid (skin),2022-06-01,7
+pubmed,salicylic acid (skin),2022-07-01,8
+pubmed,salicylic acid (skin),2022-08-01,11
+pubmed,salicylic acid (skin),2022-09-01,13
+pubmed,salicylic acid (skin),2022-10-01,10
+pubmed,salicylic acid (skin),2022-11-01,8
+pubmed,salicylic acid (skin),2022-12-01,7
+pubmed,salicylic acid (skin),2023-01-01,7
+pubmed,salicylic acid (skin),2023-02-01,7
+pubmed,salicylic acid (skin),2023-03-01,16
+pubmed,salicylic acid (skin),2023-04-01,6
+pubmed,salicylic acid (skin),2023-05-01,9
+pubmed,salicylic acid (skin),2023-06-01,9
+pubmed,salicylic acid (skin),2023-07-01,10
+pubmed,salicylic acid (skin),2023-08-01,7
+pubmed,salicylic acid (skin),2023-09-01,11
+pubmed,salicylic acid (skin),2023-10-01,8
+pubmed,salicylic acid (skin),2023-11-01,10
+pubmed,salicylic acid (skin),2023-12-01,6
+pubmed,salicylic acid (skin),2024-01-01,18
+pubmed,salicylic acid (skin),2024-02-01,7
+pubmed,salicylic acid (skin),2024-03-01,13
+pubmed,salicylic acid (skin),2024-04-01,9
+pubmed,salicylic acid (skin),2024-05-01,6
+pubmed,salicylic acid (skin),2024-06-01,5
+pubmed,salicylic acid (skin),2024-07-01,6
+pubmed,salicylic acid (skin),2024-08-01,9
+pubmed,salicylic acid (skin),2024-09-01,8
+pubmed,salicylic acid (skin),2024-10-01,14
+pubmed,salicylic acid (skin),2024-11-01,5
+pubmed,salicylic acid (skin),2024-12-01,6
+pubmed,salicylic acid (skin),2025-01-01,17
+pubmed,salicylic acid (skin),2025-02-01,13
+pubmed,salicylic acid (skin),2025-03-01,9
+pubmed,salicylic acid (skin),2025-04-01,12
+pubmed,salicylic acid (skin),2025-05-01,9
+pubmed,salicylic acid (skin),2025-06-01,4
+pubmed,salicylic acid (skin),2025-07-01,11
+pubmed,salicylic acid (skin),2025-08-01,3
+pubmed,salicylic acid (skin),2025-09-01,14
+pubmed,salicylic acid (skin),2025-10-01,11
+pubmed,salicylic acid (skin),2025-11-01,15
+pubmed,salicylic acid (skin),2025-12-01,17
+pubmed,salicylic acid (skin),2026-01-01,15
+pubmed,salicylic acid (skin),2026-02-01,10
+pubmed,salicylic acid (skin),2026-03-01,6
+pubmed,salicylic acid (skin),2026-04-01,6
+pubmed,salicylic acid (skin),2026-05-01,4
+pubmed,salicylic acid (skin),2026-06-01,15
+pubmed,salicylic acid (skin),2026-07-01,12
+pubmed,salicylic acid (skin),2026-08-01,5
 pubmed,tranexamic acid,2019-01-01,89
 pubmed,tranexamic acid,2019-02-01,74
 pubmed,tranexamic acid,2019-03-01,59
@@ -3142,3 +6184,95 @@ pubmed,tranexamic acid,2026-05-01,111
 pubmed,tranexamic acid,2026-06-01,108
 pubmed,tranexamic acid,2026-07-01,103
 pubmed,tranexamic acid,2026-08-01,48
+pubmed,tranexamic acid (skin),2019-01-01,9
+pubmed,tranexamic acid (skin),2019-02-01,8
+pubmed,tranexamic acid (skin),2019-03-01,3
+pubmed,tranexamic acid (skin),2019-04-01,5
+pubmed,tranexamic acid (skin),2019-05-01,6
+pubmed,tranexamic acid (skin),2019-06-01,5
+pubmed,tranexamic acid (skin),2019-07-01,4
+pubmed,tranexamic acid (skin),2019-08-01,2
+pubmed,tranexamic acid (skin),2019-09-01,6
+pubmed,tranexamic acid (skin),2019-10-01,6
+pubmed,tranexamic acid (skin),2019-11-01,3
+pubmed,tranexamic acid (skin),2019-12-01,6
+pubmed,tranexamic acid (skin),2020-01-01,12
+pubmed,tranexamic acid (skin),2020-02-01,4
+pubmed,tranexamic acid (skin),2020-03-01,6
+pubmed,tranexamic acid (skin),2020-04-01,4
+pubmed,tranexamic acid (skin),2020-05-01,2
+pubmed,tranexamic acid (skin),2020-06-01,15
+pubmed,tranexamic acid (skin),2020-07-01,6
+pubmed,tranexamic acid (skin),2020-08-01,6
+pubmed,tranexamic acid (skin),2020-09-01,9
+pubmed,tranexamic acid (skin),2020-10-01,9
+pubmed,tranexamic acid (skin),2020-11-01,15
+pubmed,tranexamic acid (skin),2020-12-01,11
+pubmed,tranexamic acid (skin),2021-01-01,11
+pubmed,tranexamic acid (skin),2021-02-01,8
+pubmed,tranexamic acid (skin),2021-03-01,9
+pubmed,tranexamic acid (skin),2021-04-01,8
+pubmed,tranexamic acid (skin),2021-05-01,9
+pubmed,tranexamic acid (skin),2021-06-01,6
+pubmed,tranexamic acid (skin),2021-07-01,7
+pubmed,tranexamic acid (skin),2021-08-01,11
+pubmed,tranexamic acid (skin),2021-09-01,14
+pubmed,tranexamic acid (skin),2021-10-01,5
+pubmed,tranexamic acid (skin),2021-11-01,11
+pubmed,tranexamic acid (skin),2021-12-01,9
+pubmed,tranexamic acid (skin),2022-01-01,20
+pubmed,tranexamic acid (skin),2022-02-01,6
+pubmed,tranexamic acid (skin),2022-03-01,13
+pubmed,tranexamic acid (skin),2022-04-01,14
+pubmed,tranexamic acid (skin),2022-05-01,13
+pubmed,tranexamic acid (skin),2022-06-01,7
+pubmed,tranexamic acid (skin),2022-07-01,10
+pubmed,tranexamic acid (skin),2022-08-01,8
+pubmed,tranexamic acid (skin),2022-09-01,10
+pubmed,tranexamic acid (skin),2022-10-01,5
+pubmed,tranexamic acid (skin),2022-11-01,6
+pubmed,tranexamic acid (skin),2022-12-01,10
+pubmed,tranexamic acid (skin),2023-01-01,12
+pubmed,tranexamic acid (skin),2023-02-01,5
+pubmed,tranexamic acid (skin),2023-03-01,8
+pubmed,tranexamic acid (skin),2023-04-01,14
+pubmed,tranexamic acid (skin),2023-05-01,7
+pubmed,tranexamic acid (skin),2023-06-01,14
+pubmed,tranexamic acid (skin),2023-07-01,4
+pubmed,tranexamic acid (skin),2023-08-01,13
+pubmed,tranexamic acid (skin),2023-09-01,5
+pubmed,tranexamic acid (skin),2023-10-01,9
+pubmed,tranexamic acid (skin),2023-11-01,8
+pubmed,tranexamic acid (skin),2023-12-01,12
+pubmed,tranexamic acid (skin),2024-01-01,18
+pubmed,tranexamic acid (skin),2024-02-01,10
+pubmed,tranexamic acid (skin),2024-03-01,9
+pubmed,tranexamic acid (skin),2024-04-01,11
+pubmed,tranexamic acid (skin),2024-05-01,14
+pubmed,tranexamic acid (skin),2024-06-01,18
+pubmed,tranexamic acid (skin),2024-07-01,8
+pubmed,tranexamic acid (skin),2024-08-01,10
+pubmed,tranexamic acid (skin),2024-09-01,15
+pubmed,tranexamic acid (skin),2024-10-01,10
+pubmed,tranexamic acid (skin),2024-11-01,14
+pubmed,tranexamic acid (skin),2024-12-01,12
+pubmed,tranexamic acid (skin),2025-01-01,19
+pubmed,tranexamic acid (skin),2025-02-01,9
+pubmed,tranexamic acid (skin),2025-03-01,10
+pubmed,tranexamic acid (skin),2025-04-01,11
+pubmed,tranexamic acid (skin),2025-05-01,13
+pubmed,tranexamic acid (skin),2025-06-01,13
+pubmed,tranexamic acid (skin),2025-07-01,15
+pubmed,tranexamic acid (skin),2025-08-01,12
+pubmed,tranexamic acid (skin),2025-09-01,16
+pubmed,tranexamic acid (skin),2025-10-01,11
+pubmed,tranexamic acid (skin),2025-11-01,13
+pubmed,tranexamic acid (skin),2025-12-01,17
+pubmed,tranexamic acid (skin),2026-01-01,19
+pubmed,tranexamic acid (skin),2026-02-01,13
+pubmed,tranexamic acid (skin),2026-03-01,14
+pubmed,tranexamic acid (skin),2026-04-01,13
+pubmed,tranexamic acid (skin),2026-05-01,19
+pubmed,tranexamic acid (skin),2026-06-01,12
+pubmed,tranexamic acid (skin),2026-07-01,14
+pubmed,tranexamic acid (skin),2026-08-01,0
